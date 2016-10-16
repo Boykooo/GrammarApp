@@ -1,0 +1,8 @@
+c:\users\andrey\documents\visual studio 2015\Projects\GrammarApp\GrammarApp\bin\Debug\GrammarApp.exe.config
+C:\GrammarApp\GrammarApp\bin\Debug\GrammarApp.exe.config
+C:\GrammarApp\GrammarApp\bin\Debug\GrammarApp.exe
+C:\GrammarApp\GrammarApp\bin\Debug\GrammarApp.pdb
+C:\GrammarApp\GrammarApp\bin\Debug\Antlr3.Runtime.dll
+C:\GrammarApp\GrammarApp\obj\Debug\GrammarApp.exe
+C:\GrammarApp\GrammarApp\obj\Debug\GrammarApp.pdb
+C:\GrammarApp\GrammarApp\obj\Debug\GrammarApp.csprojResolveAssemblyReference.cache
