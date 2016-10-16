@@ -16,6 +16,14 @@ void main()
 		1+1;
 		12 * 2 / 2;
 	}
+	else
+	{
+		if (2 > 3)
+		{
+			float temp;
+		}
+		int k = 1;
+	}
 
 	int arr[100];
 
@@ -35,4 +43,10 @@ private int Func()
 	{
 		temp += 0.1;
 	}
+}
+
+private void Temp()
+{
+	print(2);
+	print(Func());
 }

@@ -10,11 +10,14 @@ options
 tokens
 {
 	PROGRAM							;
+	PRINT			= 'print'		;
+
 	PLUS			= '+'			;
 	MINUS			= '-'			;
 	MULTIPLY		= '*'			;
 	DIVIDE			= '/'			;
 	IF				= 'if'			;
+	ELSE			= 'else'		;
 	BLOCK			= 'BLOCK'		;
 	CONDITION		= 'CONDITION'	;
 
@@ -31,20 +34,18 @@ tokens
 	DOUBLE			= 'double'		;
 	CHAR			= 'char'		;
 	VOID			= 'void'		;
-	VAR				= 'VAR'			;
-	ARRAY			= 'ARRAY'		;
-	COUNT			= 'COUNT'		;
+	VAR								;
+	ONEARRAY						;
+	COUNT							;
 
 	PRIVATE			= 'private'		;
 	PUBLIC			= 'public'		;
-	TYPE			= 'TYPE'		;
-	MOD				= 'MOD'			;
+	TYPE							;
+	MOD								;
 	CALLMETHOD		= 'CallMethod'	;
 
 	FOR				= 'for'			;
-	FOR_			= 'FOR'			;
 	WHILE			= 'while'		;
-	WHILE_			= 'WHILE'		;
 	INCREMENT_		= 'INCREMENT'	;
 }
 
@@ -77,7 +78,7 @@ var		:	type ID (ASSIGN add)? ->  ^(type ^(ID ^(ASSIGN add)?))
 		;
 
 oneArray	:	type ID '[' number ']'
-				-> ^(ARRAY ^(ID ^(COUNT number)))
+				-> ^(ONEARRAY ^(ID ^(COUNT number)))
 			;
 
 type	:	INT
@@ -115,13 +116,18 @@ mult	:	group ((MULTIPLY | DIVIDE)^ group)* ;
 
 add		:	mult ((PLUS | MINUS)^ mult)* ;
 
+print	:	PRINT '(' printExpr ')'
+			-> ^(PRINT printExpr)
+		;
+
 block	:	'{' line* '}' -> ^(BLOCK line*)
 		;
 
 
 
 
-if_		:	IF	'(' logicOperator ')' block -> ^(IF ^(CONDITION logicOperator) block)
+if_		:	IF	'(' logicOperator ')' block (ELSE block)?
+			-> ^(IF ^(CONDITION logicOperator) block ^(ELSE block)? )
 		;
 		
 logicOperator	:	orOperation+
@@ -165,7 +171,7 @@ for_	:	FOR
 			changeIDVALUE
 			')'!
 			block
-			-> ^(FOR_ ^(VAR type? ^(ID ^(ASSIGN add))) 
+			-> ^(FOR ^(VAR type? ^(ID ^(ASSIGN add))) 
 			   ^(CONDITION logicOperator)
 			   changeIDVALUE
 			    block
@@ -176,9 +182,15 @@ while_	:	WHILE
 			logicOperator
 			')'!
 			block
-			-> ^(WHILE_ ^(CONDITION logicOperator) block)		
+			-> ^(WHILE ^(CONDITION logicOperator) block)		
 		;
 
+
+
+printExpr	:	add
+			|	ID
+			|	callMethod
+			;		
 
 expr	: add
 		| if_
@@ -187,6 +199,7 @@ expr	: add
 		| cycle
 		| changeIDVALUE
 		| callMethod
+		| print
 		;
 
 line	:	expr (';'!)* 
@@ -196,17 +209,17 @@ exprList:	line
 		|	method  (';'!)* 
 		;
 /* ==============================================	OUTPUT	 ===============================================================*/
-
 fullProgramm:
 			exprList*
 			;
+
 program:
   fullProgramm -> ^(PROGRAM fullProgramm)
 ;
+
 execute:
   program
 ;
-
 /* ==============================================	 OTHER	 =============================================================== */
 
 WS:
