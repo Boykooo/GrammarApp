@@ -1,7 +1,8 @@
 ﻿
 void main()
 {
-	int k = 1;
+	int k = 2 + 3;
+	int qwe;
 }
 
 void Temp()
@@ -9,6 +10,8 @@ void Temp()
 	print(2);
 }
 
-int main()
+
+int Temp()
 {
+
 }

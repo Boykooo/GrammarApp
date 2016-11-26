@@ -6,13 +6,22 @@ using System.Threading.Tasks;
 
 namespace GrammarApp.TreeSemantic.TreeContext
 {
+    public enum VarType
+    {
+        Int,
+        Double,
+        Float,
+        Char,
+        Void,
+        Undefined
+    }
+
     public class Var
     {
-        public Var(string name, int number, VarLocation location)
+        public Var(string name, int number)
         {
             Name = name;
             Number = number;
-            Location = location;
         }
 
         public string Name
@@ -20,10 +29,6 @@ namespace GrammarApp.TreeSemantic.TreeContext
             get;
         }
         public int Number
-        {
-            get;
-        }
-        public VarLocation Location
         {
             get;
         }

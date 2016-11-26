@@ -11,33 +11,39 @@ namespace GrammarApp.TreeSemantic.TreeContext
         public Context()
         {
             globalCount = 0;
-            varList = new VarList();
+            vars = new VarList();
             methodList = new MethodList();
         }
 
-        private VarList varList;
+        private VarList vars;
         private MethodList methodList;
         private int globalCount;
 
-        public void AddVar(string name, VarLocation location)
+        public void AddGlobalVar(string name)
         {
-            varList.AddVar(name, ++globalCount, location);
+            vars.AddVar(name, globalCount++);
         }
-
+        
         public void AddMethod(string name)
         {
             methodList.AddMethod(name);
         }
-
         public void AddLocalVar(string methodName, string varName)
         {
-            
+            methodList.AddLocalVar(methodName, varName);
         }
 
         public bool IsContainsMethod(string name)
         {
-            var q = methodList.IsContains(name);
             return methodList.IsContains(name);
+        }
+        public bool IsContainsGlobalVar(string name)
+        {
+            return vars.IsContains(name);
+        }
+        public bool IsContainsLocalVar(string varName, string methodName)
+        {
+            return methodList.IsContainsLocalVar(varName, methodName);
         }
     }
 }

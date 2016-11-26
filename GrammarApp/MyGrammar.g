@@ -11,6 +11,11 @@ tokens
 {
 	VarInit							;
 	Method							;
+	Add								;
+	MULT							;
+	Assign							;
+	Plus							;
+	Minus							;
 
 	PROGRAM							;
 	PRINT			= 'print'		;
@@ -100,30 +105,47 @@ number	: INTEGER
 ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
     ;
 
-varInit	:	type ID (ASSIGN add)?
-				-> ^(VarInit<VarInit> type ID ^(ASSIGN add)?)
+
+varInit	:	type varInitValue
+				-> ^(VarInit<VarInitNode> type varInitValue)
 		;
+
+
+varInitValue	:  ID (ASSIGN add)?
+						-> ^(Assign<AssignNode> ID (add)?)
+				;
+
+
+optionsChangeValue	: incDec 
+					| (typeAssign^ add+)
+					;
 
 oneArray	:	type ID '[' number ']'
 				-> ^(ONEARRAY ^(ID ^(COUNT number)))
 			;
 
+addOperation	:	PLUS -> Plus<PlusNode>
+				|	MINUS -> Minus<MinusNode>
+				;
+
+multOperation	:	MULTIPLY -> MULT<MultNode>
+				|	DIVIDE -> DIVIDE<DivideNode>			
+				;
+
 group	:	'('! add ')'! 
 		|	number
 		;
     
-mult	:	group ((MULTIPLY | DIVIDE)^ group)* ;
+mult	:	group ( multOperation^ group)* ;
 
-add		:	mult ((PLUS | MINUS)^ mult)* ;
+add		:	mult ( addOperation^ mult)* ;
 
 print	:	PRINT '(' printExpr ')'
 			-> ^(PRINT printExpr)
 		;
 
-block	:	'{' line* '}' -> ^(BLOCK<CodeBlock> line*)
+block	:	'{' line* '}' -> ^(BLOCK<CodeBlockNode> line*)
 		;
-
-
 
 
 if_		:	IF	'(' logicOperator ')' block (ELSE block)?
@@ -145,15 +167,13 @@ equalityOperation	:	defaultOperation ( ('==' | '!=')^ defaultOperation)*
 defaultOperation	:	 add ( ('>' | '<' |'>=' | '<=')^ add)*
 					;
 
-optionsChangeValue	: incDec | (typeAssign^ add+)
-					;
 
 
-changeIDVALUE	: ID^ optionsChangeValue
-				;
 
 
-methodDef	: type ID '()' block -> ^(Method<MethodDef> ^(ID ^(TYPE type) block))
+
+
+methodDef	: type ID '()' block -> ^(Method<MethodDefNode> ^(ID type? block))
 		;
 
 callMethod	:	ID '()' 
@@ -168,12 +188,12 @@ for_	:	FOR
             '('	
 		    type? ID ASSIGN add ';'
 		    logicOperator ';' 
-			changeIDVALUE
+			varInitValue
 			')'
 			block
 			-> ^(FOR<ForNode> ^(VAR type? ^(ID ^(ASSIGN add))) 
 			   ^(CONDITION logicOperator)
-			   changeIDVALUE
+			   varInitValue
 			    block
 			   )
 		;
@@ -196,7 +216,7 @@ expr	: add
 		| varInit
 		| oneArray
 		| cycle
-		| changeIDVALUE
+		| varInitValue
 		| callMethod
 		| print
 		;

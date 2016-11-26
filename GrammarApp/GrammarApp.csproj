@@ -58,7 +58,6 @@
     <Compile Include="TreeSemantic\TreeContext\MethodList.cs" />
     <Compile Include="TreeSemantic\TreeContext\Var.cs" />
     <Compile Include="TreeSemantic\TreeContext\VarList.cs" />
-    <Compile Include="TreeSemantic\TreeContext\VarLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

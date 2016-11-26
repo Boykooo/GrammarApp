@@ -29,39 +29,118 @@ namespace GrammarApp.TreeSemantic
         {
 
         }
-        private void Parsing(VarInit node)
+        private void Parsing(VarInitNode node)
         {
-
-        }
-        private void Parsing(VarInit node, string methodName)
-        {
-            Console.WriteLine("qwe");
-        }
-        private void Parsing(MethodDef node)
-        {
-            if (!context.IsContainsMethod(node.MethodName))
+            if (!context.IsContainsGlobalVar(node.VarName))
             {
-                context.AddMethod(node.MethodName);
+                context.AddGlobalVar(node.VarName);
             }
             else
             {
-                Console.WriteLine("Метод с данным именем уже существует. Строка {0}", node.Line);
+                Console.WriteLine("Переменная с таким именем уже существует. Строка {0}", node.Line);
+            }
+        }
+        private void Parsing(VarInitNode node, string methodName)
+        {
+            if (!context.IsContainsGlobalVar(node.VarName))
+            {
+                if (!context.IsContainsLocalVar(node.VarName, methodName))
+                {
+                    context.AddLocalVar(methodName, node.VarName);
+                    dynamic temp = node.GetChild(1);
+                    Parsing(temp, GetVarType(node.VarType));
+
+                }
+                else
+                {
+                    Console.WriteLine("Уже существует локальная переменная с таким же именем. Строка {0}", node.Line);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Уже существует глобальная переменная с таким же именем. Строка {0}", node.Line);
             }
 
+        }
+        private void Parsing(MethodDefNode node)
+        {
+            if (!context.IsContainsMethod(node.MethodName))
+            {
+                if (node.MethodType != null && GetMethodType(node.MethodType) != VarType.Undefined)
+                {
+                    context.AddMethod(node.MethodName);
+                }
+                else
+                {
+                    Console.WriteLine("Некорректный тип возвращаемого значения. Строка {0}", node.Line);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Метод с именем {0} уже существует. Строка {1}", node.MethodName, node.Line);
+            }
             Parsing(node.Block, node.MethodName);
         }
-        
-        private void Parsing(CodeBlock node, string methodName)
+        private void Parsing(AssignNode node, VarType type)
+        {
+
+        }
+
+        private void Parsing(PlusNode node)
+        {
+            
+        }
+        private void Parsing(MinusNode node)
+        {
+
+        }
+        private void Parsing(MultNode node)
+        {
+
+        }
+        private void Parsing(DivideNode node)
+        {
+
+        }
+        private void Parsing(CodeBlockNode node, string methodName)
         {
             for (int i = 0; i < node.ChildCount; i++)
             {
                 dynamic tmp = node.GetChild(i);
-                if (tmp is VarInit)
+                if (tmp is VarInitNode)
                 {
                     Parsing(tmp, methodName);
                 }
-                Parsing(tmp);
+                else
+                {
+                    Parsing(tmp);
+                }
             }
+        }
+
+
+
+
+
+        private VarType GetVarType(string type)
+        {
+            switch (type)
+            {
+                case "int":
+                    return VarType.Int;
+                case "double":
+                    return VarType.Double;
+                case "char":
+                    return VarType.Char;
+                case "float":
+                    return VarType.Float;
+                default:
+                    return VarType.Undefined;
+            }
+        }
+        private VarType GetMethodType(string type)
+        {
+            return type == "void" ? VarType.Void : GetVarType(type);
         }
     }
 }
