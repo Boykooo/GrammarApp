@@ -9,6 +9,9 @@ options
 
 tokens
 {
+	VarInit							;
+	Method							;
+
 	PROGRAM							;
 	PRINT			= 'print'		;
 
@@ -55,32 +58,6 @@ tokens
 
 /* ==============================================	 MAIN	 =============================================================== */
 
-INTEGER	: ('0'..'9')+
-		;
-REAL	: INTEGER '.' INTEGER
-		;
-number
-	: INTEGER
-	| REAL
-	| ID
-	;
-
-elementarySign	:	PLUS
-				|	MINUS
-				|	MULTIPLY
-				|	DIVIDE
-				;
-
-ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
-    ;
-
-var		:	type ID (ASSIGN add)? ->  ^(type ^(ID ^(ASSIGN add)?))
-		;
-
-oneArray	:	type ID '[' number ']'
-				-> ^(ONEARRAY ^(ID ^(COUNT number)))
-			;
-
 type	:	INT
 		|	FLOAT
 		|	DOUBLE
@@ -88,9 +65,6 @@ type	:	INT
 		|	VOID
 		;	
 
-accessMod	:	PRIVATE
-			|	PUBLIC
-			;
 
 typeAssign	:	ASSIGN
 			|	PLUSASSIGN	
@@ -103,10 +77,36 @@ incDec	:	INCREMENT
 		|	DECREMENT
 		;
 
+elementarySign	:	PLUS
+				|	MINUS
+				|	MULTIPLY
+				|	DIVIDE
+				;
+
 
 /* ==============================================	 RULES	 =============================================================== */
 
 
+INTEGER	: ('0'..'9')+
+		;
+
+REAL	: INTEGER '.' INTEGER
+		;
+
+number	: INTEGER 
+		| REAL
+		;
+
+ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
+    ;
+
+varInit	:	type ID (ASSIGN add)?
+				-> ^(VarInit<VarInit> type ID ^(ASSIGN add)?)
+		;
+
+oneArray	:	type ID '[' number ']'
+				-> ^(ONEARRAY ^(ID ^(COUNT number)))
+			;
 
 group	:	'('! add ')'! 
 		|	number
@@ -120,7 +120,7 @@ print	:	PRINT '(' printExpr ')'
 			-> ^(PRINT printExpr)
 		;
 
-block	:	'{' line* '}' -> ^(BLOCK line*)
+block	:	'{' line* '}' -> ^(BLOCK<CodeBlock> line*)
 		;
 
 
@@ -153,7 +153,7 @@ changeIDVALUE	: ID^ optionsChangeValue
 				;
 
 
-method	: accessMod? type ID '()'! block -> ^(ID ^(MOD accessMod?) ^(TYPE type) block)
+methodDef	: type ID '()' block -> ^(Method<MethodDef> ^(ID ^(TYPE type) block))
 		;
 
 callMethod	:	ID '()' 
@@ -165,26 +165,25 @@ cycle	:	for_
 		;
 
 for_	:	FOR 
-            '('!	
-		    type? ID ASSIGN add ';'! 
-		    logicOperator ';'! 
+            '('	
+		    type? ID ASSIGN add ';'
+		    logicOperator ';' 
 			changeIDVALUE
-			')'!
+			')'
 			block
-			-> ^(FOR ^(VAR type? ^(ID ^(ASSIGN add))) 
+			-> ^(FOR<ForNode> ^(VAR type? ^(ID ^(ASSIGN add))) 
 			   ^(CONDITION logicOperator)
 			   changeIDVALUE
 			    block
 			   )
 		;
 while_	:	WHILE
-			'('!
+			'('
 			logicOperator
-			')'!
+			')'
 			block
 			-> ^(WHILE ^(CONDITION logicOperator) block)		
 		;
-
 
 
 printExpr	:	add
@@ -194,7 +193,7 @@ printExpr	:	add
 
 expr	: add
 		| if_
-		| var
+		| varInit
 		| oneArray
 		| cycle
 		| changeIDVALUE
@@ -205,10 +204,12 @@ expr	: add
 line	:	expr (';'!)* 
 		;
 
-exprList:	line 
-		|	method  (';'!)* 
+exprList:	methodDef  (';'!)* 
 		;
+
+
 /* ==============================================	OUTPUT	 ===============================================================*/
+
 fullProgramm:
 			exprList*
 			;
@@ -220,6 +221,7 @@ program:
 execute:
   program
 ;
+
 /* ==============================================	 OTHER	 =============================================================== */
 
 WS:

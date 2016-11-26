@@ -1,5 +1,6 @@
 ﻿using Antlr.Runtime;
 using Antlr.Runtime.Tree;
+using GrammarApp.TreeSemantic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace GrammarApp
             AstNodePrinter.Print(program);
             Console.WriteLine();
 
+            Semantic semantic = new Semantic(program);
             Console.Read();
         }
     }

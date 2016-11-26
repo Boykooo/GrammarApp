@@ -49,8 +49,16 @@
     <Compile Include="AstNodePrinter.cs" />
     <Compile Include="MyGrammarLexer.cs" />
     <Compile Include="MyGrammarParser.cs" />
+    <Compile Include="Nodes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeSemantic\Semantic.cs" />
+    <Compile Include="TreeSemantic\TreeContext\Context.cs" />
+    <Compile Include="TreeSemantic\TreeContext\Method.cs" />
+    <Compile Include="TreeSemantic\TreeContext\MethodList.cs" />
+    <Compile Include="TreeSemantic\TreeContext\Var.cs" />
+    <Compile Include="TreeSemantic\TreeContext\VarList.cs" />
+    <Compile Include="TreeSemantic\TreeContext\VarLocation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

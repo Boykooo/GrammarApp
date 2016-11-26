@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 MyGrammar.g 2016-10-17 02:47:05
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 MyGrammar.g 2016-11-26 21:22:07
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -16,59 +16,61 @@ using Stack 		= Antlr.Runtime.Collections.StackList;
 namespace  GrammarApp 
 {
 public partial class MyGrammarLexer : Lexer {
-    public const int PRINT = 5;
+    public const int PRINT = 7;
     public const int T__50 = 50;
-    public const int VAR = 26;
-    public const int DECREMENT = 20;
-    public const int MINUS = 7;
+    public const int VAR = 28;
+    public const int DECREMENT = 22;
+    public const int MINUS = 9;
     public const int T__55 = 55;
     public const int T__56 = 56;
-    public const int ELSE = 11;
-    public const int CALLMETHOD = 33;
-    public const int ID = 39;
+    public const int ELSE = 13;
+    public const int T__57 = 57;
+    public const int T__58 = 58;
+    public const int CALLMETHOD = 35;
+    public const int ID = 41;
     public const int T__51 = 51;
     public const int T__52 = 52;
-    public const int IF = 10;
-    public const int TYPE = 31;
+    public const int IF = 12;
+    public const int TYPE = 33;
     public const int T__53 = 53;
-    public const int MINUSASSIGN = 16;
+    public const int MINUSASSIGN = 18;
     public const int T__54 = 54;
-    public const int INTEGER = 37;
-    public const int BLOCK = 12;
-    public const int ONEARRAY = 27;
-    public const int FOR = 34;
-    public const int REAL = 38;
-    public const int PUBLIC = 30;
-    public const int MULTIPLY = 8;
-    public const int CONDITION = 13;
-    public const int COUNT = 28;
-    public const int VOID = 25;
-    public const int PROGRAM = 4;
-    public const int PLUS = 6;
-    public const int DIVIDEASSIGN = 18;
-    public const int FLOAT = 22;
-    public const int MULTASSIGN = 17;
-    public const int CHAR = 24;
-    public const int ASSIGN = 14;
-    public const int INT = 21;
-    public const int DIVIDE = 9;
-    public const int PLUSASSIGN = 15;
-    public const int DOUBLE = 23;
-    public const int WS = 40;
+    public const int INTEGER = 39;
+    public const int BLOCK = 14;
+    public const int ONEARRAY = 29;
+    public const int FOR = 36;
+    public const int Method = 5;
+    public const int REAL = 40;
+    public const int PUBLIC = 32;
+    public const int MULTIPLY = 10;
+    public const int CONDITION = 15;
+    public const int COUNT = 30;
+    public const int VOID = 27;
+    public const int PROGRAM = 6;
+    public const int PLUS = 8;
+    public const int DIVIDEASSIGN = 20;
+    public const int FLOAT = 24;
+    public const int MULTASSIGN = 19;
+    public const int CHAR = 26;
+    public const int ASSIGN = 16;
+    public const int INT = 23;
+    public const int DIVIDE = 11;
+    public const int PLUSASSIGN = 17;
+    public const int DOUBLE = 25;
+    public const int WS = 42;
     public const int EOF = -1;
-    public const int MOD = 32;
-    public const int INCREMENT_ = 36;
-    public const int PRIVATE = 29;
-    public const int INCREMENT = 19;
+    public const int MOD = 34;
+    public const int INCREMENT_ = 38;
+    public const int PRIVATE = 31;
+    public const int VarInit = 4;
+    public const int INCREMENT = 21;
     public const int T__48 = 48;
     public const int T__49 = 49;
     public const int T__44 = 44;
     public const int T__45 = 45;
     public const int T__46 = 46;
-    public const int WHILE = 35;
+    public const int WHILE = 37;
     public const int T__47 = 47;
-    public const int T__41 = 41;
-    public const int T__42 = 42;
     public const int T__43 = 43;
 
     // delegates
@@ -735,52 +737,6 @@ public partial class MyGrammarLexer : Lexer {
     }
     // $ANTLR end "INCREMENT_"
 
-    // $ANTLR start "T__41"
-    public void mT__41() // throws RecognitionException [2]
-    {
-    		try
-    		{
-            int _type = T__41;
-    	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:36:7: ( '[' )
-            // MyGrammar.g:36:9: '['
-            {
-            	Match('['); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally 
-    	{
-        }
-    }
-    // $ANTLR end "T__41"
-
-    // $ANTLR start "T__42"
-    public void mT__42() // throws RecognitionException [2]
-    {
-    		try
-    		{
-            int _type = T__42;
-    	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:37:7: ( ']' )
-            // MyGrammar.g:37:9: ']'
-            {
-            	Match(']'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally 
-    	{
-        }
-    }
-    // $ANTLR end "T__42"
-
     // $ANTLR start "T__43"
     public void mT__43() // throws RecognitionException [2]
     {
@@ -788,10 +744,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__43;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:38:7: ( '(' )
-            // MyGrammar.g:38:9: '('
+            // MyGrammar.g:36:7: ( '[' )
+            // MyGrammar.g:36:9: '['
             {
-            	Match('('); 
+            	Match('['); 
 
             }
 
@@ -811,10 +767,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__44;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:39:7: ( ')' )
-            // MyGrammar.g:39:9: ')'
+            // MyGrammar.g:37:7: ( ']' )
+            // MyGrammar.g:37:9: ']'
             {
-            	Match(')'); 
+            	Match(']'); 
 
             }
 
@@ -834,10 +790,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__45;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:40:7: ( '{' )
-            // MyGrammar.g:40:9: '{'
+            // MyGrammar.g:38:7: ( '(' )
+            // MyGrammar.g:38:9: '('
             {
-            	Match('{'); 
+            	Match('('); 
 
             }
 
@@ -857,10 +813,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__46;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:41:7: ( '}' )
-            // MyGrammar.g:41:9: '}'
+            // MyGrammar.g:39:7: ( ')' )
+            // MyGrammar.g:39:9: ')'
             {
-            	Match('}'); 
+            	Match(')'); 
 
             }
 
@@ -880,11 +836,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__47;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:42:7: ( '||' )
-            // MyGrammar.g:42:9: '||'
+            // MyGrammar.g:40:7: ( '{' )
+            // MyGrammar.g:40:9: '{'
             {
-            	Match("||"); 
-
+            	Match('{'); 
 
             }
 
@@ -904,11 +859,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__48;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:43:7: ( '&&' )
-            // MyGrammar.g:43:9: '&&'
+            // MyGrammar.g:41:7: ( '}' )
+            // MyGrammar.g:41:9: '}'
             {
-            	Match("&&"); 
-
+            	Match('}'); 
 
             }
 
@@ -928,10 +882,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__49;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:44:7: ( '==' )
-            // MyGrammar.g:44:9: '=='
+            // MyGrammar.g:42:7: ( '||' )
+            // MyGrammar.g:42:9: '||'
             {
-            	Match("=="); 
+            	Match("||"); 
 
 
             }
@@ -952,10 +906,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__50;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:45:7: ( '!=' )
-            // MyGrammar.g:45:9: '!='
+            // MyGrammar.g:43:7: ( '&&' )
+            // MyGrammar.g:43:9: '&&'
             {
-            	Match("!="); 
+            	Match("&&"); 
 
 
             }
@@ -976,10 +930,11 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__51;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:46:7: ( '>' )
-            // MyGrammar.g:46:9: '>'
+            // MyGrammar.g:44:7: ( '==' )
+            // MyGrammar.g:44:9: '=='
             {
-            	Match('>'); 
+            	Match("=="); 
+
 
             }
 
@@ -999,10 +954,11 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__52;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:47:7: ( '<' )
-            // MyGrammar.g:47:9: '<'
+            // MyGrammar.g:45:7: ( '!=' )
+            // MyGrammar.g:45:9: '!='
             {
-            	Match('<'); 
+            	Match("!="); 
+
 
             }
 
@@ -1022,11 +978,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__53;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:48:7: ( '>=' )
-            // MyGrammar.g:48:9: '>='
+            // MyGrammar.g:46:7: ( '>' )
+            // MyGrammar.g:46:9: '>'
             {
-            	Match(">="); 
-
+            	Match('>'); 
 
             }
 
@@ -1046,11 +1001,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__54;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:49:7: ( '<=' )
-            // MyGrammar.g:49:9: '<='
+            // MyGrammar.g:47:7: ( '<' )
+            // MyGrammar.g:47:9: '<'
             {
-            	Match("<="); 
-
+            	Match('<'); 
 
             }
 
@@ -1070,10 +1024,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__55;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:50:7: ( '()' )
-            // MyGrammar.g:50:9: '()'
+            // MyGrammar.g:48:7: ( '>=' )
+            // MyGrammar.g:48:9: '>='
             {
-            	Match("()"); 
+            	Match(">="); 
 
 
             }
@@ -1094,6 +1048,54 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__56;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // MyGrammar.g:49:7: ( '<=' )
+            // MyGrammar.g:49:9: '<='
+            {
+            	Match("<="); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__56"
+
+    // $ANTLR start "T__57"
+    public void mT__57() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = T__57;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // MyGrammar.g:50:7: ( '()' )
+            // MyGrammar.g:50:9: '()'
+            {
+            	Match("()"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__57"
+
+    // $ANTLR start "T__58"
+    public void mT__58() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = T__58;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
             // MyGrammar.g:51:7: ( ';' )
             // MyGrammar.g:51:9: ';'
             {
@@ -1108,7 +1110,7 @@ public partial class MyGrammarLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "T__56"
+    // $ANTLR end "T__58"
 
     // $ANTLR start "INTEGER"
     public void mINTEGER() // throws RecognitionException [2]
@@ -1117,10 +1119,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = INTEGER;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:58:9: ( ( '0' .. '9' )+ )
-            // MyGrammar.g:58:11: ( '0' .. '9' )+
+            // MyGrammar.g:90:9: ( ( '0' .. '9' )+ )
+            // MyGrammar.g:90:11: ( '0' .. '9' )+
             {
-            	// MyGrammar.g:58:11: ( '0' .. '9' )+
+            	// MyGrammar.g:90:11: ( '0' .. '9' )+
             	int cnt1 = 0;
             	do 
             	{
@@ -1136,7 +1138,7 @@ public partial class MyGrammarLexer : Lexer {
             	    switch (alt1) 
             		{
             			case 1 :
-            			    // MyGrammar.g:58:12: '0' .. '9'
+            			    // MyGrammar.g:90:12: '0' .. '9'
             			    {
             			    	MatchRange('0','9'); 
 
@@ -1174,8 +1176,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = REAL;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:60:6: ( INTEGER '.' INTEGER )
-            // MyGrammar.g:60:8: INTEGER '.' INTEGER
+            // MyGrammar.g:93:6: ( INTEGER '.' INTEGER )
+            // MyGrammar.g:93:8: INTEGER '.' INTEGER
             {
             	mINTEGER(); 
             	Match('.'); 
@@ -1199,8 +1201,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = ID;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:74:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // MyGrammar.g:74:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // MyGrammar.g:100:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // MyGrammar.g:100:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             	if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z') || input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) 
             	{
@@ -1213,7 +1215,7 @@ public partial class MyGrammarLexer : Lexer {
             	    Recover(mse);
             	    throw mse;}
 
-            	// MyGrammar.g:74:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            	// MyGrammar.g:100:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             	do 
             	{
             	    int alt2 = 2;
@@ -1272,10 +1274,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = WS;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:226:3: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
-            // MyGrammar.g:227:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+            // MyGrammar.g:227:3: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
+            // MyGrammar.g:228:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
             {
-            	// MyGrammar.g:227:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+            	// MyGrammar.g:228:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
             	int cnt3 = 0;
             	do 
             	{
@@ -1337,7 +1339,7 @@ public partial class MyGrammarLexer : Lexer {
 
     override public void mTokens() // throws RecognitionException 
     {
-        // MyGrammar.g:1:8: ( PRINT | PLUS | MINUS | MULTIPLY | DIVIDE | IF | ELSE | BLOCK | CONDITION | ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN | INCREMENT | DECREMENT | INT | FLOAT | DOUBLE | CHAR | VOID | PRIVATE | PUBLIC | CALLMETHOD | FOR | WHILE | INCREMENT_ | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | INTEGER | REAL | ID | WS )
+        // MyGrammar.g:1:8: ( PRINT | PLUS | MINUS | MULTIPLY | DIVIDE | IF | ELSE | BLOCK | CONDITION | ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN | INCREMENT | DECREMENT | INT | FLOAT | DOUBLE | CHAR | VOID | PRIVATE | PUBLIC | CALLMETHOD | FOR | WHILE | INCREMENT_ | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | INTEGER | REAL | ID | WS )
         int alt4 = 47;
         alt4 = dfa4.Predict(input);
         switch (alt4) 
@@ -1532,114 +1534,114 @@ public partial class MyGrammarLexer : Lexer {
                 }
                 break;
             case 28 :
-                // MyGrammar.g:1:215: T__41
-                {
-                	mT__41(); 
-
-                }
-                break;
-            case 29 :
-                // MyGrammar.g:1:221: T__42
-                {
-                	mT__42(); 
-
-                }
-                break;
-            case 30 :
-                // MyGrammar.g:1:227: T__43
+                // MyGrammar.g:1:215: T__43
                 {
                 	mT__43(); 
 
                 }
                 break;
-            case 31 :
-                // MyGrammar.g:1:233: T__44
+            case 29 :
+                // MyGrammar.g:1:221: T__44
                 {
                 	mT__44(); 
 
                 }
                 break;
-            case 32 :
-                // MyGrammar.g:1:239: T__45
+            case 30 :
+                // MyGrammar.g:1:227: T__45
                 {
                 	mT__45(); 
 
                 }
                 break;
-            case 33 :
-                // MyGrammar.g:1:245: T__46
+            case 31 :
+                // MyGrammar.g:1:233: T__46
                 {
                 	mT__46(); 
 
                 }
                 break;
-            case 34 :
-                // MyGrammar.g:1:251: T__47
+            case 32 :
+                // MyGrammar.g:1:239: T__47
                 {
                 	mT__47(); 
 
                 }
                 break;
-            case 35 :
-                // MyGrammar.g:1:257: T__48
+            case 33 :
+                // MyGrammar.g:1:245: T__48
                 {
                 	mT__48(); 
 
                 }
                 break;
-            case 36 :
-                // MyGrammar.g:1:263: T__49
+            case 34 :
+                // MyGrammar.g:1:251: T__49
                 {
                 	mT__49(); 
 
                 }
                 break;
-            case 37 :
-                // MyGrammar.g:1:269: T__50
+            case 35 :
+                // MyGrammar.g:1:257: T__50
                 {
                 	mT__50(); 
 
                 }
                 break;
-            case 38 :
-                // MyGrammar.g:1:275: T__51
+            case 36 :
+                // MyGrammar.g:1:263: T__51
                 {
                 	mT__51(); 
 
                 }
                 break;
-            case 39 :
-                // MyGrammar.g:1:281: T__52
+            case 37 :
+                // MyGrammar.g:1:269: T__52
                 {
                 	mT__52(); 
 
                 }
                 break;
-            case 40 :
-                // MyGrammar.g:1:287: T__53
+            case 38 :
+                // MyGrammar.g:1:275: T__53
                 {
                 	mT__53(); 
 
                 }
                 break;
-            case 41 :
-                // MyGrammar.g:1:293: T__54
+            case 39 :
+                // MyGrammar.g:1:281: T__54
                 {
                 	mT__54(); 
 
                 }
                 break;
-            case 42 :
-                // MyGrammar.g:1:299: T__55
+            case 40 :
+                // MyGrammar.g:1:287: T__55
                 {
                 	mT__55(); 
 
                 }
                 break;
-            case 43 :
-                // MyGrammar.g:1:305: T__56
+            case 41 :
+                // MyGrammar.g:1:293: T__56
                 {
                 	mT__56(); 
+
+                }
+                break;
+            case 42 :
+                // MyGrammar.g:1:299: T__57
+                {
+                	mT__57(); 
+
+                }
+                break;
+            case 43 :
+                // MyGrammar.g:1:305: T__58
+                {
+                	mT__58(); 
 
                 }
                 break;
@@ -1928,7 +1930,7 @@ public partial class MyGrammarLexer : Lexer {
 
         override public string Description
         {
-            get { return "1:1: Tokens : ( PRINT | PLUS | MINUS | MULTIPLY | DIVIDE | IF | ELSE | BLOCK | CONDITION | ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN | INCREMENT | DECREMENT | INT | FLOAT | DOUBLE | CHAR | VOID | PRIVATE | PUBLIC | CALLMETHOD | FOR | WHILE | INCREMENT_ | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | INTEGER | REAL | ID | WS );"; }
+            get { return "1:1: Tokens : ( PRINT | PLUS | MINUS | MULTIPLY | DIVIDE | IF | ELSE | BLOCK | CONDITION | ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN | INCREMENT | DECREMENT | INT | FLOAT | DOUBLE | CHAR | VOID | PRIVATE | PUBLIC | CALLMETHOD | FOR | WHILE | INCREMENT_ | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | INTEGER | REAL | ID | WS );"; }
         }
 
     }
