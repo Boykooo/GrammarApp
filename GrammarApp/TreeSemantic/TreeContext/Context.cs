@@ -19,18 +19,18 @@ namespace GrammarApp.TreeSemantic.TreeContext
         private MethodList methodList;
         private int globalCount;
 
-        public void AddGlobalVar(string name)
+        public void AddGlobalVar(string name, VarType type)
         {
-            vars.AddVar(name, globalCount++);
+            vars.AddVar(name, globalCount++, type);
         }
         
         public void AddMethod(string name, VarType type)
         {
             methodList.AddMethod(name, type);
         }
-        public void AddLocalVar(string methodName, string varName)
+        public void AddLocalVar(string methodName, string varName, VarType type)
         {
-            methodList.AddLocalVar(methodName, varName);
+            methodList.AddLocalVar(methodName, varName, type);
         }
 
         public bool IsContainsMethod(string name)
@@ -49,6 +49,15 @@ namespace GrammarApp.TreeSemantic.TreeContext
         public VarType GetTypeMethod(string name)
         {
             return methodList.GetTypeMethod(name);
+        }
+        public VarType GetTypeGlobalVar(string varName)
+        {
+            return vars.GetTypeVar(varName);
+        }
+
+        public VarType GetTypeLocalVar(string varName, string methodName)
+        {
+            return methodList.GetTypeLocalVar(varName, methodName);
         }
     }
 }

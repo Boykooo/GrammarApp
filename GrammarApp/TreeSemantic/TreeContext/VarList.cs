@@ -15,11 +15,11 @@ namespace GrammarApp.TreeSemantic.TreeContext
 
         private List<Var> vars;
 
-        public void AddVar(string name, int number)
+        public void AddVar(string name, int number, VarType type)
         {
-            vars.Add(new Var(name, number));
+            vars.Add(new Var(name, number, type));
         }
-
+            
         public Var GetVar(string name)
         {
             return vars.FirstOrDefault((x) => x.Name == name);
@@ -28,6 +28,11 @@ namespace GrammarApp.TreeSemantic.TreeContext
         public bool IsContains(string name)
         {
             return vars.Exists((x) => x.Name == name);
+        }
+
+        public VarType GetTypeVar(string name)
+        {
+            return vars.FirstOrDefault((x) => x.Name == name).Type;
         }
     }
 }

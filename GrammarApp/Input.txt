@@ -4,19 +4,22 @@ int f()
 {
 }
 
+int global;
+
+
 void main()
 {
 	int k = 1 + 2.1;
 
 	double temp = 2.1 + 1;
 
-	int qwe;
+	int qwe = temp;
 
 	int d1 = f();
 
-
-	Temp();
 }
+
+int global;
 
 void Temp()
 {
@@ -24,7 +27,8 @@ void Temp()
 }
 
 
-int Temp()
+void Temp()
 {
-
+	print(2);
 }
+

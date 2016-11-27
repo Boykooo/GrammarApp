@@ -28,14 +28,19 @@ namespace GrammarApp.TreeSemantic.TreeContext
             get;
         }
 
-        public void AddLocalVar(string name)
+        public void AddLocalVar(string name, VarType type)
         {
-            vars.AddVar(name, localVar++);
+            vars.AddVar(name, localVar++, type);
         }
 
         public bool IsContainsLocalVar(string name)
         {
             return vars.IsContains(name);
+        }
+
+        public VarType GetLocalVarType(string name)
+        {
+            return vars.GetTypeVar(name);
         }
     }
 }

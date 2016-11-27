@@ -19,6 +19,7 @@ tokens
 	Integer							;
 	Double							;
 	CallMethod						;
+	Id								;
 
 	PROGRAM							;
 	PRINT			= 'print'		;
@@ -92,6 +93,7 @@ elementarySign	:	PLUS
 				;
 
 
+
 /* ==============================================	 RULES	 =============================================================== */
 
 
@@ -105,29 +107,33 @@ number	: INTEGER -> ^(Integer<IntegerNode> INTEGER)
 		| DOUBLE_ -> ^(Double<DoubleNode> DOUBLE_)
 		;
 
-ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
-    ;
 
+ID		:	 ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* 
+		;
+
+ident		:	ID -> ^(Id<IDNode> ID)
+			;
 
 varInit	:	type varInitValue
 				-> ^(VarInit<VarInitNode> type varInitValue)
 		;
 
 
-varInitValue	:  ID (ASSIGN initValue)?
-						-> ^(Assign<AssignNode> ID (initValue)?)
+varInitValue	:  ident (ASSIGN initValue)?
+						-> ^(Assign<AssignNode> ident (initValue)?)
 				;
 
 initValue		: add
 				| callMethod
+				| ident
 				;
 
 optionsChangeValue	: incDec 
 					| (typeAssign^ add+)
 					;
 
-oneArray	:	type ID '[' number ']'
-				-> ^(ONEARRAY ^(ID ^(COUNT number)))
+oneArray	:	type ident '[' number ']'
+				-> ^(ONEARRAY ^(ident ^(COUNT number)))
 			;
 
 addOperation	:	PLUS -> Plus<PlusNode>
@@ -192,12 +198,12 @@ cycle	:	for_
 
 for_	:	FOR 
             '('	
-		    type? ID ASSIGN add ';'
+		    type? ident ASSIGN add ';'
 		    logicOperator ';' 
 			varInitValue
 			')'
 			block
-			-> ^(FOR<ForNode> ^(VAR type? ^(ID ^(ASSIGN add))) 
+			-> ^(FOR<ForNode> ^(VAR type? ^(ident ^(ASSIGN add))) 
 			   ^(CONDITION logicOperator)
 			   varInitValue
 			    block
@@ -213,7 +219,7 @@ while_	:	WHILE
 
 
 printExpr	:	add
-			|	ID
+			|	ident
 			|	callMethod
 			;		
 
@@ -231,6 +237,8 @@ line	:	expr (';'!)*
 		;
 
 exprList:	methodDef  (';'!)* 
+		|	varInit (';'!)* 
+		|	oneArray (';'!)* 
 		;
 
 

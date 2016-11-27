@@ -18,10 +18,11 @@ namespace GrammarApp.TreeSemantic.TreeContext
 
     public class Var
     {
-        public Var(string name, int number)
+        public Var(string name, int number, VarType type)
         {
             Name = name;
             Number = number;
+            Type = type;
         }
 
         public string Name
@@ -29,6 +30,11 @@ namespace GrammarApp.TreeSemantic.TreeContext
             get;
         }
         public int Number
+        {
+            get;
+        }
+
+        public VarType Type
         {
             get;
         }

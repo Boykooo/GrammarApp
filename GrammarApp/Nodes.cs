@@ -3,6 +3,33 @@ using Antlr.Runtime.Tree;
 
 namespace GrammarApp
 {
+    public class IDNode : CommonTree
+    {
+        public IDNode()
+        {
+
+        }
+        public IDNode(CommonTree common) : base(common)
+        {
+
+        }
+        public IDNode(IToken token) : base(token)
+        {
+
+        }
+        public IDNode(int t)
+            : base(new CommonToken(t, "IDNode"))
+        {
+
+        }
+
+        public string VarName { get { return GetChild(0).Text; } }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+    }
     public class IntegerNode : CommonTree
     {
         public IntegerNode()
@@ -181,7 +208,6 @@ namespace GrammarApp
     }
     public class VarInitNode : CommonTree
     {
-
         public VarInitNode()
         {
 
@@ -201,7 +227,7 @@ namespace GrammarApp
         }
 
         public string VarType { get { return GetChild(0).Text; } }
-        public string VarName { get { return GetChild(1).GetChild(0).Text; } }
+        public string VarName { get { return GetChild(1).GetChild(0).GetChild(0).Text; } }
     }
     public class ExprNode : CommonTree
     {
