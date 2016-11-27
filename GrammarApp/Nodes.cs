@@ -105,6 +105,58 @@ namespace GrammarApp
             return new AssignNode(Type);
         }
 
+        public string VarName { get { return GetChild(0).GetChild(0).Text; } }
+
+    }
+    public class IncNode : CommonTree
+    {
+        public IncNode()
+        {
+
+        }
+        public IncNode(CommonTree common) : base(common)
+        {
+
+        }
+        public IncNode(IToken token) : base(token)
+        {
+
+        }
+        public IncNode(int t)
+            : base(new CommonToken(t, "IncNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new IncNode(Type);
+        }
+    }
+    public class DecNode : CommonTree
+    {
+        public DecNode()
+        {
+
+        }
+        public DecNode(CommonTree common) : base(common)
+        {
+
+        }
+        public DecNode(IToken token) : base(token)
+        {
+
+        }
+        public DecNode(int t)
+            : base(new CommonToken(t, "DecNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new DecNode(Type);
+        }
     }
     public class PlusNode : CommonTree
     {
@@ -325,6 +377,257 @@ namespace GrammarApp
         public string MethodName { get { return GetChild(0).Text; } }
     }
 
+    public class IfNode : CommonTree
+    {
+        public IfNode()
+        {
+
+        }
+        public IfNode(CommonTree common) : base(common)
+        {
+
+        }
+        public IfNode(IToken token) : base(token)
+        {
+
+        }
+        public IfNode(int t)
+            : base(new CommonToken(t, "IfNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new IfNode(Type);
+        }
+    }
+    public class LogicOperation : CommonTree
+    {
+        public LogicOperation()
+        {
+
+        }
+        public LogicOperation(CommonTree common) : base(common)
+        {
+
+        }
+        public LogicOperation(IToken token) : base(token)
+        {
+
+        }
+        public LogicOperation(int t)
+            : base(new CommonToken(t, "LogicOperation"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new LogicOperation(Type);
+        }
+    }
+    public class OrOperationNode : CommonTree
+    {
+        public OrOperationNode()
+        {
+
+        }
+        public OrOperationNode(CommonTree common) : base(common)
+        {
+
+        }
+        public OrOperationNode(IToken token) : base(token)
+        {
+
+        }
+        public OrOperationNode(int t)
+            : base(new CommonToken(t, "OrOperation"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new OrOperationNode(Type);
+        }
+    }
+    public class AndOperationNode : CommonTree
+    {
+        public AndOperationNode()
+        {
+
+        }
+        public AndOperationNode(CommonTree common) : base(common)
+        {
+
+        }
+        public AndOperationNode(IToken token) : base(token)
+        {
+
+        }
+        public AndOperationNode(int t)
+            : base(new CommonToken(t, "AndOperationNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AndOperationNode(Type);
+        }
+    }
+    public class EqualityOperationNode : CommonTree
+    {
+        public EqualityOperationNode()
+        {
+
+        }
+        public EqualityOperationNode(CommonTree common) : base(common)
+        {
+
+        }
+        public EqualityOperationNode(IToken token) : base(token)
+        {
+
+        }
+        public EqualityOperationNode(int t)
+            : base(new CommonToken(t, "EqualityOperationNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new EqualityOperationNode(Type);
+        }
+    }
+    public class NonEqualityOperationNode : CommonTree
+    {
+        public NonEqualityOperationNode()
+        {
+
+        }
+        public NonEqualityOperationNode(CommonTree common) : base(common)
+        {
+
+        }
+        public NonEqualityOperationNode(IToken token) : base(token)
+        {
+
+        }
+        public NonEqualityOperationNode(int t)
+            : base(new CommonToken(t, "NonEqualityOperationNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new NonEqualityOperationNode(Type);
+        }
+    }
+    public class LogicOperationMoreNode : CommonTree
+    {
+        public LogicOperationMoreNode()
+        {
+
+        }
+        public LogicOperationMoreNode(CommonTree common) : base(common)
+        {
+
+        }
+        public LogicOperationMoreNode(IToken token) : base(token)
+        {
+
+        }
+        public LogicOperationMoreNode(int t)
+            : base(new CommonToken(t, "LogicOperationMoreNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new LogicOperationMoreNode(Type);
+        }
+    }
+    public class LogicOperationMoreEqNode : CommonTree
+    {
+        public LogicOperationMoreEqNode()
+        {
+
+        }
+        public LogicOperationMoreEqNode(CommonTree common) : base(common)
+        {
+
+        }
+        public LogicOperationMoreEqNode(IToken token) : base(token)
+        {
+
+        }
+        public LogicOperationMoreEqNode(int t)
+            : base(new CommonToken(t, "LogicOperationMoreEqNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new LogicOperationMoreEqNode(Type);
+        }
+    }
+    public class LogicOperationLessNode : CommonTree
+    {
+        public LogicOperationLessNode()
+        {
+
+        }
+        public LogicOperationLessNode(CommonTree common) : base(common)
+        {
+
+        }
+        public LogicOperationLessNode(IToken token) : base(token)
+        {
+
+        }
+        public LogicOperationLessNode(int t)
+            : base(new CommonToken(t, "LogicOperationLessNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new LogicOperationLessNode(Type);
+        }
+    }
+    public class LogicOperationLessEqNode : CommonTree
+    {
+        public LogicOperationLessEqNode()
+        {
+
+        }
+        public LogicOperationLessEqNode(CommonTree common) : base(common)
+        {
+
+        }
+        public LogicOperationLessEqNode(IToken token) : base(token)
+        {
+
+        }
+        public LogicOperationLessEqNode(int t)
+            : base(new CommonToken(t, "LogicOperationLessEqNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new LogicOperationLessEqNode(Type);
+        }
+    }
+
     public class ForNode : CommonTree
     {
         public ForNode()
@@ -344,5 +647,34 @@ namespace GrammarApp
         {
 
         }
+
+        public VarInitNode VarInitNode { get { return GetChild(0) as VarInitNode; } }
+        public LogicOperation LogicOperation { get { return GetChild(1) as LogicOperation; } }
+        public AssignNode VarInitValue { get { return GetChild(2) as AssignNode; } }
+        public CodeBlockNode Block { get { return GetChild(3) as CodeBlockNode; } }
     }
+    public class WhileNode : CommonTree
+    {
+        public WhileNode()
+        {
+
+        }
+        public WhileNode(CommonTree common) : base(common)
+        {
+
+        }
+        public WhileNode(IToken token) : base(token)
+        {
+
+        }
+        public WhileNode(int t)
+            : base(new CommonToken(t, "While"))
+        {
+
+        }
+
+        public LogicOperation LogicOperation { get { return GetChild(0) as LogicOperation; } }
+        public CodeBlockNode Block { get { return GetChild(1) as CodeBlockNode; } }
+    }
+
 }

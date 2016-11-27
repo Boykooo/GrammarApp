@@ -4,8 +4,12 @@ int f()
 {
 }
 
-int global;
+void w()
+{
+}
 
+
+int global;
 
 void main()
 {
@@ -15,7 +19,7 @@ void main()
 
 	int qwe = temp;
 
-	int d1 = f();
+	int d1 = w();
 
 }
 
@@ -23,12 +27,9 @@ int global;
 
 void Temp()
 {
-	print(2);
-}
-
-
-void Temp()
-{
-	print(2);
+	for(int i = 1; i < 10; i = i + 1)
+	{
+		
+	}
 }
 

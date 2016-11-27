@@ -71,7 +71,7 @@ namespace GrammarApp.TreeSemantic
             {
                 if (node.MethodType != null && GetMethodType(node.MethodType) != VarType.Undefined)
                 {
-                    context.AddMethod(node.MethodName, GetVarType(node.MethodType));
+                    context.AddMethod(node.MethodName, GetMethodType(node.MethodType));
                 }
                 else
                 {
@@ -84,9 +84,20 @@ namespace GrammarApp.TreeSemantic
             }
             Parsing(node.Block, node.MethodName);
         }
+        private void Parsing(ForNode node, string methodName)
+        {
+            Parsing(node.VarInitNode, methodName);
+            Parsing(node.LogicOperation, methodName);
+            Parsing(node.VarInitValue, methodName);
+            Parsing(node.Block, methodName);
+        }
+
+        private void Parsing(LogicOperation node, string methodName)
+        {
+
+        }
         private void Parsing(AssignNode node, VarType left, string methodName)
         {
-            var q = node.GetChild(1);
             if (node.GetChild(1).Type == 0)
             {
                 Console.WriteLine("Некорректная инициализация переменной. Строка {0}", node.Line);
@@ -96,11 +107,16 @@ namespace GrammarApp.TreeSemantic
                 dynamic temp = node.GetChild(1);
                 var right = Parsing(temp, methodName);
 
-                if (left == VarType.Int && right == VarType.Double)
+                if ((left == VarType.Int && right == VarType.Double) || right == VarType.Void)
                 {
                     Console.WriteLine("Несоответствие типов. {0} нельзя привести к {1}. Строка {2}", left, right, node.Line);
                 }
             }
+        }
+        private void Parsing(AssignNode node, string methodName)
+        {
+            VarType left = context.SearchVar(node.VarName, methodName);
+            Parsing(node, left, methodName);
         }
         private VarType Parsing(IDNode node, string methodName)
         {
@@ -122,7 +138,10 @@ namespace GrammarApp.TreeSemantic
 
             return VarType.Undefined;
         }
-
+        private VarType Parsing(IntegerNode node, string methodName)
+        {
+            return VarType.Int;
+        }
         private VarType Parsing(PlusNode node, string methodName)
         {
             return ParseElementaryOperation(node);
@@ -150,7 +169,6 @@ namespace GrammarApp.TreeSemantic
                 Console.WriteLine("{0} не существует в текущем контексте. Строка {1}", node.MethodName, node.Line);
             }
 
-
             return VarType.Undefined;
 
         }
@@ -160,14 +178,7 @@ namespace GrammarApp.TreeSemantic
             for (int i = 0; i < node.ChildCount; i++)
             {
                 dynamic tmp = node.GetChild(i);
-                if (tmp is VarInitNode)
-                {
-                    Parsing(tmp, methodName);
-                }
-                else
-                {
-                    Parsing(tmp);
-                }
+                Parsing(tmp, methodName);
             }
         }
 

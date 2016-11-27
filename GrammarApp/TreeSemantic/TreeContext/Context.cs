@@ -59,5 +59,21 @@ namespace GrammarApp.TreeSemantic.TreeContext
         {
             return methodList.GetTypeLocalVar(varName, methodName);
         }
+        public VarType SearchVar(string varName, string methodName)
+        {
+            if (vars.IsContains(varName))
+            {
+                return vars.GetTypeVar(varName);
+            }
+            else
+            {
+                if (methodList.IsContainsLocalVar(varName, methodName))
+                {
+                    return methodList.GetTypeLocalVar(varName, methodName);
+                }
+            }
+
+            return VarType.Undefined;
+        }
     }
 }

@@ -20,6 +20,20 @@ tokens
 	Double							;
 	CallMethod						;
 	Id								;
+	AndOp							;
+	OrOp							;
+	EqOp							;
+	NonEqOp							;
+	DefOp							;
+	MoreOp							;
+	MoreEqOp						;
+	LessOp							;
+	LessEqOp						;
+	For								;
+	LogicOp							;
+	If								;
+	Inc								;
+	While_							;
 
 	PROGRAM							;
 	PRINT			= 'print'		;
@@ -59,6 +73,15 @@ tokens
 	FOR				= 'for'			;
 	WHILE			= 'while'		;
 	INCREMENT_		= 'INCREMENT'	;
+
+	AND = '&&'						;
+	OR = '||'						;
+	EQ = '=='						;
+	NONEQ = '!='					;
+	MORE = '>'						;
+	LESS = '<'						;
+	MOREEQ = '>='					;
+	LESSEQ = '<='					;
 }
 
 @parser::namespace { GrammarApp }
@@ -82,8 +105,16 @@ typeAssign	:	ASSIGN
 			|	DIVIDEASSIGN
 			;
 
-incDec	:	INCREMENT
-		|	DECREMENT
+
+incDec	:	inc
+		|	dec
+		;
+
+
+inc		:	INCREMENT -> ^(Inc<IncNode> INCREMENT)
+		;
+
+dec		:	DECREMENT -> DECREMENT<DecNode>
 		;
 
 elementarySign	:	PLUS
@@ -92,9 +123,8 @@ elementarySign	:	PLUS
 				|	DIVIDE
 				;
 
-
-
 /* ==============================================	 RULES	 =============================================================== */
+
 
 
 INTEGER	: ('0'..'9')+
@@ -126,11 +156,9 @@ varInitValue	:  ident (ASSIGN initValue)?
 initValue		: add
 				| callMethod
 				| ident
+				| inc
+				| dec
 				;
-
-optionsChangeValue	: incDec 
-					| (typeAssign^ add+)
-					;
 
 oneArray	:	type ident '[' number ']'
 				-> ^(ONEARRAY ^(ident ^(COUNT number)))
@@ -146,6 +174,7 @@ multOperation	:	MULTIPLY -> MULT<MultNode>
 
 group	:	'('! add ')'! 
 		|	number
+		|	ident
 		;
     
 mult	:	group ( multOperation^ group)* ;
@@ -161,24 +190,63 @@ block	:	'{' line* '}' -> ^(BLOCK<CodeBlockNode> line*)
 
 
 if_		:	IF	'(' logicOperator ')' block (ELSE block)?
-			-> ^(IF ^(CONDITION logicOperator) block ^(ELSE block)? )
+			-> ^(If<IfNode> logicOperator block ^(ELSE block)? )
 		;
+
+
+
+
+
 		
-logicOperator	:	orOperation+
-				;
-
-orOperation		:	andOperation ( '||'^ andOperation)*
-				;
-
-andOperation	:	equalityOperation ( '&&'^ equalityOperation)*
-				;
-
-equalityOperation	:	defaultOperation ( ('==' | '!=')^ defaultOperation)*
+logicOperator		:	orOperation+ -> ^(LogicOp<LogicOperation> orOperation+)
 					;
 
-defaultOperation	:	 add ( ('>' | '<' |'>=' | '<=')^ add)*
+orOperation			:	andOperation ( OR<OrOperationNode>^ andOperation)* 
 					;
 
+andOperation		:	eqOp (AND<AndOperationNode>^ eqOp)* 
+					;
+
+eqOp				:	nonEqOp (EQ<EqualityOperationNode>^ nonEqOp)*
+					;
+
+nonEqOp				:	moreOp (NONEQ<NonEqualityOperationNode>^ moreOp)* 
+					;
+
+moreOp				:	 moreEqOp (MORE<LogicOperationMoreNode>^ moreEqOp)* 
+					;
+
+moreEqOp			:	lessOp (MOREEQ<LogicOperationMoreEqNode>^ lessOp)*
+					;
+
+lessOp				:	lessEqOp (LESS<LogicOperationLessNode>^ lessEqOp)*
+					;
+
+lessEqOp			:	add (LESSEQ<LogicOperationLessEqNode>^ add)* 
+					;
+
+
+for_	:	FOR 
+            '('	
+		    varInit ';'
+			logicOperator ';'
+		    varInitValue
+			')'
+			block
+			-> ^(For<ForNode> varInit logicOperator varInitValue block)
+		;
+
+
+
+
+
+while_	:	WHILE
+			'('
+			logicOperator
+			')'
+			block
+			-> ^(While_<WhileNode> logicOperator block)		
+		;
 
 
 
@@ -196,26 +264,6 @@ cycle	:	for_
 		|	while_
 		;
 
-for_	:	FOR 
-            '('	
-		    type? ident ASSIGN add ';'
-		    logicOperator ';' 
-			varInitValue
-			')'
-			block
-			-> ^(FOR<ForNode> ^(VAR type? ^(ident ^(ASSIGN add))) 
-			   ^(CONDITION logicOperator)
-			   varInitValue
-			    block
-			   )
-		;
-while_	:	WHILE
-			'('
-			logicOperator
-			')'
-			block
-			-> ^(WHILE ^(CONDITION logicOperator) block)		
-		;
 
 
 printExpr	:	add
