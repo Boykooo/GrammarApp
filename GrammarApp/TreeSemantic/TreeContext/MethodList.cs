@@ -15,9 +15,9 @@ namespace GrammarApp.TreeSemantic.TreeContext
 
         private List<Method> methods;
 
-        public void AddMethod(string name)
+        public void AddMethod(string name, VarType type)
         {
-            methods.Add(new Method(name));
+            methods.Add(new Method(name, type));
         }
         public void AddLocalVar(string methodName, string varName)
         {
@@ -32,5 +32,9 @@ namespace GrammarApp.TreeSemantic.TreeContext
             return methods.FirstOrDefault((x) => x.Name == methodName).IsContainsLocalVar(varName);
         }
 
+        public VarType GetTypeMethod(string name)
+        {
+            return methods.FirstOrDefault((x) => x.Name == name).Type;
+        }
     }
 }

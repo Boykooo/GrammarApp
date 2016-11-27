@@ -16,6 +16,9 @@ tokens
 	Assign							;
 	Plus							;
 	Minus							;
+	Integer							;
+	Double							;
+	CallMethod						;
 
 	PROGRAM							;
 	PRINT			= 'print'		;
@@ -95,11 +98,11 @@ elementarySign	:	PLUS
 INTEGER	: ('0'..'9')+
 		;
 
-REAL	: INTEGER '.' INTEGER
+DOUBLE_	: INTEGER '.' INTEGER
 		;
 
-number	: INTEGER 
-		| REAL
+number	: INTEGER -> ^(Integer<IntegerNode> INTEGER)
+		| DOUBLE_ -> ^(Double<DoubleNode> DOUBLE_)
 		;
 
 ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
@@ -111,10 +114,13 @@ varInit	:	type varInitValue
 		;
 
 
-varInitValue	:  ID (ASSIGN add)?
-						-> ^(Assign<AssignNode> ID (add)?)
+varInitValue	:  ID (ASSIGN initValue)?
+						-> ^(Assign<AssignNode> ID (initValue)?)
 				;
 
+initValue		: add
+				| callMethod
+				;
 
 optionsChangeValue	: incDec 
 					| (typeAssign^ add+)
@@ -177,7 +183,7 @@ methodDef	: type ID '()' block -> ^(Method<MethodDefNode> ^(ID type? block))
 		;
 
 callMethod	:	ID '()' 
-				-> ^(CALLMETHOD ID)
+				-> ^(CallMethod<CallMethodNode> ID)
 			;
 
 cycle	:	for_

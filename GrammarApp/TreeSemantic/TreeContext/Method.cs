@@ -8,17 +8,22 @@ namespace GrammarApp.TreeSemantic.TreeContext
 {
     public class Method
     {
-        public Method(string name)
+        public Method(string name, VarType type)
         {
             vars = new VarList();
             Name = name;
             localVar = 0;
+            Type = type;
         }
 
         private VarList vars;
         private int localVar;
 
         public string Name
+        {
+            get;
+        }
+        public VarType Type
         {
             get;
         }

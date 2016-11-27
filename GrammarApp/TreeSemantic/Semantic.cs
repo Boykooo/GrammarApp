@@ -48,7 +48,10 @@ namespace GrammarApp.TreeSemantic
                 {
                     context.AddLocalVar(methodName, node.VarName);
                     dynamic temp = node.GetChild(1);
-                    Parsing(temp, GetVarType(node.VarType));
+                    if (node.GetChild(1).ChildCount > 1)
+                    {
+                        Parsing(temp, GetVarType(node.VarType));
+                    }
 
                 }
                 else
@@ -68,7 +71,7 @@ namespace GrammarApp.TreeSemantic
             {
                 if (node.MethodType != null && GetMethodType(node.MethodType) != VarType.Undefined)
                 {
-                    context.AddMethod(node.MethodName);
+                    context.AddMethod(node.MethodName, GetVarType(node.MethodType));
                 }
                 else
                 {
@@ -81,27 +84,57 @@ namespace GrammarApp.TreeSemantic
             }
             Parsing(node.Block, node.MethodName);
         }
-        private void Parsing(AssignNode node, VarType type)
+        private void Parsing(AssignNode node, VarType left)
         {
+            var q = node.GetChild(1);
+            if (node.GetChild(1).Type == 0)
+            {
+                Console.WriteLine("Некорректная инициализация переменной. Строка {0}", node.Line);
+            }
+            else
+            {
+                dynamic temp = node.GetChild(1);
+                var right = Parsing(temp);
+
+                if (left == VarType.Int && right == VarType.Double)
+                {
+                    Console.WriteLine("Несоответствие типов. {0} нельзя привести к {1}. Строка {2}", left, right, node.Line);
+                }
+            }
+        }
+
+        private VarType Parsing(PlusNode node)
+        {
+            return ParseElementaryOperation(node);
+        }
+        private VarType Parsing(MinusNode node)
+        {
+            return ParseElementaryOperation(node);
+        }
+        private VarType Parsing(MultNode node)
+        {
+            return ParseElementaryOperation(node);
+        }
+        private VarType Parsing(DivideNode node)
+        {
+            return ParseElementaryOperation(node);
+        }
+        private VarType Parsing(CallMethodNode node)
+        {
+            if (context.IsContainsMethod(node.MethodName))
+            {
+                return context.GetTypeMethod(node.MethodName);
+            }
+            else
+            {
+                Console.WriteLine("{0} не существует в текущем контексте. Строка {1}", node.MethodName, node.Line);
+            }
+
+
+            return VarType.Undefined;
 
         }
 
-        private void Parsing(PlusNode node)
-        {
-            
-        }
-        private void Parsing(MinusNode node)
-        {
-
-        }
-        private void Parsing(MultNode node)
-        {
-
-        }
-        private void Parsing(DivideNode node)
-        {
-
-        }
         private void Parsing(CodeBlockNode node, string methodName)
         {
             for (int i = 0; i < node.ChildCount; i++)
@@ -119,9 +152,6 @@ namespace GrammarApp.TreeSemantic
         }
 
 
-
-
-
         private VarType GetVarType(string type)
         {
             switch (type)
@@ -129,6 +159,10 @@ namespace GrammarApp.TreeSemantic
                 case "int":
                     return VarType.Int;
                 case "double":
+                    return VarType.Double;
+                case "IntegerNode":
+                    return VarType.Int;
+                case "DoubleNode":
                     return VarType.Double;
                 case "char":
                     return VarType.Char;
@@ -141,6 +175,13 @@ namespace GrammarApp.TreeSemantic
         private VarType GetMethodType(string type)
         {
             return type == "void" ? VarType.Void : GetVarType(type);
+        }
+        private VarType ParseElementaryOperation(ITree node)
+        {
+            var left = GetVarType(node.GetChild(0).Text);
+            var right = GetVarType(node.GetChild(1).Text);
+
+            return (left == VarType.Double || right == VarType.Double) ? VarType.Double : VarType.Int;
         }
     }
 }

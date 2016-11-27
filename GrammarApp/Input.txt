@@ -1,8 +1,21 @@
 ﻿
+
+int f()
+{
+}
+
 void main()
 {
-	int k = 2 + 3;
+	int k = 1 + 2.1;
+
+	double temp = 2.1 + 1;
+
 	int qwe;
+
+	int d1 = f();
+
+
+	Temp();
 }
 
 void Temp()

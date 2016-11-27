@@ -1,13 +1,58 @@
 ﻿using Antlr.Runtime;
 using Antlr.Runtime.Tree;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrammarApp
 {
+    public class IntegerNode : CommonTree
+    {
+        public IntegerNode()
+        {
+
+        }
+        public IntegerNode(CommonTree common) : base(common)
+        {
+
+        }
+        public IntegerNode(IToken token) : base(token)
+        {
+
+        }
+        public IntegerNode(int t)
+            : base(new CommonToken(t, "IntegerNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+    }
+    public class DoubleNode : CommonTree
+    {
+        public DoubleNode()
+        {
+
+        }
+        public DoubleNode(CommonTree common) : base(common)
+        {
+
+        }
+        public DoubleNode(IToken token) : base(token)
+        {
+
+        }
+        public DoubleNode(int t)
+            : base(new CommonToken(t, "DoubleNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+    }
     public class AssignNode : CommonTree
     {
         public AssignNode()
@@ -182,29 +227,6 @@ namespace GrammarApp
             return new ExprNode(Type);
         }
     }
-    public class MethodDefNode : CommonTree
-    {
-        public MethodDefNode()
-        {
-
-        }
-        public MethodDefNode(CommonTree node) : base(node)
-        {
-
-        }
-        public MethodDefNode(IToken t) : base(t)
-        {
-
-        }
-        public MethodDefNode(int t) : base(new CommonToken(t, "MethodDefNode"))
-        {
-
-        }
-
-        public string MethodName { get { return GetChild(0).Text; } }
-        public string MethodType { get { return GetChild(0).GetChild(0).Text; } }
-        public CodeBlockNode Block { get { return GetChild(0).GetChild(1) as CodeBlockNode; } }
-    }
     public class CodeBlockNode : CommonTree
     {
         public CodeBlockNode()
@@ -232,6 +254,51 @@ namespace GrammarApp
             return new CodeBlockNode(Type);
         }
     }
+    public class MethodDefNode : CommonTree
+    {
+        public MethodDefNode()
+        {
+
+        }
+        public MethodDefNode(CommonTree node) : base(node)
+        {
+
+        }
+        public MethodDefNode(IToken t) : base(t)
+        {
+
+        }
+        public MethodDefNode(int t) : base(new CommonToken(t, "MethodDefNode"))
+        {
+
+        }
+
+        public string MethodName { get { return GetChild(0).Text; } }
+        public string MethodType { get { return GetChild(0).GetChild(0).Text; } }
+        public CodeBlockNode Block { get { return GetChild(0).GetChild(1) as CodeBlockNode; } }
+    }
+    public class CallMethodNode : CommonTree
+    {
+        public CallMethodNode()
+        {
+
+        }
+        public CallMethodNode(CommonTree node) : base(node)
+        {
+
+        }
+        public CallMethodNode(IToken t) : base(t)
+        {
+
+        }
+        public CallMethodNode(int t) : base(new CommonToken(t, "CallMethodNode"))
+        {
+
+        }
+
+        public string MethodName { get { return GetChild(0).Text; } }
+    }
+
     public class ForNode : CommonTree
     {
         public ForNode()
