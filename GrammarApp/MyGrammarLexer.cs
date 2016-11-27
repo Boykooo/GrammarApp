@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 MyGrammar.g 2016-11-27 19:36:57
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 MyGrammar.g 2016-11-27 20:57:05
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -1297,10 +1297,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = WS;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:309:3: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
-            // MyGrammar.g:310:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+            // MyGrammar.g:326:3: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
+            // MyGrammar.g:327:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
             {
-            	// MyGrammar.g:310:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+            	// MyGrammar.g:327:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
             	int cnt3 = 0;
             	do 
             	{

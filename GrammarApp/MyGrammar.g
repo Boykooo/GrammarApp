@@ -196,33 +196,49 @@ if_		:	IF	'(' logicOperator ')' block (ELSE block)?
 
 
 
-
+operations			:	orOperation -> ^(OrOp<OrOperationNode> orOperation)
+					|	andOperation -> ^(AndOp<AndOperationNode> andOperation)
+					|	eqOp -> ^(EqOp<EqualityOperationNode> eqOp)
+					|	nonEqOp -> ^(NonEqOp<NonEqualityOperationNode> nonEqOp)
+					|	moreOp -> ^(MoreOp<LogicOperationMoreNode> moreOp)
+					|	moreEqOp -> ^(MoreEqOp<LogicOperationMoreEqNode> moreEqOp)
+					|	lessOp	-> ^(LessOp<LogicOperationLessNode> lessOp)
+					|	lessEqOp -> ^(LessEqOp<LogicOperationLessEqNode> lessEqOp)
+					;
 		
-logicOperator		:	orOperation+ -> ^(LogicOp<LogicOperation> orOperation+)
+logicOperator		:	orOperation
+					|	andOperation
+					|	eqOp
+					|	nonEqOp
+					|	moreOp
+					|	moreEqOp
+					|	lessOp
+					|	lessEqOp
 					;
 
-orOperation			:	andOperation ( OR<OrOperationNode>^ andOperation)* 
+
+orOperation			:	add OR add -> ^(OrOp<OrOperationNode> add add)
 					;
 
-andOperation		:	eqOp (AND<AndOperationNode>^ eqOp)* 
+andOperation		:	add AND add -> ^(AndOp<AndOperationNode> add add)
 					;
 
-eqOp				:	nonEqOp (EQ<EqualityOperationNode>^ nonEqOp)*
+eqOp				:	add EQ add -> ^(EqOp<EqualityOperationNode> add add)
 					;
 
-nonEqOp				:	moreOp (NONEQ<NonEqualityOperationNode>^ moreOp)* 
+nonEqOp				:	add NONEQ add -> ^(NonEqOp<NonEqualityOperationNode> add add)
 					;
 
-moreOp				:	 moreEqOp (MORE<LogicOperationMoreNode>^ moreEqOp)* 
+moreOp				:	 add MORE add -> ^(MoreOp<LogicOperationMoreNode> add add)
 					;
 
-moreEqOp			:	lessOp (MOREEQ<LogicOperationMoreEqNode>^ lessOp)*
+moreEqOp			:	add MOREEQ add -> ^(MoreEqOp<LogicOperationMoreEqNode> add add)
 					;
 
-lessOp				:	lessEqOp (LESS<LogicOperationLessNode>^ lessEqOp)*
+lessOp				:	add LESS add -> ^(LessOp<LogicOperationLessNode> add add)
 					;
 
-lessEqOp			:	add (LESSEQ<LogicOperationLessEqNode>^ add)* 
+lessEqOp			:	add LESSEQ add -> ^(LessEqOp<LogicOperationLessEqNode> add add)
 					;
 
 
@@ -235,9 +251,6 @@ for_	:	FOR
 			block
 			-> ^(For<ForNode> varInit logicOperator varInitValue block)
 		;
-
-
-
 
 
 while_	:	WHILE
@@ -271,6 +284,9 @@ printExpr	:	add
 			|	callMethod
 			;		
 
+changeValue	:	ident ASSIGN initValue
+						-> ^(Assign<AssignNode> ident initValue)
+				;
 expr	: add
 		| if_
 		| varInit
@@ -279,6 +295,7 @@ expr	: add
 		| varInitValue
 		| callMethod
 		| print
+		| changeValue
 		;
 
 line	:	expr (';'!)* 
@@ -311,3 +328,46 @@ WS:
     $channel=HIDDEN;
   }
 ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+logicOperator		:	orOperation+ -> ^(LogicOp<LogicOperation> orOperation+)
+					;
+
+orOperation			:	andOperation (OR andOperation)* -> ^(OrOp<OrOperationNode> andOperation (andOperation)*)
+					;
+
+andOperation		:	eqOp (AND eqOp)* -> ^(AndOp<AndOperationNode> eqOp (eqOp)*)
+					;
+
+eqOp				:	nonEqOp (EQ nonEqOp)* -> ^(EqOp<EqualityOperationNode> nonEqOp (nonEqOp)*)
+					;
+
+nonEqOp				:	moreOp (NONEQ moreOp)* -> ^(NonEqOp<NonEqualityOperationNode> moreOp (moreOp)*)
+					;
+
+moreOp				:	 moreEqOp (MORE moreEqOp)* -> ^(MoreOp<LogicOperationMoreNode> moreEqOp (moreEqOp)*)
+					;
+
+moreEqOp			:	lessOp (MOREEQ lessOp)* -> ^(MoreEqOp<LogicOperationMoreEqNode> lessOp (lessOp)*)
+					;
+
+lessOp				:	lessEqOp (LESS lessEqOp)* -> ^(LessOp<LogicOperationLessNode> lessEqOp (lessEqOp)*)
+					;
+
+lessEqOp			:	add (LESSEQ add)* -> ^(LessEqOp<LogicOperationLessEqNode> add (add)*)
+					;
+
+*/

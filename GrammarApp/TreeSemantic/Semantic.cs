@@ -56,12 +56,12 @@ namespace GrammarApp.TreeSemantic
                 }
                 else
                 {
-                    Console.WriteLine("Уже существует локальная переменная с именем {0}. Строка {0}", node.VarName, node.Line);
+                    Console.WriteLine("Уже существует локальная переменная с именем {0}. Строка {1}", node.VarName, node.Line);
                 }
             }
             else
             {
-                Console.WriteLine("Уже существует глобальная переменная с именем {0}. Строка {0}", node.VarName, node.Line);
+                Console.WriteLine("Уже существует глобальная переменная с именем {0}. Строка {1}", node.VarName, node.Line);
             }
 
         }
@@ -87,14 +87,59 @@ namespace GrammarApp.TreeSemantic
         private void Parsing(ForNode node, string methodName)
         {
             Parsing(node.VarInitNode, methodName);
-            Parsing(node.LogicOperation, methodName);
+            dynamic temp = node.GetChild(1); // Logic operation
+            Parsing(temp, methodName);
             Parsing(node.VarInitValue, methodName);
             Parsing(node.Block, methodName);
         }
+        private void Parsing(WhileNode node, string methodName)
+        {
+            dynamic temp = node.GetChild(0); // Logic operation
+            Parsing(temp, methodName);
+            Parsing(node.Block, methodName);
+        }
 
+        private void Parsing(IfNode node, string methodName)
+        {
+            dynamic temp = node.GetChild(0); // Logic operation
+            Parsing(temp, methodName);
+            Parsing(node.Block, methodName);
+        }
         private void Parsing(LogicOperation node, string methodName)
         {
-
+            
+        }
+        private void Parsing(OrOperationNode node, string methodName)
+        {
+            CheckExistVars(node, methodName);
+        }
+        private void Parsing(AndOperationNode node, string methodName)
+        {
+            CheckExistVars(node, methodName);
+        }
+        private void Parsing(EqualityOperationNode node, string methodName)
+        {
+            CheckExistVars(node, methodName);
+        }
+        private void Parsing(NonEqualityOperationNode node, string methodName)
+        {
+            CheckExistVars(node, methodName);
+        }
+        private void Parsing(LogicOperationMoreNode node, string methodName)
+        {
+            CheckExistVars(node, methodName);
+        }
+        private void Parsing(LogicOperationMoreEqNode node, string methodName)
+        {
+            CheckExistVars(node, methodName);
+        }
+        private void Parsing(LogicOperationLessNode node, string methodName)
+        {
+            CheckExistVars(node, methodName);
+        }
+        private void Parsing(LogicOperationLessEqNode node, string methodName)
+        {
+            CheckExistVars(node, methodName);
         }
         private void Parsing(AssignNode node, VarType left, string methodName)
         {
@@ -212,6 +257,30 @@ namespace GrammarApp.TreeSemantic
             var right = GetVarType(node.GetChild(1).Text);
 
             return (left == VarType.Double || right == VarType.Double) ? VarType.Double : VarType.Int;
+        }
+        private void CheckExistVars(CommonTree node, string methodName)
+        {
+            dynamic left = node.GetChild(0);
+            dynamic right = node.GetChild(1);
+            if (left is IDNode)
+            {
+                var temp = left as IDNode;
+                VarType type = context.SearchVar(temp.GetChild(0).Text, methodName);
+                if (type == VarType.Undefined)
+                {
+                    Console.WriteLine("Использование неопределенной переменной {0}. Строка {1}", temp.VarName, node.Line);
+                }
+            }
+
+            if (right is IDNode)
+            {
+                var temp = right as IDNode;
+                VarType type = context.SearchVar(temp.GetChild(0).Text, methodName);
+                if (type == VarType.Undefined)
+                {
+                    Console.WriteLine("Использование неопределенной переменной {0}. Строка {1}", temp.VarName, node.Line);
+                }
+            }
         }
     }
 }

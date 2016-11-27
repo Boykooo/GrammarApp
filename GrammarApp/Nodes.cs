@@ -397,6 +397,7 @@ namespace GrammarApp
 
         }
 
+        public CodeBlockNode Block { get { return GetChild(1) as CodeBlockNode; } }
         public override ITree DupNode()
         {
             return new IfNode(Type);
@@ -649,7 +650,6 @@ namespace GrammarApp
         }
 
         public VarInitNode VarInitNode { get { return GetChild(0) as VarInitNode; } }
-        public LogicOperation LogicOperation { get { return GetChild(1) as LogicOperation; } }
         public AssignNode VarInitValue { get { return GetChild(2) as AssignNode; } }
         public CodeBlockNode Block { get { return GetChild(3) as CodeBlockNode; } }
     }
@@ -673,7 +673,6 @@ namespace GrammarApp
 
         }
 
-        public LogicOperation LogicOperation { get { return GetChild(0) as LogicOperation; } }
         public CodeBlockNode Block { get { return GetChild(1) as CodeBlockNode; } }
     }
 
