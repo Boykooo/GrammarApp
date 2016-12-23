@@ -30,6 +30,7 @@ namespace GrammarApp
             return new AssignNode(Type);
         }
     }
+
     public class IntegerNode : CommonTree
     {
         public IntegerNode()
@@ -80,6 +81,33 @@ namespace GrammarApp
             return new AssignNode(Type);
         }
     }
+
+    public class ArrayDecl : CommonTree
+    {
+        public ArrayDecl()
+        {
+
+        }
+        public ArrayDecl(CommonTree common) : base(common)
+        {
+
+        }
+        public ArrayDecl(IToken token) : base(token)
+        {
+
+        }
+        public ArrayDecl(int t)
+            : base(new CommonToken(t, "ArrayDecl"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+    }
+
     public class AssignNode : CommonTree
     {
         public AssignNode()

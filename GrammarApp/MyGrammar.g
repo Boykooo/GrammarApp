@@ -34,6 +34,7 @@ tokens
 	If								;
 	Inc								;
 	While_							;
+	ArrayDecl						;
 
 	PROGRAM							;
 	PRINT			= 'print'		;
@@ -46,6 +47,7 @@ tokens
 	ELSE			= 'else'		;
 	BLOCK			= 'BLOCK'		;
 	CONDITION		= 'CONDITION'	;
+	NEW				= 'new'			;
 
 	ASSIGN			= '='			;
 	PLUSASSIGN		= '+='			;
@@ -144,14 +146,29 @@ ID		:	 ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
 ident		:	ID -> ^(Id<IDNode> ID)
 			;
 
-varInit	:	type varInitValue
-				-> ^(VarInit<VarInitNode> type varInitValue)
+
+
+
+
+
+init	:	arrayInit 
+		|	varInit
+		;
+
+arrayInit	:	type '[]' ident ('=' NEW type '[' INTEGER ']')?
+					->^(ArrayDecl<ArrayDecl> type ident (INTEGER)? )
+			;
+
+varInit	:	type fieldInitValue
+				-> ^(VarInit<VarInitNode> type fieldInitValue)
 		;
 
 
-varInitValue	:  ident (ASSIGN initValue)?
+fieldInitValue	:  ident  (ASSIGN initValue)?
 						-> ^(Assign<AssignNode> ident (initValue)?)
 				;
+
+
 
 initValue		: add
 				| callMethod
@@ -160,9 +177,6 @@ initValue		: add
 				| dec
 				;
 
-oneArray	:	type ident '[' number ']'
-				-> ^(ONEARRAY ^(ident ^(COUNT number)))
-			;
 
 addOperation	:	PLUS -> Plus<PlusNode>
 				|	MINUS -> Minus<MinusNode>
@@ -242,14 +256,20 @@ lessEqOp			:	add LESSEQ add -> ^(LessEqOp<LogicOperationLessEqNode> add add)
 					;
 
 
+
+cycle	:	for_
+		|	while_
+		;
+
+
 for_	:	FOR 
             '('	
 		    varInit ';'
 			logicOperator ';'
-		    varInitValue
+		    fieldInitValue
 			')'
 			block
-			-> ^(For<ForNode> varInit logicOperator varInitValue block)
+			-> ^(For<ForNode> varInit logicOperator fieldInitValue block)
 		;
 
 
@@ -264,18 +284,13 @@ while_	:	WHILE
 
 
 
-
-
 methodDef	: type ID '()' block -> ^(Method<MethodDefNode> ^(ID type? block))
 		;
+
 
 callMethod	:	ID '()' 
 				-> ^(CallMethod<CallMethodNode> ID)
 			;
-
-cycle	:	for_
-		|	while_
-		;
 
 
 
@@ -289,10 +304,10 @@ changeValue	:	ident ASSIGN initValue
 				;
 expr	: add
 		| if_
-		| varInit
-		| oneArray
+		| init
+		| arrayInit
 		| cycle
-		| varInitValue
+		| fieldInitValue
 		| callMethod
 		| print
 		| changeValue
@@ -303,7 +318,7 @@ line	:	expr (';'!)*
 
 exprList:	methodDef  (';'!)* 
 		|	varInit (';'!)* 
-		|	oneArray (';'!)* 
+		|	arrayInit (';'!)* 
 		;
 
 

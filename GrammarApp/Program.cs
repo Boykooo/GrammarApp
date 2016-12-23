@@ -22,9 +22,9 @@ namespace GrammarApp
             MyGrammarParser parser = new MyGrammarParser(tokens);
             ITree program = (ITree)parser.execute().Tree;
             AstNodePrinter.Print(program);
-            Console.WriteLine();
 
-            Semantic semantic = new Semantic(program);
+            //Semantic semantic = new Semantic(program);
+
             Console.Read();
         }
     }

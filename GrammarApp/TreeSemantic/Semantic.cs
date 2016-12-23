@@ -82,6 +82,7 @@ namespace GrammarApp.TreeSemantic
             {
                 Console.WriteLine("Метод с именем {0} уже существует. Строка {1}", node.MethodName, node.Line);
             }
+
             Parsing(node.Block, node.MethodName);
         }
         private void Parsing(ForNode node, string methodName)

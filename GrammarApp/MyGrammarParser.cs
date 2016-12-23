@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 MyGrammar.g 2016-11-27 20:57:05
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 MyGrammar.g 2016-12-23 23:48:24
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -52,6 +52,7 @@ public partial class MyGrammarParser : Parser
 		"If", 
 		"Inc", 
 		"While_", 
+		"ArrayDecl", 
 		"PROGRAM", 
 		"PRINT", 
 		"PLUS", 
@@ -62,6 +63,7 @@ public partial class MyGrammarParser : Parser
 		"ELSE", 
 		"BLOCK", 
 		"CONDITION", 
+		"NEW", 
 		"ASSIGN", 
 		"PLUSASSIGN", 
 		"MINUSASSIGN", 
@@ -97,6 +99,7 @@ public partial class MyGrammarParser : Parser
 		"DOUBLE_", 
 		"ID", 
 		"WS", 
+		"'[]'", 
 		"'['", 
 		"']'", 
 		"'('", 
@@ -109,83 +112,86 @@ public partial class MyGrammarParser : Parser
 
     public const int Add = 6;
     public const int MoreOp = 20;
-    public const int PRINT = 30;
+    public const int PRINT = 31;
+    public const int NEW = 40;
     public const int MoreEqOp = 21;
-    public const int VAR = 51;
+    public const int VAR = 53;
     public const int CallMethod = 13;
     public const int While_ = 28;
-    public const int DECREMENT = 45;
+    public const int DECREMENT = 47;
     public const int LessOp = 22;
-    public const int MINUS = 32;
+    public const int MINUS = 33;
     public const int MULT = 7;
-    public const int ELSE = 36;
-    public const int CALLMETHOD = 58;
-    public const int ID = 72;
+    public const int ELSE = 37;
+    public const int CALLMETHOD = 60;
+    public const int ID = 74;
     public const int Plus = 9;
-    public const int IF = 35;
-    public const int TYPE = 56;
-    public const int MINUSASSIGN = 41;
+    public const int IF = 36;
+    public const int TYPE = 58;
+    public const int MINUSASSIGN = 43;
     public const int LogicOp = 25;
-    public const int INTEGER = 70;
-    public const int MOREEQ = 68;
-    public const int LESSEQ = 69;
+    public const int INTEGER = 72;
+    public const int MOREEQ = 70;
+    public const int LESSEQ = 71;
     public const int For = 24;
-    public const int BLOCK = 37;
-    public const int ONEARRAY = 52;
-    public const int FOR = 59;
+    public const int BLOCK = 38;
+    public const int ONEARRAY = 54;
+    public const int FOR = 61;
     public const int Method = 5;
-    public const int EQ = 64;
+    public const int EQ = 66;
     public const int Double = 12;
-    public const int AND = 62;
-    public const int PUBLIC = 55;
-    public const int MULTIPLY = 33;
-    public const int CONDITION = 38;
-    public const int COUNT = 53;
-    public const int LESS = 67;
+    public const int AND = 64;
+    public const int PUBLIC = 57;
+    public const int MULTIPLY = 34;
+    public const int CONDITION = 39;
+    public const int COUNT = 55;
+    public const int LESS = 69;
     public const int Id = 14;
-    public const int VOID = 50;
+    public const int VOID = 52;
     public const int If = 26;
     public const int Minus = 10;
-    public const int PROGRAM = 29;
+    public const int PROGRAM = 30;
     public const int AndOp = 15;
     public const int Inc = 27;
-    public const int PLUS = 31;
-    public const int DIVIDEASSIGN = 43;
-    public const int FLOAT = 47;
+    public const int PLUS = 32;
+    public const int DIVIDEASSIGN = 45;
+    public const int FLOAT = 49;
     public const int NonEqOp = 18;
-    public const int MULTASSIGN = 42;
-    public const int CHAR = 49;
+    public const int MULTASSIGN = 44;
+    public const int CHAR = 51;
     public const int DefOp = 19;
-    public const int ASSIGN = 39;
-    public const int INT = 46;
-    public const int DIVIDE = 34;
+    public const int ASSIGN = 41;
+    public const int INT = 48;
+    public const int DIVIDE = 35;
     public const int T__77 = 77;
     public const int T__78 = 78;
-    public const int PLUSASSIGN = 40;
+    public const int PLUSASSIGN = 42;
     public const int T__79 = 79;
-    public const int DOUBLE = 48;
-    public const int WS = 73;
+    public const int DOUBLE = 50;
+    public const int WS = 75;
     public const int EOF = -1;
-    public const int T__74 = 74;
-    public const int T__75 = 75;
     public const int T__76 = 76;
     public const int T__80 = 80;
     public const int T__81 = 81;
     public const int OrOp = 16;
-    public const int MOD = 57;
-    public const int OR = 63;
-    public const int INCREMENT_ = 61;
+    public const int T__82 = 82;
+    public const int T__83 = 83;
+    public const int MOD = 59;
+    public const int OR = 65;
+    public const int INCREMENT_ = 63;
     public const int LessEqOp = 23;
-    public const int NONEQ = 65;
+    public const int NONEQ = 67;
     public const int EqOp = 17;
-    public const int DOUBLE_ = 71;
-    public const int PRIVATE = 54;
+    public const int DOUBLE_ = 73;
+    public const int PRIVATE = 56;
     public const int VarInit = 4;
     public const int Integer = 11;
-    public const int INCREMENT = 44;
-    public const int MORE = 66;
+    public const int INCREMENT = 46;
+    public const int MORE = 68;
     public const int Assign = 8;
-    public const int WHILE = 60;
+    public const int WHILE = 62;
+    public const int T__84 = 84;
+    public const int ArrayDecl = 29;
 
     // delegates
     // delegators
@@ -233,7 +239,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "type"
-    // MyGrammar.g:93:1: type : ( INT | FLOAT | DOUBLE | CHAR | VOID );
+    // MyGrammar.g:95:1: type : ( INT | FLOAT | DOUBLE | CHAR | VOID );
     public MyGrammarParser.type_return type() // throws RecognitionException [1]
     {   
         MyGrammarParser.type_return retval = new MyGrammarParser.type_return();
@@ -247,7 +253,7 @@ public partial class MyGrammarParser : Parser
 
         try 
     	{
-            // MyGrammar.g:93:6: ( INT | FLOAT | DOUBLE | CHAR | VOID )
+            // MyGrammar.g:95:6: ( INT | FLOAT | DOUBLE | CHAR | VOID )
             // MyGrammar.g:
             {
             	root_0 = (object)adaptor.GetNilNode();
@@ -301,7 +307,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "typeAssign"
-    // MyGrammar.g:101:1: typeAssign : ( ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN );
+    // MyGrammar.g:103:1: typeAssign : ( ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN );
     public MyGrammarParser.typeAssign_return typeAssign() // throws RecognitionException [1]
     {   
         MyGrammarParser.typeAssign_return retval = new MyGrammarParser.typeAssign_return();
@@ -315,7 +321,7 @@ public partial class MyGrammarParser : Parser
 
         try 
     	{
-            // MyGrammar.g:101:12: ( ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN )
+            // MyGrammar.g:103:12: ( ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN )
             // MyGrammar.g:
             {
             	root_0 = (object)adaptor.GetNilNode();
@@ -369,7 +375,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "incDec"
-    // MyGrammar.g:109:1: incDec : ( inc | dec );
+    // MyGrammar.g:111:1: incDec : ( inc | dec );
     public MyGrammarParser.incDec_return incDec() // throws RecognitionException [1]
     {   
         MyGrammarParser.incDec_return retval = new MyGrammarParser.incDec_return();
@@ -385,7 +391,7 @@ public partial class MyGrammarParser : Parser
 
         try 
     	{
-            // MyGrammar.g:109:8: ( inc | dec )
+            // MyGrammar.g:111:8: ( inc | dec )
             int alt1 = 2;
             int LA1_0 = input.LA(1);
 
@@ -408,11 +414,11 @@ public partial class MyGrammarParser : Parser
             switch (alt1) 
             {
                 case 1 :
-                    // MyGrammar.g:109:10: inc
+                    // MyGrammar.g:111:10: inc
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_inc_in_incDec926);
+                    	PushFollow(FOLLOW_inc_in_incDec950);
                     	inc3 = inc();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
@@ -421,11 +427,11 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:110:5: dec
+                    // MyGrammar.g:112:5: dec
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_dec_in_incDec932);
+                    	PushFollow(FOLLOW_dec_in_incDec956);
                     	dec4 = dec();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
@@ -467,7 +473,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "inc"
-    // MyGrammar.g:114:1: inc : INCREMENT -> ^( Inc INCREMENT ) ;
+    // MyGrammar.g:116:1: inc : INCREMENT -> ^( Inc INCREMENT ) ;
     public MyGrammarParser.inc_return inc() // throws RecognitionException [1]
     {   
         MyGrammarParser.inc_return retval = new MyGrammarParser.inc_return();
@@ -482,10 +488,10 @@ public partial class MyGrammarParser : Parser
 
         try 
     	{
-            // MyGrammar.g:114:6: ( INCREMENT -> ^( Inc INCREMENT ) )
-            // MyGrammar.g:114:8: INCREMENT
+            // MyGrammar.g:116:6: ( INCREMENT -> ^( Inc INCREMENT ) )
+            // MyGrammar.g:116:8: INCREMENT
             {
-            	INCREMENT5=(IToken)Match(input,INCREMENT,FOLLOW_INCREMENT_in_inc945); if (state.failed) return retval; 
+            	INCREMENT5=(IToken)Match(input,INCREMENT,FOLLOW_INCREMENT_in_inc969); if (state.failed) return retval; 
             	if ( (state.backtracking==0) ) stream_INCREMENT.Add(INCREMENT5);
 
 
@@ -502,9 +508,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 114:18: -> ^( Inc INCREMENT )
+            	// 116:18: -> ^( Inc INCREMENT )
             	{
-            	    // MyGrammar.g:114:21: ^( Inc INCREMENT )
+            	    // MyGrammar.g:116:21: ^( Inc INCREMENT )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new IncNode(Inc), root_1);
@@ -551,7 +557,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "dec"
-    // MyGrammar.g:117:1: dec : DECREMENT -> DECREMENT ;
+    // MyGrammar.g:119:1: dec : DECREMENT -> DECREMENT ;
     public MyGrammarParser.dec_return dec() // throws RecognitionException [1]
     {   
         MyGrammarParser.dec_return retval = new MyGrammarParser.dec_return();
@@ -566,10 +572,10 @@ public partial class MyGrammarParser : Parser
 
         try 
     	{
-            // MyGrammar.g:117:6: ( DECREMENT -> DECREMENT )
-            // MyGrammar.g:117:8: DECREMENT
+            // MyGrammar.g:119:6: ( DECREMENT -> DECREMENT )
+            // MyGrammar.g:119:8: DECREMENT
             {
-            	DECREMENT6=(IToken)Match(input,DECREMENT,FOLLOW_DECREMENT_in_dec968); if (state.failed) return retval; 
+            	DECREMENT6=(IToken)Match(input,DECREMENT,FOLLOW_DECREMENT_in_dec992); if (state.failed) return retval; 
             	if ( (state.backtracking==0) ) stream_DECREMENT.Add(DECREMENT6);
 
 
@@ -586,7 +592,7 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 117:18: -> DECREMENT
+            	// 119:18: -> DECREMENT
             	{
             	    adaptor.AddChild(root_0, new DecNode(stream_DECREMENT.NextToken()));
 
@@ -627,7 +633,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "elementarySign"
-    // MyGrammar.g:120:1: elementarySign : ( PLUS | MINUS | MULTIPLY | DIVIDE );
+    // MyGrammar.g:122:1: elementarySign : ( PLUS | MINUS | MULTIPLY | DIVIDE );
     public MyGrammarParser.elementarySign_return elementarySign() // throws RecognitionException [1]
     {   
         MyGrammarParser.elementarySign_return retval = new MyGrammarParser.elementarySign_return();
@@ -641,7 +647,7 @@ public partial class MyGrammarParser : Parser
 
         try 
     	{
-            // MyGrammar.g:120:16: ( PLUS | MINUS | MULTIPLY | DIVIDE )
+            // MyGrammar.g:122:16: ( PLUS | MINUS | MULTIPLY | DIVIDE )
             // MyGrammar.g:
             {
             	root_0 = (object)adaptor.GetNilNode();
@@ -695,7 +701,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "number"
-    // MyGrammar.g:136:1: number : ( INTEGER -> ^( Integer INTEGER ) | DOUBLE_ -> ^( Double DOUBLE_ ) );
+    // MyGrammar.g:138:1: number : ( INTEGER -> ^( Integer INTEGER ) | DOUBLE_ -> ^( Double DOUBLE_ ) );
     public MyGrammarParser.number_return number() // throws RecognitionException [1]
     {   
         MyGrammarParser.number_return retval = new MyGrammarParser.number_return();
@@ -713,7 +719,7 @@ public partial class MyGrammarParser : Parser
 
         try 
     	{
-            // MyGrammar.g:136:8: ( INTEGER -> ^( Integer INTEGER ) | DOUBLE_ -> ^( Double DOUBLE_ ) )
+            // MyGrammar.g:138:8: ( INTEGER -> ^( Integer INTEGER ) | DOUBLE_ -> ^( Double DOUBLE_ ) )
             int alt2 = 2;
             int LA2_0 = input.LA(1);
 
@@ -736,9 +742,9 @@ public partial class MyGrammarParser : Parser
             switch (alt2) 
             {
                 case 1 :
-                    // MyGrammar.g:136:10: INTEGER
+                    // MyGrammar.g:138:10: INTEGER
                     {
-                    	INTEGER8=(IToken)Match(input,INTEGER,FOLLOW_INTEGER_in_number1059); if (state.failed) return retval; 
+                    	INTEGER8=(IToken)Match(input,INTEGER,FOLLOW_INTEGER_in_number1083); if (state.failed) return retval; 
                     	if ( (state.backtracking==0) ) stream_INTEGER.Add(INTEGER8);
 
 
@@ -755,9 +761,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 136:18: -> ^( Integer INTEGER )
+                    	// 138:18: -> ^( Integer INTEGER )
                     	{
-                    	    // MyGrammar.g:136:21: ^( Integer INTEGER )
+                    	    // MyGrammar.g:138:21: ^( Integer INTEGER )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new IntegerNode(Integer), root_1);
@@ -773,9 +779,9 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:137:5: DOUBLE_
+                    // MyGrammar.g:139:5: DOUBLE_
                     {
-                    	DOUBLE_9=(IToken)Match(input,DOUBLE_,FOLLOW_DOUBLE__in_number1076); if (state.failed) return retval; 
+                    	DOUBLE_9=(IToken)Match(input,DOUBLE_,FOLLOW_DOUBLE__in_number1100); if (state.failed) return retval; 
                     	if ( (state.backtracking==0) ) stream_DOUBLE_.Add(DOUBLE_9);
 
 
@@ -792,9 +798,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 137:13: -> ^( Double DOUBLE_ )
+                    	// 139:13: -> ^( Double DOUBLE_ )
                     	{
-                    	    // MyGrammar.g:137:16: ^( Double DOUBLE_ )
+                    	    // MyGrammar.g:139:16: ^( Double DOUBLE_ )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new DoubleNode(Double), root_1);
@@ -843,7 +849,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "ident"
-    // MyGrammar.g:144:1: ident : ID -> ^( Id ID ) ;
+    // MyGrammar.g:146:1: ident : ID -> ^( Id ID ) ;
     public MyGrammarParser.ident_return ident() // throws RecognitionException [1]
     {   
         MyGrammarParser.ident_return retval = new MyGrammarParser.ident_return();
@@ -858,10 +864,10 @@ public partial class MyGrammarParser : Parser
 
         try 
     	{
-            // MyGrammar.g:144:8: ( ID -> ^( Id ID ) )
-            // MyGrammar.g:144:10: ID
+            // MyGrammar.g:146:8: ( ID -> ^( Id ID ) )
+            // MyGrammar.g:146:10: ID
             {
-            	ID10=(IToken)Match(input,ID,FOLLOW_ID_in_ident1141); if (state.failed) return retval; 
+            	ID10=(IToken)Match(input,ID,FOLLOW_ID_in_ident1165); if (state.failed) return retval; 
             	if ( (state.backtracking==0) ) stream_ID.Add(ID10);
 
 
@@ -878,9 +884,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 144:13: -> ^( Id ID )
+            	// 146:13: -> ^( Id ID )
             	{
-            	    // MyGrammar.g:144:16: ^( Id ID )
+            	    // MyGrammar.g:146:16: ^( Id ID )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new IDNode(Id), root_1);
@@ -916,6 +922,280 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "ident"
 
+    public class init_return : ParserRuleReturnScope
+    {
+        private object tree;
+        override public object Tree
+        {
+        	get { return tree; }
+        	set { tree = (object) value; }
+        }
+    };
+
+    // $ANTLR start "init"
+    // MyGrammar.g:154:1: init : ( arrayInit | varInit );
+    public MyGrammarParser.init_return init() // throws RecognitionException [1]
+    {   
+        MyGrammarParser.init_return retval = new MyGrammarParser.init_return();
+        retval.Start = input.LT(1);
+
+        object root_0 = null;
+
+        MyGrammarParser.arrayInit_return arrayInit11 = default(MyGrammarParser.arrayInit_return);
+
+        MyGrammarParser.varInit_return varInit12 = default(MyGrammarParser.varInit_return);
+
+
+
+        try 
+    	{
+            // MyGrammar.g:154:6: ( arrayInit | varInit )
+            int alt3 = 2;
+            int LA3_0 = input.LA(1);
+
+            if ( ((LA3_0 >= INT && LA3_0 <= VOID)) )
+            {
+                int LA3_1 = input.LA(2);
+
+                if ( (LA3_1 == ID) )
+                {
+                    alt3 = 2;
+                }
+                else if ( (LA3_1 == 76) )
+                {
+                    alt3 = 1;
+                }
+                else 
+                {
+                    if ( state.backtracking > 0 ) {state.failed = true; return retval;}
+                    NoViableAltException nvae_d3s1 =
+                        new NoViableAltException("", 3, 1, input);
+
+                    throw nvae_d3s1;
+                }
+            }
+            else 
+            {
+                if ( state.backtracking > 0 ) {state.failed = true; return retval;}
+                NoViableAltException nvae_d3s0 =
+                    new NoViableAltException("", 3, 0, input);
+
+                throw nvae_d3s0;
+            }
+            switch (alt3) 
+            {
+                case 1 :
+                    // MyGrammar.g:154:8: arrayInit
+                    {
+                    	root_0 = (object)adaptor.GetNilNode();
+
+                    	PushFollow(FOLLOW_arrayInit_in_init1193);
+                    	arrayInit11 = arrayInit();
+                    	state.followingStackPointer--;
+                    	if (state.failed) return retval;
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, arrayInit11.Tree);
+
+                    }
+                    break;
+                case 2 :
+                    // MyGrammar.g:155:5: varInit
+                    {
+                    	root_0 = (object)adaptor.GetNilNode();
+
+                    	PushFollow(FOLLOW_varInit_in_init1200);
+                    	varInit12 = varInit();
+                    	state.followingStackPointer--;
+                    	if (state.failed) return retval;
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, varInit12.Tree);
+
+                    }
+                    break;
+
+            }
+            retval.Stop = input.LT(-1);
+
+            if ( (state.backtracking==0) )
+            {	retval.Tree = (object)adaptor.RulePostProcessing(root_0);
+            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);}
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+    	// Conversion of the second argument necessary, but harmless
+    	retval.Tree = (object)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
+
+        }
+        finally 
+    	{
+        }
+        return retval;
+    }
+    // $ANTLR end "init"
+
+    public class arrayInit_return : ParserRuleReturnScope
+    {
+        private object tree;
+        override public object Tree
+        {
+        	get { return tree; }
+        	set { tree = (object) value; }
+        }
+    };
+
+    // $ANTLR start "arrayInit"
+    // MyGrammar.g:158:1: arrayInit : type '[]' ident ( '=' NEW type '[' INTEGER ']' )? -> ^( ArrayDecl type ident ( INTEGER )? ) ;
+    public MyGrammarParser.arrayInit_return arrayInit() // throws RecognitionException [1]
+    {   
+        MyGrammarParser.arrayInit_return retval = new MyGrammarParser.arrayInit_return();
+        retval.Start = input.LT(1);
+
+        object root_0 = null;
+
+        IToken string_literal14 = null;
+        IToken char_literal16 = null;
+        IToken NEW17 = null;
+        IToken char_literal19 = null;
+        IToken INTEGER20 = null;
+        IToken char_literal21 = null;
+        MyGrammarParser.type_return type13 = default(MyGrammarParser.type_return);
+
+        MyGrammarParser.ident_return ident15 = default(MyGrammarParser.ident_return);
+
+        MyGrammarParser.type_return type18 = default(MyGrammarParser.type_return);
+
+
+        object string_literal14_tree=null;
+        object char_literal16_tree=null;
+        object NEW17_tree=null;
+        object char_literal19_tree=null;
+        object INTEGER20_tree=null;
+        object char_literal21_tree=null;
+        RewriteRuleTokenStream stream_77 = new RewriteRuleTokenStream(adaptor,"token 77");
+        RewriteRuleTokenStream stream_NEW = new RewriteRuleTokenStream(adaptor,"token NEW");
+        RewriteRuleTokenStream stream_78 = new RewriteRuleTokenStream(adaptor,"token 78");
+        RewriteRuleTokenStream stream_ASSIGN = new RewriteRuleTokenStream(adaptor,"token ASSIGN");
+        RewriteRuleTokenStream stream_76 = new RewriteRuleTokenStream(adaptor,"token 76");
+        RewriteRuleTokenStream stream_INTEGER = new RewriteRuleTokenStream(adaptor,"token INTEGER");
+        RewriteRuleSubtreeStream stream_ident = new RewriteRuleSubtreeStream(adaptor,"rule ident");
+        RewriteRuleSubtreeStream stream_type = new RewriteRuleSubtreeStream(adaptor,"rule type");
+        try 
+    	{
+            // MyGrammar.g:158:11: ( type '[]' ident ( '=' NEW type '[' INTEGER ']' )? -> ^( ArrayDecl type ident ( INTEGER )? ) )
+            // MyGrammar.g:158:13: type '[]' ident ( '=' NEW type '[' INTEGER ']' )?
+            {
+            	PushFollow(FOLLOW_type_in_arrayInit1211);
+            	type13 = type();
+            	state.followingStackPointer--;
+            	if (state.failed) return retval;
+            	if ( (state.backtracking==0) ) stream_type.Add(type13.Tree);
+            	string_literal14=(IToken)Match(input,76,FOLLOW_76_in_arrayInit1213); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_76.Add(string_literal14);
+
+            	PushFollow(FOLLOW_ident_in_arrayInit1215);
+            	ident15 = ident();
+            	state.followingStackPointer--;
+            	if (state.failed) return retval;
+            	if ( (state.backtracking==0) ) stream_ident.Add(ident15.Tree);
+            	// MyGrammar.g:158:29: ( '=' NEW type '[' INTEGER ']' )?
+            	int alt4 = 2;
+            	int LA4_0 = input.LA(1);
+
+            	if ( (LA4_0 == ASSIGN) )
+            	{
+            	    alt4 = 1;
+            	}
+            	switch (alt4) 
+            	{
+            	    case 1 :
+            	        // MyGrammar.g:158:30: '=' NEW type '[' INTEGER ']'
+            	        {
+            	        	char_literal16=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_arrayInit1218); if (state.failed) return retval; 
+            	        	if ( (state.backtracking==0) ) stream_ASSIGN.Add(char_literal16);
+
+            	        	NEW17=(IToken)Match(input,NEW,FOLLOW_NEW_in_arrayInit1220); if (state.failed) return retval; 
+            	        	if ( (state.backtracking==0) ) stream_NEW.Add(NEW17);
+
+            	        	PushFollow(FOLLOW_type_in_arrayInit1222);
+            	        	type18 = type();
+            	        	state.followingStackPointer--;
+            	        	if (state.failed) return retval;
+            	        	if ( (state.backtracking==0) ) stream_type.Add(type18.Tree);
+            	        	char_literal19=(IToken)Match(input,77,FOLLOW_77_in_arrayInit1224); if (state.failed) return retval; 
+            	        	if ( (state.backtracking==0) ) stream_77.Add(char_literal19);
+
+            	        	INTEGER20=(IToken)Match(input,INTEGER,FOLLOW_INTEGER_in_arrayInit1226); if (state.failed) return retval; 
+            	        	if ( (state.backtracking==0) ) stream_INTEGER.Add(INTEGER20);
+
+            	        	char_literal21=(IToken)Match(input,78,FOLLOW_78_in_arrayInit1228); if (state.failed) return retval; 
+            	        	if ( (state.backtracking==0) ) stream_78.Add(char_literal21);
+
+
+            	        }
+            	        break;
+
+            	}
+
+
+
+            	// AST REWRITE
+            	// elements:          type, INTEGER, ident
+            	// token labels:      
+            	// rule labels:       retval
+            	// token list labels: 
+            	// rule list labels:  
+            	// wildcard labels: 
+            	if ( (state.backtracking==0) ) {
+            	retval.Tree = root_0;
+            	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
+
+            	root_0 = (object)adaptor.GetNilNode();
+            	// 159:6: -> ^( ArrayDecl type ident ( INTEGER )? )
+            	{
+            	    // MyGrammar.g:159:8: ^( ArrayDecl type ident ( INTEGER )? )
+            	    {
+            	    object root_1 = (object)adaptor.GetNilNode();
+            	    root_1 = (object)adaptor.BecomeRoot(new ArrayDecl(ArrayDecl), root_1);
+
+            	    adaptor.AddChild(root_1, stream_type.NextTree());
+            	    adaptor.AddChild(root_1, stream_ident.NextTree());
+            	    // MyGrammar.g:159:42: ( INTEGER )?
+            	    if ( stream_INTEGER.HasNext() )
+            	    {
+            	        adaptor.AddChild(root_1, stream_INTEGER.NextNode());
+
+            	    }
+            	    stream_INTEGER.Reset();
+
+            	    adaptor.AddChild(root_0, root_1);
+            	    }
+
+            	}
+
+            	retval.Tree = root_0;retval.Tree = root_0;}
+            }
+
+            retval.Stop = input.LT(-1);
+
+            if ( (state.backtracking==0) )
+            {	retval.Tree = (object)adaptor.RulePostProcessing(root_0);
+            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);}
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+    	// Conversion of the second argument necessary, but harmless
+    	retval.Tree = (object)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
+
+        }
+        finally 
+    	{
+        }
+        return retval;
+    }
+    // $ANTLR end "arrayInit"
+
     public class varInit_return : ParserRuleReturnScope
     {
         private object tree;
@@ -927,7 +1207,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "varInit"
-    // MyGrammar.g:147:1: varInit : type varInitValue -> ^( VarInit type varInitValue ) ;
+    // MyGrammar.g:162:1: varInit : type fieldInitValue -> ^( VarInit type fieldInitValue ) ;
     public MyGrammarParser.varInit_return varInit() // throws RecognitionException [1]
     {   
         MyGrammarParser.varInit_return retval = new MyGrammarParser.varInit_return();
@@ -935,32 +1215,32 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.type_return type11 = default(MyGrammarParser.type_return);
+        MyGrammarParser.type_return type22 = default(MyGrammarParser.type_return);
 
-        MyGrammarParser.varInitValue_return varInitValue12 = default(MyGrammarParser.varInitValue_return);
+        MyGrammarParser.fieldInitValue_return fieldInitValue23 = default(MyGrammarParser.fieldInitValue_return);
 
 
-        RewriteRuleSubtreeStream stream_varInitValue = new RewriteRuleSubtreeStream(adaptor,"rule varInitValue");
+        RewriteRuleSubtreeStream stream_fieldInitValue = new RewriteRuleSubtreeStream(adaptor,"rule fieldInitValue");
         RewriteRuleSubtreeStream stream_type = new RewriteRuleSubtreeStream(adaptor,"rule type");
         try 
     	{
-            // MyGrammar.g:147:9: ( type varInitValue -> ^( VarInit type varInitValue ) )
-            // MyGrammar.g:147:11: type varInitValue
+            // MyGrammar.g:162:9: ( type fieldInitValue -> ^( VarInit type fieldInitValue ) )
+            // MyGrammar.g:162:11: type fieldInitValue
             {
-            	PushFollow(FOLLOW_type_in_varInit1164);
-            	type11 = type();
+            	PushFollow(FOLLOW_type_in_varInit1265);
+            	type22 = type();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_type.Add(type11.Tree);
-            	PushFollow(FOLLOW_varInitValue_in_varInit1166);
-            	varInitValue12 = varInitValue();
+            	if ( (state.backtracking==0) ) stream_type.Add(type22.Tree);
+            	PushFollow(FOLLOW_fieldInitValue_in_varInit1267);
+            	fieldInitValue23 = fieldInitValue();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_varInitValue.Add(varInitValue12.Tree);
+            	if ( (state.backtracking==0) ) stream_fieldInitValue.Add(fieldInitValue23.Tree);
 
 
             	// AST REWRITE
-            	// elements:          varInitValue, type
+            	// elements:          type, fieldInitValue
             	// token labels:      
             	// rule labels:       retval
             	// token list labels: 
@@ -971,15 +1251,15 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 148:5: -> ^( VarInit type varInitValue )
+            	// 163:5: -> ^( VarInit type fieldInitValue )
             	{
-            	    // MyGrammar.g:148:8: ^( VarInit type varInitValue )
+            	    // MyGrammar.g:163:8: ^( VarInit type fieldInitValue )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new VarInitNode(VarInit), root_1);
 
             	    adaptor.AddChild(root_1, stream_type.NextTree());
-            	    adaptor.AddChild(root_1, stream_varInitValue.NextTree());
+            	    adaptor.AddChild(root_1, stream_fieldInitValue.NextTree());
 
             	    adaptor.AddChild(root_0, root_1);
             	    }
@@ -1010,7 +1290,7 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "varInit"
 
-    public class varInitValue_return : ParserRuleReturnScope
+    public class fieldInitValue_return : ParserRuleReturnScope
     {
         private object tree;
         override public object Tree
@@ -1020,56 +1300,56 @@ public partial class MyGrammarParser : Parser
         }
     };
 
-    // $ANTLR start "varInitValue"
-    // MyGrammar.g:152:1: varInitValue : ident ( ASSIGN initValue )? -> ^( Assign ident ( initValue )? ) ;
-    public MyGrammarParser.varInitValue_return varInitValue() // throws RecognitionException [1]
+    // $ANTLR start "fieldInitValue"
+    // MyGrammar.g:167:1: fieldInitValue : ident ( ASSIGN initValue )? -> ^( Assign ident ( initValue )? ) ;
+    public MyGrammarParser.fieldInitValue_return fieldInitValue() // throws RecognitionException [1]
     {   
-        MyGrammarParser.varInitValue_return retval = new MyGrammarParser.varInitValue_return();
+        MyGrammarParser.fieldInitValue_return retval = new MyGrammarParser.fieldInitValue_return();
         retval.Start = input.LT(1);
 
         object root_0 = null;
 
-        IToken ASSIGN14 = null;
-        MyGrammarParser.ident_return ident13 = default(MyGrammarParser.ident_return);
+        IToken ASSIGN25 = null;
+        MyGrammarParser.ident_return ident24 = default(MyGrammarParser.ident_return);
 
-        MyGrammarParser.initValue_return initValue15 = default(MyGrammarParser.initValue_return);
+        MyGrammarParser.initValue_return initValue26 = default(MyGrammarParser.initValue_return);
 
 
-        object ASSIGN14_tree=null;
+        object ASSIGN25_tree=null;
         RewriteRuleTokenStream stream_ASSIGN = new RewriteRuleTokenStream(adaptor,"token ASSIGN");
         RewriteRuleSubtreeStream stream_ident = new RewriteRuleSubtreeStream(adaptor,"rule ident");
         RewriteRuleSubtreeStream stream_initValue = new RewriteRuleSubtreeStream(adaptor,"rule initValue");
         try 
     	{
-            // MyGrammar.g:152:14: ( ident ( ASSIGN initValue )? -> ^( Assign ident ( initValue )? ) )
-            // MyGrammar.g:152:17: ident ( ASSIGN initValue )?
+            // MyGrammar.g:167:16: ( ident ( ASSIGN initValue )? -> ^( Assign ident ( initValue )? ) )
+            // MyGrammar.g:167:19: ident ( ASSIGN initValue )?
             {
-            	PushFollow(FOLLOW_ident_in_varInitValue1196);
-            	ident13 = ident();
+            	PushFollow(FOLLOW_ident_in_fieldInitValue1297);
+            	ident24 = ident();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_ident.Add(ident13.Tree);
-            	// MyGrammar.g:152:23: ( ASSIGN initValue )?
-            	int alt3 = 2;
-            	int LA3_0 = input.LA(1);
+            	if ( (state.backtracking==0) ) stream_ident.Add(ident24.Tree);
+            	// MyGrammar.g:167:26: ( ASSIGN initValue )?
+            	int alt5 = 2;
+            	int LA5_0 = input.LA(1);
 
-            	if ( (LA3_0 == ASSIGN) )
+            	if ( (LA5_0 == ASSIGN) )
             	{
-            	    alt3 = 1;
+            	    alt5 = 1;
             	}
-            	switch (alt3) 
+            	switch (alt5) 
             	{
             	    case 1 :
-            	        // MyGrammar.g:152:24: ASSIGN initValue
+            	        // MyGrammar.g:167:27: ASSIGN initValue
             	        {
-            	        	ASSIGN14=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_varInitValue1199); if (state.failed) return retval; 
-            	        	if ( (state.backtracking==0) ) stream_ASSIGN.Add(ASSIGN14);
+            	        	ASSIGN25=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_fieldInitValue1301); if (state.failed) return retval; 
+            	        	if ( (state.backtracking==0) ) stream_ASSIGN.Add(ASSIGN25);
 
-            	        	PushFollow(FOLLOW_initValue_in_varInitValue1201);
-            	        	initValue15 = initValue();
+            	        	PushFollow(FOLLOW_initValue_in_fieldInitValue1303);
+            	        	initValue26 = initValue();
             	        	state.followingStackPointer--;
             	        	if (state.failed) return retval;
-            	        	if ( (state.backtracking==0) ) stream_initValue.Add(initValue15.Tree);
+            	        	if ( (state.backtracking==0) ) stream_initValue.Add(initValue26.Tree);
 
             	        }
             	        break;
@@ -1090,15 +1370,15 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 153:7: -> ^( Assign ident ( initValue )? )
+            	// 168:7: -> ^( Assign ident ( initValue )? )
             	{
-            	    // MyGrammar.g:153:10: ^( Assign ident ( initValue )? )
+            	    // MyGrammar.g:168:10: ^( Assign ident ( initValue )? )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new AssignNode(Assign), root_1);
 
             	    adaptor.AddChild(root_1, stream_ident.NextTree());
-            	    // MyGrammar.g:153:37: ( initValue )?
+            	    // MyGrammar.g:168:37: ( initValue )?
             	    if ( stream_initValue.HasNext() )
             	    {
             	        adaptor.AddChild(root_1, stream_initValue.NextTree());
@@ -1133,7 +1413,7 @@ public partial class MyGrammarParser : Parser
         }
         return retval;
     }
-    // $ANTLR end "varInitValue"
+    // $ANTLR end "fieldInitValue"
 
     public class initValue_return : ParserRuleReturnScope
     {
@@ -1146,7 +1426,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "initValue"
-    // MyGrammar.g:156:1: initValue : ( add | callMethod | ident | inc | dec );
+    // MyGrammar.g:173:1: initValue : ( add | callMethod | ident | inc | dec );
     public MyGrammarParser.initValue_return initValue() // throws RecognitionException [1]
     {   
         MyGrammarParser.initValue_return retval = new MyGrammarParser.initValue_return();
@@ -1154,139 +1434,139 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.add_return add16 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add27 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.callMethod_return callMethod17 = default(MyGrammarParser.callMethod_return);
+        MyGrammarParser.callMethod_return callMethod28 = default(MyGrammarParser.callMethod_return);
 
-        MyGrammarParser.ident_return ident18 = default(MyGrammarParser.ident_return);
+        MyGrammarParser.ident_return ident29 = default(MyGrammarParser.ident_return);
 
-        MyGrammarParser.inc_return inc19 = default(MyGrammarParser.inc_return);
+        MyGrammarParser.inc_return inc30 = default(MyGrammarParser.inc_return);
 
-        MyGrammarParser.dec_return dec20 = default(MyGrammarParser.dec_return);
+        MyGrammarParser.dec_return dec31 = default(MyGrammarParser.dec_return);
 
 
 
         try 
     	{
-            // MyGrammar.g:156:12: ( add | callMethod | ident | inc | dec )
-            int alt4 = 5;
+            // MyGrammar.g:173:12: ( add | callMethod | ident | inc | dec )
+            int alt6 = 5;
             switch ( input.LA(1) ) 
             {
             case INTEGER:
             case DOUBLE_:
-            case 76:
+            case 79:
             	{
-                alt4 = 1;
+                alt6 = 1;
                 }
                 break;
             case ID:
             	{
-                int LA4_2 = input.LA(2);
+                int LA6_2 = input.LA(2);
 
-                if ( (LA4_2 == 81) )
+                if ( (LA6_2 == 84) )
                 {
-                    alt4 = 2;
-                }
-                else if ( (synpred15_MyGrammar()) )
-                {
-                    alt4 = 1;
+                    alt6 = 2;
                 }
                 else if ( (synpred17_MyGrammar()) )
                 {
-                    alt4 = 3;
+                    alt6 = 1;
+                }
+                else if ( (synpred19_MyGrammar()) )
+                {
+                    alt6 = 3;
                 }
                 else 
                 {
                     if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                    NoViableAltException nvae_d4s2 =
-                        new NoViableAltException("", 4, 2, input);
+                    NoViableAltException nvae_d6s2 =
+                        new NoViableAltException("", 6, 2, input);
 
-                    throw nvae_d4s2;
+                    throw nvae_d6s2;
                 }
                 }
                 break;
             case INCREMENT:
             	{
-                alt4 = 4;
+                alt6 = 4;
                 }
                 break;
             case DECREMENT:
             	{
-                alt4 = 5;
+                alt6 = 5;
                 }
                 break;
             	default:
             	    if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-            	    NoViableAltException nvae_d4s0 =
-            	        new NoViableAltException("", 4, 0, input);
+            	    NoViableAltException nvae_d6s0 =
+            	        new NoViableAltException("", 6, 0, input);
 
-            	    throw nvae_d4s0;
+            	    throw nvae_d6s0;
             }
 
-            switch (alt4) 
+            switch (alt6) 
             {
                 case 1 :
-                    // MyGrammar.g:156:14: add
+                    // MyGrammar.g:173:14: add
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_add_in_initValue1239);
-                    	add16 = add();
+                    	PushFollow(FOLLOW_add_in_initValue1343);
+                    	add27 = add();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, add16.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, add27.Tree);
 
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:157:7: callMethod
+                    // MyGrammar.g:174:7: callMethod
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_callMethod_in_initValue1247);
-                    	callMethod17 = callMethod();
+                    	PushFollow(FOLLOW_callMethod_in_initValue1351);
+                    	callMethod28 = callMethod();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, callMethod17.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, callMethod28.Tree);
 
                     }
                     break;
                 case 3 :
-                    // MyGrammar.g:158:7: ident
+                    // MyGrammar.g:175:7: ident
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_ident_in_initValue1255);
-                    	ident18 = ident();
+                    	PushFollow(FOLLOW_ident_in_initValue1359);
+                    	ident29 = ident();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, ident18.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, ident29.Tree);
 
                     }
                     break;
                 case 4 :
-                    // MyGrammar.g:159:7: inc
+                    // MyGrammar.g:176:7: inc
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_inc_in_initValue1263);
-                    	inc19 = inc();
+                    	PushFollow(FOLLOW_inc_in_initValue1367);
+                    	inc30 = inc();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, inc19.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, inc30.Tree);
 
                     }
                     break;
                 case 5 :
-                    // MyGrammar.g:160:7: dec
+                    // MyGrammar.g:177:7: dec
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_dec_in_initValue1271);
-                    	dec20 = dec();
+                    	PushFollow(FOLLOW_dec_in_initValue1375);
+                    	dec31 = dec();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, dec20.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, dec31.Tree);
 
                     }
                     break;
@@ -1313,135 +1593,6 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "initValue"
 
-    public class oneArray_return : ParserRuleReturnScope
-    {
-        private object tree;
-        override public object Tree
-        {
-        	get { return tree; }
-        	set { tree = (object) value; }
-        }
-    };
-
-    // $ANTLR start "oneArray"
-    // MyGrammar.g:163:1: oneArray : type ident '[' number ']' -> ^( ONEARRAY ^( ident ^( COUNT number ) ) ) ;
-    public MyGrammarParser.oneArray_return oneArray() // throws RecognitionException [1]
-    {   
-        MyGrammarParser.oneArray_return retval = new MyGrammarParser.oneArray_return();
-        retval.Start = input.LT(1);
-
-        object root_0 = null;
-
-        IToken char_literal23 = null;
-        IToken char_literal25 = null;
-        MyGrammarParser.type_return type21 = default(MyGrammarParser.type_return);
-
-        MyGrammarParser.ident_return ident22 = default(MyGrammarParser.ident_return);
-
-        MyGrammarParser.number_return number24 = default(MyGrammarParser.number_return);
-
-
-        object char_literal23_tree=null;
-        object char_literal25_tree=null;
-        RewriteRuleTokenStream stream_74 = new RewriteRuleTokenStream(adaptor,"token 74");
-        RewriteRuleTokenStream stream_75 = new RewriteRuleTokenStream(adaptor,"token 75");
-        RewriteRuleSubtreeStream stream_number = new RewriteRuleSubtreeStream(adaptor,"rule number");
-        RewriteRuleSubtreeStream stream_ident = new RewriteRuleSubtreeStream(adaptor,"rule ident");
-        RewriteRuleSubtreeStream stream_type = new RewriteRuleSubtreeStream(adaptor,"rule type");
-        try 
-    	{
-            // MyGrammar.g:163:10: ( type ident '[' number ']' -> ^( ONEARRAY ^( ident ^( COUNT number ) ) ) )
-            // MyGrammar.g:163:12: type ident '[' number ']'
-            {
-            	PushFollow(FOLLOW_type_in_oneArray1284);
-            	type21 = type();
-            	state.followingStackPointer--;
-            	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_type.Add(type21.Tree);
-            	PushFollow(FOLLOW_ident_in_oneArray1286);
-            	ident22 = ident();
-            	state.followingStackPointer--;
-            	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_ident.Add(ident22.Tree);
-            	char_literal23=(IToken)Match(input,74,FOLLOW_74_in_oneArray1288); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_74.Add(char_literal23);
-
-            	PushFollow(FOLLOW_number_in_oneArray1290);
-            	number24 = number();
-            	state.followingStackPointer--;
-            	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_number.Add(number24.Tree);
-            	char_literal25=(IToken)Match(input,75,FOLLOW_75_in_oneArray1292); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_75.Add(char_literal25);
-
-
-
-            	// AST REWRITE
-            	// elements:          ident, number
-            	// token labels:      
-            	// rule labels:       retval
-            	// token list labels: 
-            	// rule list labels:  
-            	// wildcard labels: 
-            	if ( (state.backtracking==0) ) {
-            	retval.Tree = root_0;
-            	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
-
-            	root_0 = (object)adaptor.GetNilNode();
-            	// 164:5: -> ^( ONEARRAY ^( ident ^( COUNT number ) ) )
-            	{
-            	    // MyGrammar.g:164:8: ^( ONEARRAY ^( ident ^( COUNT number ) ) )
-            	    {
-            	    object root_1 = (object)adaptor.GetNilNode();
-            	    root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(ONEARRAY, "ONEARRAY"), root_1);
-
-            	    // MyGrammar.g:164:19: ^( ident ^( COUNT number ) )
-            	    {
-            	    object root_2 = (object)adaptor.GetNilNode();
-            	    root_2 = (object)adaptor.BecomeRoot(stream_ident.NextNode(), root_2);
-
-            	    // MyGrammar.g:164:27: ^( COUNT number )
-            	    {
-            	    object root_3 = (object)adaptor.GetNilNode();
-            	    root_3 = (object)adaptor.BecomeRoot((object)adaptor.Create(COUNT, "COUNT"), root_3);
-
-            	    adaptor.AddChild(root_3, stream_number.NextTree());
-
-            	    adaptor.AddChild(root_2, root_3);
-            	    }
-
-            	    adaptor.AddChild(root_1, root_2);
-            	    }
-
-            	    adaptor.AddChild(root_0, root_1);
-            	    }
-
-            	}
-
-            	retval.Tree = root_0;retval.Tree = root_0;}
-            }
-
-            retval.Stop = input.LT(-1);
-
-            if ( (state.backtracking==0) )
-            {	retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);}
-        }
-        catch (RecognitionException re) 
-    	{
-            ReportError(re);
-            Recover(input,re);
-    	// Conversion of the second argument necessary, but harmless
-    	retval.Tree = (object)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
-
-        }
-        finally 
-    	{
-        }
-        return retval;
-    }
-    // $ANTLR end "oneArray"
-
     public class addOperation_return : ParserRuleReturnScope
     {
         private object tree;
@@ -1453,7 +1604,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "addOperation"
-    // MyGrammar.g:167:1: addOperation : ( PLUS -> Plus | MINUS -> Minus );
+    // MyGrammar.g:181:1: addOperation : ( PLUS -> Plus | MINUS -> Minus );
     public MyGrammarParser.addOperation_return addOperation() // throws RecognitionException [1]
     {   
         MyGrammarParser.addOperation_return retval = new MyGrammarParser.addOperation_return();
@@ -1461,43 +1612,43 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken PLUS26 = null;
-        IToken MINUS27 = null;
+        IToken PLUS32 = null;
+        IToken MINUS33 = null;
 
-        object PLUS26_tree=null;
-        object MINUS27_tree=null;
+        object PLUS32_tree=null;
+        object MINUS33_tree=null;
         RewriteRuleTokenStream stream_PLUS = new RewriteRuleTokenStream(adaptor,"token PLUS");
         RewriteRuleTokenStream stream_MINUS = new RewriteRuleTokenStream(adaptor,"token MINUS");
 
         try 
     	{
-            // MyGrammar.g:167:14: ( PLUS -> Plus | MINUS -> Minus )
-            int alt5 = 2;
-            int LA5_0 = input.LA(1);
+            // MyGrammar.g:181:14: ( PLUS -> Plus | MINUS -> Minus )
+            int alt7 = 2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA5_0 == PLUS) )
+            if ( (LA7_0 == PLUS) )
             {
-                alt5 = 1;
+                alt7 = 1;
             }
-            else if ( (LA5_0 == MINUS) )
+            else if ( (LA7_0 == MINUS) )
             {
-                alt5 = 2;
+                alt7 = 2;
             }
             else 
             {
                 if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                NoViableAltException nvae_d5s0 =
-                    new NoViableAltException("", 5, 0, input);
+                NoViableAltException nvae_d7s0 =
+                    new NoViableAltException("", 7, 0, input);
 
-                throw nvae_d5s0;
+                throw nvae_d7s0;
             }
-            switch (alt5) 
+            switch (alt7) 
             {
                 case 1 :
-                    // MyGrammar.g:167:16: PLUS
+                    // MyGrammar.g:181:16: PLUS
                     {
-                    	PLUS26=(IToken)Match(input,PLUS,FOLLOW_PLUS_in_addOperation1324); if (state.failed) return retval; 
-                    	if ( (state.backtracking==0) ) stream_PLUS.Add(PLUS26);
+                    	PLUS32=(IToken)Match(input,PLUS,FOLLOW_PLUS_in_addOperation1389); if (state.failed) return retval; 
+                    	if ( (state.backtracking==0) ) stream_PLUS.Add(PLUS32);
 
 
 
@@ -1513,7 +1664,7 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 167:21: -> Plus
+                    	// 181:21: -> Plus
                     	{
                     	    adaptor.AddChild(root_0, new PlusNode(Plus));
 
@@ -1523,10 +1674,10 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:168:7: MINUS
+                    // MyGrammar.g:182:7: MINUS
                     {
-                    	MINUS27=(IToken)Match(input,MINUS,FOLLOW_MINUS_in_addOperation1339); if (state.failed) return retval; 
-                    	if ( (state.backtracking==0) ) stream_MINUS.Add(MINUS27);
+                    	MINUS33=(IToken)Match(input,MINUS,FOLLOW_MINUS_in_addOperation1404); if (state.failed) return retval; 
+                    	if ( (state.backtracking==0) ) stream_MINUS.Add(MINUS33);
 
 
 
@@ -1542,7 +1693,7 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 168:13: -> Minus
+                    	// 182:13: -> Minus
                     	{
                     	    adaptor.AddChild(root_0, new MinusNode(Minus));
 
@@ -1585,7 +1736,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "multOperation"
-    // MyGrammar.g:171:1: multOperation : ( MULTIPLY -> MULT | DIVIDE -> DIVIDE );
+    // MyGrammar.g:185:1: multOperation : ( MULTIPLY -> MULT | DIVIDE -> DIVIDE );
     public MyGrammarParser.multOperation_return multOperation() // throws RecognitionException [1]
     {   
         MyGrammarParser.multOperation_return retval = new MyGrammarParser.multOperation_return();
@@ -1593,43 +1744,43 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken MULTIPLY28 = null;
-        IToken DIVIDE29 = null;
+        IToken MULTIPLY34 = null;
+        IToken DIVIDE35 = null;
 
-        object MULTIPLY28_tree=null;
-        object DIVIDE29_tree=null;
+        object MULTIPLY34_tree=null;
+        object DIVIDE35_tree=null;
         RewriteRuleTokenStream stream_MULTIPLY = new RewriteRuleTokenStream(adaptor,"token MULTIPLY");
         RewriteRuleTokenStream stream_DIVIDE = new RewriteRuleTokenStream(adaptor,"token DIVIDE");
 
         try 
     	{
-            // MyGrammar.g:171:15: ( MULTIPLY -> MULT | DIVIDE -> DIVIDE )
-            int alt6 = 2;
-            int LA6_0 = input.LA(1);
+            // MyGrammar.g:185:15: ( MULTIPLY -> MULT | DIVIDE -> DIVIDE )
+            int alt8 = 2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA6_0 == MULTIPLY) )
+            if ( (LA8_0 == MULTIPLY) )
             {
-                alt6 = 1;
+                alt8 = 1;
             }
-            else if ( (LA6_0 == DIVIDE) )
+            else if ( (LA8_0 == DIVIDE) )
             {
-                alt6 = 2;
+                alt8 = 2;
             }
             else 
             {
                 if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                NoViableAltException nvae_d6s0 =
-                    new NoViableAltException("", 6, 0, input);
+                NoViableAltException nvae_d8s0 =
+                    new NoViableAltException("", 8, 0, input);
 
-                throw nvae_d6s0;
+                throw nvae_d8s0;
             }
-            switch (alt6) 
+            switch (alt8) 
             {
                 case 1 :
-                    // MyGrammar.g:171:17: MULTIPLY
+                    // MyGrammar.g:185:17: MULTIPLY
                     {
-                    	MULTIPLY28=(IToken)Match(input,MULTIPLY,FOLLOW_MULTIPLY_in_multOperation1359); if (state.failed) return retval; 
-                    	if ( (state.backtracking==0) ) stream_MULTIPLY.Add(MULTIPLY28);
+                    	MULTIPLY34=(IToken)Match(input,MULTIPLY,FOLLOW_MULTIPLY_in_multOperation1424); if (state.failed) return retval; 
+                    	if ( (state.backtracking==0) ) stream_MULTIPLY.Add(MULTIPLY34);
 
 
 
@@ -1645,7 +1796,7 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 171:26: -> MULT
+                    	// 185:26: -> MULT
                     	{
                     	    adaptor.AddChild(root_0, new MultNode(MULT));
 
@@ -1655,10 +1806,10 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:172:7: DIVIDE
+                    // MyGrammar.g:186:7: DIVIDE
                     {
-                    	DIVIDE29=(IToken)Match(input,DIVIDE,FOLLOW_DIVIDE_in_multOperation1374); if (state.failed) return retval; 
-                    	if ( (state.backtracking==0) ) stream_DIVIDE.Add(DIVIDE29);
+                    	DIVIDE35=(IToken)Match(input,DIVIDE,FOLLOW_DIVIDE_in_multOperation1439); if (state.failed) return retval; 
+                    	if ( (state.backtracking==0) ) stream_DIVIDE.Add(DIVIDE35);
 
 
 
@@ -1674,7 +1825,7 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 172:14: -> DIVIDE
+                    	// 186:14: -> DIVIDE
                     	{
                     	    adaptor.AddChild(root_0, new DivideNode(stream_DIVIDE.NextToken()));
 
@@ -1717,7 +1868,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "group"
-    // MyGrammar.g:175:1: group : ( '(' add ')' | number | ident );
+    // MyGrammar.g:189:1: group : ( '(' add ')' | number | ident );
     public MyGrammarParser.group_return group() // throws RecognitionException [1]
     {   
         MyGrammarParser.group_return retval = new MyGrammarParser.group_return();
@@ -1725,88 +1876,88 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken char_literal30 = null;
-        IToken char_literal32 = null;
-        MyGrammarParser.add_return add31 = default(MyGrammarParser.add_return);
+        IToken char_literal36 = null;
+        IToken char_literal38 = null;
+        MyGrammarParser.add_return add37 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.number_return number33 = default(MyGrammarParser.number_return);
+        MyGrammarParser.number_return number39 = default(MyGrammarParser.number_return);
 
-        MyGrammarParser.ident_return ident34 = default(MyGrammarParser.ident_return);
+        MyGrammarParser.ident_return ident40 = default(MyGrammarParser.ident_return);
 
 
-        object char_literal30_tree=null;
-        object char_literal32_tree=null;
+        object char_literal36_tree=null;
+        object char_literal38_tree=null;
 
         try 
     	{
-            // MyGrammar.g:175:7: ( '(' add ')' | number | ident )
-            int alt7 = 3;
+            // MyGrammar.g:189:7: ( '(' add ')' | number | ident )
+            int alt9 = 3;
             switch ( input.LA(1) ) 
             {
-            case 76:
+            case 79:
             	{
-                alt7 = 1;
+                alt9 = 1;
                 }
                 break;
             case INTEGER:
             case DOUBLE_:
             	{
-                alt7 = 2;
+                alt9 = 2;
                 }
                 break;
             case ID:
             	{
-                alt7 = 3;
+                alt9 = 3;
                 }
                 break;
             	default:
             	    if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-            	    NoViableAltException nvae_d7s0 =
-            	        new NoViableAltException("", 7, 0, input);
+            	    NoViableAltException nvae_d9s0 =
+            	        new NoViableAltException("", 9, 0, input);
 
-            	    throw nvae_d7s0;
+            	    throw nvae_d9s0;
             }
 
-            switch (alt7) 
+            switch (alt9) 
             {
                 case 1 :
-                    // MyGrammar.g:175:9: '(' add ')'
+                    // MyGrammar.g:189:9: '(' add ')'
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	char_literal30=(IToken)Match(input,76,FOLLOW_76_in_group1397); if (state.failed) return retval;
-                    	PushFollow(FOLLOW_add_in_group1400);
-                    	add31 = add();
+                    	char_literal36=(IToken)Match(input,79,FOLLOW_79_in_group1462); if (state.failed) return retval;
+                    	PushFollow(FOLLOW_add_in_group1465);
+                    	add37 = add();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, add31.Tree);
-                    	char_literal32=(IToken)Match(input,77,FOLLOW_77_in_group1402); if (state.failed) return retval;
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, add37.Tree);
+                    	char_literal38=(IToken)Match(input,80,FOLLOW_80_in_group1467); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:176:5: number
+                    // MyGrammar.g:190:5: number
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_number_in_group1410);
-                    	number33 = number();
+                    	PushFollow(FOLLOW_number_in_group1475);
+                    	number39 = number();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, number33.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, number39.Tree);
 
                     }
                     break;
                 case 3 :
-                    // MyGrammar.g:177:5: ident
+                    // MyGrammar.g:191:5: ident
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_ident_in_group1416);
-                    	ident34 = ident();
+                    	PushFollow(FOLLOW_ident_in_group1481);
+                    	ident40 = ident();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, ident34.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, ident40.Tree);
 
                     }
                     break;
@@ -1844,7 +1995,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "mult"
-    // MyGrammar.g:180:1: mult : group ( multOperation group )* ;
+    // MyGrammar.g:194:1: mult : group ( multOperation group )* ;
     public MyGrammarParser.mult_return mult() // throws RecognitionException [1]
     {   
         MyGrammarParser.mult_return retval = new MyGrammarParser.mult_return();
@@ -1852,64 +2003,64 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.group_return group35 = default(MyGrammarParser.group_return);
+        MyGrammarParser.group_return group41 = default(MyGrammarParser.group_return);
 
-        MyGrammarParser.multOperation_return multOperation36 = default(MyGrammarParser.multOperation_return);
+        MyGrammarParser.multOperation_return multOperation42 = default(MyGrammarParser.multOperation_return);
 
-        MyGrammarParser.group_return group37 = default(MyGrammarParser.group_return);
+        MyGrammarParser.group_return group43 = default(MyGrammarParser.group_return);
 
 
 
         try 
     	{
-            // MyGrammar.g:180:6: ( group ( multOperation group )* )
-            // MyGrammar.g:180:8: group ( multOperation group )*
+            // MyGrammar.g:194:6: ( group ( multOperation group )* )
+            // MyGrammar.g:194:8: group ( multOperation group )*
             {
             	root_0 = (object)adaptor.GetNilNode();
 
-            	PushFollow(FOLLOW_group_in_mult1431);
-            	group35 = group();
+            	PushFollow(FOLLOW_group_in_mult1496);
+            	group41 = group();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, group35.Tree);
-            	// MyGrammar.g:180:14: ( multOperation group )*
+            	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, group41.Tree);
+            	// MyGrammar.g:194:14: ( multOperation group )*
             	do 
             	{
-            	    int alt8 = 2;
-            	    int LA8_0 = input.LA(1);
+            	    int alt10 = 2;
+            	    int LA10_0 = input.LA(1);
 
-            	    if ( ((LA8_0 >= MULTIPLY && LA8_0 <= DIVIDE)) )
+            	    if ( ((LA10_0 >= MULTIPLY && LA10_0 <= DIVIDE)) )
             	    {
-            	        alt8 = 1;
+            	        alt10 = 1;
             	    }
 
 
-            	    switch (alt8) 
+            	    switch (alt10) 
             		{
             			case 1 :
-            			    // MyGrammar.g:180:16: multOperation group
+            			    // MyGrammar.g:194:16: multOperation group
             			    {
-            			    	PushFollow(FOLLOW_multOperation_in_mult1435);
-            			    	multOperation36 = multOperation();
+            			    	PushFollow(FOLLOW_multOperation_in_mult1500);
+            			    	multOperation42 = multOperation();
             			    	state.followingStackPointer--;
             			    	if (state.failed) return retval;
-            			    	if ( state.backtracking == 0 ) root_0 = (object)adaptor.BecomeRoot(multOperation36.Tree, root_0);
-            			    	PushFollow(FOLLOW_group_in_mult1438);
-            			    	group37 = group();
+            			    	if ( state.backtracking == 0 ) root_0 = (object)adaptor.BecomeRoot(multOperation42.Tree, root_0);
+            			    	PushFollow(FOLLOW_group_in_mult1503);
+            			    	group43 = group();
             			    	state.followingStackPointer--;
             			    	if (state.failed) return retval;
-            			    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, group37.Tree);
+            			    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, group43.Tree);
 
             			    }
             			    break;
 
             			default:
-            			    goto loop8;
+            			    goto loop10;
             	    }
             	} while (true);
 
-            	loop8:
-            		;	// Stops C# compiler whining that label 'loop8' has no statements
+            	loop10:
+            		;	// Stops C# compiler whining that label 'loop10' has no statements
 
 
             }
@@ -1946,7 +2097,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "add"
-    // MyGrammar.g:182:1: add : mult ( addOperation mult )* ;
+    // MyGrammar.g:196:1: add : mult ( addOperation mult )* ;
     public MyGrammarParser.add_return add() // throws RecognitionException [1]
     {   
         MyGrammarParser.add_return retval = new MyGrammarParser.add_return();
@@ -1954,64 +2105,64 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.mult_return mult38 = default(MyGrammarParser.mult_return);
+        MyGrammarParser.mult_return mult44 = default(MyGrammarParser.mult_return);
 
-        MyGrammarParser.addOperation_return addOperation39 = default(MyGrammarParser.addOperation_return);
+        MyGrammarParser.addOperation_return addOperation45 = default(MyGrammarParser.addOperation_return);
 
-        MyGrammarParser.mult_return mult40 = default(MyGrammarParser.mult_return);
+        MyGrammarParser.mult_return mult46 = default(MyGrammarParser.mult_return);
 
 
 
         try 
     	{
-            // MyGrammar.g:182:6: ( mult ( addOperation mult )* )
-            // MyGrammar.g:182:8: mult ( addOperation mult )*
+            // MyGrammar.g:196:6: ( mult ( addOperation mult )* )
+            // MyGrammar.g:196:8: mult ( addOperation mult )*
             {
             	root_0 = (object)adaptor.GetNilNode();
 
-            	PushFollow(FOLLOW_mult_in_add1450);
-            	mult38 = mult();
+            	PushFollow(FOLLOW_mult_in_add1515);
+            	mult44 = mult();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, mult38.Tree);
-            	// MyGrammar.g:182:13: ( addOperation mult )*
+            	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, mult44.Tree);
+            	// MyGrammar.g:196:13: ( addOperation mult )*
             	do 
             	{
-            	    int alt9 = 2;
-            	    int LA9_0 = input.LA(1);
+            	    int alt11 = 2;
+            	    int LA11_0 = input.LA(1);
 
-            	    if ( ((LA9_0 >= PLUS && LA9_0 <= MINUS)) )
+            	    if ( ((LA11_0 >= PLUS && LA11_0 <= MINUS)) )
             	    {
-            	        alt9 = 1;
+            	        alt11 = 1;
             	    }
 
 
-            	    switch (alt9) 
+            	    switch (alt11) 
             		{
             			case 1 :
-            			    // MyGrammar.g:182:15: addOperation mult
+            			    // MyGrammar.g:196:15: addOperation mult
             			    {
-            			    	PushFollow(FOLLOW_addOperation_in_add1454);
-            			    	addOperation39 = addOperation();
+            			    	PushFollow(FOLLOW_addOperation_in_add1519);
+            			    	addOperation45 = addOperation();
             			    	state.followingStackPointer--;
             			    	if (state.failed) return retval;
-            			    	if ( state.backtracking == 0 ) root_0 = (object)adaptor.BecomeRoot(addOperation39.Tree, root_0);
-            			    	PushFollow(FOLLOW_mult_in_add1457);
-            			    	mult40 = mult();
+            			    	if ( state.backtracking == 0 ) root_0 = (object)adaptor.BecomeRoot(addOperation45.Tree, root_0);
+            			    	PushFollow(FOLLOW_mult_in_add1522);
+            			    	mult46 = mult();
             			    	state.followingStackPointer--;
             			    	if (state.failed) return retval;
-            			    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, mult40.Tree);
+            			    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, mult46.Tree);
 
             			    }
             			    break;
 
             			default:
-            			    goto loop9;
+            			    goto loop11;
             	    }
             	} while (true);
 
-            	loop9:
-            		;	// Stops C# compiler whining that label 'loop9' has no statements
+            	loop11:
+            		;	// Stops C# compiler whining that label 'loop11' has no statements
 
 
             }
@@ -2048,7 +2199,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "print"
-    // MyGrammar.g:184:1: print : PRINT '(' printExpr ')' -> ^( PRINT printExpr ) ;
+    // MyGrammar.g:198:1: print : PRINT '(' printExpr ')' -> ^( PRINT printExpr ) ;
     public MyGrammarParser.print_return print() // throws RecognitionException [1]
     {   
         MyGrammarParser.print_return retval = new MyGrammarParser.print_return();
@@ -2056,42 +2207,42 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken PRINT41 = null;
-        IToken char_literal42 = null;
-        IToken char_literal44 = null;
-        MyGrammarParser.printExpr_return printExpr43 = default(MyGrammarParser.printExpr_return);
+        IToken PRINT47 = null;
+        IToken char_literal48 = null;
+        IToken char_literal50 = null;
+        MyGrammarParser.printExpr_return printExpr49 = default(MyGrammarParser.printExpr_return);
 
 
-        object PRINT41_tree=null;
-        object char_literal42_tree=null;
-        object char_literal44_tree=null;
+        object PRINT47_tree=null;
+        object char_literal48_tree=null;
+        object char_literal50_tree=null;
         RewriteRuleTokenStream stream_PRINT = new RewriteRuleTokenStream(adaptor,"token PRINT");
-        RewriteRuleTokenStream stream_77 = new RewriteRuleTokenStream(adaptor,"token 77");
-        RewriteRuleTokenStream stream_76 = new RewriteRuleTokenStream(adaptor,"token 76");
+        RewriteRuleTokenStream stream_79 = new RewriteRuleTokenStream(adaptor,"token 79");
+        RewriteRuleTokenStream stream_80 = new RewriteRuleTokenStream(adaptor,"token 80");
         RewriteRuleSubtreeStream stream_printExpr = new RewriteRuleSubtreeStream(adaptor,"rule printExpr");
         try 
     	{
-            // MyGrammar.g:184:7: ( PRINT '(' printExpr ')' -> ^( PRINT printExpr ) )
-            // MyGrammar.g:184:9: PRINT '(' printExpr ')'
+            // MyGrammar.g:198:7: ( PRINT '(' printExpr ')' -> ^( PRINT printExpr ) )
+            // MyGrammar.g:198:9: PRINT '(' printExpr ')'
             {
-            	PRINT41=(IToken)Match(input,PRINT,FOLLOW_PRINT_in_print1468); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_PRINT.Add(PRINT41);
+            	PRINT47=(IToken)Match(input,PRINT,FOLLOW_PRINT_in_print1533); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_PRINT.Add(PRINT47);
 
-            	char_literal42=(IToken)Match(input,76,FOLLOW_76_in_print1470); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_76.Add(char_literal42);
+            	char_literal48=(IToken)Match(input,79,FOLLOW_79_in_print1535); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_79.Add(char_literal48);
 
-            	PushFollow(FOLLOW_printExpr_in_print1472);
-            	printExpr43 = printExpr();
+            	PushFollow(FOLLOW_printExpr_in_print1537);
+            	printExpr49 = printExpr();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_printExpr.Add(printExpr43.Tree);
-            	char_literal44=(IToken)Match(input,77,FOLLOW_77_in_print1474); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_77.Add(char_literal44);
+            	if ( (state.backtracking==0) ) stream_printExpr.Add(printExpr49.Tree);
+            	char_literal50=(IToken)Match(input,80,FOLLOW_80_in_print1539); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_80.Add(char_literal50);
 
 
 
             	// AST REWRITE
-            	// elements:          PRINT, printExpr
+            	// elements:          printExpr, PRINT
             	// token labels:      
             	// rule labels:       retval
             	// token list labels: 
@@ -2102,9 +2253,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 185:4: -> ^( PRINT printExpr )
+            	// 199:4: -> ^( PRINT printExpr )
             	{
-            	    // MyGrammar.g:185:7: ^( PRINT printExpr )
+            	    // MyGrammar.g:199:7: ^( PRINT printExpr )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(stream_PRINT.NextNode(), root_1);
@@ -2151,7 +2302,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "block"
-    // MyGrammar.g:188:1: block : '{' ( line )* '}' -> ^( BLOCK ( line )* ) ;
+    // MyGrammar.g:202:1: block : '{' ( line )* '}' -> ^( BLOCK ( line )* ) ;
     public MyGrammarParser.block_return block() // throws RecognitionException [1]
     {   
         MyGrammarParser.block_return retval = new MyGrammarParser.block_return();
@@ -2159,60 +2310,60 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken char_literal45 = null;
-        IToken char_literal47 = null;
-        MyGrammarParser.line_return line46 = default(MyGrammarParser.line_return);
+        IToken char_literal51 = null;
+        IToken char_literal53 = null;
+        MyGrammarParser.line_return line52 = default(MyGrammarParser.line_return);
 
 
-        object char_literal45_tree=null;
-        object char_literal47_tree=null;
-        RewriteRuleTokenStream stream_78 = new RewriteRuleTokenStream(adaptor,"token 78");
-        RewriteRuleTokenStream stream_79 = new RewriteRuleTokenStream(adaptor,"token 79");
+        object char_literal51_tree=null;
+        object char_literal53_tree=null;
+        RewriteRuleTokenStream stream_81 = new RewriteRuleTokenStream(adaptor,"token 81");
+        RewriteRuleTokenStream stream_82 = new RewriteRuleTokenStream(adaptor,"token 82");
         RewriteRuleSubtreeStream stream_line = new RewriteRuleSubtreeStream(adaptor,"rule line");
         try 
     	{
-            // MyGrammar.g:188:7: ( '{' ( line )* '}' -> ^( BLOCK ( line )* ) )
-            // MyGrammar.g:188:9: '{' ( line )* '}'
+            // MyGrammar.g:202:7: ( '{' ( line )* '}' -> ^( BLOCK ( line )* ) )
+            // MyGrammar.g:202:9: '{' ( line )* '}'
             {
-            	char_literal45=(IToken)Match(input,78,FOLLOW_78_in_block1496); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_78.Add(char_literal45);
+            	char_literal51=(IToken)Match(input,81,FOLLOW_81_in_block1561); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_81.Add(char_literal51);
 
-            	// MyGrammar.g:188:13: ( line )*
+            	// MyGrammar.g:202:13: ( line )*
             	do 
             	{
-            	    int alt10 = 2;
-            	    int LA10_0 = input.LA(1);
+            	    int alt12 = 2;
+            	    int LA12_0 = input.LA(1);
 
-            	    if ( (LA10_0 == PRINT || LA10_0 == IF || (LA10_0 >= INT && LA10_0 <= VOID) || (LA10_0 >= FOR && LA10_0 <= WHILE) || (LA10_0 >= INTEGER && LA10_0 <= ID) || LA10_0 == 76) )
+            	    if ( (LA12_0 == PRINT || LA12_0 == IF || (LA12_0 >= INT && LA12_0 <= VOID) || (LA12_0 >= FOR && LA12_0 <= WHILE) || (LA12_0 >= INTEGER && LA12_0 <= ID) || LA12_0 == 79) )
             	    {
-            	        alt10 = 1;
+            	        alt12 = 1;
             	    }
 
 
-            	    switch (alt10) 
+            	    switch (alt12) 
             		{
             			case 1 :
             			    // MyGrammar.g:0:0: line
             			    {
-            			    	PushFollow(FOLLOW_line_in_block1498);
-            			    	line46 = line();
+            			    	PushFollow(FOLLOW_line_in_block1563);
+            			    	line52 = line();
             			    	state.followingStackPointer--;
             			    	if (state.failed) return retval;
-            			    	if ( (state.backtracking==0) ) stream_line.Add(line46.Tree);
+            			    	if ( (state.backtracking==0) ) stream_line.Add(line52.Tree);
 
             			    }
             			    break;
 
             			default:
-            			    goto loop10;
+            			    goto loop12;
             	    }
             	} while (true);
 
-            	loop10:
-            		;	// Stops C# compiler whining that label 'loop10' has no statements
+            	loop12:
+            		;	// Stops C# compiler whining that label 'loop12' has no statements
 
-            	char_literal47=(IToken)Match(input,79,FOLLOW_79_in_block1501); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_79.Add(char_literal47);
+            	char_literal53=(IToken)Match(input,82,FOLLOW_82_in_block1566); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_82.Add(char_literal53);
 
 
 
@@ -2228,14 +2379,14 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 188:23: -> ^( BLOCK ( line )* )
+            	// 202:23: -> ^( BLOCK ( line )* )
             	{
-            	    // MyGrammar.g:188:26: ^( BLOCK ( line )* )
+            	    // MyGrammar.g:202:26: ^( BLOCK ( line )* )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new CodeBlockNode(BLOCK), root_1);
 
-            	    // MyGrammar.g:188:49: ( line )*
+            	    // MyGrammar.g:202:49: ( line )*
             	    while ( stream_line.HasNext() )
             	    {
             	        adaptor.AddChild(root_1, stream_line.NextTree());
@@ -2283,7 +2434,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "if_"
-    // MyGrammar.g:192:1: if_ : IF '(' logicOperator ')' block ( ELSE block )? -> ^( If logicOperator block ( ^( ELSE block ) )? ) ;
+    // MyGrammar.g:206:1: if_ : IF '(' logicOperator ')' block ( ELSE block )? -> ^( If logicOperator block ( ^( ELSE block ) )? ) ;
     public MyGrammarParser.if__return if_() // throws RecognitionException [1]
     {   
         MyGrammarParser.if__return retval = new MyGrammarParser.if__return();
@@ -2291,72 +2442,72 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken IF48 = null;
-        IToken char_literal49 = null;
-        IToken char_literal51 = null;
-        IToken ELSE53 = null;
-        MyGrammarParser.logicOperator_return logicOperator50 = default(MyGrammarParser.logicOperator_return);
+        IToken IF54 = null;
+        IToken char_literal55 = null;
+        IToken char_literal57 = null;
+        IToken ELSE59 = null;
+        MyGrammarParser.logicOperator_return logicOperator56 = default(MyGrammarParser.logicOperator_return);
 
-        MyGrammarParser.block_return block52 = default(MyGrammarParser.block_return);
+        MyGrammarParser.block_return block58 = default(MyGrammarParser.block_return);
 
-        MyGrammarParser.block_return block54 = default(MyGrammarParser.block_return);
+        MyGrammarParser.block_return block60 = default(MyGrammarParser.block_return);
 
 
-        object IF48_tree=null;
-        object char_literal49_tree=null;
-        object char_literal51_tree=null;
-        object ELSE53_tree=null;
-        RewriteRuleTokenStream stream_77 = new RewriteRuleTokenStream(adaptor,"token 77");
+        object IF54_tree=null;
+        object char_literal55_tree=null;
+        object char_literal57_tree=null;
+        object ELSE59_tree=null;
+        RewriteRuleTokenStream stream_79 = new RewriteRuleTokenStream(adaptor,"token 79");
+        RewriteRuleTokenStream stream_80 = new RewriteRuleTokenStream(adaptor,"token 80");
         RewriteRuleTokenStream stream_ELSE = new RewriteRuleTokenStream(adaptor,"token ELSE");
         RewriteRuleTokenStream stream_IF = new RewriteRuleTokenStream(adaptor,"token IF");
-        RewriteRuleTokenStream stream_76 = new RewriteRuleTokenStream(adaptor,"token 76");
         RewriteRuleSubtreeStream stream_block = new RewriteRuleSubtreeStream(adaptor,"rule block");
         RewriteRuleSubtreeStream stream_logicOperator = new RewriteRuleSubtreeStream(adaptor,"rule logicOperator");
         try 
     	{
-            // MyGrammar.g:192:6: ( IF '(' logicOperator ')' block ( ELSE block )? -> ^( If logicOperator block ( ^( ELSE block ) )? ) )
-            // MyGrammar.g:192:8: IF '(' logicOperator ')' block ( ELSE block )?
+            // MyGrammar.g:206:6: ( IF '(' logicOperator ')' block ( ELSE block )? -> ^( If logicOperator block ( ^( ELSE block ) )? ) )
+            // MyGrammar.g:206:8: IF '(' logicOperator ')' block ( ELSE block )?
             {
-            	IF48=(IToken)Match(input,IF,FOLLOW_IF_in_if_1526); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_IF.Add(IF48);
+            	IF54=(IToken)Match(input,IF,FOLLOW_IF_in_if_1591); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_IF.Add(IF54);
 
-            	char_literal49=(IToken)Match(input,76,FOLLOW_76_in_if_1528); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_76.Add(char_literal49);
+            	char_literal55=(IToken)Match(input,79,FOLLOW_79_in_if_1593); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_79.Add(char_literal55);
 
-            	PushFollow(FOLLOW_logicOperator_in_if_1530);
-            	logicOperator50 = logicOperator();
+            	PushFollow(FOLLOW_logicOperator_in_if_1595);
+            	logicOperator56 = logicOperator();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_logicOperator.Add(logicOperator50.Tree);
-            	char_literal51=(IToken)Match(input,77,FOLLOW_77_in_if_1532); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_77.Add(char_literal51);
+            	if ( (state.backtracking==0) ) stream_logicOperator.Add(logicOperator56.Tree);
+            	char_literal57=(IToken)Match(input,80,FOLLOW_80_in_if_1597); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_80.Add(char_literal57);
 
-            	PushFollow(FOLLOW_block_in_if_1534);
-            	block52 = block();
+            	PushFollow(FOLLOW_block_in_if_1599);
+            	block58 = block();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_block.Add(block52.Tree);
-            	// MyGrammar.g:192:39: ( ELSE block )?
-            	int alt11 = 2;
-            	int LA11_0 = input.LA(1);
+            	if ( (state.backtracking==0) ) stream_block.Add(block58.Tree);
+            	// MyGrammar.g:206:39: ( ELSE block )?
+            	int alt13 = 2;
+            	int LA13_0 = input.LA(1);
 
-            	if ( (LA11_0 == ELSE) )
+            	if ( (LA13_0 == ELSE) )
             	{
-            	    alt11 = 1;
+            	    alt13 = 1;
             	}
-            	switch (alt11) 
+            	switch (alt13) 
             	{
             	    case 1 :
-            	        // MyGrammar.g:192:40: ELSE block
+            	        // MyGrammar.g:206:40: ELSE block
             	        {
-            	        	ELSE53=(IToken)Match(input,ELSE,FOLLOW_ELSE_in_if_1537); if (state.failed) return retval; 
-            	        	if ( (state.backtracking==0) ) stream_ELSE.Add(ELSE53);
+            	        	ELSE59=(IToken)Match(input,ELSE,FOLLOW_ELSE_in_if_1602); if (state.failed) return retval; 
+            	        	if ( (state.backtracking==0) ) stream_ELSE.Add(ELSE59);
 
-            	        	PushFollow(FOLLOW_block_in_if_1539);
-            	        	block54 = block();
+            	        	PushFollow(FOLLOW_block_in_if_1604);
+            	        	block60 = block();
             	        	state.followingStackPointer--;
             	        	if (state.failed) return retval;
-            	        	if ( (state.backtracking==0) ) stream_block.Add(block54.Tree);
+            	        	if ( (state.backtracking==0) ) stream_block.Add(block60.Tree);
 
             	        }
             	        break;
@@ -2377,19 +2528,19 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 193:4: -> ^( If logicOperator block ( ^( ELSE block ) )? )
+            	// 207:4: -> ^( If logicOperator block ( ^( ELSE block ) )? )
             	{
-            	    // MyGrammar.g:193:7: ^( If logicOperator block ( ^( ELSE block ) )? )
+            	    // MyGrammar.g:207:7: ^( If logicOperator block ( ^( ELSE block ) )? )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new IfNode(If), root_1);
 
             	    adaptor.AddChild(root_1, stream_logicOperator.NextTree());
             	    adaptor.AddChild(root_1, stream_block.NextTree());
-            	    // MyGrammar.g:193:40: ( ^( ELSE block ) )?
+            	    // MyGrammar.g:207:40: ( ^( ELSE block ) )?
             	    if ( stream_ELSE.HasNext() || stream_block.HasNext() )
             	    {
-            	        // MyGrammar.g:193:40: ^( ELSE block )
+            	        // MyGrammar.g:207:40: ^( ELSE block )
             	        {
             	        object root_2 = (object)adaptor.GetNilNode();
             	        root_2 = (object)adaptor.BecomeRoot(stream_ELSE.NextNode(), root_2);
@@ -2443,7 +2594,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "operations"
-    // MyGrammar.g:199:1: operations : ( orOperation -> ^( OrOp orOperation ) | andOperation -> ^( AndOp andOperation ) | eqOp -> ^( EqOp eqOp ) | nonEqOp -> ^( NonEqOp nonEqOp ) | moreOp -> ^( MoreOp moreOp ) | moreEqOp -> ^( MoreEqOp moreEqOp ) | lessOp -> ^( LessOp lessOp ) | lessEqOp -> ^( LessEqOp lessEqOp ) );
+    // MyGrammar.g:213:1: operations : ( orOperation -> ^( OrOp orOperation ) | andOperation -> ^( AndOp andOperation ) | eqOp -> ^( EqOp eqOp ) | nonEqOp -> ^( NonEqOp nonEqOp ) | moreOp -> ^( MoreOp moreOp ) | moreEqOp -> ^( MoreEqOp moreEqOp ) | lessOp -> ^( LessOp lessOp ) | lessEqOp -> ^( LessEqOp lessEqOp ) );
     public MyGrammarParser.operations_return operations() // throws RecognitionException [1]
     {   
         MyGrammarParser.operations_return retval = new MyGrammarParser.operations_return();
@@ -2451,21 +2602,21 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.orOperation_return orOperation55 = default(MyGrammarParser.orOperation_return);
+        MyGrammarParser.orOperation_return orOperation61 = default(MyGrammarParser.orOperation_return);
 
-        MyGrammarParser.andOperation_return andOperation56 = default(MyGrammarParser.andOperation_return);
+        MyGrammarParser.andOperation_return andOperation62 = default(MyGrammarParser.andOperation_return);
 
-        MyGrammarParser.eqOp_return eqOp57 = default(MyGrammarParser.eqOp_return);
+        MyGrammarParser.eqOp_return eqOp63 = default(MyGrammarParser.eqOp_return);
 
-        MyGrammarParser.nonEqOp_return nonEqOp58 = default(MyGrammarParser.nonEqOp_return);
+        MyGrammarParser.nonEqOp_return nonEqOp64 = default(MyGrammarParser.nonEqOp_return);
 
-        MyGrammarParser.moreOp_return moreOp59 = default(MyGrammarParser.moreOp_return);
+        MyGrammarParser.moreOp_return moreOp65 = default(MyGrammarParser.moreOp_return);
 
-        MyGrammarParser.moreEqOp_return moreEqOp60 = default(MyGrammarParser.moreEqOp_return);
+        MyGrammarParser.moreEqOp_return moreEqOp66 = default(MyGrammarParser.moreEqOp_return);
 
-        MyGrammarParser.lessOp_return lessOp61 = default(MyGrammarParser.lessOp_return);
+        MyGrammarParser.lessOp_return lessOp67 = default(MyGrammarParser.lessOp_return);
 
-        MyGrammarParser.lessEqOp_return lessEqOp62 = default(MyGrammarParser.lessEqOp_return);
+        MyGrammarParser.lessEqOp_return lessEqOp68 = default(MyGrammarParser.lessEqOp_return);
 
 
         RewriteRuleSubtreeStream stream_andOperation = new RewriteRuleSubtreeStream(adaptor,"rule andOperation");
@@ -2478,19 +2629,19 @@ public partial class MyGrammarParser : Parser
         RewriteRuleSubtreeStream stream_moreEqOp = new RewriteRuleSubtreeStream(adaptor,"rule moreEqOp");
         try 
     	{
-            // MyGrammar.g:199:14: ( orOperation -> ^( OrOp orOperation ) | andOperation -> ^( AndOp andOperation ) | eqOp -> ^( EqOp eqOp ) | nonEqOp -> ^( NonEqOp nonEqOp ) | moreOp -> ^( MoreOp moreOp ) | moreEqOp -> ^( MoreEqOp moreEqOp ) | lessOp -> ^( LessOp lessOp ) | lessEqOp -> ^( LessEqOp lessEqOp ) )
-            int alt12 = 8;
-            alt12 = dfa12.Predict(input);
-            switch (alt12) 
+            // MyGrammar.g:213:14: ( orOperation -> ^( OrOp orOperation ) | andOperation -> ^( AndOp andOperation ) | eqOp -> ^( EqOp eqOp ) | nonEqOp -> ^( NonEqOp nonEqOp ) | moreOp -> ^( MoreOp moreOp ) | moreEqOp -> ^( MoreEqOp moreEqOp ) | lessOp -> ^( LessOp lessOp ) | lessEqOp -> ^( LessEqOp lessEqOp ) )
+            int alt14 = 8;
+            alt14 = dfa14.Predict(input);
+            switch (alt14) 
             {
                 case 1 :
-                    // MyGrammar.g:199:16: orOperation
+                    // MyGrammar.g:213:16: orOperation
                     {
-                    	PushFollow(FOLLOW_orOperation_in_operations1581);
-                    	orOperation55 = orOperation();
+                    	PushFollow(FOLLOW_orOperation_in_operations1646);
+                    	orOperation61 = orOperation();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( (state.backtracking==0) ) stream_orOperation.Add(orOperation55.Tree);
+                    	if ( (state.backtracking==0) ) stream_orOperation.Add(orOperation61.Tree);
 
 
                     	// AST REWRITE
@@ -2505,9 +2656,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 199:28: -> ^( OrOp orOperation )
+                    	// 213:28: -> ^( OrOp orOperation )
                     	{
-                    	    // MyGrammar.g:199:31: ^( OrOp orOperation )
+                    	    // MyGrammar.g:213:31: ^( OrOp orOperation )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new OrOperationNode(OrOp), root_1);
@@ -2523,13 +2674,13 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:200:8: andOperation
+                    // MyGrammar.g:214:8: andOperation
                     {
-                    	PushFollow(FOLLOW_andOperation_in_operations1601);
-                    	andOperation56 = andOperation();
+                    	PushFollow(FOLLOW_andOperation_in_operations1666);
+                    	andOperation62 = andOperation();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( (state.backtracking==0) ) stream_andOperation.Add(andOperation56.Tree);
+                    	if ( (state.backtracking==0) ) stream_andOperation.Add(andOperation62.Tree);
 
 
                     	// AST REWRITE
@@ -2544,9 +2695,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 200:21: -> ^( AndOp andOperation )
+                    	// 214:21: -> ^( AndOp andOperation )
                     	{
-                    	    // MyGrammar.g:200:24: ^( AndOp andOperation )
+                    	    // MyGrammar.g:214:24: ^( AndOp andOperation )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new AndOperationNode(AndOp), root_1);
@@ -2562,13 +2713,13 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 3 :
-                    // MyGrammar.g:201:8: eqOp
+                    // MyGrammar.g:215:8: eqOp
                     {
-                    	PushFollow(FOLLOW_eqOp_in_operations1621);
-                    	eqOp57 = eqOp();
+                    	PushFollow(FOLLOW_eqOp_in_operations1686);
+                    	eqOp63 = eqOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( (state.backtracking==0) ) stream_eqOp.Add(eqOp57.Tree);
+                    	if ( (state.backtracking==0) ) stream_eqOp.Add(eqOp63.Tree);
 
 
                     	// AST REWRITE
@@ -2583,9 +2734,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 201:13: -> ^( EqOp eqOp )
+                    	// 215:13: -> ^( EqOp eqOp )
                     	{
-                    	    // MyGrammar.g:201:16: ^( EqOp eqOp )
+                    	    // MyGrammar.g:215:16: ^( EqOp eqOp )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new EqualityOperationNode(EqOp), root_1);
@@ -2601,13 +2752,13 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 4 :
-                    // MyGrammar.g:202:8: nonEqOp
+                    // MyGrammar.g:216:8: nonEqOp
                     {
-                    	PushFollow(FOLLOW_nonEqOp_in_operations1641);
-                    	nonEqOp58 = nonEqOp();
+                    	PushFollow(FOLLOW_nonEqOp_in_operations1706);
+                    	nonEqOp64 = nonEqOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( (state.backtracking==0) ) stream_nonEqOp.Add(nonEqOp58.Tree);
+                    	if ( (state.backtracking==0) ) stream_nonEqOp.Add(nonEqOp64.Tree);
 
 
                     	// AST REWRITE
@@ -2622,9 +2773,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 202:16: -> ^( NonEqOp nonEqOp )
+                    	// 216:16: -> ^( NonEqOp nonEqOp )
                     	{
-                    	    // MyGrammar.g:202:19: ^( NonEqOp nonEqOp )
+                    	    // MyGrammar.g:216:19: ^( NonEqOp nonEqOp )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new NonEqualityOperationNode(NonEqOp), root_1);
@@ -2640,13 +2791,13 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 5 :
-                    // MyGrammar.g:203:8: moreOp
+                    // MyGrammar.g:217:8: moreOp
                     {
-                    	PushFollow(FOLLOW_moreOp_in_operations1661);
-                    	moreOp59 = moreOp();
+                    	PushFollow(FOLLOW_moreOp_in_operations1726);
+                    	moreOp65 = moreOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( (state.backtracking==0) ) stream_moreOp.Add(moreOp59.Tree);
+                    	if ( (state.backtracking==0) ) stream_moreOp.Add(moreOp65.Tree);
 
 
                     	// AST REWRITE
@@ -2661,9 +2812,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 203:15: -> ^( MoreOp moreOp )
+                    	// 217:15: -> ^( MoreOp moreOp )
                     	{
-                    	    // MyGrammar.g:203:18: ^( MoreOp moreOp )
+                    	    // MyGrammar.g:217:18: ^( MoreOp moreOp )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new LogicOperationMoreNode(MoreOp), root_1);
@@ -2679,13 +2830,13 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 6 :
-                    // MyGrammar.g:204:8: moreEqOp
+                    // MyGrammar.g:218:8: moreEqOp
                     {
-                    	PushFollow(FOLLOW_moreEqOp_in_operations1681);
-                    	moreEqOp60 = moreEqOp();
+                    	PushFollow(FOLLOW_moreEqOp_in_operations1746);
+                    	moreEqOp66 = moreEqOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( (state.backtracking==0) ) stream_moreEqOp.Add(moreEqOp60.Tree);
+                    	if ( (state.backtracking==0) ) stream_moreEqOp.Add(moreEqOp66.Tree);
 
 
                     	// AST REWRITE
@@ -2700,9 +2851,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 204:17: -> ^( MoreEqOp moreEqOp )
+                    	// 218:17: -> ^( MoreEqOp moreEqOp )
                     	{
-                    	    // MyGrammar.g:204:20: ^( MoreEqOp moreEqOp )
+                    	    // MyGrammar.g:218:20: ^( MoreEqOp moreEqOp )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new LogicOperationMoreEqNode(MoreEqOp), root_1);
@@ -2718,13 +2869,13 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 7 :
-                    // MyGrammar.g:205:8: lessOp
+                    // MyGrammar.g:219:8: lessOp
                     {
-                    	PushFollow(FOLLOW_lessOp_in_operations1701);
-                    	lessOp61 = lessOp();
+                    	PushFollow(FOLLOW_lessOp_in_operations1766);
+                    	lessOp67 = lessOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( (state.backtracking==0) ) stream_lessOp.Add(lessOp61.Tree);
+                    	if ( (state.backtracking==0) ) stream_lessOp.Add(lessOp67.Tree);
 
 
                     	// AST REWRITE
@@ -2739,9 +2890,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 205:15: -> ^( LessOp lessOp )
+                    	// 219:15: -> ^( LessOp lessOp )
                     	{
-                    	    // MyGrammar.g:205:18: ^( LessOp lessOp )
+                    	    // MyGrammar.g:219:18: ^( LessOp lessOp )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new LogicOperationLessNode(LessOp), root_1);
@@ -2757,13 +2908,13 @@ public partial class MyGrammarParser : Parser
                     }
                     break;
                 case 8 :
-                    // MyGrammar.g:206:8: lessEqOp
+                    // MyGrammar.g:220:8: lessEqOp
                     {
-                    	PushFollow(FOLLOW_lessEqOp_in_operations1721);
-                    	lessEqOp62 = lessEqOp();
+                    	PushFollow(FOLLOW_lessEqOp_in_operations1786);
+                    	lessEqOp68 = lessEqOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( (state.backtracking==0) ) stream_lessEqOp.Add(lessEqOp62.Tree);
+                    	if ( (state.backtracking==0) ) stream_lessEqOp.Add(lessEqOp68.Tree);
 
 
                     	// AST REWRITE
@@ -2778,9 +2929,9 @@ public partial class MyGrammarParser : Parser
                     	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
                     	root_0 = (object)adaptor.GetNilNode();
-                    	// 206:17: -> ^( LessEqOp lessEqOp )
+                    	// 220:17: -> ^( LessEqOp lessEqOp )
                     	{
-                    	    // MyGrammar.g:206:20: ^( LessEqOp lessEqOp )
+                    	    // MyGrammar.g:220:20: ^( LessEqOp lessEqOp )
                     	    {
                     	    object root_1 = (object)adaptor.GetNilNode();
                     	    root_1 = (object)adaptor.BecomeRoot(new LogicOperationLessEqNode(LessEqOp), root_1);
@@ -2829,7 +2980,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "logicOperator"
-    // MyGrammar.g:209:1: logicOperator : ( orOperation | andOperation | eqOp | nonEqOp | moreOp | moreEqOp | lessOp | lessEqOp );
+    // MyGrammar.g:223:1: logicOperator : ( orOperation | andOperation | eqOp | nonEqOp | moreOp | moreEqOp | lessOp | lessEqOp );
     public MyGrammarParser.logicOperator_return logicOperator() // throws RecognitionException [1]
     {   
         MyGrammarParser.logicOperator_return retval = new MyGrammarParser.logicOperator_return();
@@ -2837,132 +2988,132 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.orOperation_return orOperation63 = default(MyGrammarParser.orOperation_return);
+        MyGrammarParser.orOperation_return orOperation69 = default(MyGrammarParser.orOperation_return);
 
-        MyGrammarParser.andOperation_return andOperation64 = default(MyGrammarParser.andOperation_return);
+        MyGrammarParser.andOperation_return andOperation70 = default(MyGrammarParser.andOperation_return);
 
-        MyGrammarParser.eqOp_return eqOp65 = default(MyGrammarParser.eqOp_return);
+        MyGrammarParser.eqOp_return eqOp71 = default(MyGrammarParser.eqOp_return);
 
-        MyGrammarParser.nonEqOp_return nonEqOp66 = default(MyGrammarParser.nonEqOp_return);
+        MyGrammarParser.nonEqOp_return nonEqOp72 = default(MyGrammarParser.nonEqOp_return);
 
-        MyGrammarParser.moreOp_return moreOp67 = default(MyGrammarParser.moreOp_return);
+        MyGrammarParser.moreOp_return moreOp73 = default(MyGrammarParser.moreOp_return);
 
-        MyGrammarParser.moreEqOp_return moreEqOp68 = default(MyGrammarParser.moreEqOp_return);
+        MyGrammarParser.moreEqOp_return moreEqOp74 = default(MyGrammarParser.moreEqOp_return);
 
-        MyGrammarParser.lessOp_return lessOp69 = default(MyGrammarParser.lessOp_return);
+        MyGrammarParser.lessOp_return lessOp75 = default(MyGrammarParser.lessOp_return);
 
-        MyGrammarParser.lessEqOp_return lessEqOp70 = default(MyGrammarParser.lessEqOp_return);
+        MyGrammarParser.lessEqOp_return lessEqOp76 = default(MyGrammarParser.lessEqOp_return);
 
 
 
         try 
     	{
-            // MyGrammar.g:209:16: ( orOperation | andOperation | eqOp | nonEqOp | moreOp | moreEqOp | lessOp | lessEqOp )
-            int alt13 = 8;
-            alt13 = dfa13.Predict(input);
-            switch (alt13) 
+            // MyGrammar.g:223:16: ( orOperation | andOperation | eqOp | nonEqOp | moreOp | moreEqOp | lessOp | lessEqOp )
+            int alt15 = 8;
+            alt15 = dfa15.Predict(input);
+            switch (alt15) 
             {
                 case 1 :
-                    // MyGrammar.g:209:18: orOperation
+                    // MyGrammar.g:223:18: orOperation
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_orOperation_in_logicOperator1749);
-                    	orOperation63 = orOperation();
+                    	PushFollow(FOLLOW_orOperation_in_logicOperator1814);
+                    	orOperation69 = orOperation();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, orOperation63.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, orOperation69.Tree);
 
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:210:8: andOperation
+                    // MyGrammar.g:224:8: andOperation
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_andOperation_in_logicOperator1758);
-                    	andOperation64 = andOperation();
+                    	PushFollow(FOLLOW_andOperation_in_logicOperator1823);
+                    	andOperation70 = andOperation();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, andOperation64.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, andOperation70.Tree);
 
                     }
                     break;
                 case 3 :
-                    // MyGrammar.g:211:8: eqOp
+                    // MyGrammar.g:225:8: eqOp
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_eqOp_in_logicOperator1767);
-                    	eqOp65 = eqOp();
+                    	PushFollow(FOLLOW_eqOp_in_logicOperator1832);
+                    	eqOp71 = eqOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, eqOp65.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, eqOp71.Tree);
 
                     }
                     break;
                 case 4 :
-                    // MyGrammar.g:212:8: nonEqOp
+                    // MyGrammar.g:226:8: nonEqOp
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_nonEqOp_in_logicOperator1776);
-                    	nonEqOp66 = nonEqOp();
+                    	PushFollow(FOLLOW_nonEqOp_in_logicOperator1841);
+                    	nonEqOp72 = nonEqOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, nonEqOp66.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, nonEqOp72.Tree);
 
                     }
                     break;
                 case 5 :
-                    // MyGrammar.g:213:8: moreOp
+                    // MyGrammar.g:227:8: moreOp
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_moreOp_in_logicOperator1785);
-                    	moreOp67 = moreOp();
+                    	PushFollow(FOLLOW_moreOp_in_logicOperator1850);
+                    	moreOp73 = moreOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, moreOp67.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, moreOp73.Tree);
 
                     }
                     break;
                 case 6 :
-                    // MyGrammar.g:214:8: moreEqOp
+                    // MyGrammar.g:228:8: moreEqOp
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_moreEqOp_in_logicOperator1794);
-                    	moreEqOp68 = moreEqOp();
+                    	PushFollow(FOLLOW_moreEqOp_in_logicOperator1859);
+                    	moreEqOp74 = moreEqOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, moreEqOp68.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, moreEqOp74.Tree);
 
                     }
                     break;
                 case 7 :
-                    // MyGrammar.g:215:8: lessOp
+                    // MyGrammar.g:229:8: lessOp
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_lessOp_in_logicOperator1803);
-                    	lessOp69 = lessOp();
+                    	PushFollow(FOLLOW_lessOp_in_logicOperator1868);
+                    	lessOp75 = lessOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, lessOp69.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, lessOp75.Tree);
 
                     }
                     break;
                 case 8 :
-                    // MyGrammar.g:216:8: lessEqOp
+                    // MyGrammar.g:230:8: lessEqOp
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_lessEqOp_in_logicOperator1812);
-                    	lessEqOp70 = lessEqOp();
+                    	PushFollow(FOLLOW_lessEqOp_in_logicOperator1877);
+                    	lessEqOp76 = lessEqOp();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, lessEqOp70.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, lessEqOp76.Tree);
 
                     }
                     break;
@@ -3000,7 +3151,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "orOperation"
-    // MyGrammar.g:220:1: orOperation : add OR add -> ^( OrOp add add ) ;
+    // MyGrammar.g:234:1: orOperation : add OR add -> ^( OrOp add add ) ;
     public MyGrammarParser.orOperation_return orOperation() // throws RecognitionException [1]
     {   
         MyGrammarParser.orOperation_return retval = new MyGrammarParser.orOperation_return();
@@ -3008,33 +3159,33 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken OR72 = null;
-        MyGrammarParser.add_return add71 = default(MyGrammarParser.add_return);
+        IToken OR78 = null;
+        MyGrammarParser.add_return add77 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.add_return add73 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add79 = default(MyGrammarParser.add_return);
 
 
-        object OR72_tree=null;
+        object OR78_tree=null;
         RewriteRuleTokenStream stream_OR = new RewriteRuleTokenStream(adaptor,"token OR");
         RewriteRuleSubtreeStream stream_add = new RewriteRuleSubtreeStream(adaptor,"rule add");
         try 
     	{
-            // MyGrammar.g:220:15: ( add OR add -> ^( OrOp add add ) )
-            // MyGrammar.g:220:17: add OR add
+            // MyGrammar.g:234:15: ( add OR add -> ^( OrOp add add ) )
+            // MyGrammar.g:234:17: add OR add
             {
-            	PushFollow(FOLLOW_add_in_orOperation1829);
-            	add71 = add();
+            	PushFollow(FOLLOW_add_in_orOperation1894);
+            	add77 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add71.Tree);
-            	OR72=(IToken)Match(input,OR,FOLLOW_OR_in_orOperation1831); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_OR.Add(OR72);
+            	if ( (state.backtracking==0) ) stream_add.Add(add77.Tree);
+            	OR78=(IToken)Match(input,OR,FOLLOW_OR_in_orOperation1896); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_OR.Add(OR78);
 
-            	PushFollow(FOLLOW_add_in_orOperation1833);
-            	add73 = add();
+            	PushFollow(FOLLOW_add_in_orOperation1898);
+            	add79 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add73.Tree);
+            	if ( (state.backtracking==0) ) stream_add.Add(add79.Tree);
 
 
             	// AST REWRITE
@@ -3049,9 +3200,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 220:28: -> ^( OrOp add add )
+            	// 234:28: -> ^( OrOp add add )
             	{
-            	    // MyGrammar.g:220:31: ^( OrOp add add )
+            	    // MyGrammar.g:234:31: ^( OrOp add add )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new OrOperationNode(OrOp), root_1);
@@ -3099,7 +3250,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "andOperation"
-    // MyGrammar.g:223:1: andOperation : add AND add -> ^( AndOp add add ) ;
+    // MyGrammar.g:237:1: andOperation : add AND add -> ^( AndOp add add ) ;
     public MyGrammarParser.andOperation_return andOperation() // throws RecognitionException [1]
     {   
         MyGrammarParser.andOperation_return retval = new MyGrammarParser.andOperation_return();
@@ -3107,33 +3258,33 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken AND75 = null;
-        MyGrammarParser.add_return add74 = default(MyGrammarParser.add_return);
+        IToken AND81 = null;
+        MyGrammarParser.add_return add80 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.add_return add76 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add82 = default(MyGrammarParser.add_return);
 
 
-        object AND75_tree=null;
+        object AND81_tree=null;
         RewriteRuleTokenStream stream_AND = new RewriteRuleTokenStream(adaptor,"token AND");
         RewriteRuleSubtreeStream stream_add = new RewriteRuleSubtreeStream(adaptor,"rule add");
         try 
     	{
-            // MyGrammar.g:223:15: ( add AND add -> ^( AndOp add add ) )
-            // MyGrammar.g:223:17: add AND add
+            // MyGrammar.g:237:15: ( add AND add -> ^( AndOp add add ) )
+            // MyGrammar.g:237:17: add AND add
             {
-            	PushFollow(FOLLOW_add_in_andOperation1861);
-            	add74 = add();
+            	PushFollow(FOLLOW_add_in_andOperation1926);
+            	add80 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add74.Tree);
-            	AND75=(IToken)Match(input,AND,FOLLOW_AND_in_andOperation1863); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_AND.Add(AND75);
+            	if ( (state.backtracking==0) ) stream_add.Add(add80.Tree);
+            	AND81=(IToken)Match(input,AND,FOLLOW_AND_in_andOperation1928); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_AND.Add(AND81);
 
-            	PushFollow(FOLLOW_add_in_andOperation1865);
-            	add76 = add();
+            	PushFollow(FOLLOW_add_in_andOperation1930);
+            	add82 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add76.Tree);
+            	if ( (state.backtracking==0) ) stream_add.Add(add82.Tree);
 
 
             	// AST REWRITE
@@ -3148,9 +3299,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 223:29: -> ^( AndOp add add )
+            	// 237:29: -> ^( AndOp add add )
             	{
-            	    // MyGrammar.g:223:32: ^( AndOp add add )
+            	    // MyGrammar.g:237:32: ^( AndOp add add )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new AndOperationNode(AndOp), root_1);
@@ -3198,7 +3349,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "eqOp"
-    // MyGrammar.g:226:1: eqOp : add EQ add -> ^( EqOp add add ) ;
+    // MyGrammar.g:240:1: eqOp : add EQ add -> ^( EqOp add add ) ;
     public MyGrammarParser.eqOp_return eqOp() // throws RecognitionException [1]
     {   
         MyGrammarParser.eqOp_return retval = new MyGrammarParser.eqOp_return();
@@ -3206,33 +3357,33 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken EQ78 = null;
-        MyGrammarParser.add_return add77 = default(MyGrammarParser.add_return);
+        IToken EQ84 = null;
+        MyGrammarParser.add_return add83 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.add_return add79 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add85 = default(MyGrammarParser.add_return);
 
 
-        object EQ78_tree=null;
+        object EQ84_tree=null;
         RewriteRuleTokenStream stream_EQ = new RewriteRuleTokenStream(adaptor,"token EQ");
         RewriteRuleSubtreeStream stream_add = new RewriteRuleSubtreeStream(adaptor,"rule add");
         try 
     	{
-            // MyGrammar.g:226:9: ( add EQ add -> ^( EqOp add add ) )
-            // MyGrammar.g:226:11: add EQ add
+            // MyGrammar.g:240:9: ( add EQ add -> ^( EqOp add add ) )
+            // MyGrammar.g:240:11: add EQ add
             {
-            	PushFollow(FOLLOW_add_in_eqOp1895);
-            	add77 = add();
+            	PushFollow(FOLLOW_add_in_eqOp1960);
+            	add83 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add77.Tree);
-            	EQ78=(IToken)Match(input,EQ,FOLLOW_EQ_in_eqOp1897); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_EQ.Add(EQ78);
+            	if ( (state.backtracking==0) ) stream_add.Add(add83.Tree);
+            	EQ84=(IToken)Match(input,EQ,FOLLOW_EQ_in_eqOp1962); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_EQ.Add(EQ84);
 
-            	PushFollow(FOLLOW_add_in_eqOp1899);
-            	add79 = add();
+            	PushFollow(FOLLOW_add_in_eqOp1964);
+            	add85 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add79.Tree);
+            	if ( (state.backtracking==0) ) stream_add.Add(add85.Tree);
 
 
             	// AST REWRITE
@@ -3247,9 +3398,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 226:22: -> ^( EqOp add add )
+            	// 240:22: -> ^( EqOp add add )
             	{
-            	    // MyGrammar.g:226:25: ^( EqOp add add )
+            	    // MyGrammar.g:240:25: ^( EqOp add add )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new EqualityOperationNode(EqOp), root_1);
@@ -3297,7 +3448,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "nonEqOp"
-    // MyGrammar.g:229:1: nonEqOp : add NONEQ add -> ^( NonEqOp add add ) ;
+    // MyGrammar.g:243:1: nonEqOp : add NONEQ add -> ^( NonEqOp add add ) ;
     public MyGrammarParser.nonEqOp_return nonEqOp() // throws RecognitionException [1]
     {   
         MyGrammarParser.nonEqOp_return retval = new MyGrammarParser.nonEqOp_return();
@@ -3305,33 +3456,33 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken NONEQ81 = null;
-        MyGrammarParser.add_return add80 = default(MyGrammarParser.add_return);
+        IToken NONEQ87 = null;
+        MyGrammarParser.add_return add86 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.add_return add82 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add88 = default(MyGrammarParser.add_return);
 
 
-        object NONEQ81_tree=null;
+        object NONEQ87_tree=null;
         RewriteRuleTokenStream stream_NONEQ = new RewriteRuleTokenStream(adaptor,"token NONEQ");
         RewriteRuleSubtreeStream stream_add = new RewriteRuleSubtreeStream(adaptor,"rule add");
         try 
     	{
-            // MyGrammar.g:229:12: ( add NONEQ add -> ^( NonEqOp add add ) )
-            // MyGrammar.g:229:14: add NONEQ add
+            // MyGrammar.g:243:12: ( add NONEQ add -> ^( NonEqOp add add ) )
+            // MyGrammar.g:243:14: add NONEQ add
             {
-            	PushFollow(FOLLOW_add_in_nonEqOp1929);
-            	add80 = add();
+            	PushFollow(FOLLOW_add_in_nonEqOp1994);
+            	add86 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add80.Tree);
-            	NONEQ81=(IToken)Match(input,NONEQ,FOLLOW_NONEQ_in_nonEqOp1931); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_NONEQ.Add(NONEQ81);
+            	if ( (state.backtracking==0) ) stream_add.Add(add86.Tree);
+            	NONEQ87=(IToken)Match(input,NONEQ,FOLLOW_NONEQ_in_nonEqOp1996); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_NONEQ.Add(NONEQ87);
 
-            	PushFollow(FOLLOW_add_in_nonEqOp1933);
-            	add82 = add();
+            	PushFollow(FOLLOW_add_in_nonEqOp1998);
+            	add88 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add82.Tree);
+            	if ( (state.backtracking==0) ) stream_add.Add(add88.Tree);
 
 
             	// AST REWRITE
@@ -3346,9 +3497,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 229:28: -> ^( NonEqOp add add )
+            	// 243:28: -> ^( NonEqOp add add )
             	{
-            	    // MyGrammar.g:229:31: ^( NonEqOp add add )
+            	    // MyGrammar.g:243:31: ^( NonEqOp add add )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new NonEqualityOperationNode(NonEqOp), root_1);
@@ -3396,7 +3547,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "moreOp"
-    // MyGrammar.g:232:1: moreOp : add MORE add -> ^( MoreOp add add ) ;
+    // MyGrammar.g:246:1: moreOp : add MORE add -> ^( MoreOp add add ) ;
     public MyGrammarParser.moreOp_return moreOp() // throws RecognitionException [1]
     {   
         MyGrammarParser.moreOp_return retval = new MyGrammarParser.moreOp_return();
@@ -3404,33 +3555,33 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken MORE84 = null;
-        MyGrammarParser.add_return add83 = default(MyGrammarParser.add_return);
+        IToken MORE90 = null;
+        MyGrammarParser.add_return add89 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.add_return add85 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add91 = default(MyGrammarParser.add_return);
 
 
-        object MORE84_tree=null;
+        object MORE90_tree=null;
         RewriteRuleTokenStream stream_MORE = new RewriteRuleTokenStream(adaptor,"token MORE");
         RewriteRuleSubtreeStream stream_add = new RewriteRuleSubtreeStream(adaptor,"rule add");
         try 
     	{
-            // MyGrammar.g:232:11: ( add MORE add -> ^( MoreOp add add ) )
-            // MyGrammar.g:232:14: add MORE add
+            // MyGrammar.g:246:11: ( add MORE add -> ^( MoreOp add add ) )
+            // MyGrammar.g:246:14: add MORE add
             {
-            	PushFollow(FOLLOW_add_in_moreOp1964);
-            	add83 = add();
+            	PushFollow(FOLLOW_add_in_moreOp2029);
+            	add89 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add83.Tree);
-            	MORE84=(IToken)Match(input,MORE,FOLLOW_MORE_in_moreOp1966); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_MORE.Add(MORE84);
+            	if ( (state.backtracking==0) ) stream_add.Add(add89.Tree);
+            	MORE90=(IToken)Match(input,MORE,FOLLOW_MORE_in_moreOp2031); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_MORE.Add(MORE90);
 
-            	PushFollow(FOLLOW_add_in_moreOp1968);
-            	add85 = add();
+            	PushFollow(FOLLOW_add_in_moreOp2033);
+            	add91 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add85.Tree);
+            	if ( (state.backtracking==0) ) stream_add.Add(add91.Tree);
 
 
             	// AST REWRITE
@@ -3445,9 +3596,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 232:27: -> ^( MoreOp add add )
+            	// 246:27: -> ^( MoreOp add add )
             	{
-            	    // MyGrammar.g:232:30: ^( MoreOp add add )
+            	    // MyGrammar.g:246:30: ^( MoreOp add add )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new LogicOperationMoreNode(MoreOp), root_1);
@@ -3495,7 +3646,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "moreEqOp"
-    // MyGrammar.g:235:1: moreEqOp : add MOREEQ add -> ^( MoreEqOp add add ) ;
+    // MyGrammar.g:249:1: moreEqOp : add MOREEQ add -> ^( MoreEqOp add add ) ;
     public MyGrammarParser.moreEqOp_return moreEqOp() // throws RecognitionException [1]
     {   
         MyGrammarParser.moreEqOp_return retval = new MyGrammarParser.moreEqOp_return();
@@ -3503,33 +3654,33 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken MOREEQ87 = null;
-        MyGrammarParser.add_return add86 = default(MyGrammarParser.add_return);
+        IToken MOREEQ93 = null;
+        MyGrammarParser.add_return add92 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.add_return add88 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add94 = default(MyGrammarParser.add_return);
 
 
-        object MOREEQ87_tree=null;
+        object MOREEQ93_tree=null;
         RewriteRuleTokenStream stream_MOREEQ = new RewriteRuleTokenStream(adaptor,"token MOREEQ");
         RewriteRuleSubtreeStream stream_add = new RewriteRuleSubtreeStream(adaptor,"rule add");
         try 
     	{
-            // MyGrammar.g:235:12: ( add MOREEQ add -> ^( MoreEqOp add add ) )
-            // MyGrammar.g:235:14: add MOREEQ add
+            // MyGrammar.g:249:12: ( add MOREEQ add -> ^( MoreEqOp add add ) )
+            // MyGrammar.g:249:14: add MOREEQ add
             {
-            	PushFollow(FOLLOW_add_in_moreEqOp1997);
-            	add86 = add();
+            	PushFollow(FOLLOW_add_in_moreEqOp2062);
+            	add92 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add86.Tree);
-            	MOREEQ87=(IToken)Match(input,MOREEQ,FOLLOW_MOREEQ_in_moreEqOp1999); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_MOREEQ.Add(MOREEQ87);
+            	if ( (state.backtracking==0) ) stream_add.Add(add92.Tree);
+            	MOREEQ93=(IToken)Match(input,MOREEQ,FOLLOW_MOREEQ_in_moreEqOp2064); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_MOREEQ.Add(MOREEQ93);
 
-            	PushFollow(FOLLOW_add_in_moreEqOp2001);
-            	add88 = add();
+            	PushFollow(FOLLOW_add_in_moreEqOp2066);
+            	add94 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add88.Tree);
+            	if ( (state.backtracking==0) ) stream_add.Add(add94.Tree);
 
 
             	// AST REWRITE
@@ -3544,9 +3695,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 235:29: -> ^( MoreEqOp add add )
+            	// 249:29: -> ^( MoreEqOp add add )
             	{
-            	    // MyGrammar.g:235:32: ^( MoreEqOp add add )
+            	    // MyGrammar.g:249:32: ^( MoreEqOp add add )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new LogicOperationMoreEqNode(MoreEqOp), root_1);
@@ -3594,7 +3745,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "lessOp"
-    // MyGrammar.g:238:1: lessOp : add LESS add -> ^( LessOp add add ) ;
+    // MyGrammar.g:252:1: lessOp : add LESS add -> ^( LessOp add add ) ;
     public MyGrammarParser.lessOp_return lessOp() // throws RecognitionException [1]
     {   
         MyGrammarParser.lessOp_return retval = new MyGrammarParser.lessOp_return();
@@ -3602,33 +3753,33 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken LESS90 = null;
-        MyGrammarParser.add_return add89 = default(MyGrammarParser.add_return);
+        IToken LESS96 = null;
+        MyGrammarParser.add_return add95 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.add_return add91 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add97 = default(MyGrammarParser.add_return);
 
 
-        object LESS90_tree=null;
+        object LESS96_tree=null;
         RewriteRuleTokenStream stream_LESS = new RewriteRuleTokenStream(adaptor,"token LESS");
         RewriteRuleSubtreeStream stream_add = new RewriteRuleSubtreeStream(adaptor,"rule add");
         try 
     	{
-            // MyGrammar.g:238:11: ( add LESS add -> ^( LessOp add add ) )
-            // MyGrammar.g:238:13: add LESS add
+            // MyGrammar.g:252:11: ( add LESS add -> ^( LessOp add add ) )
+            // MyGrammar.g:252:13: add LESS add
             {
-            	PushFollow(FOLLOW_add_in_lessOp2031);
-            	add89 = add();
+            	PushFollow(FOLLOW_add_in_lessOp2096);
+            	add95 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add89.Tree);
-            	LESS90=(IToken)Match(input,LESS,FOLLOW_LESS_in_lessOp2033); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_LESS.Add(LESS90);
+            	if ( (state.backtracking==0) ) stream_add.Add(add95.Tree);
+            	LESS96=(IToken)Match(input,LESS,FOLLOW_LESS_in_lessOp2098); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_LESS.Add(LESS96);
 
-            	PushFollow(FOLLOW_add_in_lessOp2035);
-            	add91 = add();
+            	PushFollow(FOLLOW_add_in_lessOp2100);
+            	add97 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add91.Tree);
+            	if ( (state.backtracking==0) ) stream_add.Add(add97.Tree);
 
 
             	// AST REWRITE
@@ -3643,9 +3794,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 238:26: -> ^( LessOp add add )
+            	// 252:26: -> ^( LessOp add add )
             	{
-            	    // MyGrammar.g:238:29: ^( LessOp add add )
+            	    // MyGrammar.g:252:29: ^( LessOp add add )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new LogicOperationLessNode(LessOp), root_1);
@@ -3693,7 +3844,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "lessEqOp"
-    // MyGrammar.g:241:1: lessEqOp : add LESSEQ add -> ^( LessEqOp add add ) ;
+    // MyGrammar.g:255:1: lessEqOp : add LESSEQ add -> ^( LessEqOp add add ) ;
     public MyGrammarParser.lessEqOp_return lessEqOp() // throws RecognitionException [1]
     {   
         MyGrammarParser.lessEqOp_return retval = new MyGrammarParser.lessEqOp_return();
@@ -3701,33 +3852,33 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken LESSEQ93 = null;
-        MyGrammarParser.add_return add92 = default(MyGrammarParser.add_return);
+        IToken LESSEQ99 = null;
+        MyGrammarParser.add_return add98 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.add_return add94 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add100 = default(MyGrammarParser.add_return);
 
 
-        object LESSEQ93_tree=null;
+        object LESSEQ99_tree=null;
         RewriteRuleTokenStream stream_LESSEQ = new RewriteRuleTokenStream(adaptor,"token LESSEQ");
         RewriteRuleSubtreeStream stream_add = new RewriteRuleSubtreeStream(adaptor,"rule add");
         try 
     	{
-            // MyGrammar.g:241:12: ( add LESSEQ add -> ^( LessEqOp add add ) )
-            // MyGrammar.g:241:14: add LESSEQ add
+            // MyGrammar.g:255:12: ( add LESSEQ add -> ^( LessEqOp add add ) )
+            // MyGrammar.g:255:14: add LESSEQ add
             {
-            	PushFollow(FOLLOW_add_in_lessEqOp2064);
-            	add92 = add();
+            	PushFollow(FOLLOW_add_in_lessEqOp2129);
+            	add98 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add92.Tree);
-            	LESSEQ93=(IToken)Match(input,LESSEQ,FOLLOW_LESSEQ_in_lessEqOp2066); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_LESSEQ.Add(LESSEQ93);
+            	if ( (state.backtracking==0) ) stream_add.Add(add98.Tree);
+            	LESSEQ99=(IToken)Match(input,LESSEQ,FOLLOW_LESSEQ_in_lessEqOp2131); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_LESSEQ.Add(LESSEQ99);
 
-            	PushFollow(FOLLOW_add_in_lessEqOp2068);
-            	add94 = add();
+            	PushFollow(FOLLOW_add_in_lessEqOp2133);
+            	add100 = add();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_add.Add(add94.Tree);
+            	if ( (state.backtracking==0) ) stream_add.Add(add100.Tree);
 
 
             	// AST REWRITE
@@ -3742,9 +3893,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 241:29: -> ^( LessEqOp add add )
+            	// 255:29: -> ^( LessEqOp add add )
             	{
-            	    // MyGrammar.g:241:32: ^( LessEqOp add add )
+            	    // MyGrammar.g:255:32: ^( LessEqOp add add )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new LogicOperationLessEqNode(LessEqOp), root_1);
@@ -3781,6 +3932,104 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "lessEqOp"
 
+    public class cycle_return : ParserRuleReturnScope
+    {
+        private object tree;
+        override public object Tree
+        {
+        	get { return tree; }
+        	set { tree = (object) value; }
+        }
+    };
+
+    // $ANTLR start "cycle"
+    // MyGrammar.g:260:1: cycle : ( for_ | while_ );
+    public MyGrammarParser.cycle_return cycle() // throws RecognitionException [1]
+    {   
+        MyGrammarParser.cycle_return retval = new MyGrammarParser.cycle_return();
+        retval.Start = input.LT(1);
+
+        object root_0 = null;
+
+        MyGrammarParser.for__return for_101 = default(MyGrammarParser.for__return);
+
+        MyGrammarParser.while__return while_102 = default(MyGrammarParser.while__return);
+
+
+
+        try 
+    	{
+            // MyGrammar.g:260:7: ( for_ | while_ )
+            int alt16 = 2;
+            int LA16_0 = input.LA(1);
+
+            if ( (LA16_0 == FOR) )
+            {
+                alt16 = 1;
+            }
+            else if ( (LA16_0 == WHILE) )
+            {
+                alt16 = 2;
+            }
+            else 
+            {
+                if ( state.backtracking > 0 ) {state.failed = true; return retval;}
+                NoViableAltException nvae_d16s0 =
+                    new NoViableAltException("", 16, 0, input);
+
+                throw nvae_d16s0;
+            }
+            switch (alt16) 
+            {
+                case 1 :
+                    // MyGrammar.g:260:9: for_
+                    {
+                    	root_0 = (object)adaptor.GetNilNode();
+
+                    	PushFollow(FOLLOW_for__in_cycle2162);
+                    	for_101 = for_();
+                    	state.followingStackPointer--;
+                    	if (state.failed) return retval;
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, for_101.Tree);
+
+                    }
+                    break;
+                case 2 :
+                    // MyGrammar.g:261:5: while_
+                    {
+                    	root_0 = (object)adaptor.GetNilNode();
+
+                    	PushFollow(FOLLOW_while__in_cycle2168);
+                    	while_102 = while_();
+                    	state.followingStackPointer--;
+                    	if (state.failed) return retval;
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, while_102.Tree);
+
+                    }
+                    break;
+
+            }
+            retval.Stop = input.LT(-1);
+
+            if ( (state.backtracking==0) )
+            {	retval.Tree = (object)adaptor.RulePostProcessing(root_0);
+            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);}
+        }
+        catch (RecognitionException re) 
+    	{
+            ReportError(re);
+            Recover(input,re);
+    	// Conversion of the second argument necessary, but harmless
+    	retval.Tree = (object)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
+
+        }
+        finally 
+    	{
+        }
+        return retval;
+    }
+    // $ANTLR end "cycle"
+
     public class for__return : ParserRuleReturnScope
     {
         private object tree;
@@ -3792,7 +4041,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "for_"
-    // MyGrammar.g:245:1: for_ : FOR '(' varInit ';' logicOperator ';' varInitValue ')' block -> ^( For varInit logicOperator varInitValue block ) ;
+    // MyGrammar.g:265:1: for_ : FOR '(' varInit ';' logicOperator ';' fieldInitValue ')' block -> ^( For varInit logicOperator fieldInitValue block ) ;
     public MyGrammarParser.for__return for_() // throws RecognitionException [1]
     {   
         MyGrammarParser.for__return retval = new MyGrammarParser.for__return();
@@ -3800,77 +4049,77 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken FOR95 = null;
-        IToken char_literal96 = null;
-        IToken char_literal98 = null;
-        IToken char_literal100 = null;
-        IToken char_literal102 = null;
-        MyGrammarParser.varInit_return varInit97 = default(MyGrammarParser.varInit_return);
+        IToken FOR103 = null;
+        IToken char_literal104 = null;
+        IToken char_literal106 = null;
+        IToken char_literal108 = null;
+        IToken char_literal110 = null;
+        MyGrammarParser.varInit_return varInit105 = default(MyGrammarParser.varInit_return);
 
-        MyGrammarParser.logicOperator_return logicOperator99 = default(MyGrammarParser.logicOperator_return);
+        MyGrammarParser.logicOperator_return logicOperator107 = default(MyGrammarParser.logicOperator_return);
 
-        MyGrammarParser.varInitValue_return varInitValue101 = default(MyGrammarParser.varInitValue_return);
+        MyGrammarParser.fieldInitValue_return fieldInitValue109 = default(MyGrammarParser.fieldInitValue_return);
 
-        MyGrammarParser.block_return block103 = default(MyGrammarParser.block_return);
+        MyGrammarParser.block_return block111 = default(MyGrammarParser.block_return);
 
 
-        object FOR95_tree=null;
-        object char_literal96_tree=null;
-        object char_literal98_tree=null;
-        object char_literal100_tree=null;
-        object char_literal102_tree=null;
-        RewriteRuleTokenStream stream_77 = new RewriteRuleTokenStream(adaptor,"token 77");
+        object FOR103_tree=null;
+        object char_literal104_tree=null;
+        object char_literal106_tree=null;
+        object char_literal108_tree=null;
+        object char_literal110_tree=null;
+        RewriteRuleTokenStream stream_79 = new RewriteRuleTokenStream(adaptor,"token 79");
         RewriteRuleTokenStream stream_80 = new RewriteRuleTokenStream(adaptor,"token 80");
         RewriteRuleTokenStream stream_FOR = new RewriteRuleTokenStream(adaptor,"token FOR");
-        RewriteRuleTokenStream stream_76 = new RewriteRuleTokenStream(adaptor,"token 76");
-        RewriteRuleSubtreeStream stream_varInitValue = new RewriteRuleSubtreeStream(adaptor,"rule varInitValue");
+        RewriteRuleTokenStream stream_83 = new RewriteRuleTokenStream(adaptor,"token 83");
         RewriteRuleSubtreeStream stream_varInit = new RewriteRuleSubtreeStream(adaptor,"rule varInit");
         RewriteRuleSubtreeStream stream_block = new RewriteRuleSubtreeStream(adaptor,"rule block");
+        RewriteRuleSubtreeStream stream_fieldInitValue = new RewriteRuleSubtreeStream(adaptor,"rule fieldInitValue");
         RewriteRuleSubtreeStream stream_logicOperator = new RewriteRuleSubtreeStream(adaptor,"rule logicOperator");
         try 
     	{
-            // MyGrammar.g:245:6: ( FOR '(' varInit ';' logicOperator ';' varInitValue ')' block -> ^( For varInit logicOperator varInitValue block ) )
-            // MyGrammar.g:245:8: FOR '(' varInit ';' logicOperator ';' varInitValue ')' block
+            // MyGrammar.g:265:6: ( FOR '(' varInit ';' logicOperator ';' fieldInitValue ')' block -> ^( For varInit logicOperator fieldInitValue block ) )
+            // MyGrammar.g:265:8: FOR '(' varInit ';' logicOperator ';' fieldInitValue ')' block
             {
-            	FOR95=(IToken)Match(input,FOR,FOLLOW_FOR_in_for_2096); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_FOR.Add(FOR95);
+            	FOR103=(IToken)Match(input,FOR,FOLLOW_FOR_in_for_2180); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_FOR.Add(FOR103);
 
-            	char_literal96=(IToken)Match(input,76,FOLLOW_76_in_for_2111); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_76.Add(char_literal96);
+            	char_literal104=(IToken)Match(input,79,FOLLOW_79_in_for_2195); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_79.Add(char_literal104);
 
-            	PushFollow(FOLLOW_varInit_in_for_2120);
-            	varInit97 = varInit();
+            	PushFollow(FOLLOW_varInit_in_for_2204);
+            	varInit105 = varInit();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_varInit.Add(varInit97.Tree);
-            	char_literal98=(IToken)Match(input,80,FOLLOW_80_in_for_2122); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_80.Add(char_literal98);
+            	if ( (state.backtracking==0) ) stream_varInit.Add(varInit105.Tree);
+            	char_literal106=(IToken)Match(input,83,FOLLOW_83_in_for_2206); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_83.Add(char_literal106);
 
-            	PushFollow(FOLLOW_logicOperator_in_for_2127);
-            	logicOperator99 = logicOperator();
+            	PushFollow(FOLLOW_logicOperator_in_for_2211);
+            	logicOperator107 = logicOperator();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_logicOperator.Add(logicOperator99.Tree);
-            	char_literal100=(IToken)Match(input,80,FOLLOW_80_in_for_2129); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_80.Add(char_literal100);
+            	if ( (state.backtracking==0) ) stream_logicOperator.Add(logicOperator107.Tree);
+            	char_literal108=(IToken)Match(input,83,FOLLOW_83_in_for_2213); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_83.Add(char_literal108);
 
-            	PushFollow(FOLLOW_varInitValue_in_for_2137);
-            	varInitValue101 = varInitValue();
+            	PushFollow(FOLLOW_fieldInitValue_in_for_2221);
+            	fieldInitValue109 = fieldInitValue();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_varInitValue.Add(varInitValue101.Tree);
-            	char_literal102=(IToken)Match(input,77,FOLLOW_77_in_for_2142); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_77.Add(char_literal102);
+            	if ( (state.backtracking==0) ) stream_fieldInitValue.Add(fieldInitValue109.Tree);
+            	char_literal110=(IToken)Match(input,80,FOLLOW_80_in_for_2226); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_80.Add(char_literal110);
 
-            	PushFollow(FOLLOW_block_in_for_2147);
-            	block103 = block();
+            	PushFollow(FOLLOW_block_in_for_2231);
+            	block111 = block();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_block.Add(block103.Tree);
+            	if ( (state.backtracking==0) ) stream_block.Add(block111.Tree);
 
 
             	// AST REWRITE
-            	// elements:          varInitValue, logicOperator, varInit, block
+            	// elements:          varInit, block, logicOperator, fieldInitValue
             	// token labels:      
             	// rule labels:       retval
             	// token list labels: 
@@ -3881,16 +4130,16 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 252:4: -> ^( For varInit logicOperator varInitValue block )
+            	// 272:4: -> ^( For varInit logicOperator fieldInitValue block )
             	{
-            	    // MyGrammar.g:252:7: ^( For varInit logicOperator varInitValue block )
+            	    // MyGrammar.g:272:7: ^( For varInit logicOperator fieldInitValue block )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new ForNode(For), root_1);
 
             	    adaptor.AddChild(root_1, stream_varInit.NextTree());
             	    adaptor.AddChild(root_1, stream_logicOperator.NextTree());
-            	    adaptor.AddChild(root_1, stream_varInitValue.NextTree());
+            	    adaptor.AddChild(root_1, stream_fieldInitValue.NextTree());
             	    adaptor.AddChild(root_1, stream_block.NextTree());
 
             	    adaptor.AddChild(root_0, root_1);
@@ -3933,7 +4182,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "while_"
-    // MyGrammar.g:256:1: while_ : WHILE '(' logicOperator ')' block -> ^( While_ logicOperator block ) ;
+    // MyGrammar.g:276:1: while_ : WHILE '(' logicOperator ')' block -> ^( While_ logicOperator block ) ;
     public MyGrammarParser.while__return while_() // throws RecognitionException [1]
     {   
         MyGrammarParser.while__return retval = new MyGrammarParser.while__return();
@@ -3941,50 +4190,50 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken WHILE104 = null;
-        IToken char_literal105 = null;
-        IToken char_literal107 = null;
-        MyGrammarParser.logicOperator_return logicOperator106 = default(MyGrammarParser.logicOperator_return);
+        IToken WHILE112 = null;
+        IToken char_literal113 = null;
+        IToken char_literal115 = null;
+        MyGrammarParser.logicOperator_return logicOperator114 = default(MyGrammarParser.logicOperator_return);
 
-        MyGrammarParser.block_return block108 = default(MyGrammarParser.block_return);
+        MyGrammarParser.block_return block116 = default(MyGrammarParser.block_return);
 
 
-        object WHILE104_tree=null;
-        object char_literal105_tree=null;
-        object char_literal107_tree=null;
-        RewriteRuleTokenStream stream_77 = new RewriteRuleTokenStream(adaptor,"token 77");
+        object WHILE112_tree=null;
+        object char_literal113_tree=null;
+        object char_literal115_tree=null;
+        RewriteRuleTokenStream stream_79 = new RewriteRuleTokenStream(adaptor,"token 79");
+        RewriteRuleTokenStream stream_80 = new RewriteRuleTokenStream(adaptor,"token 80");
         RewriteRuleTokenStream stream_WHILE = new RewriteRuleTokenStream(adaptor,"token WHILE");
-        RewriteRuleTokenStream stream_76 = new RewriteRuleTokenStream(adaptor,"token 76");
         RewriteRuleSubtreeStream stream_block = new RewriteRuleSubtreeStream(adaptor,"rule block");
         RewriteRuleSubtreeStream stream_logicOperator = new RewriteRuleSubtreeStream(adaptor,"rule logicOperator");
         try 
     	{
-            // MyGrammar.g:256:8: ( WHILE '(' logicOperator ')' block -> ^( While_ logicOperator block ) )
-            // MyGrammar.g:256:10: WHILE '(' logicOperator ')' block
+            // MyGrammar.g:276:8: ( WHILE '(' logicOperator ')' block -> ^( While_ logicOperator block ) )
+            // MyGrammar.g:276:10: WHILE '(' logicOperator ')' block
             {
-            	WHILE104=(IToken)Match(input,WHILE,FOLLOW_WHILE_in_while_2179); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_WHILE.Add(WHILE104);
+            	WHILE112=(IToken)Match(input,WHILE,FOLLOW_WHILE_in_while_2263); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_WHILE.Add(WHILE112);
 
-            	char_literal105=(IToken)Match(input,76,FOLLOW_76_in_while_2184); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_76.Add(char_literal105);
+            	char_literal113=(IToken)Match(input,79,FOLLOW_79_in_while_2268); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_79.Add(char_literal113);
 
-            	PushFollow(FOLLOW_logicOperator_in_while_2189);
-            	logicOperator106 = logicOperator();
+            	PushFollow(FOLLOW_logicOperator_in_while_2273);
+            	logicOperator114 = logicOperator();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_logicOperator.Add(logicOperator106.Tree);
-            	char_literal107=(IToken)Match(input,77,FOLLOW_77_in_while_2194); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_77.Add(char_literal107);
+            	if ( (state.backtracking==0) ) stream_logicOperator.Add(logicOperator114.Tree);
+            	char_literal115=(IToken)Match(input,80,FOLLOW_80_in_while_2278); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_80.Add(char_literal115);
 
-            	PushFollow(FOLLOW_block_in_while_2199);
-            	block108 = block();
+            	PushFollow(FOLLOW_block_in_while_2283);
+            	block116 = block();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_block.Add(block108.Tree);
+            	if ( (state.backtracking==0) ) stream_block.Add(block116.Tree);
 
 
             	// AST REWRITE
-            	// elements:          logicOperator, block
+            	// elements:          block, logicOperator
             	// token labels:      
             	// rule labels:       retval
             	// token list labels: 
@@ -3995,9 +4244,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 261:4: -> ^( While_ logicOperator block )
+            	// 281:4: -> ^( While_ logicOperator block )
             	{
-            	    // MyGrammar.g:261:7: ^( While_ logicOperator block )
+            	    // MyGrammar.g:281:7: ^( While_ logicOperator block )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new WhileNode(While_), root_1);
@@ -4045,7 +4294,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "methodDef"
-    // MyGrammar.g:269:1: methodDef : type ID '()' block -> ^( Method ^( ID ( type )? block ) ) ;
+    // MyGrammar.g:287:1: methodDef : type ID '()' block -> ^( Method ^( ID ( type )? block ) ) ;
     public MyGrammarParser.methodDef_return methodDef() // throws RecognitionException [1]
     {   
         MyGrammarParser.methodDef_return retval = new MyGrammarParser.methodDef_return();
@@ -4053,44 +4302,44 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken ID110 = null;
-        IToken string_literal111 = null;
-        MyGrammarParser.type_return type109 = default(MyGrammarParser.type_return);
+        IToken ID118 = null;
+        IToken string_literal119 = null;
+        MyGrammarParser.type_return type117 = default(MyGrammarParser.type_return);
 
-        MyGrammarParser.block_return block112 = default(MyGrammarParser.block_return);
+        MyGrammarParser.block_return block120 = default(MyGrammarParser.block_return);
 
 
-        object ID110_tree=null;
-        object string_literal111_tree=null;
-        RewriteRuleTokenStream stream_81 = new RewriteRuleTokenStream(adaptor,"token 81");
+        object ID118_tree=null;
+        object string_literal119_tree=null;
         RewriteRuleTokenStream stream_ID = new RewriteRuleTokenStream(adaptor,"token ID");
+        RewriteRuleTokenStream stream_84 = new RewriteRuleTokenStream(adaptor,"token 84");
         RewriteRuleSubtreeStream stream_block = new RewriteRuleSubtreeStream(adaptor,"rule block");
         RewriteRuleSubtreeStream stream_type = new RewriteRuleSubtreeStream(adaptor,"rule type");
         try 
     	{
-            // MyGrammar.g:269:11: ( type ID '()' block -> ^( Method ^( ID ( type )? block ) ) )
-            // MyGrammar.g:269:13: type ID '()' block
+            // MyGrammar.g:287:11: ( type ID '()' block -> ^( Method ^( ID ( type )? block ) ) )
+            // MyGrammar.g:287:13: type ID '()' block
             {
-            	PushFollow(FOLLOW_type_in_methodDef2233);
-            	type109 = type();
+            	PushFollow(FOLLOW_type_in_methodDef2315);
+            	type117 = type();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_type.Add(type109.Tree);
-            	ID110=(IToken)Match(input,ID,FOLLOW_ID_in_methodDef2235); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_ID.Add(ID110);
+            	if ( (state.backtracking==0) ) stream_type.Add(type117.Tree);
+            	ID118=(IToken)Match(input,ID,FOLLOW_ID_in_methodDef2317); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_ID.Add(ID118);
 
-            	string_literal111=(IToken)Match(input,81,FOLLOW_81_in_methodDef2237); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_81.Add(string_literal111);
+            	string_literal119=(IToken)Match(input,84,FOLLOW_84_in_methodDef2319); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_84.Add(string_literal119);
 
-            	PushFollow(FOLLOW_block_in_methodDef2239);
-            	block112 = block();
+            	PushFollow(FOLLOW_block_in_methodDef2321);
+            	block120 = block();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_block.Add(block112.Tree);
+            	if ( (state.backtracking==0) ) stream_block.Add(block120.Tree);
 
 
             	// AST REWRITE
-            	// elements:          block, ID, type
+            	// elements:          ID, type, block
             	// token labels:      
             	// rule labels:       retval
             	// token list labels: 
@@ -4101,19 +4350,19 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 269:32: -> ^( Method ^( ID ( type )? block ) )
+            	// 287:32: -> ^( Method ^( ID ( type )? block ) )
             	{
-            	    // MyGrammar.g:269:35: ^( Method ^( ID ( type )? block ) )
+            	    // MyGrammar.g:287:35: ^( Method ^( ID ( type )? block ) )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new MethodDefNode(Method), root_1);
 
-            	    // MyGrammar.g:269:59: ^( ID ( type )? block )
+            	    // MyGrammar.g:287:59: ^( ID ( type )? block )
             	    {
             	    object root_2 = (object)adaptor.GetNilNode();
             	    root_2 = (object)adaptor.BecomeRoot(stream_ID.NextNode(), root_2);
 
-            	    // MyGrammar.g:269:64: ( type )?
+            	    // MyGrammar.g:287:64: ( type )?
             	    if ( stream_type.HasNext() )
             	    {
             	        adaptor.AddChild(root_2, stream_type.NextTree());
@@ -4165,7 +4414,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "callMethod"
-    // MyGrammar.g:272:1: callMethod : ID '()' -> ^( CallMethod ID ) ;
+    // MyGrammar.g:291:1: callMethod : ID '()' -> ^( CallMethod ID ) ;
     public MyGrammarParser.callMethod_return callMethod() // throws RecognitionException [1]
     {   
         MyGrammarParser.callMethod_return retval = new MyGrammarParser.callMethod_return();
@@ -4173,24 +4422,24 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken ID113 = null;
-        IToken string_literal114 = null;
+        IToken ID121 = null;
+        IToken string_literal122 = null;
 
-        object ID113_tree=null;
-        object string_literal114_tree=null;
-        RewriteRuleTokenStream stream_81 = new RewriteRuleTokenStream(adaptor,"token 81");
+        object ID121_tree=null;
+        object string_literal122_tree=null;
         RewriteRuleTokenStream stream_ID = new RewriteRuleTokenStream(adaptor,"token ID");
+        RewriteRuleTokenStream stream_84 = new RewriteRuleTokenStream(adaptor,"token 84");
 
         try 
     	{
-            // MyGrammar.g:272:12: ( ID '()' -> ^( CallMethod ID ) )
-            // MyGrammar.g:272:14: ID '()'
+            // MyGrammar.g:291:12: ( ID '()' -> ^( CallMethod ID ) )
+            // MyGrammar.g:291:14: ID '()'
             {
-            	ID113=(IToken)Match(input,ID,FOLLOW_ID_in_callMethod2268); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_ID.Add(ID113);
+            	ID121=(IToken)Match(input,ID,FOLLOW_ID_in_callMethod2351); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_ID.Add(ID121);
 
-            	string_literal114=(IToken)Match(input,81,FOLLOW_81_in_callMethod2270); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_81.Add(string_literal114);
+            	string_literal122=(IToken)Match(input,84,FOLLOW_84_in_callMethod2353); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_84.Add(string_literal122);
 
 
 
@@ -4206,9 +4455,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 273:5: -> ^( CallMethod ID )
+            	// 292:5: -> ^( CallMethod ID )
             	{
-            	    // MyGrammar.g:273:8: ^( CallMethod ID )
+            	    // MyGrammar.g:292:8: ^( CallMethod ID )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new CallMethodNode(CallMethod), root_1);
@@ -4244,104 +4493,6 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "callMethod"
 
-    public class cycle_return : ParserRuleReturnScope
-    {
-        private object tree;
-        override public object Tree
-        {
-        	get { return tree; }
-        	set { tree = (object) value; }
-        }
-    };
-
-    // $ANTLR start "cycle"
-    // MyGrammar.g:276:1: cycle : ( for_ | while_ );
-    public MyGrammarParser.cycle_return cycle() // throws RecognitionException [1]
-    {   
-        MyGrammarParser.cycle_return retval = new MyGrammarParser.cycle_return();
-        retval.Start = input.LT(1);
-
-        object root_0 = null;
-
-        MyGrammarParser.for__return for_115 = default(MyGrammarParser.for__return);
-
-        MyGrammarParser.while__return while_116 = default(MyGrammarParser.while__return);
-
-
-
-        try 
-    	{
-            // MyGrammar.g:276:7: ( for_ | while_ )
-            int alt14 = 2;
-            int LA14_0 = input.LA(1);
-
-            if ( (LA14_0 == FOR) )
-            {
-                alt14 = 1;
-            }
-            else if ( (LA14_0 == WHILE) )
-            {
-                alt14 = 2;
-            }
-            else 
-            {
-                if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                NoViableAltException nvae_d14s0 =
-                    new NoViableAltException("", 14, 0, input);
-
-                throw nvae_d14s0;
-            }
-            switch (alt14) 
-            {
-                case 1 :
-                    // MyGrammar.g:276:9: for_
-                    {
-                    	root_0 = (object)adaptor.GetNilNode();
-
-                    	PushFollow(FOLLOW_for__in_cycle2298);
-                    	for_115 = for_();
-                    	state.followingStackPointer--;
-                    	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, for_115.Tree);
-
-                    }
-                    break;
-                case 2 :
-                    // MyGrammar.g:277:5: while_
-                    {
-                    	root_0 = (object)adaptor.GetNilNode();
-
-                    	PushFollow(FOLLOW_while__in_cycle2304);
-                    	while_116 = while_();
-                    	state.followingStackPointer--;
-                    	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, while_116.Tree);
-
-                    }
-                    break;
-
-            }
-            retval.Stop = input.LT(-1);
-
-            if ( (state.backtracking==0) )
-            {	retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-            	adaptor.SetTokenBoundaries(retval.Tree, (IToken) retval.Start, (IToken) retval.Stop);}
-        }
-        catch (RecognitionException re) 
-    	{
-            ReportError(re);
-            Recover(input,re);
-    	// Conversion of the second argument necessary, but harmless
-    	retval.Tree = (object)adaptor.ErrorNode(input, (IToken) retval.Start, input.LT(-1), re);
-
-        }
-        finally 
-    	{
-        }
-        return retval;
-    }
-    // $ANTLR end "cycle"
-
     public class printExpr_return : ParserRuleReturnScope
     {
         private object tree;
@@ -4353,7 +4504,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "printExpr"
-    // MyGrammar.g:282:1: printExpr : ( add | ident | callMethod );
+    // MyGrammar.g:297:1: printExpr : ( add | ident | callMethod );
     public MyGrammarParser.printExpr_return printExpr() // throws RecognitionException [1]
     {   
         MyGrammarParser.printExpr_return retval = new MyGrammarParser.printExpr_return();
@@ -4361,95 +4512,95 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.add_return add117 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add123 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.ident_return ident118 = default(MyGrammarParser.ident_return);
+        MyGrammarParser.ident_return ident124 = default(MyGrammarParser.ident_return);
 
-        MyGrammarParser.callMethod_return callMethod119 = default(MyGrammarParser.callMethod_return);
+        MyGrammarParser.callMethod_return callMethod125 = default(MyGrammarParser.callMethod_return);
 
 
 
         try 
     	{
-            // MyGrammar.g:282:11: ( add | ident | callMethod )
-            int alt15 = 3;
-            int LA15_0 = input.LA(1);
+            // MyGrammar.g:297:11: ( add | ident | callMethod )
+            int alt17 = 3;
+            int LA17_0 = input.LA(1);
 
-            if ( ((LA15_0 >= INTEGER && LA15_0 <= DOUBLE_) || LA15_0 == 76) )
+            if ( ((LA17_0 >= INTEGER && LA17_0 <= DOUBLE_) || LA17_0 == 79) )
             {
-                alt15 = 1;
+                alt17 = 1;
             }
-            else if ( (LA15_0 == ID) )
+            else if ( (LA17_0 == ID) )
             {
-                int LA15_2 = input.LA(2);
+                int LA17_2 = input.LA(2);
 
-                if ( (LA15_2 == 81) )
+                if ( (LA17_2 == 84) )
                 {
-                    alt15 = 3;
+                    alt17 = 3;
                 }
-                else if ( (synpred42_MyGrammar()) )
+                else if ( (synpred44_MyGrammar()) )
                 {
-                    alt15 = 1;
+                    alt17 = 1;
                 }
-                else if ( (synpred43_MyGrammar()) )
+                else if ( (synpred45_MyGrammar()) )
                 {
-                    alt15 = 2;
+                    alt17 = 2;
                 }
                 else 
                 {
                     if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                    NoViableAltException nvae_d15s2 =
-                        new NoViableAltException("", 15, 2, input);
+                    NoViableAltException nvae_d17s2 =
+                        new NoViableAltException("", 17, 2, input);
 
-                    throw nvae_d15s2;
+                    throw nvae_d17s2;
                 }
             }
             else 
             {
                 if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                NoViableAltException nvae_d15s0 =
-                    new NoViableAltException("", 15, 0, input);
+                NoViableAltException nvae_d17s0 =
+                    new NoViableAltException("", 17, 0, input);
 
-                throw nvae_d15s0;
+                throw nvae_d17s0;
             }
-            switch (alt15) 
+            switch (alt17) 
             {
                 case 1 :
-                    // MyGrammar.g:282:13: add
+                    // MyGrammar.g:297:13: add
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_add_in_printExpr2317);
-                    	add117 = add();
+                    	PushFollow(FOLLOW_add_in_printExpr2383);
+                    	add123 = add();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, add117.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, add123.Tree);
 
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:283:6: ident
+                    // MyGrammar.g:298:6: ident
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_ident_in_printExpr2324);
-                    	ident118 = ident();
+                    	PushFollow(FOLLOW_ident_in_printExpr2390);
+                    	ident124 = ident();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, ident118.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, ident124.Tree);
 
                     }
                     break;
                 case 3 :
-                    // MyGrammar.g:284:6: callMethod
+                    // MyGrammar.g:299:6: callMethod
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_callMethod_in_printExpr2331);
-                    	callMethod119 = callMethod();
+                    	PushFollow(FOLLOW_callMethod_in_printExpr2397);
+                    	callMethod125 = callMethod();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, callMethod119.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, callMethod125.Tree);
 
                     }
                     break;
@@ -4487,7 +4638,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "changeValue"
-    // MyGrammar.g:287:1: changeValue : ident ASSIGN initValue -> ^( Assign ident initValue ) ;
+    // MyGrammar.g:302:1: changeValue : ident ASSIGN initValue -> ^( Assign ident initValue ) ;
     public MyGrammarParser.changeValue_return changeValue() // throws RecognitionException [1]
     {   
         MyGrammarParser.changeValue_return retval = new MyGrammarParser.changeValue_return();
@@ -4495,34 +4646,34 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken ASSIGN121 = null;
-        MyGrammarParser.ident_return ident120 = default(MyGrammarParser.ident_return);
+        IToken ASSIGN127 = null;
+        MyGrammarParser.ident_return ident126 = default(MyGrammarParser.ident_return);
 
-        MyGrammarParser.initValue_return initValue122 = default(MyGrammarParser.initValue_return);
+        MyGrammarParser.initValue_return initValue128 = default(MyGrammarParser.initValue_return);
 
 
-        object ASSIGN121_tree=null;
+        object ASSIGN127_tree=null;
         RewriteRuleTokenStream stream_ASSIGN = new RewriteRuleTokenStream(adaptor,"token ASSIGN");
         RewriteRuleSubtreeStream stream_ident = new RewriteRuleSubtreeStream(adaptor,"rule ident");
         RewriteRuleSubtreeStream stream_initValue = new RewriteRuleSubtreeStream(adaptor,"rule initValue");
         try 
     	{
-            // MyGrammar.g:287:13: ( ident ASSIGN initValue -> ^( Assign ident initValue ) )
-            // MyGrammar.g:287:15: ident ASSIGN initValue
+            // MyGrammar.g:302:13: ( ident ASSIGN initValue -> ^( Assign ident initValue ) )
+            // MyGrammar.g:302:15: ident ASSIGN initValue
             {
-            	PushFollow(FOLLOW_ident_in_changeValue2345);
-            	ident120 = ident();
+            	PushFollow(FOLLOW_ident_in_changeValue2411);
+            	ident126 = ident();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_ident.Add(ident120.Tree);
-            	ASSIGN121=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_changeValue2347); if (state.failed) return retval; 
-            	if ( (state.backtracking==0) ) stream_ASSIGN.Add(ASSIGN121);
+            	if ( (state.backtracking==0) ) stream_ident.Add(ident126.Tree);
+            	ASSIGN127=(IToken)Match(input,ASSIGN,FOLLOW_ASSIGN_in_changeValue2413); if (state.failed) return retval; 
+            	if ( (state.backtracking==0) ) stream_ASSIGN.Add(ASSIGN127);
 
-            	PushFollow(FOLLOW_initValue_in_changeValue2349);
-            	initValue122 = initValue();
+            	PushFollow(FOLLOW_initValue_in_changeValue2415);
+            	initValue128 = initValue();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_initValue.Add(initValue122.Tree);
+            	if ( (state.backtracking==0) ) stream_initValue.Add(initValue128.Tree);
 
 
             	// AST REWRITE
@@ -4537,9 +4688,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 288:7: -> ^( Assign ident initValue )
+            	// 303:7: -> ^( Assign ident initValue )
             	{
-            	    // MyGrammar.g:288:10: ^( Assign ident initValue )
+            	    // MyGrammar.g:303:10: ^( Assign ident initValue )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot(new AssignNode(Assign), root_1);
@@ -4587,7 +4738,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "expr"
-    // MyGrammar.g:290:1: expr : ( add | if_ | varInit | oneArray | cycle | varInitValue | callMethod | print | changeValue );
+    // MyGrammar.g:305:1: expr : ( add | if_ | init | arrayInit | cycle | fieldInitValue | callMethod | print | changeValue );
     public MyGrammarParser.expr_return expr() // throws RecognitionException [1]
     {   
         MyGrammarParser.expr_return retval = new MyGrammarParser.expr_return();
@@ -4595,147 +4746,147 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.add_return add123 = default(MyGrammarParser.add_return);
+        MyGrammarParser.add_return add129 = default(MyGrammarParser.add_return);
 
-        MyGrammarParser.if__return if_124 = default(MyGrammarParser.if__return);
+        MyGrammarParser.if__return if_130 = default(MyGrammarParser.if__return);
 
-        MyGrammarParser.varInit_return varInit125 = default(MyGrammarParser.varInit_return);
+        MyGrammarParser.init_return init131 = default(MyGrammarParser.init_return);
 
-        MyGrammarParser.oneArray_return oneArray126 = default(MyGrammarParser.oneArray_return);
+        MyGrammarParser.arrayInit_return arrayInit132 = default(MyGrammarParser.arrayInit_return);
 
-        MyGrammarParser.cycle_return cycle127 = default(MyGrammarParser.cycle_return);
+        MyGrammarParser.cycle_return cycle133 = default(MyGrammarParser.cycle_return);
 
-        MyGrammarParser.varInitValue_return varInitValue128 = default(MyGrammarParser.varInitValue_return);
+        MyGrammarParser.fieldInitValue_return fieldInitValue134 = default(MyGrammarParser.fieldInitValue_return);
 
-        MyGrammarParser.callMethod_return callMethod129 = default(MyGrammarParser.callMethod_return);
+        MyGrammarParser.callMethod_return callMethod135 = default(MyGrammarParser.callMethod_return);
 
-        MyGrammarParser.print_return print130 = default(MyGrammarParser.print_return);
+        MyGrammarParser.print_return print136 = default(MyGrammarParser.print_return);
 
-        MyGrammarParser.changeValue_return changeValue131 = default(MyGrammarParser.changeValue_return);
+        MyGrammarParser.changeValue_return changeValue137 = default(MyGrammarParser.changeValue_return);
 
 
 
         try 
     	{
-            // MyGrammar.g:290:6: ( add | if_ | varInit | oneArray | cycle | varInitValue | callMethod | print | changeValue )
-            int alt16 = 9;
-            alt16 = dfa16.Predict(input);
-            switch (alt16) 
+            // MyGrammar.g:305:6: ( add | if_ | init | arrayInit | cycle | fieldInitValue | callMethod | print | changeValue )
+            int alt18 = 9;
+            alt18 = dfa18.Predict(input);
+            switch (alt18) 
             {
                 case 1 :
-                    // MyGrammar.g:290:8: add
+                    // MyGrammar.g:305:8: add
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_add_in_expr2380);
-                    	add123 = add();
+                    	PushFollow(FOLLOW_add_in_expr2446);
+                    	add129 = add();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, add123.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, add129.Tree);
 
                     }
                     break;
                 case 2 :
-                    // MyGrammar.g:291:5: if_
+                    // MyGrammar.g:306:5: if_
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_if__in_expr2386);
-                    	if_124 = if_();
+                    	PushFollow(FOLLOW_if__in_expr2452);
+                    	if_130 = if_();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, if_124.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, if_130.Tree);
 
                     }
                     break;
                 case 3 :
-                    // MyGrammar.g:292:5: varInit
+                    // MyGrammar.g:307:5: init
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_varInit_in_expr2392);
-                    	varInit125 = varInit();
+                    	PushFollow(FOLLOW_init_in_expr2458);
+                    	init131 = init();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, varInit125.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, init131.Tree);
 
                     }
                     break;
                 case 4 :
-                    // MyGrammar.g:293:5: oneArray
+                    // MyGrammar.g:308:5: arrayInit
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_oneArray_in_expr2398);
-                    	oneArray126 = oneArray();
+                    	PushFollow(FOLLOW_arrayInit_in_expr2464);
+                    	arrayInit132 = arrayInit();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, oneArray126.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, arrayInit132.Tree);
 
                     }
                     break;
                 case 5 :
-                    // MyGrammar.g:294:5: cycle
+                    // MyGrammar.g:309:5: cycle
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_cycle_in_expr2404);
-                    	cycle127 = cycle();
+                    	PushFollow(FOLLOW_cycle_in_expr2470);
+                    	cycle133 = cycle();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, cycle127.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, cycle133.Tree);
 
                     }
                     break;
                 case 6 :
-                    // MyGrammar.g:295:5: varInitValue
+                    // MyGrammar.g:310:5: fieldInitValue
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_varInitValue_in_expr2410);
-                    	varInitValue128 = varInitValue();
+                    	PushFollow(FOLLOW_fieldInitValue_in_expr2476);
+                    	fieldInitValue134 = fieldInitValue();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, varInitValue128.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, fieldInitValue134.Tree);
 
                     }
                     break;
                 case 7 :
-                    // MyGrammar.g:296:5: callMethod
+                    // MyGrammar.g:311:5: callMethod
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_callMethod_in_expr2416);
-                    	callMethod129 = callMethod();
+                    	PushFollow(FOLLOW_callMethod_in_expr2482);
+                    	callMethod135 = callMethod();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, callMethod129.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, callMethod135.Tree);
 
                     }
                     break;
                 case 8 :
-                    // MyGrammar.g:297:5: print
+                    // MyGrammar.g:312:5: print
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_print_in_expr2422);
-                    	print130 = print();
+                    	PushFollow(FOLLOW_print_in_expr2488);
+                    	print136 = print();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, print130.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, print136.Tree);
 
                     }
                     break;
                 case 9 :
-                    // MyGrammar.g:298:5: changeValue
+                    // MyGrammar.g:313:5: changeValue
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_changeValue_in_expr2428);
-                    	changeValue131 = changeValue();
+                    	PushFollow(FOLLOW_changeValue_in_expr2494);
+                    	changeValue137 = changeValue();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, changeValue131.Tree);
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, changeValue137.Tree);
 
                     }
                     break;
@@ -4773,7 +4924,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "line"
-    // MyGrammar.g:301:1: line : expr ( ';' )* ;
+    // MyGrammar.g:316:1: line : expr ( ';' )* ;
     public MyGrammarParser.line_return line() // throws RecognitionException [1]
     {   
         MyGrammarParser.line_return retval = new MyGrammarParser.line_return();
@@ -4781,53 +4932,53 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken char_literal133 = null;
-        MyGrammarParser.expr_return expr132 = default(MyGrammarParser.expr_return);
+        IToken char_literal139 = null;
+        MyGrammarParser.expr_return expr138 = default(MyGrammarParser.expr_return);
 
 
-        object char_literal133_tree=null;
+        object char_literal139_tree=null;
 
         try 
     	{
-            // MyGrammar.g:301:6: ( expr ( ';' )* )
-            // MyGrammar.g:301:8: expr ( ';' )*
+            // MyGrammar.g:316:6: ( expr ( ';' )* )
+            // MyGrammar.g:316:8: expr ( ';' )*
             {
             	root_0 = (object)adaptor.GetNilNode();
 
-            	PushFollow(FOLLOW_expr_in_line2439);
-            	expr132 = expr();
+            	PushFollow(FOLLOW_expr_in_line2505);
+            	expr138 = expr();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, expr132.Tree);
-            	// MyGrammar.g:301:13: ( ';' )*
+            	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, expr138.Tree);
+            	// MyGrammar.g:316:13: ( ';' )*
             	do 
             	{
-            	    int alt17 = 2;
-            	    int LA17_0 = input.LA(1);
+            	    int alt19 = 2;
+            	    int LA19_0 = input.LA(1);
 
-            	    if ( (LA17_0 == 80) )
+            	    if ( (LA19_0 == 83) )
             	    {
-            	        alt17 = 1;
+            	        alt19 = 1;
             	    }
 
 
-            	    switch (alt17) 
+            	    switch (alt19) 
             		{
             			case 1 :
-            			    // MyGrammar.g:301:14: ';'
+            			    // MyGrammar.g:316:14: ';'
             			    {
-            			    	char_literal133=(IToken)Match(input,80,FOLLOW_80_in_line2442); if (state.failed) return retval;
+            			    	char_literal139=(IToken)Match(input,83,FOLLOW_83_in_line2508); if (state.failed) return retval;
 
             			    }
             			    break;
 
             			default:
-            			    goto loop17;
+            			    goto loop19;
             	    }
             	} while (true);
 
-            	loop17:
-            		;	// Stops C# compiler whining that label 'loop17' has no statements
+            	loop19:
+            		;	// Stops C# compiler whining that label 'loop19' has no statements
 
 
             }
@@ -4864,7 +5015,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "exprList"
-    // MyGrammar.g:304:1: exprList : ( methodDef ( ';' )* | varInit ( ';' )* | oneArray ( ';' )* );
+    // MyGrammar.g:319:1: exprList : ( methodDef ( ';' )* | varInit ( ';' )* | arrayInit ( ';' )* );
     public MyGrammarParser.exprList_return exprList() // throws RecognitionException [1]
     {   
         MyGrammarParser.exprList_return retval = new MyGrammarParser.exprList_return();
@@ -4872,187 +5023,91 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        IToken char_literal135 = null;
-        IToken char_literal137 = null;
-        IToken char_literal139 = null;
-        MyGrammarParser.methodDef_return methodDef134 = default(MyGrammarParser.methodDef_return);
+        IToken char_literal141 = null;
+        IToken char_literal143 = null;
+        IToken char_literal145 = null;
+        MyGrammarParser.methodDef_return methodDef140 = default(MyGrammarParser.methodDef_return);
 
-        MyGrammarParser.varInit_return varInit136 = default(MyGrammarParser.varInit_return);
+        MyGrammarParser.varInit_return varInit142 = default(MyGrammarParser.varInit_return);
 
-        MyGrammarParser.oneArray_return oneArray138 = default(MyGrammarParser.oneArray_return);
+        MyGrammarParser.arrayInit_return arrayInit144 = default(MyGrammarParser.arrayInit_return);
 
 
-        object char_literal135_tree=null;
-        object char_literal137_tree=null;
-        object char_literal139_tree=null;
+        object char_literal141_tree=null;
+        object char_literal143_tree=null;
+        object char_literal145_tree=null;
 
         try 
     	{
-            // MyGrammar.g:304:9: ( methodDef ( ';' )* | varInit ( ';' )* | oneArray ( ';' )* )
-            int alt21 = 3;
-            int LA21_0 = input.LA(1);
+            // MyGrammar.g:319:9: ( methodDef ( ';' )* | varInit ( ';' )* | arrayInit ( ';' )* )
+            int alt23 = 3;
+            int LA23_0 = input.LA(1);
 
-            if ( ((LA21_0 >= INT && LA21_0 <= VOID)) )
+            if ( ((LA23_0 >= INT && LA23_0 <= VOID)) )
             {
-                int LA21_1 = input.LA(2);
+                int LA23_1 = input.LA(2);
 
-                if ( (LA21_1 == ID) )
+                if ( (LA23_1 == ID) )
                 {
-                    switch ( input.LA(3) ) 
+                    int LA23_2 = input.LA(3);
+
+                    if ( (LA23_2 == 84) )
                     {
-                    case 81:
-                    	{
-                        alt21 = 1;
-                        }
-                        break;
-                    case EOF:
-                    case ASSIGN:
-                    case INT:
-                    case FLOAT:
-                    case DOUBLE:
-                    case CHAR:
-                    case VOID:
-                    case 80:
-                    	{
-                        alt21 = 2;
-                        }
-                        break;
-                    case 74:
-                    	{
-                        alt21 = 3;
-                        }
-                        break;
-                    	default:
-                    	    if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                    	    NoViableAltException nvae_d21s2 =
-                    	        new NoViableAltException("", 21, 2, input);
-
-                    	    throw nvae_d21s2;
+                        alt23 = 1;
                     }
+                    else if ( (LA23_2 == EOF || LA23_2 == ASSIGN || (LA23_2 >= INT && LA23_2 <= VOID) || LA23_2 == 83) )
+                    {
+                        alt23 = 2;
+                    }
+                    else 
+                    {
+                        if ( state.backtracking > 0 ) {state.failed = true; return retval;}
+                        NoViableAltException nvae_d23s2 =
+                            new NoViableAltException("", 23, 2, input);
 
+                        throw nvae_d23s2;
+                    }
+                }
+                else if ( (LA23_1 == 76) )
+                {
+                    alt23 = 3;
                 }
                 else 
                 {
                     if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                    NoViableAltException nvae_d21s1 =
-                        new NoViableAltException("", 21, 1, input);
+                    NoViableAltException nvae_d23s1 =
+                        new NoViableAltException("", 23, 1, input);
 
-                    throw nvae_d21s1;
+                    throw nvae_d23s1;
                 }
             }
             else 
             {
                 if ( state.backtracking > 0 ) {state.failed = true; return retval;}
-                NoViableAltException nvae_d21s0 =
-                    new NoViableAltException("", 21, 0, input);
+                NoViableAltException nvae_d23s0 =
+                    new NoViableAltException("", 23, 0, input);
 
-                throw nvae_d21s0;
+                throw nvae_d23s0;
             }
-            switch (alt21) 
+            switch (alt23) 
             {
                 case 1 :
-                    // MyGrammar.g:304:11: methodDef ( ';' )*
+                    // MyGrammar.g:319:11: methodDef ( ';' )*
                     {
                     	root_0 = (object)adaptor.GetNilNode();
 
-                    	PushFollow(FOLLOW_methodDef_in_exprList2456);
-                    	methodDef134 = methodDef();
+                    	PushFollow(FOLLOW_methodDef_in_exprList2522);
+                    	methodDef140 = methodDef();
                     	state.followingStackPointer--;
                     	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, methodDef134.Tree);
-                    	// MyGrammar.g:304:22: ( ';' )*
-                    	do 
-                    	{
-                    	    int alt18 = 2;
-                    	    int LA18_0 = input.LA(1);
-
-                    	    if ( (LA18_0 == 80) )
-                    	    {
-                    	        alt18 = 1;
-                    	    }
-
-
-                    	    switch (alt18) 
-                    		{
-                    			case 1 :
-                    			    // MyGrammar.g:304:23: ';'
-                    			    {
-                    			    	char_literal135=(IToken)Match(input,80,FOLLOW_80_in_exprList2460); if (state.failed) return retval;
-
-                    			    }
-                    			    break;
-
-                    			default:
-                    			    goto loop18;
-                    	    }
-                    	} while (true);
-
-                    	loop18:
-                    		;	// Stops C# compiler whining that label 'loop18' has no statements
-
-
-                    }
-                    break;
-                case 2 :
-                    // MyGrammar.g:305:5: varInit ( ';' )*
-                    {
-                    	root_0 = (object)adaptor.GetNilNode();
-
-                    	PushFollow(FOLLOW_varInit_in_exprList2470);
-                    	varInit136 = varInit();
-                    	state.followingStackPointer--;
-                    	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, varInit136.Tree);
-                    	// MyGrammar.g:305:13: ( ';' )*
-                    	do 
-                    	{
-                    	    int alt19 = 2;
-                    	    int LA19_0 = input.LA(1);
-
-                    	    if ( (LA19_0 == 80) )
-                    	    {
-                    	        alt19 = 1;
-                    	    }
-
-
-                    	    switch (alt19) 
-                    		{
-                    			case 1 :
-                    			    // MyGrammar.g:305:14: ';'
-                    			    {
-                    			    	char_literal137=(IToken)Match(input,80,FOLLOW_80_in_exprList2473); if (state.failed) return retval;
-
-                    			    }
-                    			    break;
-
-                    			default:
-                    			    goto loop19;
-                    	    }
-                    	} while (true);
-
-                    	loop19:
-                    		;	// Stops C# compiler whining that label 'loop19' has no statements
-
-
-                    }
-                    break;
-                case 3 :
-                    // MyGrammar.g:306:5: oneArray ( ';' )*
-                    {
-                    	root_0 = (object)adaptor.GetNilNode();
-
-                    	PushFollow(FOLLOW_oneArray_in_exprList2483);
-                    	oneArray138 = oneArray();
-                    	state.followingStackPointer--;
-                    	if (state.failed) return retval;
-                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, oneArray138.Tree);
-                    	// MyGrammar.g:306:14: ( ';' )*
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, methodDef140.Tree);
+                    	// MyGrammar.g:319:22: ( ';' )*
                     	do 
                     	{
                     	    int alt20 = 2;
                     	    int LA20_0 = input.LA(1);
 
-                    	    if ( (LA20_0 == 80) )
+                    	    if ( (LA20_0 == 83) )
                     	    {
                     	        alt20 = 1;
                     	    }
@@ -5061,9 +5116,9 @@ public partial class MyGrammarParser : Parser
                     	    switch (alt20) 
                     		{
                     			case 1 :
-                    			    // MyGrammar.g:306:15: ';'
+                    			    // MyGrammar.g:319:23: ';'
                     			    {
-                    			    	char_literal139=(IToken)Match(input,80,FOLLOW_80_in_exprList2486); if (state.failed) return retval;
+                    			    	char_literal141=(IToken)Match(input,83,FOLLOW_83_in_exprList2526); if (state.failed) return retval;
 
                     			    }
                     			    break;
@@ -5075,6 +5130,92 @@ public partial class MyGrammarParser : Parser
 
                     	loop20:
                     		;	// Stops C# compiler whining that label 'loop20' has no statements
+
+
+                    }
+                    break;
+                case 2 :
+                    // MyGrammar.g:320:5: varInit ( ';' )*
+                    {
+                    	root_0 = (object)adaptor.GetNilNode();
+
+                    	PushFollow(FOLLOW_varInit_in_exprList2536);
+                    	varInit142 = varInit();
+                    	state.followingStackPointer--;
+                    	if (state.failed) return retval;
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, varInit142.Tree);
+                    	// MyGrammar.g:320:13: ( ';' )*
+                    	do 
+                    	{
+                    	    int alt21 = 2;
+                    	    int LA21_0 = input.LA(1);
+
+                    	    if ( (LA21_0 == 83) )
+                    	    {
+                    	        alt21 = 1;
+                    	    }
+
+
+                    	    switch (alt21) 
+                    		{
+                    			case 1 :
+                    			    // MyGrammar.g:320:14: ';'
+                    			    {
+                    			    	char_literal143=(IToken)Match(input,83,FOLLOW_83_in_exprList2539); if (state.failed) return retval;
+
+                    			    }
+                    			    break;
+
+                    			default:
+                    			    goto loop21;
+                    	    }
+                    	} while (true);
+
+                    	loop21:
+                    		;	// Stops C# compiler whining that label 'loop21' has no statements
+
+
+                    }
+                    break;
+                case 3 :
+                    // MyGrammar.g:321:5: arrayInit ( ';' )*
+                    {
+                    	root_0 = (object)adaptor.GetNilNode();
+
+                    	PushFollow(FOLLOW_arrayInit_in_exprList2549);
+                    	arrayInit144 = arrayInit();
+                    	state.followingStackPointer--;
+                    	if (state.failed) return retval;
+                    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, arrayInit144.Tree);
+                    	// MyGrammar.g:321:15: ( ';' )*
+                    	do 
+                    	{
+                    	    int alt22 = 2;
+                    	    int LA22_0 = input.LA(1);
+
+                    	    if ( (LA22_0 == 83) )
+                    	    {
+                    	        alt22 = 1;
+                    	    }
+
+
+                    	    switch (alt22) 
+                    		{
+                    			case 1 :
+                    			    // MyGrammar.g:321:16: ';'
+                    			    {
+                    			    	char_literal145=(IToken)Match(input,83,FOLLOW_83_in_exprList2552); if (state.failed) return retval;
+
+                    			    }
+                    			    break;
+
+                    			default:
+                    			    goto loop22;
+                    	    }
+                    	} while (true);
+
+                    	loop22:
+                    		;	// Stops C# compiler whining that label 'loop22' has no statements
 
 
                     }
@@ -5113,7 +5254,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "fullProgramm"
-    // MyGrammar.g:312:1: fullProgramm : ( exprList )* ;
+    // MyGrammar.g:327:1: fullProgramm : ( exprList )* ;
     public MyGrammarParser.fullProgramm_return fullProgramm() // throws RecognitionException [1]
     {   
         MyGrammarParser.fullProgramm_return retval = new MyGrammarParser.fullProgramm_return();
@@ -5121,50 +5262,50 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.exprList_return exprList140 = default(MyGrammarParser.exprList_return);
+        MyGrammarParser.exprList_return exprList146 = default(MyGrammarParser.exprList_return);
 
 
 
         try 
     	{
-            // MyGrammar.g:312:13: ( ( exprList )* )
-            // MyGrammar.g:313:4: ( exprList )*
+            // MyGrammar.g:327:13: ( ( exprList )* )
+            // MyGrammar.g:328:4: ( exprList )*
             {
             	root_0 = (object)adaptor.GetNilNode();
 
-            	// MyGrammar.g:313:4: ( exprList )*
+            	// MyGrammar.g:328:4: ( exprList )*
             	do 
             	{
-            	    int alt22 = 2;
-            	    int LA22_0 = input.LA(1);
+            	    int alt24 = 2;
+            	    int LA24_0 = input.LA(1);
 
-            	    if ( ((LA22_0 >= INT && LA22_0 <= VOID)) )
+            	    if ( ((LA24_0 >= INT && LA24_0 <= VOID)) )
             	    {
-            	        alt22 = 1;
+            	        alt24 = 1;
             	    }
 
 
-            	    switch (alt22) 
+            	    switch (alt24) 
             		{
             			case 1 :
             			    // MyGrammar.g:0:0: exprList
             			    {
-            			    	PushFollow(FOLLOW_exprList_in_fullProgramm2507);
-            			    	exprList140 = exprList();
+            			    	PushFollow(FOLLOW_exprList_in_fullProgramm2573);
+            			    	exprList146 = exprList();
             			    	state.followingStackPointer--;
             			    	if (state.failed) return retval;
-            			    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, exprList140.Tree);
+            			    	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, exprList146.Tree);
 
             			    }
             			    break;
 
             			default:
-            			    goto loop22;
+            			    goto loop24;
             	    }
             	} while (true);
 
-            	loop22:
-            		;	// Stops C# compiler whining that label 'loop22' has no statements
+            	loop24:
+            		;	// Stops C# compiler whining that label 'loop24' has no statements
 
 
             }
@@ -5201,7 +5342,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "program"
-    // MyGrammar.g:316:1: program : fullProgramm -> ^( PROGRAM fullProgramm ) ;
+    // MyGrammar.g:331:1: program : fullProgramm -> ^( PROGRAM fullProgramm ) ;
     public MyGrammarParser.program_return program() // throws RecognitionException [1]
     {   
         MyGrammarParser.program_return retval = new MyGrammarParser.program_return();
@@ -5209,20 +5350,20 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.fullProgramm_return fullProgramm141 = default(MyGrammarParser.fullProgramm_return);
+        MyGrammarParser.fullProgramm_return fullProgramm147 = default(MyGrammarParser.fullProgramm_return);
 
 
         RewriteRuleSubtreeStream stream_fullProgramm = new RewriteRuleSubtreeStream(adaptor,"rule fullProgramm");
         try 
     	{
-            // MyGrammar.g:316:8: ( fullProgramm -> ^( PROGRAM fullProgramm ) )
-            // MyGrammar.g:317:3: fullProgramm
+            // MyGrammar.g:331:8: ( fullProgramm -> ^( PROGRAM fullProgramm ) )
+            // MyGrammar.g:332:3: fullProgramm
             {
-            	PushFollow(FOLLOW_fullProgramm_in_program2521);
-            	fullProgramm141 = fullProgramm();
+            	PushFollow(FOLLOW_fullProgramm_in_program2587);
+            	fullProgramm147 = fullProgramm();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( (state.backtracking==0) ) stream_fullProgramm.Add(fullProgramm141.Tree);
+            	if ( (state.backtracking==0) ) stream_fullProgramm.Add(fullProgramm147.Tree);
 
 
             	// AST REWRITE
@@ -5237,9 +5378,9 @@ public partial class MyGrammarParser : Parser
             	RewriteRuleSubtreeStream stream_retval = new RewriteRuleSubtreeStream(adaptor, "rule retval", retval!=null ? retval.Tree : null);
 
             	root_0 = (object)adaptor.GetNilNode();
-            	// 317:16: -> ^( PROGRAM fullProgramm )
+            	// 332:16: -> ^( PROGRAM fullProgramm )
             	{
-            	    // MyGrammar.g:317:19: ^( PROGRAM fullProgramm )
+            	    // MyGrammar.g:332:19: ^( PROGRAM fullProgramm )
             	    {
             	    object root_1 = (object)adaptor.GetNilNode();
             	    root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(PROGRAM, "PROGRAM"), root_1);
@@ -5286,7 +5427,7 @@ public partial class MyGrammarParser : Parser
     };
 
     // $ANTLR start "execute"
-    // MyGrammar.g:320:1: execute : program ;
+    // MyGrammar.g:335:1: execute : program ;
     public MyGrammarParser.execute_return execute() // throws RecognitionException [1]
     {   
         MyGrammarParser.execute_return retval = new MyGrammarParser.execute_return();
@@ -5294,22 +5435,22 @@ public partial class MyGrammarParser : Parser
 
         object root_0 = null;
 
-        MyGrammarParser.program_return program142 = default(MyGrammarParser.program_return);
+        MyGrammarParser.program_return program148 = default(MyGrammarParser.program_return);
 
 
 
         try 
     	{
-            // MyGrammar.g:320:8: ( program )
-            // MyGrammar.g:321:3: program
+            // MyGrammar.g:335:8: ( program )
+            // MyGrammar.g:336:3: program
             {
             	root_0 = (object)adaptor.GetNilNode();
 
-            	PushFollow(FOLLOW_program_in_execute2539);
-            	program142 = program();
+            	PushFollow(FOLLOW_program_in_execute2605);
+            	program148 = program();
             	state.followingStackPointer--;
             	if (state.failed) return retval;
-            	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, program142.Tree);
+            	if ( state.backtracking == 0 ) adaptor.AddChild(root_0, program148.Tree);
 
             }
 
@@ -5334,27 +5475,13 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "execute"
 
-    // $ANTLR start "synpred15_MyGrammar"
-    public void synpred15_MyGrammar_fragment() {
-        // MyGrammar.g:156:14: ( add )
-        // MyGrammar.g:156:14: add
-        {
-        	PushFollow(FOLLOW_add_in_synpred15_MyGrammar1239);
-        	add();
-        	state.followingStackPointer--;
-        	if (state.failed) return ;
-
-        }
-    }
-    // $ANTLR end "synpred15_MyGrammar"
-
     // $ANTLR start "synpred17_MyGrammar"
     public void synpred17_MyGrammar_fragment() {
-        // MyGrammar.g:158:7: ( ident )
-        // MyGrammar.g:158:7: ident
+        // MyGrammar.g:173:14: ( add )
+        // MyGrammar.g:173:14: add
         {
-        	PushFollow(FOLLOW_ident_in_synpred17_MyGrammar1255);
-        	ident();
+        	PushFollow(FOLLOW_add_in_synpred17_MyGrammar1343);
+        	add();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5362,41 +5489,27 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "synpred17_MyGrammar"
 
-    // $ANTLR start "synpred27_MyGrammar"
-    public void synpred27_MyGrammar_fragment() {
-        // MyGrammar.g:199:16: ( orOperation )
-        // MyGrammar.g:199:16: orOperation
+    // $ANTLR start "synpred19_MyGrammar"
+    public void synpred19_MyGrammar_fragment() {
+        // MyGrammar.g:175:7: ( ident )
+        // MyGrammar.g:175:7: ident
         {
-        	PushFollow(FOLLOW_orOperation_in_synpred27_MyGrammar1581);
-        	orOperation();
+        	PushFollow(FOLLOW_ident_in_synpred19_MyGrammar1359);
+        	ident();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
         }
     }
-    // $ANTLR end "synpred27_MyGrammar"
-
-    // $ANTLR start "synpred28_MyGrammar"
-    public void synpred28_MyGrammar_fragment() {
-        // MyGrammar.g:200:8: ( andOperation )
-        // MyGrammar.g:200:8: andOperation
-        {
-        	PushFollow(FOLLOW_andOperation_in_synpred28_MyGrammar1601);
-        	andOperation();
-        	state.followingStackPointer--;
-        	if (state.failed) return ;
-
-        }
-    }
-    // $ANTLR end "synpred28_MyGrammar"
+    // $ANTLR end "synpred19_MyGrammar"
 
     // $ANTLR start "synpred29_MyGrammar"
     public void synpred29_MyGrammar_fragment() {
-        // MyGrammar.g:201:8: ( eqOp )
-        // MyGrammar.g:201:8: eqOp
+        // MyGrammar.g:213:16: ( orOperation )
+        // MyGrammar.g:213:16: orOperation
         {
-        	PushFollow(FOLLOW_eqOp_in_synpred29_MyGrammar1621);
-        	eqOp();
+        	PushFollow(FOLLOW_orOperation_in_synpred29_MyGrammar1646);
+        	orOperation();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5406,11 +5519,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred30_MyGrammar"
     public void synpred30_MyGrammar_fragment() {
-        // MyGrammar.g:202:8: ( nonEqOp )
-        // MyGrammar.g:202:8: nonEqOp
+        // MyGrammar.g:214:8: ( andOperation )
+        // MyGrammar.g:214:8: andOperation
         {
-        	PushFollow(FOLLOW_nonEqOp_in_synpred30_MyGrammar1641);
-        	nonEqOp();
+        	PushFollow(FOLLOW_andOperation_in_synpred30_MyGrammar1666);
+        	andOperation();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5420,11 +5533,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred31_MyGrammar"
     public void synpred31_MyGrammar_fragment() {
-        // MyGrammar.g:203:8: ( moreOp )
-        // MyGrammar.g:203:8: moreOp
+        // MyGrammar.g:215:8: ( eqOp )
+        // MyGrammar.g:215:8: eqOp
         {
-        	PushFollow(FOLLOW_moreOp_in_synpred31_MyGrammar1661);
-        	moreOp();
+        	PushFollow(FOLLOW_eqOp_in_synpred31_MyGrammar1686);
+        	eqOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5434,11 +5547,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred32_MyGrammar"
     public void synpred32_MyGrammar_fragment() {
-        // MyGrammar.g:204:8: ( moreEqOp )
-        // MyGrammar.g:204:8: moreEqOp
+        // MyGrammar.g:216:8: ( nonEqOp )
+        // MyGrammar.g:216:8: nonEqOp
         {
-        	PushFollow(FOLLOW_moreEqOp_in_synpred32_MyGrammar1681);
-        	moreEqOp();
+        	PushFollow(FOLLOW_nonEqOp_in_synpred32_MyGrammar1706);
+        	nonEqOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5448,11 +5561,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred33_MyGrammar"
     public void synpred33_MyGrammar_fragment() {
-        // MyGrammar.g:205:8: ( lessOp )
-        // MyGrammar.g:205:8: lessOp
+        // MyGrammar.g:217:8: ( moreOp )
+        // MyGrammar.g:217:8: moreOp
         {
-        	PushFollow(FOLLOW_lessOp_in_synpred33_MyGrammar1701);
-        	lessOp();
+        	PushFollow(FOLLOW_moreOp_in_synpred33_MyGrammar1726);
+        	moreOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5462,11 +5575,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred34_MyGrammar"
     public void synpred34_MyGrammar_fragment() {
-        // MyGrammar.g:209:18: ( orOperation )
-        // MyGrammar.g:209:18: orOperation
+        // MyGrammar.g:218:8: ( moreEqOp )
+        // MyGrammar.g:218:8: moreEqOp
         {
-        	PushFollow(FOLLOW_orOperation_in_synpred34_MyGrammar1749);
-        	orOperation();
+        	PushFollow(FOLLOW_moreEqOp_in_synpred34_MyGrammar1746);
+        	moreEqOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5476,11 +5589,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred35_MyGrammar"
     public void synpred35_MyGrammar_fragment() {
-        // MyGrammar.g:210:8: ( andOperation )
-        // MyGrammar.g:210:8: andOperation
+        // MyGrammar.g:219:8: ( lessOp )
+        // MyGrammar.g:219:8: lessOp
         {
-        	PushFollow(FOLLOW_andOperation_in_synpred35_MyGrammar1758);
-        	andOperation();
+        	PushFollow(FOLLOW_lessOp_in_synpred35_MyGrammar1766);
+        	lessOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5490,11 +5603,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred36_MyGrammar"
     public void synpred36_MyGrammar_fragment() {
-        // MyGrammar.g:211:8: ( eqOp )
-        // MyGrammar.g:211:8: eqOp
+        // MyGrammar.g:223:18: ( orOperation )
+        // MyGrammar.g:223:18: orOperation
         {
-        	PushFollow(FOLLOW_eqOp_in_synpred36_MyGrammar1767);
-        	eqOp();
+        	PushFollow(FOLLOW_orOperation_in_synpred36_MyGrammar1814);
+        	orOperation();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5504,11 +5617,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred37_MyGrammar"
     public void synpred37_MyGrammar_fragment() {
-        // MyGrammar.g:212:8: ( nonEqOp )
-        // MyGrammar.g:212:8: nonEqOp
+        // MyGrammar.g:224:8: ( andOperation )
+        // MyGrammar.g:224:8: andOperation
         {
-        	PushFollow(FOLLOW_nonEqOp_in_synpred37_MyGrammar1776);
-        	nonEqOp();
+        	PushFollow(FOLLOW_andOperation_in_synpred37_MyGrammar1823);
+        	andOperation();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5518,11 +5631,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred38_MyGrammar"
     public void synpred38_MyGrammar_fragment() {
-        // MyGrammar.g:213:8: ( moreOp )
-        // MyGrammar.g:213:8: moreOp
+        // MyGrammar.g:225:8: ( eqOp )
+        // MyGrammar.g:225:8: eqOp
         {
-        	PushFollow(FOLLOW_moreOp_in_synpred38_MyGrammar1785);
-        	moreOp();
+        	PushFollow(FOLLOW_eqOp_in_synpred38_MyGrammar1832);
+        	eqOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5532,11 +5645,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred39_MyGrammar"
     public void synpred39_MyGrammar_fragment() {
-        // MyGrammar.g:214:8: ( moreEqOp )
-        // MyGrammar.g:214:8: moreEqOp
+        // MyGrammar.g:226:8: ( nonEqOp )
+        // MyGrammar.g:226:8: nonEqOp
         {
-        	PushFollow(FOLLOW_moreEqOp_in_synpred39_MyGrammar1794);
-        	moreEqOp();
+        	PushFollow(FOLLOW_nonEqOp_in_synpred39_MyGrammar1841);
+        	nonEqOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5546,11 +5659,11 @@ public partial class MyGrammarParser : Parser
 
     // $ANTLR start "synpred40_MyGrammar"
     public void synpred40_MyGrammar_fragment() {
-        // MyGrammar.g:215:8: ( lessOp )
-        // MyGrammar.g:215:8: lessOp
+        // MyGrammar.g:227:8: ( moreOp )
+        // MyGrammar.g:227:8: moreOp
         {
-        	PushFollow(FOLLOW_lessOp_in_synpred40_MyGrammar1803);
-        	lessOp();
+        	PushFollow(FOLLOW_moreOp_in_synpred40_MyGrammar1850);
+        	moreOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5558,13 +5671,27 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "synpred40_MyGrammar"
 
+    // $ANTLR start "synpred41_MyGrammar"
+    public void synpred41_MyGrammar_fragment() {
+        // MyGrammar.g:228:8: ( moreEqOp )
+        // MyGrammar.g:228:8: moreEqOp
+        {
+        	PushFollow(FOLLOW_moreEqOp_in_synpred41_MyGrammar1859);
+        	moreEqOp();
+        	state.followingStackPointer--;
+        	if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end "synpred41_MyGrammar"
+
     // $ANTLR start "synpred42_MyGrammar"
     public void synpred42_MyGrammar_fragment() {
-        // MyGrammar.g:282:13: ( add )
-        // MyGrammar.g:282:13: add
+        // MyGrammar.g:229:8: ( lessOp )
+        // MyGrammar.g:229:8: lessOp
         {
-        	PushFollow(FOLLOW_add_in_synpred42_MyGrammar2317);
-        	add();
+        	PushFollow(FOLLOW_lessOp_in_synpred42_MyGrammar1868);
+        	lessOp();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
@@ -5572,26 +5699,12 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "synpred42_MyGrammar"
 
-    // $ANTLR start "synpred43_MyGrammar"
-    public void synpred43_MyGrammar_fragment() {
-        // MyGrammar.g:283:6: ( ident )
-        // MyGrammar.g:283:6: ident
-        {
-        	PushFollow(FOLLOW_ident_in_synpred43_MyGrammar2324);
-        	ident();
-        	state.followingStackPointer--;
-        	if (state.failed) return ;
-
-        }
-    }
-    // $ANTLR end "synpred43_MyGrammar"
-
     // $ANTLR start "synpred44_MyGrammar"
     public void synpred44_MyGrammar_fragment() {
-        // MyGrammar.g:290:8: ( add )
-        // MyGrammar.g:290:8: add
+        // MyGrammar.g:297:13: ( add )
+        // MyGrammar.g:297:13: add
         {
-        	PushFollow(FOLLOW_add_in_synpred44_MyGrammar2380);
+        	PushFollow(FOLLOW_add_in_synpred44_MyGrammar2383);
         	add();
         	state.followingStackPointer--;
         	if (state.failed) return ;
@@ -5600,19 +5713,75 @@ public partial class MyGrammarParser : Parser
     }
     // $ANTLR end "synpred44_MyGrammar"
 
+    // $ANTLR start "synpred45_MyGrammar"
+    public void synpred45_MyGrammar_fragment() {
+        // MyGrammar.g:298:6: ( ident )
+        // MyGrammar.g:298:6: ident
+        {
+        	PushFollow(FOLLOW_ident_in_synpred45_MyGrammar2390);
+        	ident();
+        	state.followingStackPointer--;
+        	if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end "synpred45_MyGrammar"
+
+    // $ANTLR start "synpred46_MyGrammar"
+    public void synpred46_MyGrammar_fragment() {
+        // MyGrammar.g:305:8: ( add )
+        // MyGrammar.g:305:8: add
+        {
+        	PushFollow(FOLLOW_add_in_synpred46_MyGrammar2446);
+        	add();
+        	state.followingStackPointer--;
+        	if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end "synpred46_MyGrammar"
+
+    // $ANTLR start "synpred48_MyGrammar"
+    public void synpred48_MyGrammar_fragment() {
+        // MyGrammar.g:307:5: ( init )
+        // MyGrammar.g:307:5: init
+        {
+        	PushFollow(FOLLOW_init_in_synpred48_MyGrammar2458);
+        	init();
+        	state.followingStackPointer--;
+        	if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end "synpred48_MyGrammar"
+
     // $ANTLR start "synpred49_MyGrammar"
     public void synpred49_MyGrammar_fragment() {
-        // MyGrammar.g:295:5: ( varInitValue )
-        // MyGrammar.g:295:5: varInitValue
+        // MyGrammar.g:308:5: ( arrayInit )
+        // MyGrammar.g:308:5: arrayInit
         {
-        	PushFollow(FOLLOW_varInitValue_in_synpred49_MyGrammar2410);
-        	varInitValue();
+        	PushFollow(FOLLOW_arrayInit_in_synpred49_MyGrammar2464);
+        	arrayInit();
         	state.followingStackPointer--;
         	if (state.failed) return ;
 
         }
     }
     // $ANTLR end "synpred49_MyGrammar"
+
+    // $ANTLR start "synpred51_MyGrammar"
+    public void synpred51_MyGrammar_fragment() {
+        // MyGrammar.g:310:5: ( fieldInitValue )
+        // MyGrammar.g:310:5: fieldInitValue
+        {
+        	PushFollow(FOLLOW_fieldInitValue_in_synpred51_MyGrammar2476);
+        	fieldInitValue();
+        	state.followingStackPointer--;
+        	if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end "synpred51_MyGrammar"
 
     // Delegated rules
 
@@ -5652,13 +5821,13 @@ public partial class MyGrammarParser : Parser
    	    state.failed = false;
    	    return success;
    	}
-   	public bool synpred43_MyGrammar() 
+   	public bool synpred19_MyGrammar() 
    	{
    	    state.backtracking++;
    	    int start = input.Mark();
    	    try 
    	    {
-   	        synpred43_MyGrammar_fragment(); // can never throw exception
+   	        synpred19_MyGrammar_fragment(); // can never throw exception
    	    }
    	    catch (RecognitionException re) 
    	    {
@@ -5796,13 +5965,13 @@ public partial class MyGrammarParser : Parser
    	    state.failed = false;
    	    return success;
    	}
-   	public bool synpred31_MyGrammar() 
+   	public bool synpred51_MyGrammar() 
    	{
    	    state.backtracking++;
    	    int start = input.Mark();
    	    try 
    	    {
-   	        synpred31_MyGrammar_fragment(); // can never throw exception
+   	        synpred51_MyGrammar_fragment(); // can never throw exception
    	    }
    	    catch (RecognitionException re) 
    	    {
@@ -5814,13 +5983,13 @@ public partial class MyGrammarParser : Parser
    	    state.failed = false;
    	    return success;
    	}
-   	public bool synpred28_MyGrammar() 
+   	public bool synpred31_MyGrammar() 
    	{
    	    state.backtracking++;
    	    int start = input.Mark();
    	    try 
    	    {
-   	        synpred28_MyGrammar_fragment(); // can never throw exception
+   	        synpred31_MyGrammar_fragment(); // can never throw exception
    	    }
    	    catch (RecognitionException re) 
    	    {
@@ -5850,13 +6019,13 @@ public partial class MyGrammarParser : Parser
    	    state.failed = false;
    	    return success;
    	}
-   	public bool synpred15_MyGrammar() 
+   	public bool synpred46_MyGrammar() 
    	{
    	    state.backtracking++;
    	    int start = input.Mark();
    	    try 
    	    {
-   	        synpred15_MyGrammar_fragment(); // can never throw exception
+   	        synpred46_MyGrammar_fragment(); // can never throw exception
    	    }
    	    catch (RecognitionException re) 
    	    {
@@ -5875,6 +6044,42 @@ public partial class MyGrammarParser : Parser
    	    try 
    	    {
    	        synpred32_MyGrammar_fragment(); // can never throw exception
+   	    }
+   	    catch (RecognitionException re) 
+   	    {
+   	        Console.Error.WriteLine("impossible: "+re);
+   	    }
+   	    bool success = !state.failed;
+   	    input.Rewind(start);
+   	    state.backtracking--;
+   	    state.failed = false;
+   	    return success;
+   	}
+   	public bool synpred45_MyGrammar() 
+   	{
+   	    state.backtracking++;
+   	    int start = input.Mark();
+   	    try 
+   	    {
+   	        synpred45_MyGrammar_fragment(); // can never throw exception
+   	    }
+   	    catch (RecognitionException re) 
+   	    {
+   	        Console.Error.WriteLine("impossible: "+re);
+   	    }
+   	    bool success = !state.failed;
+   	    input.Rewind(start);
+   	    state.backtracking--;
+   	    state.failed = false;
+   	    return success;
+   	}
+   	public bool synpred48_MyGrammar() 
+   	{
+   	    state.backtracking++;
+   	    int start = input.Mark();
+   	    try 
+   	    {
+   	        synpred48_MyGrammar_fragment(); // can never throw exception
    	    }
    	    catch (RecognitionException re) 
    	    {
@@ -5940,24 +6145,6 @@ public partial class MyGrammarParser : Parser
    	    state.failed = false;
    	    return success;
    	}
-   	public bool synpred27_MyGrammar() 
-   	{
-   	    state.backtracking++;
-   	    int start = input.Mark();
-   	    try 
-   	    {
-   	        synpred27_MyGrammar_fragment(); // can never throw exception
-   	    }
-   	    catch (RecognitionException re) 
-   	    {
-   	        Console.Error.WriteLine("impossible: "+re);
-   	    }
-   	    bool success = !state.failed;
-   	    input.Rewind(start);
-   	    state.backtracking--;
-   	    state.failed = false;
-   	    return success;
-   	}
    	public bool synpred34_MyGrammar() 
    	{
    	    state.backtracking++;
@@ -5976,36 +6163,54 @@ public partial class MyGrammarParser : Parser
    	    state.failed = false;
    	    return success;
    	}
+   	public bool synpred41_MyGrammar() 
+   	{
+   	    state.backtracking++;
+   	    int start = input.Mark();
+   	    try 
+   	    {
+   	        synpred41_MyGrammar_fragment(); // can never throw exception
+   	    }
+   	    catch (RecognitionException re) 
+   	    {
+   	        Console.Error.WriteLine("impossible: "+re);
+   	    }
+   	    bool success = !state.failed;
+   	    input.Rewind(start);
+   	    state.backtracking--;
+   	    state.failed = false;
+   	    return success;
+   	}
 
 
-   	protected DFA12 dfa12;
-   	protected DFA13 dfa13;
-   	protected DFA16 dfa16;
+   	protected DFA14 dfa14;
+   	protected DFA15 dfa15;
+   	protected DFA18 dfa18;
 	private void InitializeCyclicDFAs()
 	{
-    	this.dfa12 = new DFA12(this);
-    	this.dfa13 = new DFA13(this);
-    	this.dfa16 = new DFA16(this);
-	    this.dfa12.specialStateTransitionHandler = new DFA.SpecialStateTransitionHandler(DFA12_SpecialStateTransition);
-	    this.dfa13.specialStateTransitionHandler = new DFA.SpecialStateTransitionHandler(DFA13_SpecialStateTransition);
-	    this.dfa16.specialStateTransitionHandler = new DFA.SpecialStateTransitionHandler(DFA16_SpecialStateTransition);
+    	this.dfa14 = new DFA14(this);
+    	this.dfa15 = new DFA15(this);
+    	this.dfa18 = new DFA18(this);
+	    this.dfa14.specialStateTransitionHandler = new DFA.SpecialStateTransitionHandler(DFA14_SpecialStateTransition);
+	    this.dfa15.specialStateTransitionHandler = new DFA.SpecialStateTransitionHandler(DFA15_SpecialStateTransition);
+	    this.dfa18.specialStateTransitionHandler = new DFA.SpecialStateTransitionHandler(DFA18_SpecialStateTransition);
 	}
 
-    const string DFA12_eotS =
+    const string DFA14_eotS =
         "\x0d\uffff";
-    const string DFA12_eofS =
+    const string DFA14_eofS =
         "\x0d\uffff";
-    const string DFA12_minS =
-        "\x01\x46\x04\x00\x08\uffff";
-    const string DFA12_maxS =
-        "\x01\x4c\x04\x00\x08\uffff";
-    const string DFA12_acceptS =
+    const string DFA14_minS =
+        "\x01\x48\x04\x00\x08\uffff";
+    const string DFA14_maxS =
+        "\x01\x4f\x04\x00\x08\uffff";
+    const string DFA14_acceptS =
         "\x05\uffff\x01\x01\x01\x02\x01\x03\x01\x04\x01\x05\x01\x06\x01"+
         "\x07\x01\x08";
-    const string DFA12_specialS =
+    const string DFA14_specialS =
         "\x01\uffff\x01\x00\x01\x01\x01\x02\x01\x03\x08\uffff}>";
-    static readonly string[] DFA12_transitionS = {
-            "\x01\x02\x01\x03\x01\x04\x03\uffff\x01\x01",
+    static readonly string[] DFA14_transitionS = {
+            "\x01\x02\x01\x03\x01\x04\x04\uffff\x01\x01",
             "\x01\uffff",
             "\x01\uffff",
             "\x01\uffff",
@@ -6020,174 +6225,174 @@ public partial class MyGrammarParser : Parser
             ""
     };
 
-    static readonly short[] DFA12_eot = DFA.UnpackEncodedString(DFA12_eotS);
-    static readonly short[] DFA12_eof = DFA.UnpackEncodedString(DFA12_eofS);
-    static readonly char[] DFA12_min = DFA.UnpackEncodedStringToUnsignedChars(DFA12_minS);
-    static readonly char[] DFA12_max = DFA.UnpackEncodedStringToUnsignedChars(DFA12_maxS);
-    static readonly short[] DFA12_accept = DFA.UnpackEncodedString(DFA12_acceptS);
-    static readonly short[] DFA12_special = DFA.UnpackEncodedString(DFA12_specialS);
-    static readonly short[][] DFA12_transition = DFA.UnpackEncodedStringArray(DFA12_transitionS);
+    static readonly short[] DFA14_eot = DFA.UnpackEncodedString(DFA14_eotS);
+    static readonly short[] DFA14_eof = DFA.UnpackEncodedString(DFA14_eofS);
+    static readonly char[] DFA14_min = DFA.UnpackEncodedStringToUnsignedChars(DFA14_minS);
+    static readonly char[] DFA14_max = DFA.UnpackEncodedStringToUnsignedChars(DFA14_maxS);
+    static readonly short[] DFA14_accept = DFA.UnpackEncodedString(DFA14_acceptS);
+    static readonly short[] DFA14_special = DFA.UnpackEncodedString(DFA14_specialS);
+    static readonly short[][] DFA14_transition = DFA.UnpackEncodedStringArray(DFA14_transitionS);
 
-    protected class DFA12 : DFA
+    protected class DFA14 : DFA
     {
-        public DFA12(BaseRecognizer recognizer)
+        public DFA14(BaseRecognizer recognizer)
         {
             this.recognizer = recognizer;
-            this.decisionNumber = 12;
-            this.eot = DFA12_eot;
-            this.eof = DFA12_eof;
-            this.min = DFA12_min;
-            this.max = DFA12_max;
-            this.accept = DFA12_accept;
-            this.special = DFA12_special;
-            this.transition = DFA12_transition;
+            this.decisionNumber = 14;
+            this.eot = DFA14_eot;
+            this.eof = DFA14_eof;
+            this.min = DFA14_min;
+            this.max = DFA14_max;
+            this.accept = DFA14_accept;
+            this.special = DFA14_special;
+            this.transition = DFA14_transition;
 
         }
 
         override public string Description
         {
-            get { return "199:1: operations : ( orOperation -> ^( OrOp orOperation ) | andOperation -> ^( AndOp andOperation ) | eqOp -> ^( EqOp eqOp ) | nonEqOp -> ^( NonEqOp nonEqOp ) | moreOp -> ^( MoreOp moreOp ) | moreEqOp -> ^( MoreEqOp moreEqOp ) | lessOp -> ^( LessOp lessOp ) | lessEqOp -> ^( LessEqOp lessEqOp ) );"; }
+            get { return "213:1: operations : ( orOperation -> ^( OrOp orOperation ) | andOperation -> ^( AndOp andOperation ) | eqOp -> ^( EqOp eqOp ) | nonEqOp -> ^( NonEqOp nonEqOp ) | moreOp -> ^( MoreOp moreOp ) | moreEqOp -> ^( MoreEqOp moreEqOp ) | lessOp -> ^( LessOp lessOp ) | lessEqOp -> ^( LessEqOp lessEqOp ) );"; }
         }
 
     }
 
 
-    protected internal int DFA12_SpecialStateTransition(DFA dfa, int s, IIntStream _input) //throws NoViableAltException
+    protected internal int DFA14_SpecialStateTransition(DFA dfa, int s, IIntStream _input) //throws NoViableAltException
     {
             ITokenStream input = (ITokenStream)_input;
     	int _s = s;
         switch ( s )
         {
                	case 0 : 
-                   	int LA12_1 = input.LA(1);
+                   	int LA14_1 = input.LA(1);
 
                    	 
-                   	int index12_1 = input.Index();
+                   	int index14_1 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (synpred27_MyGrammar()) ) { s = 5; }
+                   	if ( (synpred29_MyGrammar()) ) { s = 5; }
 
-                   	else if ( (synpred28_MyGrammar()) ) { s = 6; }
+                   	else if ( (synpred30_MyGrammar()) ) { s = 6; }
 
-                   	else if ( (synpred29_MyGrammar()) ) { s = 7; }
+                   	else if ( (synpred31_MyGrammar()) ) { s = 7; }
 
-                   	else if ( (synpred30_MyGrammar()) ) { s = 8; }
+                   	else if ( (synpred32_MyGrammar()) ) { s = 8; }
 
-                   	else if ( (synpred31_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred33_MyGrammar()) ) { s = 9; }
 
-                   	else if ( (synpred32_MyGrammar()) ) { s = 10; }
+                   	else if ( (synpred34_MyGrammar()) ) { s = 10; }
 
-                   	else if ( (synpred33_MyGrammar()) ) { s = 11; }
+                   	else if ( (synpred35_MyGrammar()) ) { s = 11; }
 
                    	else if ( (true) ) { s = 12; }
 
                    	 
-                   	input.Seek(index12_1);
+                   	input.Seek(index14_1);
                    	if ( s >= 0 ) return s;
                    	break;
                	case 1 : 
-                   	int LA12_2 = input.LA(1);
+                   	int LA14_2 = input.LA(1);
 
                    	 
-                   	int index12_2 = input.Index();
+                   	int index14_2 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (synpred27_MyGrammar()) ) { s = 5; }
+                   	if ( (synpred29_MyGrammar()) ) { s = 5; }
 
-                   	else if ( (synpred28_MyGrammar()) ) { s = 6; }
+                   	else if ( (synpred30_MyGrammar()) ) { s = 6; }
 
-                   	else if ( (synpred29_MyGrammar()) ) { s = 7; }
+                   	else if ( (synpred31_MyGrammar()) ) { s = 7; }
 
-                   	else if ( (synpred30_MyGrammar()) ) { s = 8; }
+                   	else if ( (synpred32_MyGrammar()) ) { s = 8; }
 
-                   	else if ( (synpred31_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred33_MyGrammar()) ) { s = 9; }
 
-                   	else if ( (synpred32_MyGrammar()) ) { s = 10; }
+                   	else if ( (synpred34_MyGrammar()) ) { s = 10; }
 
-                   	else if ( (synpred33_MyGrammar()) ) { s = 11; }
+                   	else if ( (synpred35_MyGrammar()) ) { s = 11; }
 
                    	else if ( (true) ) { s = 12; }
 
                    	 
-                   	input.Seek(index12_2);
+                   	input.Seek(index14_2);
                    	if ( s >= 0 ) return s;
                    	break;
                	case 2 : 
-                   	int LA12_3 = input.LA(1);
+                   	int LA14_3 = input.LA(1);
 
                    	 
-                   	int index12_3 = input.Index();
+                   	int index14_3 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (synpred27_MyGrammar()) ) { s = 5; }
+                   	if ( (synpred29_MyGrammar()) ) { s = 5; }
 
-                   	else if ( (synpred28_MyGrammar()) ) { s = 6; }
+                   	else if ( (synpred30_MyGrammar()) ) { s = 6; }
 
-                   	else if ( (synpred29_MyGrammar()) ) { s = 7; }
+                   	else if ( (synpred31_MyGrammar()) ) { s = 7; }
 
-                   	else if ( (synpred30_MyGrammar()) ) { s = 8; }
+                   	else if ( (synpred32_MyGrammar()) ) { s = 8; }
 
-                   	else if ( (synpred31_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred33_MyGrammar()) ) { s = 9; }
 
-                   	else if ( (synpred32_MyGrammar()) ) { s = 10; }
+                   	else if ( (synpred34_MyGrammar()) ) { s = 10; }
 
-                   	else if ( (synpred33_MyGrammar()) ) { s = 11; }
+                   	else if ( (synpred35_MyGrammar()) ) { s = 11; }
 
                    	else if ( (true) ) { s = 12; }
 
                    	 
-                   	input.Seek(index12_3);
+                   	input.Seek(index14_3);
                    	if ( s >= 0 ) return s;
                    	break;
                	case 3 : 
-                   	int LA12_4 = input.LA(1);
+                   	int LA14_4 = input.LA(1);
 
                    	 
-                   	int index12_4 = input.Index();
+                   	int index14_4 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (synpred27_MyGrammar()) ) { s = 5; }
+                   	if ( (synpred29_MyGrammar()) ) { s = 5; }
 
-                   	else if ( (synpred28_MyGrammar()) ) { s = 6; }
+                   	else if ( (synpred30_MyGrammar()) ) { s = 6; }
 
-                   	else if ( (synpred29_MyGrammar()) ) { s = 7; }
+                   	else if ( (synpred31_MyGrammar()) ) { s = 7; }
 
-                   	else if ( (synpred30_MyGrammar()) ) { s = 8; }
+                   	else if ( (synpred32_MyGrammar()) ) { s = 8; }
 
-                   	else if ( (synpred31_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred33_MyGrammar()) ) { s = 9; }
 
-                   	else if ( (synpred32_MyGrammar()) ) { s = 10; }
+                   	else if ( (synpred34_MyGrammar()) ) { s = 10; }
 
-                   	else if ( (synpred33_MyGrammar()) ) { s = 11; }
+                   	else if ( (synpred35_MyGrammar()) ) { s = 11; }
 
                    	else if ( (true) ) { s = 12; }
 
                    	 
-                   	input.Seek(index12_4);
+                   	input.Seek(index14_4);
                    	if ( s >= 0 ) return s;
                    	break;
         }
         if (state.backtracking > 0) {state.failed = true; return -1;}
-        NoViableAltException nvae12 =
-            new NoViableAltException(dfa.Description, 12, _s, input);
-        dfa.Error(nvae12);
-        throw nvae12;
+        NoViableAltException nvae14 =
+            new NoViableAltException(dfa.Description, 14, _s, input);
+        dfa.Error(nvae14);
+        throw nvae14;
     }
-    const string DFA13_eotS =
+    const string DFA15_eotS =
         "\x0d\uffff";
-    const string DFA13_eofS =
+    const string DFA15_eofS =
         "\x0d\uffff";
-    const string DFA13_minS =
-        "\x01\x46\x04\x00\x08\uffff";
-    const string DFA13_maxS =
-        "\x01\x4c\x04\x00\x08\uffff";
-    const string DFA13_acceptS =
+    const string DFA15_minS =
+        "\x01\x48\x04\x00\x08\uffff";
+    const string DFA15_maxS =
+        "\x01\x4f\x04\x00\x08\uffff";
+    const string DFA15_acceptS =
         "\x05\uffff\x01\x01\x01\x02\x01\x03\x01\x04\x01\x05\x01\x06\x01"+
         "\x07\x01\x08";
-    const string DFA13_specialS =
+    const string DFA15_specialS =
         "\x01\uffff\x01\x00\x01\x01\x01\x02\x01\x03\x08\uffff}>";
-    static readonly string[] DFA13_transitionS = {
-            "\x01\x02\x01\x03\x01\x04\x03\uffff\x01\x01",
+    static readonly string[] DFA15_transitionS = {
+            "\x01\x02\x01\x03\x01\x04\x04\uffff\x01\x01",
             "\x01\uffff",
             "\x01\uffff",
             "\x01\uffff",
@@ -6202,421 +6407,443 @@ public partial class MyGrammarParser : Parser
             ""
     };
 
-    static readonly short[] DFA13_eot = DFA.UnpackEncodedString(DFA13_eotS);
-    static readonly short[] DFA13_eof = DFA.UnpackEncodedString(DFA13_eofS);
-    static readonly char[] DFA13_min = DFA.UnpackEncodedStringToUnsignedChars(DFA13_minS);
-    static readonly char[] DFA13_max = DFA.UnpackEncodedStringToUnsignedChars(DFA13_maxS);
-    static readonly short[] DFA13_accept = DFA.UnpackEncodedString(DFA13_acceptS);
-    static readonly short[] DFA13_special = DFA.UnpackEncodedString(DFA13_specialS);
-    static readonly short[][] DFA13_transition = DFA.UnpackEncodedStringArray(DFA13_transitionS);
+    static readonly short[] DFA15_eot = DFA.UnpackEncodedString(DFA15_eotS);
+    static readonly short[] DFA15_eof = DFA.UnpackEncodedString(DFA15_eofS);
+    static readonly char[] DFA15_min = DFA.UnpackEncodedStringToUnsignedChars(DFA15_minS);
+    static readonly char[] DFA15_max = DFA.UnpackEncodedStringToUnsignedChars(DFA15_maxS);
+    static readonly short[] DFA15_accept = DFA.UnpackEncodedString(DFA15_acceptS);
+    static readonly short[] DFA15_special = DFA.UnpackEncodedString(DFA15_specialS);
+    static readonly short[][] DFA15_transition = DFA.UnpackEncodedStringArray(DFA15_transitionS);
 
-    protected class DFA13 : DFA
+    protected class DFA15 : DFA
     {
-        public DFA13(BaseRecognizer recognizer)
+        public DFA15(BaseRecognizer recognizer)
         {
             this.recognizer = recognizer;
-            this.decisionNumber = 13;
-            this.eot = DFA13_eot;
-            this.eof = DFA13_eof;
-            this.min = DFA13_min;
-            this.max = DFA13_max;
-            this.accept = DFA13_accept;
-            this.special = DFA13_special;
-            this.transition = DFA13_transition;
+            this.decisionNumber = 15;
+            this.eot = DFA15_eot;
+            this.eof = DFA15_eof;
+            this.min = DFA15_min;
+            this.max = DFA15_max;
+            this.accept = DFA15_accept;
+            this.special = DFA15_special;
+            this.transition = DFA15_transition;
 
         }
 
         override public string Description
         {
-            get { return "209:1: logicOperator : ( orOperation | andOperation | eqOp | nonEqOp | moreOp | moreEqOp | lessOp | lessEqOp );"; }
+            get { return "223:1: logicOperator : ( orOperation | andOperation | eqOp | nonEqOp | moreOp | moreEqOp | lessOp | lessEqOp );"; }
         }
 
     }
 
 
-    protected internal int DFA13_SpecialStateTransition(DFA dfa, int s, IIntStream _input) //throws NoViableAltException
+    protected internal int DFA15_SpecialStateTransition(DFA dfa, int s, IIntStream _input) //throws NoViableAltException
     {
             ITokenStream input = (ITokenStream)_input;
     	int _s = s;
         switch ( s )
         {
                	case 0 : 
-                   	int LA13_1 = input.LA(1);
+                   	int LA15_1 = input.LA(1);
 
                    	 
-                   	int index13_1 = input.Index();
+                   	int index15_1 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (synpred34_MyGrammar()) ) { s = 5; }
+                   	if ( (synpred36_MyGrammar()) ) { s = 5; }
 
-                   	else if ( (synpred35_MyGrammar()) ) { s = 6; }
+                   	else if ( (synpred37_MyGrammar()) ) { s = 6; }
 
-                   	else if ( (synpred36_MyGrammar()) ) { s = 7; }
+                   	else if ( (synpred38_MyGrammar()) ) { s = 7; }
 
-                   	else if ( (synpred37_MyGrammar()) ) { s = 8; }
+                   	else if ( (synpred39_MyGrammar()) ) { s = 8; }
 
-                   	else if ( (synpred38_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred40_MyGrammar()) ) { s = 9; }
 
-                   	else if ( (synpred39_MyGrammar()) ) { s = 10; }
+                   	else if ( (synpred41_MyGrammar()) ) { s = 10; }
 
-                   	else if ( (synpred40_MyGrammar()) ) { s = 11; }
+                   	else if ( (synpred42_MyGrammar()) ) { s = 11; }
 
                    	else if ( (true) ) { s = 12; }
 
                    	 
-                   	input.Seek(index13_1);
+                   	input.Seek(index15_1);
                    	if ( s >= 0 ) return s;
                    	break;
                	case 1 : 
-                   	int LA13_2 = input.LA(1);
+                   	int LA15_2 = input.LA(1);
 
                    	 
-                   	int index13_2 = input.Index();
+                   	int index15_2 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (synpred34_MyGrammar()) ) { s = 5; }
+                   	if ( (synpred36_MyGrammar()) ) { s = 5; }
 
-                   	else if ( (synpred35_MyGrammar()) ) { s = 6; }
+                   	else if ( (synpred37_MyGrammar()) ) { s = 6; }
 
-                   	else if ( (synpred36_MyGrammar()) ) { s = 7; }
+                   	else if ( (synpred38_MyGrammar()) ) { s = 7; }
 
-                   	else if ( (synpred37_MyGrammar()) ) { s = 8; }
+                   	else if ( (synpred39_MyGrammar()) ) { s = 8; }
 
-                   	else if ( (synpred38_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred40_MyGrammar()) ) { s = 9; }
 
-                   	else if ( (synpred39_MyGrammar()) ) { s = 10; }
+                   	else if ( (synpred41_MyGrammar()) ) { s = 10; }
 
-                   	else if ( (synpred40_MyGrammar()) ) { s = 11; }
+                   	else if ( (synpred42_MyGrammar()) ) { s = 11; }
 
                    	else if ( (true) ) { s = 12; }
 
                    	 
-                   	input.Seek(index13_2);
+                   	input.Seek(index15_2);
                    	if ( s >= 0 ) return s;
                    	break;
                	case 2 : 
-                   	int LA13_3 = input.LA(1);
+                   	int LA15_3 = input.LA(1);
 
                    	 
-                   	int index13_3 = input.Index();
+                   	int index15_3 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (synpred34_MyGrammar()) ) { s = 5; }
+                   	if ( (synpred36_MyGrammar()) ) { s = 5; }
 
-                   	else if ( (synpred35_MyGrammar()) ) { s = 6; }
+                   	else if ( (synpred37_MyGrammar()) ) { s = 6; }
 
-                   	else if ( (synpred36_MyGrammar()) ) { s = 7; }
+                   	else if ( (synpred38_MyGrammar()) ) { s = 7; }
 
-                   	else if ( (synpred37_MyGrammar()) ) { s = 8; }
+                   	else if ( (synpred39_MyGrammar()) ) { s = 8; }
 
-                   	else if ( (synpred38_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred40_MyGrammar()) ) { s = 9; }
 
-                   	else if ( (synpred39_MyGrammar()) ) { s = 10; }
+                   	else if ( (synpred41_MyGrammar()) ) { s = 10; }
 
-                   	else if ( (synpred40_MyGrammar()) ) { s = 11; }
+                   	else if ( (synpred42_MyGrammar()) ) { s = 11; }
 
                    	else if ( (true) ) { s = 12; }
 
                    	 
-                   	input.Seek(index13_3);
+                   	input.Seek(index15_3);
                    	if ( s >= 0 ) return s;
                    	break;
                	case 3 : 
-                   	int LA13_4 = input.LA(1);
+                   	int LA15_4 = input.LA(1);
 
                    	 
-                   	int index13_4 = input.Index();
+                   	int index15_4 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (synpred34_MyGrammar()) ) { s = 5; }
+                   	if ( (synpred36_MyGrammar()) ) { s = 5; }
 
-                   	else if ( (synpred35_MyGrammar()) ) { s = 6; }
+                   	else if ( (synpred37_MyGrammar()) ) { s = 6; }
 
-                   	else if ( (synpred36_MyGrammar()) ) { s = 7; }
+                   	else if ( (synpred38_MyGrammar()) ) { s = 7; }
 
-                   	else if ( (synpred37_MyGrammar()) ) { s = 8; }
+                   	else if ( (synpred39_MyGrammar()) ) { s = 8; }
 
-                   	else if ( (synpred38_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred40_MyGrammar()) ) { s = 9; }
 
-                   	else if ( (synpred39_MyGrammar()) ) { s = 10; }
+                   	else if ( (synpred41_MyGrammar()) ) { s = 10; }
 
-                   	else if ( (synpred40_MyGrammar()) ) { s = 11; }
+                   	else if ( (synpred42_MyGrammar()) ) { s = 11; }
 
                    	else if ( (true) ) { s = 12; }
 
                    	 
-                   	input.Seek(index13_4);
+                   	input.Seek(index15_4);
                    	if ( s >= 0 ) return s;
                    	break;
         }
         if (state.backtracking > 0) {state.failed = true; return -1;}
-        NoViableAltException nvae13 =
-            new NoViableAltException(dfa.Description, 13, _s, input);
-        dfa.Error(nvae13);
-        throw nvae13;
+        NoViableAltException nvae15 =
+            new NoViableAltException(dfa.Description, 15, _s, input);
+        dfa.Error(nvae15);
+        throw nvae15;
     }
-    const string DFA16_eotS =
-        "\x0d\uffff";
-    const string DFA16_eofS =
-        "\x0a\uffff\x01\x0c\x02\uffff";
-    const string DFA16_minS =
-        "\x01\x1e\x01\uffff\x01\x27\x01\uffff\x01\x48\x05\uffff\x01\x1e"+
-        "\x02\uffff";
-    const string DFA16_maxS =
-        "\x01\x4c\x01\uffff\x01\x51\x01\uffff\x01\x48\x05\uffff\x01\x50"+
-        "\x02\uffff";
-    const string DFA16_acceptS =
+    const string DFA18_eotS =
+        "\x0e\uffff";
+    const string DFA18_eofS =
+        "\x0e\uffff";
+    const string DFA18_minS =
+        "\x01\x1f\x01\uffff\x01\x29\x01\uffff\x01\x4a\x06\uffff\x01\x4a"+
+        "\x01\x00\x01\uffff";
+    const string DFA18_maxS =
+        "\x01\x4f\x01\uffff\x01\x54\x01\uffff\x01\x4c\x06\uffff\x01\x4a"+
+        "\x01\x00\x01\uffff";
+    const string DFA18_acceptS =
         "\x01\uffff\x01\x01\x01\uffff\x01\x02\x01\uffff\x01\x05\x01\x08"+
-        "\x01\x07\x01\x09\x01\x06\x01\uffff\x01\x04\x01\x03";
-    const string DFA16_specialS =
-        "\x02\uffff\x01\x00\x0a\uffff}>";
-    static readonly string[] DFA16_transitionS = {
-            "\x01\x06\x04\uffff\x01\x03\x0a\uffff\x05\x04\x08\uffff\x02"+
-            "\x05\x09\uffff\x02\x01\x01\x02\x03\uffff\x01\x01",
+        "\x01\x07\x01\x09\x01\x06\x01\x03\x02\uffff\x01\x04";
+    const string DFA18_specialS =
+        "\x02\uffff\x01\x00\x09\uffff\x01\x01\x01\uffff}>";
+    static readonly string[] DFA18_transitionS = {
+            "\x01\x06\x04\uffff\x01\x03\x0b\uffff\x05\x04\x08\uffff\x02"+
+            "\x05\x09\uffff\x02\x01\x01\x02\x04\uffff\x01\x01",
             "",
-            "\x01\x08\x29\uffff\x01\x07",
+            "\x01\x08\x2a\uffff\x01\x07",
             "",
-            "\x01\x0a",
-            "",
-            "",
+            "\x01\x0a\x01\uffff\x01\x0b",
             "",
             "",
             "",
-            "\x01\x0c\x04\uffff\x01\x0c\x03\uffff\x01\x0c\x06\uffff\x05"+
-            "\x0c\x08\uffff\x02\x0c\x09\uffff\x03\x0c\x01\uffff\x01\x0b\x01"+
-            "\uffff\x01\x0c\x02\uffff\x02\x0c",
             "",
+            "",
+            "",
+            "\x01\x0c",
+            "\x01\uffff",
             ""
     };
 
-    static readonly short[] DFA16_eot = DFA.UnpackEncodedString(DFA16_eotS);
-    static readonly short[] DFA16_eof = DFA.UnpackEncodedString(DFA16_eofS);
-    static readonly char[] DFA16_min = DFA.UnpackEncodedStringToUnsignedChars(DFA16_minS);
-    static readonly char[] DFA16_max = DFA.UnpackEncodedStringToUnsignedChars(DFA16_maxS);
-    static readonly short[] DFA16_accept = DFA.UnpackEncodedString(DFA16_acceptS);
-    static readonly short[] DFA16_special = DFA.UnpackEncodedString(DFA16_specialS);
-    static readonly short[][] DFA16_transition = DFA.UnpackEncodedStringArray(DFA16_transitionS);
+    static readonly short[] DFA18_eot = DFA.UnpackEncodedString(DFA18_eotS);
+    static readonly short[] DFA18_eof = DFA.UnpackEncodedString(DFA18_eofS);
+    static readonly char[] DFA18_min = DFA.UnpackEncodedStringToUnsignedChars(DFA18_minS);
+    static readonly char[] DFA18_max = DFA.UnpackEncodedStringToUnsignedChars(DFA18_maxS);
+    static readonly short[] DFA18_accept = DFA.UnpackEncodedString(DFA18_acceptS);
+    static readonly short[] DFA18_special = DFA.UnpackEncodedString(DFA18_specialS);
+    static readonly short[][] DFA18_transition = DFA.UnpackEncodedStringArray(DFA18_transitionS);
 
-    protected class DFA16 : DFA
+    protected class DFA18 : DFA
     {
-        public DFA16(BaseRecognizer recognizer)
+        public DFA18(BaseRecognizer recognizer)
         {
             this.recognizer = recognizer;
-            this.decisionNumber = 16;
-            this.eot = DFA16_eot;
-            this.eof = DFA16_eof;
-            this.min = DFA16_min;
-            this.max = DFA16_max;
-            this.accept = DFA16_accept;
-            this.special = DFA16_special;
-            this.transition = DFA16_transition;
+            this.decisionNumber = 18;
+            this.eot = DFA18_eot;
+            this.eof = DFA18_eof;
+            this.min = DFA18_min;
+            this.max = DFA18_max;
+            this.accept = DFA18_accept;
+            this.special = DFA18_special;
+            this.transition = DFA18_transition;
 
         }
 
         override public string Description
         {
-            get { return "290:1: expr : ( add | if_ | varInit | oneArray | cycle | varInitValue | callMethod | print | changeValue );"; }
+            get { return "305:1: expr : ( add | if_ | init | arrayInit | cycle | fieldInitValue | callMethod | print | changeValue );"; }
         }
 
     }
 
 
-    protected internal int DFA16_SpecialStateTransition(DFA dfa, int s, IIntStream _input) //throws NoViableAltException
+    protected internal int DFA18_SpecialStateTransition(DFA dfa, int s, IIntStream _input) //throws NoViableAltException
     {
             ITokenStream input = (ITokenStream)_input;
     	int _s = s;
         switch ( s )
         {
                	case 0 : 
-                   	int LA16_2 = input.LA(1);
+                   	int LA18_2 = input.LA(1);
 
                    	 
-                   	int index16_2 = input.Index();
+                   	int index18_2 = input.Index();
                    	input.Rewind();
                    	s = -1;
-                   	if ( (LA16_2 == 81) ) { s = 7; }
+                   	if ( (LA18_2 == 84) ) { s = 7; }
 
-                   	else if ( (LA16_2 == ASSIGN) ) { s = 8; }
+                   	else if ( (LA18_2 == ASSIGN) ) { s = 8; }
 
-                   	else if ( (synpred44_MyGrammar()) ) { s = 1; }
+                   	else if ( (synpred46_MyGrammar()) ) { s = 1; }
 
-                   	else if ( (synpred49_MyGrammar()) ) { s = 9; }
+                   	else if ( (synpred51_MyGrammar()) ) { s = 9; }
 
                    	 
-                   	input.Seek(index16_2);
+                   	input.Seek(index18_2);
+                   	if ( s >= 0 ) return s;
+                   	break;
+               	case 1 : 
+                   	int LA18_12 = input.LA(1);
+
+                   	 
+                   	int index18_12 = input.Index();
+                   	input.Rewind();
+                   	s = -1;
+                   	if ( (synpred48_MyGrammar()) ) { s = 10; }
+
+                   	else if ( (synpred49_MyGrammar()) ) { s = 13; }
+
+                   	 
+                   	input.Seek(index18_12);
                    	if ( s >= 0 ) return s;
                    	break;
         }
         if (state.backtracking > 0) {state.failed = true; return -1;}
-        NoViableAltException nvae16 =
-            new NoViableAltException(dfa.Description, 16, _s, input);
-        dfa.Error(nvae16);
-        throw nvae16;
+        NoViableAltException nvae18 =
+            new NoViableAltException(dfa.Description, 18, _s, input);
+        dfa.Error(nvae18);
+        throw nvae18;
     }
  
 
     public static readonly BitSet FOLLOW_set_in_type0 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_set_in_typeAssign0 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_inc_in_incDec926 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_dec_in_incDec932 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_INCREMENT_in_inc945 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_DECREMENT_in_dec968 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_inc_in_incDec950 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_dec_in_incDec956 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_INCREMENT_in_inc969 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_DECREMENT_in_dec992 = new BitSet(new ulong[]{0x0000000000000002UL});
     public static readonly BitSet FOLLOW_set_in_elementarySign0 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_INTEGER_in_number1059 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_DOUBLE__in_number1076 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_ident1141 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_type_in_varInit1164 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000100UL});
-    public static readonly BitSet FOLLOW_varInitValue_in_varInit1166 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ident_in_varInitValue1196 = new BitSet(new ulong[]{0x0000008000000002UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_varInitValue1199 = new BitSet(new ulong[]{0x0000300000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_initValue_in_varInitValue1201 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_initValue1239 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_callMethod_in_initValue1247 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ident_in_initValue1255 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_inc_in_initValue1263 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_dec_in_initValue1271 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_type_in_oneArray1284 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000100UL});
-    public static readonly BitSet FOLLOW_ident_in_oneArray1286 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000400UL});
-    public static readonly BitSet FOLLOW_74_in_oneArray1288 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000000C0UL});
-    public static readonly BitSet FOLLOW_number_in_oneArray1290 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000800UL});
-    public static readonly BitSet FOLLOW_75_in_oneArray1292 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_PLUS_in_addOperation1324 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_MINUS_in_addOperation1339 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_MULTIPLY_in_multOperation1359 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_DIVIDE_in_multOperation1374 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_76_in_group1397 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_group1400 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000002000UL});
-    public static readonly BitSet FOLLOW_77_in_group1402 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_number_in_group1410 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ident_in_group1416 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_group_in_mult1431 = new BitSet(new ulong[]{0x0000000600000002UL});
-    public static readonly BitSet FOLLOW_multOperation_in_mult1435 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_group_in_mult1438 = new BitSet(new ulong[]{0x0000000600000002UL});
-    public static readonly BitSet FOLLOW_mult_in_add1450 = new BitSet(new ulong[]{0x0000000180000002UL});
-    public static readonly BitSet FOLLOW_addOperation_in_add1454 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_mult_in_add1457 = new BitSet(new ulong[]{0x0000000180000002UL});
-    public static readonly BitSet FOLLOW_PRINT_in_print1468 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000001000UL});
-    public static readonly BitSet FOLLOW_76_in_print1470 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_printExpr_in_print1472 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000002000UL});
-    public static readonly BitSet FOLLOW_77_in_print1474 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_78_in_block1496 = new BitSet(new ulong[]{0x1807C00840000000UL,0x00000000000091C0UL});
-    public static readonly BitSet FOLLOW_line_in_block1498 = new BitSet(new ulong[]{0x1807C00840000000UL,0x00000000000091C0UL});
-    public static readonly BitSet FOLLOW_79_in_block1501 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_IF_in_if_1526 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000001000UL});
-    public static readonly BitSet FOLLOW_76_in_if_1528 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_logicOperator_in_if_1530 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000002000UL});
-    public static readonly BitSet FOLLOW_77_in_if_1532 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_block_in_if_1534 = new BitSet(new ulong[]{0x0000001000000002UL});
-    public static readonly BitSet FOLLOW_ELSE_in_if_1537 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_block_in_if_1539 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_orOperation_in_operations1581 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_andOperation_in_operations1601 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_eqOp_in_operations1621 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_nonEqOp_in_operations1641 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_moreOp_in_operations1661 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_moreEqOp_in_operations1681 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_lessOp_in_operations1701 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_lessEqOp_in_operations1721 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_orOperation_in_logicOperator1749 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_andOperation_in_logicOperator1758 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_eqOp_in_logicOperator1767 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_nonEqOp_in_logicOperator1776 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_moreOp_in_logicOperator1785 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_moreEqOp_in_logicOperator1794 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_lessOp_in_logicOperator1803 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_lessEqOp_in_logicOperator1812 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_orOperation1829 = new BitSet(new ulong[]{0x8000000000000000UL});
-    public static readonly BitSet FOLLOW_OR_in_orOperation1831 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_orOperation1833 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_andOperation1861 = new BitSet(new ulong[]{0x4000000000000000UL});
-    public static readonly BitSet FOLLOW_AND_in_andOperation1863 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_andOperation1865 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_eqOp1895 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000001UL});
-    public static readonly BitSet FOLLOW_EQ_in_eqOp1897 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_eqOp1899 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_nonEqOp1929 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_NONEQ_in_nonEqOp1931 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_nonEqOp1933 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_moreOp1964 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000004UL});
-    public static readonly BitSet FOLLOW_MORE_in_moreOp1966 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_moreOp1968 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_moreEqOp1997 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000010UL});
-    public static readonly BitSet FOLLOW_MOREEQ_in_moreEqOp1999 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_moreEqOp2001 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_lessOp2031 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000008UL});
-    public static readonly BitSet FOLLOW_LESS_in_lessOp2033 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_lessOp2035 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_lessEqOp2064 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000020UL});
-    public static readonly BitSet FOLLOW_LESSEQ_in_lessEqOp2066 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_add_in_lessEqOp2068 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_FOR_in_for_2096 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000001000UL});
-    public static readonly BitSet FOLLOW_76_in_for_2111 = new BitSet(new ulong[]{0x0007C00000000000UL});
-    public static readonly BitSet FOLLOW_varInit_in_for_2120 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_80_in_for_2122 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_logicOperator_in_for_2127 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_80_in_for_2129 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000100UL});
-    public static readonly BitSet FOLLOW_varInitValue_in_for_2137 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000002000UL});
-    public static readonly BitSet FOLLOW_77_in_for_2142 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_block_in_for_2147 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_WHILE_in_while_2179 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000001000UL});
-    public static readonly BitSet FOLLOW_76_in_while_2184 = new BitSet(new ulong[]{0x0000000000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_logicOperator_in_while_2189 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000002000UL});
-    public static readonly BitSet FOLLOW_77_in_while_2194 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_block_in_while_2199 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_type_in_methodDef2233 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000100UL});
-    public static readonly BitSet FOLLOW_ID_in_methodDef2235 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000020000UL});
-    public static readonly BitSet FOLLOW_81_in_methodDef2237 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000004000UL});
-    public static readonly BitSet FOLLOW_block_in_methodDef2239 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ID_in_callMethod2268 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000020000UL});
-    public static readonly BitSet FOLLOW_81_in_callMethod2270 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_for__in_cycle2298 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_while__in_cycle2304 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_printExpr2317 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ident_in_printExpr2324 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_callMethod_in_printExpr2331 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ident_in_changeValue2345 = new BitSet(new ulong[]{0x0000008000000000UL});
-    public static readonly BitSet FOLLOW_ASSIGN_in_changeValue2347 = new BitSet(new ulong[]{0x0000300000000000UL,0x00000000000011C0UL});
-    public static readonly BitSet FOLLOW_initValue_in_changeValue2349 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_expr2380 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_if__in_expr2386 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_varInit_in_expr2392 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_oneArray_in_expr2398 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_cycle_in_expr2404 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_varInitValue_in_expr2410 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_callMethod_in_expr2416 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_print_in_expr2422 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_changeValue_in_expr2428 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_expr_in_line2439 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_80_in_line2442 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_methodDef_in_exprList2456 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_80_in_exprList2460 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_varInit_in_exprList2470 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_80_in_exprList2473 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_oneArray_in_exprList2483 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_80_in_exprList2486 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000010000UL});
-    public static readonly BitSet FOLLOW_exprList_in_fullProgramm2507 = new BitSet(new ulong[]{0x0007C00000000002UL});
-    public static readonly BitSet FOLLOW_fullProgramm_in_program2521 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_program_in_execute2539 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_synpred15_MyGrammar1239 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ident_in_synpred17_MyGrammar1255 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_orOperation_in_synpred27_MyGrammar1581 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_andOperation_in_synpred28_MyGrammar1601 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_eqOp_in_synpred29_MyGrammar1621 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_nonEqOp_in_synpred30_MyGrammar1641 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_moreOp_in_synpred31_MyGrammar1661 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_moreEqOp_in_synpred32_MyGrammar1681 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_lessOp_in_synpred33_MyGrammar1701 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_orOperation_in_synpred34_MyGrammar1749 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_andOperation_in_synpred35_MyGrammar1758 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_eqOp_in_synpred36_MyGrammar1767 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_nonEqOp_in_synpred37_MyGrammar1776 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_moreOp_in_synpred38_MyGrammar1785 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_moreEqOp_in_synpred39_MyGrammar1794 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_lessOp_in_synpred40_MyGrammar1803 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_synpred42_MyGrammar2317 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_ident_in_synpred43_MyGrammar2324 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_add_in_synpred44_MyGrammar2380 = new BitSet(new ulong[]{0x0000000000000002UL});
-    public static readonly BitSet FOLLOW_varInitValue_in_synpred49_MyGrammar2410 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_INTEGER_in_number1083 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_DOUBLE__in_number1100 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_ident1165 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_arrayInit_in_init1193 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_varInit_in_init1200 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_type_in_arrayInit1211 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000001000UL});
+    public static readonly BitSet FOLLOW_76_in_arrayInit1213 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000400UL});
+    public static readonly BitSet FOLLOW_ident_in_arrayInit1215 = new BitSet(new ulong[]{0x0000020000000002UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_arrayInit1218 = new BitSet(new ulong[]{0x0000010000000000UL});
+    public static readonly BitSet FOLLOW_NEW_in_arrayInit1220 = new BitSet(new ulong[]{0x001F000000000000UL});
+    public static readonly BitSet FOLLOW_type_in_arrayInit1222 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000002000UL});
+    public static readonly BitSet FOLLOW_77_in_arrayInit1224 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000100UL});
+    public static readonly BitSet FOLLOW_INTEGER_in_arrayInit1226 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000004000UL});
+    public static readonly BitSet FOLLOW_78_in_arrayInit1228 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_type_in_varInit1265 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000400UL});
+    public static readonly BitSet FOLLOW_fieldInitValue_in_varInit1267 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ident_in_fieldInitValue1297 = new BitSet(new ulong[]{0x0000020000000002UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_fieldInitValue1301 = new BitSet(new ulong[]{0x0000C00000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_initValue_in_fieldInitValue1303 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_initValue1343 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_callMethod_in_initValue1351 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ident_in_initValue1359 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_inc_in_initValue1367 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_dec_in_initValue1375 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_PLUS_in_addOperation1389 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_MINUS_in_addOperation1404 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_MULTIPLY_in_multOperation1424 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_DIVIDE_in_multOperation1439 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_79_in_group1462 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_group1465 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000010000UL});
+    public static readonly BitSet FOLLOW_80_in_group1467 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_number_in_group1475 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ident_in_group1481 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_group_in_mult1496 = new BitSet(new ulong[]{0x0000000C00000002UL});
+    public static readonly BitSet FOLLOW_multOperation_in_mult1500 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_group_in_mult1503 = new BitSet(new ulong[]{0x0000000C00000002UL});
+    public static readonly BitSet FOLLOW_mult_in_add1515 = new BitSet(new ulong[]{0x0000000300000002UL});
+    public static readonly BitSet FOLLOW_addOperation_in_add1519 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_mult_in_add1522 = new BitSet(new ulong[]{0x0000000300000002UL});
+    public static readonly BitSet FOLLOW_PRINT_in_print1533 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008000UL});
+    public static readonly BitSet FOLLOW_79_in_print1535 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_printExpr_in_print1537 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000010000UL});
+    public static readonly BitSet FOLLOW_80_in_print1539 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_81_in_block1561 = new BitSet(new ulong[]{0x601F001080000000UL,0x0000000000048700UL});
+    public static readonly BitSet FOLLOW_line_in_block1563 = new BitSet(new ulong[]{0x601F001080000000UL,0x0000000000048700UL});
+    public static readonly BitSet FOLLOW_82_in_block1566 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_IF_in_if_1591 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008000UL});
+    public static readonly BitSet FOLLOW_79_in_if_1593 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_logicOperator_in_if_1595 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000010000UL});
+    public static readonly BitSet FOLLOW_80_in_if_1597 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000020000UL});
+    public static readonly BitSet FOLLOW_block_in_if_1599 = new BitSet(new ulong[]{0x0000002000000002UL});
+    public static readonly BitSet FOLLOW_ELSE_in_if_1602 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000020000UL});
+    public static readonly BitSet FOLLOW_block_in_if_1604 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_orOperation_in_operations1646 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_andOperation_in_operations1666 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_eqOp_in_operations1686 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_nonEqOp_in_operations1706 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_moreOp_in_operations1726 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_moreEqOp_in_operations1746 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_lessOp_in_operations1766 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_lessEqOp_in_operations1786 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_orOperation_in_logicOperator1814 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_andOperation_in_logicOperator1823 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_eqOp_in_logicOperator1832 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_nonEqOp_in_logicOperator1841 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_moreOp_in_logicOperator1850 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_moreEqOp_in_logicOperator1859 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_lessOp_in_logicOperator1868 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_lessEqOp_in_logicOperator1877 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_orOperation1894 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_OR_in_orOperation1896 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_orOperation1898 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_andOperation1926 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000001UL});
+    public static readonly BitSet FOLLOW_AND_in_andOperation1928 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_andOperation1930 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_eqOp1960 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000004UL});
+    public static readonly BitSet FOLLOW_EQ_in_eqOp1962 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_eqOp1964 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_nonEqOp1994 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000008UL});
+    public static readonly BitSet FOLLOW_NONEQ_in_nonEqOp1996 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_nonEqOp1998 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_moreOp2029 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000010UL});
+    public static readonly BitSet FOLLOW_MORE_in_moreOp2031 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_moreOp2033 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_moreEqOp2062 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000040UL});
+    public static readonly BitSet FOLLOW_MOREEQ_in_moreEqOp2064 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_moreEqOp2066 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_lessOp2096 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000020UL});
+    public static readonly BitSet FOLLOW_LESS_in_lessOp2098 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_lessOp2100 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_lessEqOp2129 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000080UL});
+    public static readonly BitSet FOLLOW_LESSEQ_in_lessEqOp2131 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_add_in_lessEqOp2133 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_for__in_cycle2162 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_while__in_cycle2168 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_FOR_in_for_2180 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008000UL});
+    public static readonly BitSet FOLLOW_79_in_for_2195 = new BitSet(new ulong[]{0x001F000000000000UL});
+    public static readonly BitSet FOLLOW_varInit_in_for_2204 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_83_in_for_2206 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_logicOperator_in_for_2211 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_83_in_for_2213 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000400UL});
+    public static readonly BitSet FOLLOW_fieldInitValue_in_for_2221 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000010000UL});
+    public static readonly BitSet FOLLOW_80_in_for_2226 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000020000UL});
+    public static readonly BitSet FOLLOW_block_in_for_2231 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_WHILE_in_while_2263 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008000UL});
+    public static readonly BitSet FOLLOW_79_in_while_2268 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_logicOperator_in_while_2273 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000010000UL});
+    public static readonly BitSet FOLLOW_80_in_while_2278 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000020000UL});
+    public static readonly BitSet FOLLOW_block_in_while_2283 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_type_in_methodDef2315 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000000400UL});
+    public static readonly BitSet FOLLOW_ID_in_methodDef2317 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000100000UL});
+    public static readonly BitSet FOLLOW_84_in_methodDef2319 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000020000UL});
+    public static readonly BitSet FOLLOW_block_in_methodDef2321 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ID_in_callMethod2351 = new BitSet(new ulong[]{0x0000000000000000UL,0x0000000000100000UL});
+    public static readonly BitSet FOLLOW_84_in_callMethod2353 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_printExpr2383 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ident_in_printExpr2390 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_callMethod_in_printExpr2397 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ident_in_changeValue2411 = new BitSet(new ulong[]{0x0000020000000000UL});
+    public static readonly BitSet FOLLOW_ASSIGN_in_changeValue2413 = new BitSet(new ulong[]{0x0000C00000000000UL,0x0000000000008700UL});
+    public static readonly BitSet FOLLOW_initValue_in_changeValue2415 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_expr2446 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_if__in_expr2452 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_init_in_expr2458 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_arrayInit_in_expr2464 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_cycle_in_expr2470 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_fieldInitValue_in_expr2476 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_callMethod_in_expr2482 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_print_in_expr2488 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_changeValue_in_expr2494 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_expr_in_line2505 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_83_in_line2508 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_methodDef_in_exprList2522 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_83_in_exprList2526 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_varInit_in_exprList2536 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_83_in_exprList2539 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_arrayInit_in_exprList2549 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_83_in_exprList2552 = new BitSet(new ulong[]{0x0000000000000002UL,0x0000000000080000UL});
+    public static readonly BitSet FOLLOW_exprList_in_fullProgramm2573 = new BitSet(new ulong[]{0x001F000000000002UL});
+    public static readonly BitSet FOLLOW_fullProgramm_in_program2587 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_program_in_execute2605 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_synpred17_MyGrammar1343 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ident_in_synpred19_MyGrammar1359 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_orOperation_in_synpred29_MyGrammar1646 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_andOperation_in_synpred30_MyGrammar1666 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_eqOp_in_synpred31_MyGrammar1686 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_nonEqOp_in_synpred32_MyGrammar1706 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_moreOp_in_synpred33_MyGrammar1726 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_moreEqOp_in_synpred34_MyGrammar1746 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_lessOp_in_synpred35_MyGrammar1766 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_orOperation_in_synpred36_MyGrammar1814 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_andOperation_in_synpred37_MyGrammar1823 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_eqOp_in_synpred38_MyGrammar1832 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_nonEqOp_in_synpred39_MyGrammar1841 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_moreOp_in_synpred40_MyGrammar1850 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_moreEqOp_in_synpred41_MyGrammar1859 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_lessOp_in_synpred42_MyGrammar1868 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_synpred44_MyGrammar2383 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_ident_in_synpred45_MyGrammar2390 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_add_in_synpred46_MyGrammar2446 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_init_in_synpred48_MyGrammar2458 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_arrayInit_in_synpred49_MyGrammar2464 = new BitSet(new ulong[]{0x0000000000000002UL});
+    public static readonly BitSet FOLLOW_fieldInitValue_in_synpred51_MyGrammar2476 = new BitSet(new ulong[]{0x0000000000000002UL});
 
 }
 }
