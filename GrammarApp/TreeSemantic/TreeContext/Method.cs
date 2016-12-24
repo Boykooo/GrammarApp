@@ -33,6 +33,11 @@ namespace GrammarApp.TreeSemantic.TreeContext
             vars.AddVar(name, localVar++, type);
         }
 
+        public void AddLocalVar(string name, int length, VarType type)
+        {
+            vars.AddVar(name, localVar++, length, type);
+        }
+
         public bool IsContainsLocalVar(string name)
         {
             return vars.IsContains(name);

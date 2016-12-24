@@ -19,14 +19,22 @@ namespace GrammarApp.TreeSemantic.TreeContext
         {
             methods.Add(new Method(name, type));
         }
+
         public void AddLocalVar(string methodName, string varName, VarType type)
         {
             methods.FirstOrDefault((x) => x.Name == methodName).AddLocalVar(varName, type);
         }
+
+        public void AddLocalVar(string methodName, string varName, int length, VarType type)
+        {
+            methods.FirstOrDefault((x) => x.Name == methodName).AddLocalVar(varName, length,  type);
+        }
+
         public bool IsContains(string name)
         {
             return methods.FirstOrDefault((x) => x.Name == name) != null;
         }
+
         public bool IsContainsLocalVar(string varName, string methodName)
         {
             return methods.FirstOrDefault((x) => x.Name == methodName).IsContainsLocalVar(varName);

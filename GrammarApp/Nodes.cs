@@ -1,5 +1,7 @@
 ﻿using Antlr.Runtime;
 using Antlr.Runtime.Tree;
+using GrammarApp.TreeSemantic.TreeContext;
+using System;
 
 namespace GrammarApp
 {
@@ -106,6 +108,10 @@ namespace GrammarApp
         {
             return new AssignNode(Type);
         }
+
+        public int Length { get { return Convert.ToInt32(GetChild(2).GetChild(0).Text); } }
+
+        public string Name { get { return GetChild(1).GetChild(0).Text; } }
     }
     public class ArrayInit : CommonTree
     {

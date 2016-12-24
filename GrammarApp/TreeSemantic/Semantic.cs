@@ -73,11 +73,25 @@ namespace GrammarApp.TreeSemantic
 
         private void Parsing(ArrayDecl node)
         {
-            Console.WriteLine("Check declaration array");
+            if (!context.IsContainsGlobalVar(node.Name))
+            {
+                context.AddGlobalVar(node.Name, node.Length, GetVarType(node.GetChild(0).Text));
+            }
+            else
+            {
+                Console.WriteLine("Массив с именем {0} уже существует. Строка {1}", node.Name, node.Line);
+            }
         }
         private void Parsing(ArrayDecl node, string methodName)
         {
-            Console.WriteLine("Check declaration array");
+            if (!context.IsContainsGlobalVar(node.Name) && !context.IsContainsLocalVar(node.Name, methodName))
+            {
+                context.AddLocalVar(methodName, node.Name, node.Length, GetVarType(node.GetChild(0).Text));
+            }
+            else
+            {
+                Console.WriteLine("Массив с именем {0} уже существует. Строка {1}", node.Name, node.Line);
+            }
         }
         private void Parsing(ArrayInit node)
         {

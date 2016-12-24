@@ -25,6 +25,14 @@ namespace GrammarApp.TreeSemantic.TreeContext
             Type = type;
         }
 
+        public Var(string name, int number, VarType type, int length)
+        {
+            Name = name;
+            Number = number;
+            Type = type;
+            Length = length;
+        }
+
         public string Name
         {
             get;
@@ -35,6 +43,11 @@ namespace GrammarApp.TreeSemantic.TreeContext
         }
 
         public VarType Type
+        {
+            get;
+        }
+
+        public int Length
         {
             get;
         }
