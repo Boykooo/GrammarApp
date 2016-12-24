@@ -23,7 +23,7 @@ namespace GrammarApp
             ITree program = (ITree)parser.execute().Tree;
             AstNodePrinter.Print(program);
 
-            //Semantic semantic = new Semantic(program);
+            Semantic semantic = new Semantic(program);
 
             Console.Read();
         }

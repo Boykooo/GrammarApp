@@ -107,6 +107,31 @@ namespace GrammarApp
             return new AssignNode(Type);
         }
     }
+    public class ArrayInit : CommonTree
+    {
+        public ArrayInit()
+        {
+
+        }
+        public ArrayInit(CommonTree common) : base(common)
+        {
+
+        }
+        public ArrayInit(IToken token) : base(token)
+        {
+
+        }
+        public ArrayInit(int t)
+            : base(new CommonToken(t, "ArrayInit"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+    }
 
     public class AssignNode : CommonTree
     {

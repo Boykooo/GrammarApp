@@ -35,6 +35,7 @@ tokens
 	Inc								;
 	While_							;
 	ArrayDecl						;
+	ArrayInit						;
 
 	PROGRAM							;
 	PRINT			= 'print'		;
@@ -155,8 +156,8 @@ init	:	arrayInit
 		|	varInit
 		;
 
-arrayInit	:	type '[]' ident ('=' NEW type '[' INTEGER ']')?
-					->^(ArrayDecl<ArrayDecl> type ident (INTEGER)? )
+arrayInit	:	type '[]' ident ('=' NEW type '[' add ']')?
+					->^(ArrayDecl<ArrayDecl> type ident (add)? )
 			;
 
 varInit	:	type fieldInitValue
@@ -299,9 +300,19 @@ printExpr	:	add
 			|	callMethod
 			;		
 
-changeValue	:	ident ASSIGN initValue
+changeValue		:	varChangeValue
+				|	arrayChangeValue
+				;
+
+varChangeValue	:	ident ASSIGN initValue
 						-> ^(Assign<AssignNode> ident initValue)
 				;
+
+arrayChangeValue	:	ident '[' add ']' ASSIGN  initValue
+							-> ^(ArrayInit<ArrayInit> ident add initValue)
+					;
+
+
 expr	: add
 		| if_
 		| init

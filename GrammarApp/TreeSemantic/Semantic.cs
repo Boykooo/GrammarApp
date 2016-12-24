@@ -29,6 +29,11 @@ namespace GrammarApp.TreeSemantic
         {
 
         }
+        private void Parsing(CommonTree tree, string methodName)
+        {
+
+        }
+
         private void Parsing(VarInitNode node)
         {
             if (!context.IsContainsGlobalVar(node.VarName))
@@ -65,6 +70,25 @@ namespace GrammarApp.TreeSemantic
             }
 
         }
+
+        private void Parsing(ArrayDecl node)
+        {
+            Console.WriteLine("Check declaration array");
+        }
+        private void Parsing(ArrayDecl node, string methodName)
+        {
+            Console.WriteLine("Check declaration array");
+        }
+        private void Parsing(ArrayInit node)
+        {
+            Console.WriteLine("Check initialization array");
+        }
+        private void Parsing(ArrayInit node, string methodName)
+        {
+            Console.WriteLine("Check initialization array");
+        }
+
+
         private void Parsing(MethodDefNode node)
         {
             if (!context.IsContainsMethod(node.MethodName))
@@ -227,6 +251,7 @@ namespace GrammarApp.TreeSemantic
                 Parsing(tmp, methodName);
             }
         }
+
 
         private VarType GetVarType(string type)
         {
