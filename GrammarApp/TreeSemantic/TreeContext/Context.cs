@@ -84,5 +84,16 @@ namespace GrammarApp.TreeSemantic.TreeContext
 
             return VarType.Undefined;
         }
+
+
+        public int GetID(string varName)
+        {
+            return vars.GetVar(varName).Number;
+        }
+
+        public int GetID(string varName, string methodName)
+        {
+            return methodList.GetLocalVar(methodName, varName).Number;
+        }
     }
 }

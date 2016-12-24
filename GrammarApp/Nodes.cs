@@ -84,6 +84,34 @@ namespace GrammarApp
         }
     }
 
+    public class VarInitNode : CommonTree
+    {
+        public VarInitNode()
+        {
+
+        }
+        public VarInitNode(CommonTree common) : base(common)
+        {
+
+        }
+        public VarInitNode(IToken token) : base(token)
+        {
+
+        }
+        public VarInitNode(int t)
+            : base(new CommonToken(t, "VarInit"))
+        {
+
+        }
+
+        public string VarType { get { return GetChild(0).Text; } }
+
+        public string VarName { get { return GetChild(1).GetChild(0).GetChild(0).Text; } }
+
+        public IDNode ID { get { return (IDNode) GetChild(1).GetChild(0); } }
+
+    }
+
     public class ArrayDecl : CommonTree
     {
         public ArrayDecl()
@@ -112,6 +140,9 @@ namespace GrammarApp
         public int Length { get { return Convert.ToInt32(GetChild(2).GetChild(0).Text); } }
 
         public string Name { get { return GetChild(1).GetChild(0).Text; } }
+
+        public IDNode ID { get { return (IDNode)GetChild(1); } }
+
     }
     public class ArrayInit : CommonTree
     {
@@ -137,6 +168,8 @@ namespace GrammarApp
         {
             return new AssignNode(Type);
         }
+
+        public IDNode ID { get { return (IDNode)GetChild(0); } }
     }
 
     public class AssignNode : CommonTree
@@ -165,6 +198,8 @@ namespace GrammarApp
         }
 
         public string VarName { get { return GetChild(0).GetChild(0).Text; } }
+
+        public IDNode ID { get { return (IDNode)GetChild(0); } }
 
     }
     public class IncNode : CommonTree
@@ -317,29 +352,7 @@ namespace GrammarApp
             return new DivideNode(Type);
         }
     }
-    public class VarInitNode : CommonTree
-    {
-        public VarInitNode()
-        {
 
-        }
-        public VarInitNode(CommonTree common) : base(common)
-        {
-
-        }
-        public VarInitNode(IToken token) : base(token)
-        {
-
-        }
-        public VarInitNode(int t)
-            : base(new CommonToken(t, "VarInit"))
-        {
-
-        }
-
-        public string VarType { get { return GetChild(0).Text; } }
-        public string VarName { get { return GetChild(1).GetChild(0).GetChild(0).Text; } }
-    }
     public class ExprNode : CommonTree
     {
         public ExprNode()

@@ -27,7 +27,7 @@ namespace GrammarApp.TreeSemantic.TreeContext
 
         public void AddLocalVar(string methodName, string varName, int length, VarType type)
         {
-            methods.FirstOrDefault((x) => x.Name == methodName).AddLocalVar(varName, length,  type);
+            methods.FirstOrDefault((x) => x.Name == methodName).AddLocalVar(varName, length, type);
         }
 
         public bool IsContains(string name)
@@ -48,6 +48,11 @@ namespace GrammarApp.TreeSemantic.TreeContext
         public VarType GetTypeLocalVar(string varName, string methodName)
         {
             return methods.FirstOrDefault((x) => x.Name == methodName).GetLocalVarType(varName);
+        }
+
+        public Var GetLocalVar(string methodName, string varName)
+        {
+            return methods.FirstOrDefault((x) => x.Name == methodName).GetLocalVar(varName);
         }
     }
 }

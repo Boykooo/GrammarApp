@@ -1,4 +1,5 @@
-﻿using Antlr.Runtime.Tree;
+﻿using Antlr.Runtime;
+using Antlr.Runtime.Tree;
 using GrammarApp.TreeSemantic.TreeContext;
 using System;
 
@@ -39,6 +40,8 @@ namespace GrammarApp.TreeSemantic
             if (!context.IsContainsGlobalVar(node.VarName))
             {
                 context.AddGlobalVar(node.VarName, GetVarType(node.VarType));
+
+                AddID(node.ID);
             }
             else
             {
@@ -52,6 +55,8 @@ namespace GrammarApp.TreeSemantic
                 if (!context.IsContainsLocalVar(node.VarName, methodName))
                 {
                     context.AddLocalVar(methodName, node.VarName, GetVarType(node.VarType));
+                    AddID(node.ID, methodName);
+
                     dynamic temp = node.GetChild(1);
                     if (node.GetChild(1).ChildCount > 1)
                     {
@@ -76,6 +81,7 @@ namespace GrammarApp.TreeSemantic
             if (!context.IsContainsGlobalVar(node.Name))
             {
                 context.AddGlobalVar(node.Name, node.Length, GetVarType(node.GetChild(0).Text));
+                AddID(node.ID);
             }
             else
             {
@@ -87,6 +93,7 @@ namespace GrammarApp.TreeSemantic
             if (!context.IsContainsGlobalVar(node.Name) && !context.IsContainsLocalVar(node.Name, methodName))
             {
                 context.AddLocalVar(methodName, node.Name, node.Length, GetVarType(node.GetChild(0).Text));
+                AddID(node.ID, methodName);
             }
             else
             {
@@ -146,7 +153,7 @@ namespace GrammarApp.TreeSemantic
         }
         private void Parsing(LogicOperation node, string methodName)
         {
-            
+
         }
         private void Parsing(OrOperationNode node, string methodName)
         {
@@ -188,6 +195,9 @@ namespace GrammarApp.TreeSemantic
             }
             else
             {
+                dynamic id = node.GetChild(0);
+                Parsing(id, methodName);
+
                 dynamic temp = node.GetChild(1);
                 var right = Parsing(temp, methodName);
 
@@ -212,11 +222,13 @@ namespace GrammarApp.TreeSemantic
                 }
                 else
                 {
+                    AddID(node, methodName);
                     return context.GetTypeLocalVar(node.VarName, methodName);
                 }
             }
             else
             {
+                AddID(node);
                 return context.GetTypeGlobalVar(node.VarName);
             }
 
@@ -228,19 +240,19 @@ namespace GrammarApp.TreeSemantic
         }
         private VarType Parsing(PlusNode node, string methodName)
         {
-            return ParseElementaryOperation(node);
+            return ParseElementaryOperation(node, methodName);
         }
         private VarType Parsing(MinusNode node, string methodName)
         {
-            return ParseElementaryOperation(node);
+            return ParseElementaryOperation(node, methodName);
         }
         private VarType Parsing(MultNode node, string methodName)
         {
-            return ParseElementaryOperation(node);
+            return ParseElementaryOperation(node, methodName);
         }
         private VarType Parsing(DivideNode node, string methodName)
         {
-            return ParseElementaryOperation(node);
+            return ParseElementaryOperation(node, methodName);
         }
         private VarType Parsing(CallMethodNode node, string methodName)
         {
@@ -267,6 +279,21 @@ namespace GrammarApp.TreeSemantic
         }
 
 
+
+        private void AddID(IDNode node)
+        {
+            ITree newNode = new CommonTree(new CommonToken(1, context.GetID(node.VarName).ToString()));
+            node.AddChild(newNode);
+        }
+
+        private void AddID(IDNode node, string methodName)
+        {
+            ITree newNode = new CommonTree(new CommonToken(1, context.GetID(node.VarName, methodName).ToString()));
+            node.AddChild(newNode);
+        }
+
+
+
         private VarType GetVarType(string type)
         {
             switch (type)
@@ -291,10 +318,14 @@ namespace GrammarApp.TreeSemantic
         {
             return type == "void" ? VarType.Void : GetVarType(type);
         }
-        private VarType ParseElementaryOperation(ITree node)
+        private VarType ParseElementaryOperation(CommonTree node, string methodName)
         {
-            var left = GetVarType(node.GetChild(0).Text);
-            var right = GetVarType(node.GetChild(1).Text);
+
+            dynamic leftNode = node.GetChild(0);
+            var left = Parsing(leftNode, methodName);
+
+            dynamic rightNode = node.GetChild(1);
+            var right = Parsing(rightNode, methodName);
 
             return (left == VarType.Double || right == VarType.Double) ? VarType.Double : VarType.Int;
         }

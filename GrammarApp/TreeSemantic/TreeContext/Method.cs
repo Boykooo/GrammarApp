@@ -47,5 +47,10 @@ namespace GrammarApp.TreeSemantic.TreeContext
         {
             return vars.GetTypeVar(name);
         }
+
+        public Var GetLocalVar(string name)
+        {
+            return vars.GetVar(name);
+        }
     }
 }
