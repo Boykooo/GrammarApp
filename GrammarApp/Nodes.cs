@@ -112,22 +112,22 @@ namespace GrammarApp
 
     }
 
-    public class ArrayDecl : CommonTree
+    public class ArrayDeclNode : CommonTree
     {
-        public ArrayDecl()
+        public ArrayDeclNode()
         {
 
         }
-        public ArrayDecl(CommonTree common) : base(common)
+        public ArrayDeclNode(CommonTree common) : base(common)
         {
 
         }
-        public ArrayDecl(IToken token) : base(token)
+        public ArrayDeclNode(IToken token) : base(token)
         {
 
         }
-        public ArrayDecl(int t)
-            : base(new CommonToken(t, "ArrayDecl"))
+        public ArrayDeclNode(int t)
+            : base(new CommonToken(t, "ArrayDeclNode"))
         {
 
         }
@@ -144,22 +144,22 @@ namespace GrammarApp
         public IDNode ID { get { return (IDNode)GetChild(1); } }
 
     }
-    public class ArrayInit : CommonTree
+    public class ArrayInitNode : CommonTree
     {
-        public ArrayInit()
+        public ArrayInitNode()
         {
 
         }
-        public ArrayInit(CommonTree common) : base(common)
+        public ArrayInitNode(CommonTree common) : base(common)
         {
 
         }
-        public ArrayInit(IToken token) : base(token)
+        public ArrayInitNode(IToken token) : base(token)
         {
 
         }
-        public ArrayInit(int t)
-            : base(new CommonToken(t, "ArrayInit"))
+        public ArrayInitNode(int t)
+            : base(new CommonToken(t, "ArrayInitNode"))
         {
 
         }
@@ -748,4 +748,83 @@ namespace GrammarApp
         public CodeBlockNode Block { get { return GetChild(1) as CodeBlockNode; } }
     }
 
+    public class PrintNode : CommonTree
+    {
+        public PrintNode()
+        {
+
+        }
+        public PrintNode(CommonTree common) : base(common)
+        {
+
+        }
+        public PrintNode(IToken token) : base(token)
+        {
+
+        }
+        public PrintNode(int t)
+            : base(new CommonToken(t, "PrintNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+
+    }
+    public class PrintlnNode : CommonTree
+    {
+        public PrintlnNode()
+        {
+
+        }
+        public PrintlnNode(CommonTree common) : base(common)
+        {
+
+        }
+        public PrintlnNode(IToken token) : base(token)
+        {
+
+        }
+        public PrintlnNode(int t)
+            : base(new CommonToken(t, "PrintlnNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+
+    }
+
+    public class NextLineNode : CommonTree
+    {
+        public NextLineNode()
+        {
+
+        }
+        public NextLineNode(CommonTree common) : base(common)
+        {
+
+        }
+        public NextLineNode(IToken token) : base(token)
+        {
+
+        }
+        public NextLineNode(int t)
+            : base(new CommonToken(t, "NextLineNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+
+    }
 }

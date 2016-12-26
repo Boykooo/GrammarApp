@@ -1,5 +1,6 @@
 ﻿using Antlr.Runtime;
 using Antlr.Runtime.Tree;
+using GrammarApp.linker;
 using GrammarApp.TreeSemantic;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,17 @@ namespace GrammarApp
 
             AstNodePrinter.Print(program);
 
+            Codegenerator gen = new Codegenerator();
+
+            dynamic root = program;
+            string output = gen.Start(root, semantic.Context.MethodList, semantic.Context.Vars);
+
+            Console.WriteLine(output);
+
+            FileWorker file = new FileWorker();
+            file.WriteToFile(output);
+
             Console.Read();
         }
-    }
+    }   
 }

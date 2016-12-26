@@ -36,9 +36,14 @@ tokens
 	While_							;
 	ArrayDecl						;
 	ArrayInit						;
+	Print							;
+	Println							;
+	NextLine						;
 
 	PROGRAM							;
 	PRINT			= 'print'		;
+	PRINTLN			= 'println'		;
+	NEXTLINE		= 'nextLine()'	;
 
 	PLUS			= '+'			;
 	MINUS			= '-'			;
@@ -157,7 +162,7 @@ init	:	arrayInit
 		;
 
 arrayInit	:	type '[]' ident ('=' NEW type '[' add ']')?
-					->^(ArrayDecl<ArrayDecl> type ident (add)? )
+					->^(ArrayDecl<ArrayDeclNode> type ident (add)? )
 			;
 
 varInit	:	type fieldInitValue
@@ -171,7 +176,7 @@ fieldInitValue	:  ident  (ASSIGN initValue)?
 
 
 
-initValue		: add
+initValue		: addOrArray
 				| callMethod
 				| ident
 				| inc
@@ -196,9 +201,6 @@ mult	:	group ( multOperation^ group)* ;
 
 add		:	mult ( addOperation^ mult)* ;
 
-print	:	PRINT '(' printExpr ')'
-			-> ^(PRINT printExpr)
-		;
 
 block	:	'{' line* '}' -> ^(BLOCK<CodeBlockNode> line*)
 		;
@@ -232,28 +234,28 @@ logicOperator		:	orOperation
 					;
 
 
-orOperation			:	add OR add -> ^(OrOp<OrOperationNode> add add)
+orOperation			:	addOrArray OR addOrArray -> ^(OrOp<OrOperationNode> addOrArray addOrArray)
 					;
 
-andOperation		:	add AND add -> ^(AndOp<AndOperationNode> add add)
+andOperation		:	addOrArray AND addOrArray -> ^(AndOp<AndOperationNode> addOrArray addOrArray)
 					;
 
-eqOp				:	add EQ add -> ^(EqOp<EqualityOperationNode> add add)
+eqOp				:	addOrArray EQ addOrArray -> ^(EqOp<EqualityOperationNode> addOrArray addOrArray)
 					;
 
-nonEqOp				:	add NONEQ add -> ^(NonEqOp<NonEqualityOperationNode> add add)
+nonEqOp				:	addOrArray NONEQ addOrArray -> ^(NonEqOp<NonEqualityOperationNode> addOrArray addOrArray)
 					;
 
-moreOp				:	 add MORE add -> ^(MoreOp<LogicOperationMoreNode> add add)
+moreOp				:	 addOrArray MORE addOrArray -> ^(MoreOp<LogicOperationMoreNode> addOrArray addOrArray)
 					;
 
-moreEqOp			:	add MOREEQ add -> ^(MoreEqOp<LogicOperationMoreEqNode> add add)
+moreEqOp			:	addOrArray MOREEQ addOrArray -> ^(MoreEqOp<LogicOperationMoreEqNode> addOrArray addOrArray)
 					;
 
-lessOp				:	add LESS add -> ^(LessOp<LogicOperationLessNode> add add)
+lessOp				:	addOrArray LESS addOrArray -> ^(LessOp<LogicOperationLessNode> addOrArray addOrArray)
 					;
 
-lessEqOp			:	add LESSEQ add -> ^(LessEqOp<LogicOperationLessEqNode> add add)
+lessEqOp			:	addOrArray LESSEQ addOrArray -> ^(LessEqOp<LogicOperationLessEqNode> addOrArray addOrArray)
 					;
 
 
@@ -265,14 +267,17 @@ cycle	:	for_
 
 for_	:	FOR 
             '('	
-		    varInit ';'
+		    varInitOrChangeValue ';'
 			logicOperator ';'
 		    fieldInitValue
 			')'
 			block
-			-> ^(For<ForNode> varInit logicOperator fieldInitValue block)
+			-> ^(For<ForNode> varInitOrChangeValue logicOperator fieldInitValue block)
 		;
 
+varInitOrChangeValue	:	varChangeValue
+						|	varInit
+						;
 
 while_	:	WHILE
 			'('
@@ -308,10 +313,25 @@ varChangeValue	:	ident ASSIGN initValue
 						-> ^(Assign<AssignNode> ident initValue)
 				;
 
-arrayChangeValue	:	ident '[' add ']' ASSIGN  initValue
-							-> ^(ArrayInit<ArrayInit> ident add initValue)
+arrayChangeValue	:	ident '[' add ']' (ASSIGN  initValue)?
+							-> ^(ArrayInit<ArrayInitNode> ident add (initValue)?)
 					;
 
+addOrArray		:	add
+				|	arrayChangeValue
+				;
+
+print		:	PRINT addOrArray
+					->	^(Print<PrintNode> addOrArray)
+			;
+
+println		:	PRINTLN addOrArray
+					->	^(Println<PrintlnNode> addOrArray)
+			;
+
+nextLine	:	NEXTLINE
+					-> NextLine<NextLineNode>
+			;
 
 expr	: add
 		| if_
@@ -321,6 +341,8 @@ expr	: add
 		| fieldInitValue
 		| callMethod
 		| print
+		| println
+		| nextLine
 		| changeValue
 		;
 

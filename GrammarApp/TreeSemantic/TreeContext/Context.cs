@@ -6,79 +6,79 @@ using System.Threading.Tasks;
 
 namespace GrammarApp.TreeSemantic.TreeContext
 {
-    class Context
+    public class Context
     {
         public Context()
         {
             globalCount = 0;
-            vars = new VarList();
-            methodList = new MethodList();
+            Vars = new VarList();
+            MethodList = new MethodList();
         }
 
-        private VarList vars;
-        private MethodList methodList;
+        public VarList Vars { get; set; }
+        public MethodList MethodList { get; set; }
         private int globalCount;
 
         public void AddGlobalVar(string name, VarType type)
         {
-            vars.AddVar(name, globalCount++, type);
+            Vars.AddVar(name, globalCount++, type);
         }
         public void AddGlobalVar(string name, int length, VarType type)
         {
-            vars.AddVar(name, globalCount++, length, type);
+            Vars.AddVar(name, globalCount++, length, type);
         }
 
         public void AddMethod(string name, VarType type)
         {
-            methodList.AddMethod(name, type);
+            MethodList.AddMethod(name, type);
         }
         public void AddLocalVar(string methodName, string varName, VarType type)
         {
-            methodList.AddLocalVar(methodName, varName, type);
+            MethodList.AddLocalVar(methodName, varName, type);
         }
 
         public void AddLocalVar(string methodName, string varName, int length, VarType type)
         {
-            methodList.AddLocalVar(methodName, varName, length, type);
+            MethodList.AddLocalVar(methodName, varName, length, type);
         }
 
         public bool IsContainsMethod(string name)
         {
-            return methodList.IsContains(name);
+            return MethodList.IsContains(name);
         }
         public bool IsContainsGlobalVar(string name)
         {
-            return vars.IsContains(name);
+            return Vars.IsContains(name);
         }
         public bool IsContainsLocalVar(string varName, string methodName)
         {
-            return methodList.IsContainsLocalVar(varName, methodName);
+            return MethodList.IsContainsLocalVar(varName, methodName);
         }
 
         public VarType GetTypeMethod(string name)
         {
-            return methodList.GetTypeMethod(name);
+            return MethodList.GetTypeMethod(name);
         }
         public VarType GetTypeGlobalVar(string varName)
         {
-            return vars.GetTypeVar(varName);
+            return Vars.GetTypeVar(varName);
         }
 
         public VarType GetTypeLocalVar(string varName, string methodName)
         {
-            return methodList.GetTypeLocalVar(varName, methodName);
+            return MethodList.GetTypeLocalVar(varName, methodName);
         }
         public VarType SearchVar(string varName, string methodName)
         {
-            if (vars.IsContains(varName))
+            if (Vars.IsContains(varName))
             {
-                return vars.GetTypeVar(varName);
+                return Vars.GetTypeVar(varName);
             }
             else
             {
-                if (methodList.IsContainsLocalVar(varName, methodName))
+                if (MethodList.IsContainsLocalVar(varName, methodName))
                 {
-                    return methodList.GetTypeLocalVar(varName, methodName);
+                    return MethodList.GetTypeLocalVar(varName, methodName);
                 }
             }
 
@@ -88,12 +88,14 @@ namespace GrammarApp.TreeSemantic.TreeContext
 
         public int GetID(string varName)
         {
-            return vars.GetVar(varName).Number;
+            return Vars.GetVar(varName).Number;
         }
 
         public int GetID(string varName, string methodName)
         {
-            return methodList.GetLocalVar(methodName, varName).Number;
+            Var temp = MethodList.GetLocalVar(methodName, varName);
+
+            return (temp != null) ? temp.Number : -1;
         }
     }
 }

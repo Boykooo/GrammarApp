@@ -10,12 +10,12 @@ namespace GrammarApp.TreeSemantic
         public Semantic(ITree tree)
         {
             this.tree = tree;
-            context = new Context();
+            Context = new Context();
             StartParsing();
         }
 
         private ITree tree;
-        private Context context;
+        public Context Context { get; set; }
 
         private void StartParsing()
         {
@@ -37,9 +37,9 @@ namespace GrammarApp.TreeSemantic
 
         private void Parsing(VarInitNode node)
         {
-            if (!context.IsContainsGlobalVar(node.VarName))
+            if (!Context.IsContainsGlobalVar(node.VarName))
             {
-                context.AddGlobalVar(node.VarName, GetVarType(node.VarType));
+                Context.AddGlobalVar(node.VarName, GetVarType(node.VarType));
 
                 AddID(node.ID);
             }
@@ -50,17 +50,21 @@ namespace GrammarApp.TreeSemantic
         }
         private void Parsing(VarInitNode node, string methodName)
         {
-            if (!context.IsContainsGlobalVar(node.VarName))
+            if (!Context.IsContainsGlobalVar(node.VarName))
             {
-                if (!context.IsContainsLocalVar(node.VarName, methodName))
+                if (!Context.IsContainsLocalVar(node.VarName, methodName))
                 {
-                    context.AddLocalVar(methodName, node.VarName, GetVarType(node.VarType));
-                    AddID(node.ID, methodName);
+                    Context.AddLocalVar(methodName, node.VarName, GetVarType(node.VarType));
+                    
 
                     dynamic temp = node.GetChild(1);
                     if (node.GetChild(1).ChildCount > 1)
                     {
                         Parsing(temp, GetVarType(node.VarType), methodName); // AssignNode
+                    }
+                    else
+                    {
+                        AddID(node.ID, methodName);
                     }
 
                 }
@@ -76,11 +80,11 @@ namespace GrammarApp.TreeSemantic
 
         }
 
-        private void Parsing(ArrayDecl node)
+        private void Parsing(ArrayDeclNode node)
         {
-            if (!context.IsContainsGlobalVar(node.Name))
+            if (!Context.IsContainsGlobalVar(node.Name))
             {
-                context.AddGlobalVar(node.Name, node.Length, GetVarType(node.GetChild(0).Text));
+                Context.AddGlobalVar(node.Name, node.Length, GetVarType(node.GetChild(0).Text));
                 AddID(node.ID);
             }
             else
@@ -88,11 +92,11 @@ namespace GrammarApp.TreeSemantic
                 Console.WriteLine("Массив с именем {0} уже существует. Строка {1}", node.Name, node.Line);
             }
         }
-        private void Parsing(ArrayDecl node, string methodName)
+        private void Parsing(ArrayDeclNode node, string methodName)
         {
-            if (!context.IsContainsGlobalVar(node.Name) && !context.IsContainsLocalVar(node.Name, methodName))
+            if (!Context.IsContainsGlobalVar(node.Name) && !Context.IsContainsLocalVar(node.Name, methodName))
             {
-                context.AddLocalVar(methodName, node.Name, node.Length, GetVarType(node.GetChild(0).Text));
+                Context.AddLocalVar(methodName, node.Name, node.Length, GetVarType(node.GetChild(0).Text));
                 AddID(node.ID, methodName);
             }
             else
@@ -100,23 +104,26 @@ namespace GrammarApp.TreeSemantic
                 Console.WriteLine("Массив с именем {0} уже существует. Строка {1}", node.Name, node.Line);
             }
         }
-        private void Parsing(ArrayInit node)
+        private void Parsing(ArrayInitNode node)
         {
             Console.WriteLine("Check initialization array");
         }
-        private void Parsing(ArrayInit node, string methodName)
+        private void Parsing(ArrayInitNode node, string methodName)
         {
-            Console.WriteLine("Check initialization array");
+            for (int i = 0; i < node.ChildCount; i++)
+            {
+                Parsing(node.GetChild(i) as dynamic, methodName);
+            }
         }
 
 
         private void Parsing(MethodDefNode node)
         {
-            if (!context.IsContainsMethod(node.MethodName))
+            if (!Context.IsContainsMethod(node.MethodName))
             {
                 if (node.MethodType != null && GetMethodType(node.MethodType) != VarType.Undefined)
                 {
-                    context.AddMethod(node.MethodName, GetMethodType(node.MethodType));
+                    Context.AddMethod(node.MethodName, GetMethodType(node.MethodType));
                 }
                 else
                 {
@@ -132,7 +139,7 @@ namespace GrammarApp.TreeSemantic
         }
         private void Parsing(ForNode node, string methodName)
         {
-            Parsing(node.VarInitNode, methodName);
+            Parsing(node.GetChild(0) as dynamic, methodName);
             dynamic temp = node.GetChild(1); // Logic operation
             Parsing(temp, methodName);
             Parsing(node.VarInitValue, methodName);
@@ -196,10 +203,32 @@ namespace GrammarApp.TreeSemantic
             else
             {
                 dynamic id = node.GetChild(0);
-                Parsing(id, methodName);
+                if (id is ArrayInitNode)
+                {
+                    GetArrayType(id, methodName);
+                    Parsing(id.GetChild(0) as dynamic, methodName);
+                    Parsing(id.GetChild(1) as dynamic, methodName);
+                }
+                else
+                {
+                    Parsing(id, methodName);
+                }
 
                 dynamic temp = node.GetChild(1);
-                var right = Parsing(temp, methodName);
+
+                var right = VarType.Undefined;
+
+                if (temp is ArrayInitNode)
+                {
+                    right = GetArrayType(temp, methodName);
+                    Parsing(temp.GetChild(0) as dynamic, methodName);
+                    Parsing(temp.GetChild(1) as dynamic, methodName);
+                }
+                else
+                {
+                    right = Parsing(temp, methodName);
+                }
+                
 
                 if ((left == VarType.Int && right == VarType.Double) || right == VarType.Void)
                 {
@@ -209,27 +238,27 @@ namespace GrammarApp.TreeSemantic
         }
         private void Parsing(AssignNode node, string methodName)
         {
-            VarType left = context.SearchVar(node.VarName, methodName);
+            VarType left = Context.SearchVar(node.VarName, methodName);
             Parsing(node, left, methodName);
         }
         private VarType Parsing(IDNode node, string methodName)
         {
-            if (!context.IsContainsGlobalVar(node.VarName))
+            if (!Context.IsContainsGlobalVar(node.VarName))
             {
-                if (!context.IsContainsLocalVar(node.VarName, methodName))
+                if (!Context.IsContainsLocalVar(node.VarName, methodName))
                 {
                     Console.WriteLine("Переменная {0} не существует в текущем контексте. Строка {1}", node.VarName, node.Line);
                 }
                 else
                 {
                     AddID(node, methodName);
-                    return context.GetTypeLocalVar(node.VarName, methodName);
+                    return Context.GetTypeLocalVar(node.VarName, methodName);
                 }
             }
             else
             {
                 AddID(node);
-                return context.GetTypeGlobalVar(node.VarName);
+                return Context.GetTypeGlobalVar(node.VarName);
             }
 
             return VarType.Undefined;
@@ -256,9 +285,9 @@ namespace GrammarApp.TreeSemantic
         }
         private VarType Parsing(CallMethodNode node, string methodName)
         {
-            if (context.IsContainsMethod(node.MethodName))
+            if (Context.IsContainsMethod(node.MethodName))
             {
-                return context.GetTypeMethod(node.MethodName);
+                return Context.GetTypeMethod(node.MethodName);
             }
             else
             {
@@ -268,6 +297,21 @@ namespace GrammarApp.TreeSemantic
             return VarType.Undefined;
 
         }
+        private VarType GetArrayType(ArrayInitNode node, string methodName)
+        {
+            if (Context.IsContainsLocalVar(node.ID.GetChild(0).Text, methodName))
+            {
+                return Context.GetTypeLocalVar(node.ID.GetChild(0).Text, methodName);
+            }
+            else
+            {
+                Console.WriteLine("{0} не существует в текущем контексте. Строка {1}", node.ID.GetChild(0), node.Line);
+            }
+
+            return VarType.Undefined;
+
+        }
+
 
         private void Parsing(CodeBlockNode node, string methodName)
         {
@@ -278,20 +322,34 @@ namespace GrammarApp.TreeSemantic
             }
         }
 
+        private void Parsing(PrintNode node, string methodName)
+        {
+            Parsing(node.GetChild(0) as dynamic, methodName);
+            //AddID((IDNode)node.GetChild(0), methodName);
+        }
+
+        private void Parsing(PrintlnNode node, string methodName)
+        {
+            Parsing(node.GetChild(0) as dynamic, methodName);
+        }
+
+        private void Parsing(NextLineNode node, string methodName)
+        {
+
+        }
 
 
         private void AddID(IDNode node)
         {
-            ITree newNode = new CommonTree(new CommonToken(1, context.GetID(node.VarName).ToString()));
+            ITree newNode = new CommonTree(new CommonToken(1, Context.GetID(node.VarName).ToString()));
             node.AddChild(newNode);
         }
 
         private void AddID(IDNode node, string methodName)
         {
-            ITree newNode = new CommonTree(new CommonToken(1, context.GetID(node.VarName, methodName).ToString()));
+            ITree newNode = new CommonTree(new CommonToken(1, Context.GetID(node.VarName, methodName).ToString()));
             node.AddChild(newNode);
         }
-
 
 
         private VarType GetVarType(string type)
@@ -336,20 +394,59 @@ namespace GrammarApp.TreeSemantic
             if (left is IDNode)
             {
                 var temp = left as IDNode;
-                VarType type = context.SearchVar(temp.GetChild(0).Text, methodName);
+                VarType type = Context.SearchVar(temp.GetChild(0).Text, methodName);
                 if (type == VarType.Undefined)
                 {
                     Console.WriteLine("Использование неопределенной переменной {0}. Строка {1}", temp.VarName, node.Line);
+                }
+                else
+                {
+                    AddID(temp, methodName);
+                }
+            }
+
+            if (left is ArrayInitNode)
+            {
+                IDNode temp = left.GetChild(0);
+                VarType type = Context.SearchVar(temp.GetChild(0).Text, methodName);
+                if (type == VarType.Undefined)
+                {
+                    Console.WriteLine("Использование неопределенной переменной {0}. Строка {1}", temp.VarName, node.Line);
+                }
+                else
+                {
+                    AddID(temp, methodName);
+                    Parsing(left.GetChild(1) as dynamic, methodName);
                 }
             }
 
             if (right is IDNode)
             {
                 var temp = right as IDNode;
-                VarType type = context.SearchVar(temp.GetChild(0).Text, methodName);
+                VarType type = Context.SearchVar(temp.GetChild(0).Text, methodName);
                 if (type == VarType.Undefined)
                 {
                     Console.WriteLine("Использование неопределенной переменной {0}. Строка {1}", temp.VarName, node.Line);
+                }
+                else
+                {
+                    AddID(temp, methodName);
+                }
+
+            }
+
+            if (right is ArrayInitNode)
+            {
+                IDNode temp = right.GetChild(0);
+                VarType type = Context.SearchVar(temp.GetChild(0).Text, methodName);
+                if (type == VarType.Undefined)
+                {
+                    Console.WriteLine("Использование неопределенной переменной {0}. Строка {1}", temp.VarName, node.Line);
+                }
+                else
+                {
+                    AddID(temp, methodName);
+                    Parsing(right.GetChild(1) as dynamic, methodName);
                 }
             }
         }
