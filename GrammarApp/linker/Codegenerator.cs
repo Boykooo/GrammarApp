@@ -36,10 +36,7 @@ namespace GrammarApp.linker
             //    GenGlobalVars(node as dynamic, sb, ref lineNum);
             //}
 
-            foreach (var var in global.Vars)
-            {
-                sb.Append(String.Format("   .field private static {0} {1} \n", ToMsilType(var.Type.ToString().ToLower()), var.Name));
-            }
+            GenGlobalVars(root, sb);
 
             foreach (dynamic item in root.Children)
             {
@@ -54,6 +51,17 @@ namespace GrammarApp.linker
 
             return sb.ToString();
         }
+
+        private void Ctor()
+        {
+  //          .method private hidebysig specialname rtspecialname static
+  //        void  .ctor() cil managed
+  //        {
+  //        IL_0000:  ldc.i4.s   10
+  //        IL_0002:  newarr [mscorlib] System.Int32
+  //        IL_0007:  stsfld int32 [] ConsoleApplication1.Program::arr
+  //        IL_000c:  ret
+    }
 
 
         private void Parsing(CommonTree node, StringBuilder sb, ref int lineNum)
@@ -78,10 +86,44 @@ namespace GrammarApp.linker
 
             if (node is ArrayDeclNode)
             {
-                string type = "int32[] arr";
+                string type = "int32[]";
                 int num = Convert.ToInt32(node.GetChild(1).GetChild(1).Text);
                 sb.Append(string.Format("      [{0}] {1},\n", num, type));
 
+            }
+        }
+        private void GenGlobalVars(CommonTree node, StringBuilder sb)
+        {
+            foreach (ITree child in node.Children)
+            {
+                if (child is ArrayDeclNode)
+                {
+                    sb.Append(string.Format("   .field private static int32[] {0} \n", (child as ArrayDeclNode).Name));
+                }
+
+                if (child is VarInitNode)
+                {
+                    string type = ToMsilType((child as VarInitNode).VarType);
+                    int num = GetVarNum(child as dynamic);
+                    sb.Append(string.Format("   .field private static {0} {1} \n", type, (child as VarInitNode).VarName));
+
+                }
+            }
+
+            //foreach (var var in globalVars.Vars)
+            //{
+            //    sb.Append(String.Format("   .field private static {0} {1} \n", ToMsilType(var.Type.ToString().ToLower()), var.Name));
+            //}
+        }
+
+        private void InitGlobalVars(CommonTree node, StringBuilder sb, ref int lineNum)
+        {
+            foreach (ITree child in node.Children)
+            {
+                if (!(child is MethodDefNode))
+                {
+                    Parsing(child as dynamic, sb, ref lineNum);
+                }
             }
         }
 
@@ -104,8 +146,14 @@ namespace GrammarApp.linker
 
             sb.Append("    )\n");
 
+            if (node.GetChild(0).Text == "main")
+            {
+                // имитация конструктора класса
+                InitGlobalVars(node.Parent as dynamic, sb, ref lineNum);
+                sb.Append("\n");
+            }
 
-            Parsing(node.GetChild(0).GetChild(1) as dynamic, sb, ref lineNum);
+                Parsing(node.GetChild(0).GetChild(1) as dynamic, sb, ref lineNum);
 
             if (node.GetChild(0).Text == "main")
             {
@@ -129,7 +177,14 @@ namespace GrammarApp.linker
             PrintCommand(sb, String.Format("ldc.i4 {0}", length), ref lineNum);
             PrintCommand(sb, "newarr int32", ref lineNum);
             string id = node.GetChild(1).GetChild(1).Text;
-            PrintCommand(sb, String.Format("stloc {0}", id), ref lineNum);
+            string command = String.Format("stloc {0}", id);
+
+            if (globalVars.IsContains(node.Name))
+            {
+                command = String.Format("stsfld int32[] Program::{0}", node.Name);
+            }
+
+            PrintCommand(sb, command, ref lineNum);
             //(sb, "array stop", ref lineNum);
         }
         private void Parsing(ArrayInitNode node, StringBuilder sb, ref int lineNum)
@@ -324,6 +379,8 @@ namespace GrammarApp.linker
             {
                 case "int":
                     return "int32";
+                case "intarray":
+                    return "int32[]";
                 default:
                     return type;
             }

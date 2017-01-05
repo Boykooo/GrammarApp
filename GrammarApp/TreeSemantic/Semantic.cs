@@ -84,7 +84,7 @@ namespace GrammarApp.TreeSemantic
         {
             if (!Context.IsContainsGlobalVar(node.Name))
             {
-                Context.AddGlobalVar(node.Name, node.Length, GetVarType(node.GetChild(0).Text));
+                Context.AddGlobalVar(node.Name, node.Length, GetArrayType(node.GetChild(0).Text));
                 AddID(node.ID);
             }
             else
@@ -100,7 +100,7 @@ namespace GrammarApp.TreeSemantic
                 AddID(node.ID, methodName);
             }
             else
-            {
+            {   
                 Console.WriteLine("Массив с именем {0} уже существует. Строка {1}", node.Name, node.Line);
             }
         }
@@ -375,6 +375,18 @@ namespace GrammarApp.TreeSemantic
         private VarType GetMethodType(string type)
         {
             return type == "void" ? VarType.Void : GetVarType(type);
+        }
+        private VarType GetArrayType(string type)
+        {
+            switch (type)
+            {
+                case "int":
+                    return VarType.IntArray;
+                case "double":
+                    return VarType.DoubleArray;
+                default:
+                    return VarType.Undefined;
+            }
         }
         private VarType ParseElementaryOperation(CommonTree node, string methodName)
         {
