@@ -11,7 +11,7 @@ namespace GrammarApp.linker
     public class Codegenerator
     {
 
-        private MethodList methods;
+        private VarList globalVars;
 
 
         public Codegenerator()
@@ -19,7 +19,7 @@ namespace GrammarApp.linker
         }
         public string Start(CommonTree root, MethodList methods, VarList global)
         {
-            this.methods = methods;
+            this.globalVars = global;
             int lineNum = 0;
 
             StringBuilder sb = new StringBuilder();
@@ -31,10 +31,22 @@ namespace GrammarApp.linker
 .class public Program
 {
 ");
+            //foreach (var node in root.Children)
+            //{
+            //    GenGlobalVars(node as dynamic, sb, ref lineNum);
+            //}
+
+            foreach (var var in global.Vars)
+            {
+                sb.Append(String.Format("   .field private static {0} {1} \n", ToMsilType(var.Type.ToString().ToLower()), var.Name));
+            }
 
             foreach (dynamic item in root.Children)
             {
-                Parsing(item, sb, ref lineNum);
+                if (item is MethodDefNode)
+                {
+                    Parsing(item, sb, ref lineNum);
+                }
             }
             sb.Append(@"
 
@@ -73,8 +85,6 @@ namespace GrammarApp.linker
             }
         }
 
-
-
         private void Parsing(MethodDefNode node, StringBuilder sb, ref int lineNum)
         {
             sb.Append("  .method");
@@ -87,17 +97,23 @@ namespace GrammarApp.linker
             sb.Append("    .locals init (\n");
 
             GenLocalVars(node, sb, ref lineNum);
-            sb[sb.Length - 2] = ' ';
+            if (sb[sb.Length - 2] == ',')
+            {
+                sb[sb.Length - 2] = ' ';
+            }
+
             sb.Append("    )\n");
 
 
             Parsing(node.GetChild(0).GetChild(1) as dynamic, sb, ref lineNum);
 
-            //чтобы не закрывалось
-            PrintCommand(sb, "nop", ref lineNum);
-            PrintCommand(sb, "call int32 [mscorlib]System.Console::Read()", ref lineNum);
-            PrintCommand(sb, "pop", ref lineNum);
-
+            if (node.GetChild(0).Text == "main")
+            {
+                //чтобы не закрывалась консоль
+                PrintCommand(sb, "nop", ref lineNum);
+                PrintCommand(sb, "call int32 [mscorlib]System.Console::Read()", ref lineNum);
+                PrintCommand(sb, "pop", ref lineNum);
+            }
 
             PrintCommand(sb, "ret", ref lineNum);
             sb.Append("  }\n");
@@ -134,7 +150,7 @@ namespace GrammarApp.linker
             }
             else
             {
-             
+
                 Parsing(node.GetChild(0) as dynamic, sb, ref lineNum); // пуш массива
 
                 Parsing(node.GetChild(1) as dynamic, sb, ref lineNum); // пуш индекса
@@ -150,22 +166,39 @@ namespace GrammarApp.linker
             {
                 Parsing(node.GetChild(1) as dynamic, sb, ref lineNum); // кладем в стек 
 
-                PrintCommand(sb, String.Format("stloc {0}", node.GetChild(0).GetChild(1).Text), ref lineNum); // загружаем в переменную
+                string varName = node.GetChild(0).GetChild(0).Text;
+                string command = globalVars.IsContains(varName)
+                    ? String.Format("stsfld  {0} Program::{1}", ToMsilType(globalVars.GetTypeVar(varName).ToString().ToLower()), varName)
+                    : String.Format("stloc {0}", node.GetChild(0).GetChild(1).Text);
+
+
+                PrintCommand(sb, command, ref lineNum); // загружаем в переменную
             }
         }
 
         private void Parsing(CodeBlockNode node, StringBuilder sb, ref int lineNum)
         {
-            foreach (dynamic item in node.Children)
+            if (node.Children != null)
             {
-                Parsing(item, sb, ref lineNum);
+                foreach (dynamic item in node.Children)
+                {
+                    Parsing(item, sb, ref lineNum);
+                }
             }
         }
 
 
         private void Parsing(IDNode node, StringBuilder sb, ref int lineNum)
         {
-            PrintCommand(sb, String.Format("ldloc {0}", node.GetChild(1).Text), ref lineNum);
+            string varName = node.GetChild(0).Text;
+            string command = globalVars.IsContains(varName)
+                ? String.Format("ldsfld  {0} Program::{1}", ToMsilType(globalVars.GetTypeVar(varName).ToString().ToLower()), varName)
+                : String.Format("ldloc {0}", node.GetChild(1).Text);
+
+            //stsfld  int32 Program.Program::c
+
+            PrintCommand(sb, command, ref lineNum);
+
         }
         private void Parsing(IntegerNode node, StringBuilder sb, ref int lineNum)
         {
@@ -265,6 +298,11 @@ namespace GrammarApp.linker
             Parsing(node.GetChild(0) as dynamic, sb, ref lineNum);
 
             PrintCommand(sb, "call void [mscorlib]System.Console::Write(int32)", ref lineNum);
+        }
+
+        private void Parsing(CallMethodNode node, StringBuilder sb, ref int lineNum)
+        {
+            PrintCommand(sb, String.Format("call void Program::{0}() ", node.MethodName), ref lineNum);
         }
 
         private void Parsing(PrintlnNode node, StringBuilder sb, ref int lineNum)

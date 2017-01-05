@@ -1,8 +1,10 @@
 ﻿
 
-void main()
-{
 
+int k;
+
+void Temp()
+{
 	int a = 2;
 	int b = 3;
 	b = a * 2;
@@ -45,5 +47,9 @@ void main()
 
 
 
+void main()
+{
+	Temp();
+}
 
 

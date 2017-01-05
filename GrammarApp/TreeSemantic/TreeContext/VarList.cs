@@ -10,34 +10,34 @@ namespace GrammarApp.TreeSemantic.TreeContext
     {
         public VarList()
         {
-            vars = new List<Var>();
+            Vars = new List<Var>();
         }
 
-        private List<Var> vars;
+        public List<Var> Vars { get; set; }
 
         public void AddVar(string name, int number, VarType type)
         {
-            vars.Add(new Var(name, number, type));
+            Vars.Add(new Var(name, number, type));
         }
 
         public void AddVar(string name, int number, int length, VarType type)
         {
-            vars.Add(new Var(name, number, type, length));
+            Vars.Add(new Var(name, number, type, length));
         }
 
         public Var GetVar(string name)
         {
-            return vars.FirstOrDefault((x) => x.Name == name);
+            return Vars.FirstOrDefault((x) => x.Name == name);
         }
 
         public bool IsContains(string name)
         {
-            return vars.Exists((x) => x.Name == name);
+            return Vars.Exists((x) => x.Name == name);
         }
 
         public VarType GetTypeVar(string name)
         {
-            return vars.FirstOrDefault((x) => x.Name == name).Type;
+            return Vars.FirstOrDefault((x) => x.Name == name).Type;
         }
     }
 }
