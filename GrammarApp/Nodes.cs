@@ -58,6 +58,31 @@ namespace GrammarApp
             return new AssignNode(Type);
         }
     }
+    public class StringNode : CommonTree
+    {
+        public StringNode()
+        {
+
+        }
+        public StringNode(CommonTree common) : base(common)
+        {
+
+        }
+        public StringNode(IToken token) : base(token)
+        {
+
+        }
+        public StringNode(int t)
+            : base(new CommonToken(t, "StringNode"))
+        {
+
+        }
+
+        public override ITree DupNode()
+        {
+            return new AssignNode(Type);
+        }
+    }
     public class DoubleNode : CommonTree
     {
         public DoubleNode()

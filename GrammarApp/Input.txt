@@ -50,14 +50,18 @@ void main()
 {
 	InitValue();
 	
+	println "INPUT";
+
 	Output();
 	nextLine();
 
 	Sort();
 
+	println "OUTPUT";
 	Output();
 
-
+	nextLine();
+	println "REC";
 	nextLine();
 	Rec();
 }

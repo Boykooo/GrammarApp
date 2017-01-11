@@ -24,6 +24,8 @@ namespace GrammarApp
             ITree program = (ITree)parser.execute().Tree;
             //AstNodePrinter.Print(program);
 
+            //AstNodePrinter.Print(program);
+
             Semantic semantic = new Semantic(program);
 
             AstNodePrinter.Print(program);

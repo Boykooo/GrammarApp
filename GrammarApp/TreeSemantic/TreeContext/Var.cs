@@ -13,6 +13,7 @@ namespace GrammarApp.TreeSemantic.TreeContext
         Float,
         Char,
         Void,
+        String,
         IntArray,
         DoubleArray,
         Undefined

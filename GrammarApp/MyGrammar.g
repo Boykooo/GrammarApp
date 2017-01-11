@@ -39,6 +39,7 @@ tokens
 	Print							;
 	Println							;
 	NextLine						;
+	String							;
 
 	PROGRAM							;
 	PRINT			= 'print'		;
@@ -68,6 +69,7 @@ tokens
 	DOUBLE			= 'double'		;
 	CHAR			= 'char'		;
 	VOID			= 'void'		;
+	STRING			= 'string'		;
 	VAR								;
 	ONEARRAY						;
 	COUNT							;
@@ -82,14 +84,15 @@ tokens
 	WHILE			= 'while'		;
 	INCREMENT_		= 'INCREMENT'	;
 
-	AND = '&&'						;
-	OR = '||'						;
-	EQ = '=='						;
-	NONEQ = '!='					;
-	MORE = '>'						;
-	LESS = '<'						;
-	MOREEQ = '>='					;
-	LESSEQ = '<='					;
+	AND				= '&&'			;
+	OR				= '||'			;
+	EQ				= '=='			;
+	NONEQ			= '!='			;
+	MORE			= '>'			;
+	LESS			= '<'			;
+	MOREEQ			= '>='			;
+	LESSEQ			= '<='			;
+	QUOTES			= '"'			;
 }
 
 @parser::namespace { GrammarApp }
@@ -100,6 +103,7 @@ tokens
 
 type	:	INT
 		|	FLOAT
+		|	STRING
 		|	DOUBLE
 		|	CHAR
 		|	VOID
@@ -141,19 +145,22 @@ INTEGER	: ('0'..'9')+
 DOUBLE_	: INTEGER '.' INTEGER
 		;
 
+
+
 number	: INTEGER -> ^(Integer<IntegerNode> INTEGER)
 		| DOUBLE_ -> ^(Double<DoubleNode> DOUBLE_)
 		;
 
 
-ID		:	 ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* 
+
+string_		:	'"' ID '"' -> ^(String<StringNode> ID)
+			;
+
+ID		:	 ('a'..'z'|'A'..'Z'| '_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* 
 		;
 
 ident		:	ID -> ^(Id<IDNode> ID)
 			;
-
-
-
 
 
 
@@ -175,12 +182,17 @@ fieldInitValue	:  ident  (ASSIGN initValue)?
 				;
 
 
+stringInit		:	ident  (ASSIGN initValue)?
+						-> ^(Assign<AssignNode> ident (initValue)?)
+				;
+
 
 initValue		: addOrArray
 				| callMethod
 				| ident
 				| inc
 				| dec
+				| string_
 				;
 
 
@@ -317,7 +329,8 @@ arrayChangeValue	:	ident '[' add ']' (ASSIGN  initValue)?
 							-> ^(ArrayInit<ArrayInitNode> ident add (initValue)?)
 					;
 
-addOrArray		:	add
+addOrArray		:	string_
+				|	add
 				|	arrayChangeValue
 				;
 

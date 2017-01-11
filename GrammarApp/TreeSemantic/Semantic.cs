@@ -267,6 +267,10 @@ namespace GrammarApp.TreeSemantic
         {
             return VarType.Int;
         }
+        private VarType Parsing(StringNode node, string methodName)
+        {
+            return VarType.String;
+        }
         private VarType Parsing(PlusNode node, string methodName)
         {
             return ParseElementaryOperation(node, methodName);
@@ -362,10 +366,14 @@ namespace GrammarApp.TreeSemantic
                     return VarType.Double;
                 case "IntegerNode":
                     return VarType.Int;
+                case "StringNode":
+                    return VarType.String;
                 case "DoubleNode":
                     return VarType.Double;
                 case "char":
                     return VarType.Char;
+                case "string":
+                    return VarType.String;
                 case "float":
                     return VarType.Float;
                 default:

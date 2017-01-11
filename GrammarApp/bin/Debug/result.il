@@ -136,18 +136,26 @@
     L_000101: stsfld  int32 Program::k 
 
     L_000102: call void Program::InitValue()  
-    L_000103: call void Program::Output()  
-    L_000104: call void [mscorlib]System.Console::WriteLine() 
-    L_000105: nop 
-    L_000106: call void Program::Sort()  
-    L_000107: call void Program::Output()  
-    L_000108: call void [mscorlib]System.Console::WriteLine() 
-    L_000109: nop 
-    L_000110: call void Program::Rec()  
-    L_000111: nop 
-    L_000112: call int32 [mscorlib]System.Console::Read() 
-    L_000113: pop 
-    L_000114: ret 
+    L_000103: ldstr "INPUT"  
+    L_000104: call void [mscorlib]System.Console::WriteLine(string) 
+    L_000105: call void Program::Output()  
+    L_000106: call void [mscorlib]System.Console::WriteLine() 
+    L_000107: nop 
+    L_000108: call void Program::Sort()  
+    L_000109: ldstr "OUTPUT"  
+    L_000110: call void [mscorlib]System.Console::WriteLine(string) 
+    L_000111: call void Program::Output()  
+    L_000112: call void [mscorlib]System.Console::WriteLine() 
+    L_000113: nop 
+    L_000114: ldstr "REC"  
+    L_000115: call void [mscorlib]System.Console::WriteLine(string) 
+    L_000116: call void [mscorlib]System.Console::WriteLine() 
+    L_000117: nop 
+    L_000118: call void Program::Rec()  
+    L_000119: nop 
+    L_000120: call int32 [mscorlib]System.Console::Read() 
+    L_000121: pop 
+    L_000122: ret 
   }
 
 

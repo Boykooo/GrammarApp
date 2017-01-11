@@ -11,12 +11,14 @@ namespace GrammarApp.linker
     public class Codegenerator
     {
 
-        private VarList globalVars;
-
-
         public Codegenerator()
         {
+            typeVar = "int32";
         }
+
+        private VarList globalVars;
+        private string typeVar;
+
         public string Start(CommonTree root, MethodList methods, VarList global)
         {
             this.globalVars = global;
@@ -62,7 +64,6 @@ namespace GrammarApp.linker
   //        IL_0007:  stsfld int32 [] ConsoleApplication1.Program::arr
   //        IL_000c:  ret
     }
-
 
         private void Parsing(CommonTree node, StringBuilder sb, ref int lineNum)
         {
@@ -257,7 +258,14 @@ namespace GrammarApp.linker
         }
         private void Parsing(IntegerNode node, StringBuilder sb, ref int lineNum)
         {
+            typeVar = "int32";
             PrintCommand(sb, String.Format("ldc.i4 {0}", node.GetChild(0).Text), ref lineNum);
+        }
+
+        private void Parsing(StringNode node, StringBuilder sb, ref int lineNum)
+        {
+            typeVar = "string";
+            PrintCommand(sb, String.Format("ldstr \"{0}\" ", node.GetChild(0).Text), ref lineNum);
         }
 
         private void Parsing(PlusNode node, StringBuilder sb, ref int lineNum)
@@ -352,7 +360,7 @@ namespace GrammarApp.linker
         {
             Parsing(node.GetChild(0) as dynamic, sb, ref lineNum);
 
-            PrintCommand(sb, "call void [mscorlib]System.Console::Write(int32)", ref lineNum);
+            PrintCommand(sb, $"call void [mscorlib]System.Console::Write({typeVar})", ref lineNum);
         }
 
         private void Parsing(CallMethodNode node, StringBuilder sb, ref int lineNum)
@@ -364,7 +372,7 @@ namespace GrammarApp.linker
         {
             Parsing(node.GetChild(0) as dynamic, sb, ref lineNum);
 
-            PrintCommand(sb, "call void [mscorlib]System.Console::WriteLine(int32)", ref lineNum);
+            PrintCommand(sb, $"call void [mscorlib]System.Console::WriteLine({typeVar})", ref lineNum);
         }
 
         private void Parsing(NextLineNode node, StringBuilder sb, ref int lineNum)

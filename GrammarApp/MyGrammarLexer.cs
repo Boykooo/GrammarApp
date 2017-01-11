@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 MyGrammar.g 2017-01-06 02:43:35
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 MyGrammar.g 2017-01-11 23:01:00
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 168, 219
@@ -16,90 +16,93 @@ using Stack 		= Antlr.Runtime.Collections.StackList;
 namespace  GrammarApp 
 {
 public partial class MyGrammarLexer : Lexer {
-    public const int Add = 6;
-    public const int MoreOp = 20;
-    public const int PRINT = 35;
-    public const int NEW = 46;
+    public const int PRINT = 36;
     public const int MoreEqOp = 21;
-    public const int VAR = 59;
-    public const int T__90 = 90;
-    public const int CallMethod = 13;
+    public const int VAR = 61;
+    public const int String = 34;
     public const int While_ = 28;
-    public const int DECREMENT = 53;
     public const int LessOp = 22;
-    public const int MINUS = 39;
+    public const int MINUS = 40;
     public const int Print = 31;
     public const int MULT = 7;
-    public const int ArrayInit = 30;
-    public const int ELSE = 43;
+    public const int ELSE = 44;
     public const int NextLine = 33;
-    public const int CALLMETHOD = 66;
-    public const int ID = 80;
-    public const int Plus = 9;
-    public const int IF = 42;
-    public const int TYPE = 64;
-    public const int MINUSASSIGN = 49;
+    public const int ID = 83;
+    public const int IF = 43;
+    public const int TYPE = 66;
     public const int LogicOp = 25;
-    public const int INTEGER = 78;
-    public const int MOREEQ = 76;
-    public const int LESSEQ = 77;
-    public const int For = 24;
-    public const int BLOCK = 44;
-    public const int ONEARRAY = 60;
-    public const int FOR = 67;
+    public const int MOREEQ = 78;
     public const int Method = 5;
-    public const int EQ = 72;
-    public const int Double = 12;
-    public const int AND = 70;
-    public const int Println = 32;
-    public const int PUBLIC = 63;
-    public const int MULTIPLY = 40;
-    public const int CONDITION = 45;
-    public const int COUNT = 61;
-    public const int LESS = 75;
+    public const int PUBLIC = 65;
+    public const int CONDITION = 46;
+    public const int COUNT = 63;
     public const int Id = 14;
-    public const int VOID = 58;
     public const int If = 26;
     public const int Minus = 10;
-    public const int PROGRAM = 34;
+    public const int PROGRAM = 35;
     public const int AndOp = 15;
-    public const int Inc = 27;
-    public const int PLUS = 38;
-    public const int DIVIDEASSIGN = 51;
-    public const int FLOAT = 55;
     public const int NonEqOp = 18;
-    public const int PRINTLN = 36;
-    public const int MULTASSIGN = 50;
-    public const int CHAR = 57;
+    public const int CHAR = 58;
     public const int DefOp = 19;
-    public const int ASSIGN = 47;
-    public const int INT = 54;
-    public const int DIVIDE = 41;
-    public const int PLUSASSIGN = 48;
-    public const int DOUBLE = 56;
-    public const int WS = 81;
-    public const int EOF = -1;
+    public const int ASSIGN = 48;
+    public const int DIVIDE = 42;
+    public const int PLUSASSIGN = 49;
+    public const int DOUBLE = 57;
     public const int OrOp = 16;
-    public const int T__82 = 82;
-    public const int T__83 = 83;
-    public const int MOD = 65;
-    public const int OR = 71;
-    public const int INCREMENT_ = 69;
+    public const int INCREMENT_ = 71;
     public const int LessEqOp = 23;
-    public const int NONEQ = 73;
+    public const int NONEQ = 75;
+    public const int DOUBLE_ = 82;
+    public const int PRIVATE = 64;
+    public const int INCREMENT = 53;
+    public const int MORE = 76;
+    public const int STRING = 60;
+    public const int Assign = 8;
+    public const int QUOTES = 80;
+    public const int T__91 = 91;
+    public const int Add = 6;
+    public const int MoreOp = 20;
+    public const int T__92 = 92;
+    public const int NEW = 47;
+    public const int T__93 = 93;
+    public const int T__90 = 90;
+    public const int CallMethod = 13;
+    public const int DECREMENT = 54;
+    public const int ArrayInit = 30;
+    public const int CALLMETHOD = 68;
+    public const int Plus = 9;
+    public const int MINUSASSIGN = 50;
+    public const int INTEGER = 81;
+    public const int LESSEQ = 79;
+    public const int For = 24;
+    public const int BLOCK = 45;
+    public const int ONEARRAY = 62;
+    public const int FOR = 69;
+    public const int EQ = 74;
+    public const int Double = 12;
+    public const int AND = 72;
+    public const int Println = 32;
+    public const int MULTIPLY = 41;
+    public const int LESS = 77;
+    public const int VOID = 59;
+    public const int Inc = 27;
+    public const int PLUS = 39;
+    public const int DIVIDEASSIGN = 52;
+    public const int FLOAT = 56;
+    public const int PRINTLN = 37;
+    public const int MULTASSIGN = 51;
+    public const int INT = 55;
+    public const int WS = 84;
+    public const int EOF = -1;
+    public const int MOD = 67;
+    public const int OR = 73;
     public const int EqOp = 17;
-    public const int DOUBLE_ = 79;
-    public const int PRIVATE = 62;
     public const int VarInit = 4;
     public const int Integer = 11;
-    public const int NEXTLINE = 37;
-    public const int INCREMENT = 52;
-    public const int MORE = 74;
+    public const int NEXTLINE = 38;
     public const int T__88 = 88;
     public const int T__89 = 89;
-    public const int Assign = 8;
-    public const int WHILE = 68;
-    public const int T__84 = 84;
+    public const int WHILE = 70;
     public const int T__85 = 85;
     public const int T__86 = 86;
     public const int T__87 = 87;
@@ -697,6 +700,30 @@ public partial class MyGrammarLexer : Lexer {
     }
     // $ANTLR end "VOID"
 
+    // $ANTLR start "STRING"
+    public void mSTRING() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = STRING;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // MyGrammar.g:33:8: ( 'string' )
+            // MyGrammar.g:33:10: 'string'
+            {
+            	Match("string"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "STRING"
+
     // $ANTLR start "PRIVATE"
     public void mPRIVATE() // throws RecognitionException [2]
     {
@@ -704,8 +731,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = PRIVATE;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:33:9: ( 'private' )
-            // MyGrammar.g:33:11: 'private'
+            // MyGrammar.g:34:9: ( 'private' )
+            // MyGrammar.g:34:11: 'private'
             {
             	Match("private"); 
 
@@ -728,8 +755,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = PUBLIC;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:34:8: ( 'public' )
-            // MyGrammar.g:34:10: 'public'
+            // MyGrammar.g:35:8: ( 'public' )
+            // MyGrammar.g:35:10: 'public'
             {
             	Match("public"); 
 
@@ -752,8 +779,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = CALLMETHOD;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:35:12: ( 'CallMethod' )
-            // MyGrammar.g:35:14: 'CallMethod'
+            // MyGrammar.g:36:12: ( 'CallMethod' )
+            // MyGrammar.g:36:14: 'CallMethod'
             {
             	Match("CallMethod"); 
 
@@ -776,8 +803,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = FOR;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:36:5: ( 'for' )
-            // MyGrammar.g:36:7: 'for'
+            // MyGrammar.g:37:5: ( 'for' )
+            // MyGrammar.g:37:7: 'for'
             {
             	Match("for"); 
 
@@ -800,8 +827,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = WHILE;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:37:7: ( 'while' )
-            // MyGrammar.g:37:9: 'while'
+            // MyGrammar.g:38:7: ( 'while' )
+            // MyGrammar.g:38:9: 'while'
             {
             	Match("while"); 
 
@@ -824,8 +851,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = INCREMENT_;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:38:12: ( 'INCREMENT' )
-            // MyGrammar.g:38:14: 'INCREMENT'
+            // MyGrammar.g:39:12: ( 'INCREMENT' )
+            // MyGrammar.g:39:14: 'INCREMENT'
             {
             	Match("INCREMENT"); 
 
@@ -848,8 +875,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = AND;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:39:5: ( '&&' )
-            // MyGrammar.g:39:7: '&&'
+            // MyGrammar.g:40:5: ( '&&' )
+            // MyGrammar.g:40:7: '&&'
             {
             	Match("&&"); 
 
@@ -872,8 +899,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = OR;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:40:4: ( '||' )
-            // MyGrammar.g:40:6: '||'
+            // MyGrammar.g:41:4: ( '||' )
+            // MyGrammar.g:41:6: '||'
             {
             	Match("||"); 
 
@@ -896,8 +923,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = EQ;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:41:4: ( '==' )
-            // MyGrammar.g:41:6: '=='
+            // MyGrammar.g:42:4: ( '==' )
+            // MyGrammar.g:42:6: '=='
             {
             	Match("=="); 
 
@@ -920,8 +947,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = NONEQ;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:42:7: ( '!=' )
-            // MyGrammar.g:42:9: '!='
+            // MyGrammar.g:43:7: ( '!=' )
+            // MyGrammar.g:43:9: '!='
             {
             	Match("!="); 
 
@@ -944,8 +971,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = MORE;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:43:6: ( '>' )
-            // MyGrammar.g:43:8: '>'
+            // MyGrammar.g:44:6: ( '>' )
+            // MyGrammar.g:44:8: '>'
             {
             	Match('>'); 
 
@@ -967,8 +994,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = LESS;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:44:6: ( '<' )
-            // MyGrammar.g:44:8: '<'
+            // MyGrammar.g:45:6: ( '<' )
+            // MyGrammar.g:45:8: '<'
             {
             	Match('<'); 
 
@@ -990,8 +1017,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = MOREEQ;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:45:8: ( '>=' )
-            // MyGrammar.g:45:10: '>='
+            // MyGrammar.g:46:8: ( '>=' )
+            // MyGrammar.g:46:10: '>='
             {
             	Match(">="); 
 
@@ -1014,8 +1041,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = LESSEQ;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:46:8: ( '<=' )
-            // MyGrammar.g:46:10: '<='
+            // MyGrammar.g:47:8: ( '<=' )
+            // MyGrammar.g:47:10: '<='
             {
             	Match("<="); 
 
@@ -1031,18 +1058,17 @@ public partial class MyGrammarLexer : Lexer {
     }
     // $ANTLR end "LESSEQ"
 
-    // $ANTLR start "T__82"
-    public void mT__82() // throws RecognitionException [2]
+    // $ANTLR start "QUOTES"
+    public void mQUOTES() // throws RecognitionException [2]
     {
     		try
     		{
-            int _type = T__82;
+            int _type = QUOTES;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:47:7: ( '[]' )
-            // MyGrammar.g:47:9: '[]'
+            // MyGrammar.g:48:8: ( '\"' )
+            // MyGrammar.g:48:10: '\"'
             {
-            	Match("[]"); 
-
+            	Match('\"'); 
 
             }
 
@@ -1053,53 +1079,7 @@ public partial class MyGrammarLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "T__82"
-
-    // $ANTLR start "T__83"
-    public void mT__83() // throws RecognitionException [2]
-    {
-    		try
-    		{
-            int _type = T__83;
-    	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:48:7: ( '[' )
-            // MyGrammar.g:48:9: '['
-            {
-            	Match('['); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally 
-    	{
-        }
-    }
-    // $ANTLR end "T__83"
-
-    // $ANTLR start "T__84"
-    public void mT__84() // throws RecognitionException [2]
-    {
-    		try
-    		{
-            int _type = T__84;
-    	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:49:7: ( ']' )
-            // MyGrammar.g:49:9: ']'
-            {
-            	Match(']'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally 
-    	{
-        }
-    }
-    // $ANTLR end "T__84"
+    // $ANTLR end "QUOTES"
 
     // $ANTLR start "T__85"
     public void mT__85() // throws RecognitionException [2]
@@ -1108,10 +1088,11 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__85;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:50:7: ( '(' )
-            // MyGrammar.g:50:9: '('
+            // MyGrammar.g:49:7: ( '[]' )
+            // MyGrammar.g:49:9: '[]'
             {
-            	Match('('); 
+            	Match("[]"); 
+
 
             }
 
@@ -1131,10 +1112,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__86;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:51:7: ( ')' )
-            // MyGrammar.g:51:9: ')'
+            // MyGrammar.g:50:7: ( '[' )
+            // MyGrammar.g:50:9: '['
             {
-            	Match(')'); 
+            	Match('['); 
 
             }
 
@@ -1154,10 +1135,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__87;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:52:7: ( '{' )
-            // MyGrammar.g:52:9: '{'
+            // MyGrammar.g:51:7: ( ']' )
+            // MyGrammar.g:51:9: ']'
             {
-            	Match('{'); 
+            	Match(']'); 
 
             }
 
@@ -1177,10 +1158,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__88;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:53:7: ( '}' )
-            // MyGrammar.g:53:9: '}'
+            // MyGrammar.g:52:7: ( '(' )
+            // MyGrammar.g:52:9: '('
             {
-            	Match('}'); 
+            	Match('('); 
 
             }
 
@@ -1200,10 +1181,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__89;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:54:7: ( ';' )
-            // MyGrammar.g:54:9: ';'
+            // MyGrammar.g:53:7: ( ')' )
+            // MyGrammar.g:53:9: ')'
             {
-            	Match(';'); 
+            	Match(')'); 
 
             }
 
@@ -1223,8 +1204,77 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = T__90;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:55:7: ( '()' )
-            // MyGrammar.g:55:9: '()'
+            // MyGrammar.g:54:7: ( '{' )
+            // MyGrammar.g:54:9: '{'
+            {
+            	Match('{'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__90"
+
+    // $ANTLR start "T__91"
+    public void mT__91() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = T__91;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // MyGrammar.g:55:7: ( '}' )
+            // MyGrammar.g:55:9: '}'
+            {
+            	Match('}'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__91"
+
+    // $ANTLR start "T__92"
+    public void mT__92() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = T__92;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // MyGrammar.g:56:7: ( ';' )
+            // MyGrammar.g:56:9: ';'
+            {
+            	Match(';'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally 
+    	{
+        }
+    }
+    // $ANTLR end "T__92"
+
+    // $ANTLR start "T__93"
+    public void mT__93() // throws RecognitionException [2]
+    {
+    		try
+    		{
+            int _type = T__93;
+    	int _channel = DEFAULT_TOKEN_CHANNEL;
+            // MyGrammar.g:57:7: ( '()' )
+            // MyGrammar.g:57:9: '()'
             {
             	Match("()"); 
 
@@ -1238,7 +1288,7 @@ public partial class MyGrammarLexer : Lexer {
     	{
         }
     }
-    // $ANTLR end "T__90"
+    // $ANTLR end "T__93"
 
     // $ANTLR start "INTEGER"
     public void mINTEGER() // throws RecognitionException [2]
@@ -1247,10 +1297,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = INTEGER;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:138:9: ( ( '0' .. '9' )+ )
-            // MyGrammar.g:138:11: ( '0' .. '9' )+
+            // MyGrammar.g:142:9: ( ( '0' .. '9' )+ )
+            // MyGrammar.g:142:11: ( '0' .. '9' )+
             {
-            	// MyGrammar.g:138:11: ( '0' .. '9' )+
+            	// MyGrammar.g:142:11: ( '0' .. '9' )+
             	int cnt1 = 0;
             	do 
             	{
@@ -1266,7 +1316,7 @@ public partial class MyGrammarLexer : Lexer {
             	    switch (alt1) 
             		{
             			case 1 :
-            			    // MyGrammar.g:138:12: '0' .. '9'
+            			    // MyGrammar.g:142:12: '0' .. '9'
             			    {
             			    	MatchRange('0','9'); 
 
@@ -1304,8 +1354,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = DOUBLE_;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:141:9: ( INTEGER '.' INTEGER )
-            // MyGrammar.g:141:11: INTEGER '.' INTEGER
+            // MyGrammar.g:145:9: ( INTEGER '.' INTEGER )
+            // MyGrammar.g:145:11: INTEGER '.' INTEGER
             {
             	mINTEGER(); 
             	Match('.'); 
@@ -1329,8 +1379,8 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = ID;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:149:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            // MyGrammar.g:149:8: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // MyGrammar.g:159:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            // MyGrammar.g:159:8: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             {
             	if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z') || input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) 
             	{
@@ -1343,7 +1393,7 @@ public partial class MyGrammarLexer : Lexer {
             	    Recover(mse);
             	    throw mse;}
 
-            	// MyGrammar.g:149:32: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            	// MyGrammar.g:159:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             	do 
             	{
             	    int alt2 = 2;
@@ -1402,10 +1452,10 @@ public partial class MyGrammarLexer : Lexer {
     		{
             int _type = WS;
     	int _channel = DEFAULT_TOKEN_CHANNEL;
-            // MyGrammar.g:374:3: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
-            // MyGrammar.g:375:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+            // MyGrammar.g:387:3: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
+            // MyGrammar.g:388:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
             {
-            	// MyGrammar.g:375:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+            	// MyGrammar.g:388:3: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
             	int cnt3 = 0;
             	do 
             	{
@@ -1467,8 +1517,8 @@ public partial class MyGrammarLexer : Lexer {
 
     override public void mTokens() // throws RecognitionException 
     {
-        // MyGrammar.g:1:8: ( PRINT | PRINTLN | NEXTLINE | PLUS | MINUS | MULTIPLY | DIVIDE | IF | ELSE | BLOCK | CONDITION | NEW | ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN | INCREMENT | DECREMENT | INT | FLOAT | DOUBLE | CHAR | VOID | PRIVATE | PUBLIC | CALLMETHOD | FOR | WHILE | INCREMENT_ | AND | OR | EQ | NONEQ | MORE | LESS | MOREEQ | LESSEQ | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | INTEGER | DOUBLE_ | ID | WS )
-        int alt4 = 51;
+        // MyGrammar.g:1:8: ( PRINT | PRINTLN | NEXTLINE | PLUS | MINUS | MULTIPLY | DIVIDE | IF | ELSE | BLOCK | CONDITION | NEW | ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN | INCREMENT | DECREMENT | INT | FLOAT | DOUBLE | CHAR | VOID | STRING | PRIVATE | PUBLIC | CALLMETHOD | FOR | WHILE | INCREMENT_ | AND | OR | EQ | NONEQ | MORE | LESS | MOREEQ | LESSEQ | QUOTES | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | INTEGER | DOUBLE_ | ID | WS )
+        int alt4 = 53;
         alt4 = dfa4.Predict(input);
         switch (alt4) 
         {
@@ -1641,189 +1691,203 @@ public partial class MyGrammarLexer : Lexer {
                 }
                 break;
             case 25 :
-                // MyGrammar.g:1:189: PRIVATE
+                // MyGrammar.g:1:189: STRING
+                {
+                	mSTRING(); 
+
+                }
+                break;
+            case 26 :
+                // MyGrammar.g:1:196: PRIVATE
                 {
                 	mPRIVATE(); 
 
                 }
                 break;
-            case 26 :
-                // MyGrammar.g:1:197: PUBLIC
+            case 27 :
+                // MyGrammar.g:1:204: PUBLIC
                 {
                 	mPUBLIC(); 
 
                 }
                 break;
-            case 27 :
-                // MyGrammar.g:1:204: CALLMETHOD
+            case 28 :
+                // MyGrammar.g:1:211: CALLMETHOD
                 {
                 	mCALLMETHOD(); 
 
                 }
                 break;
-            case 28 :
-                // MyGrammar.g:1:215: FOR
+            case 29 :
+                // MyGrammar.g:1:222: FOR
                 {
                 	mFOR(); 
 
                 }
                 break;
-            case 29 :
-                // MyGrammar.g:1:219: WHILE
+            case 30 :
+                // MyGrammar.g:1:226: WHILE
                 {
                 	mWHILE(); 
 
                 }
                 break;
-            case 30 :
-                // MyGrammar.g:1:225: INCREMENT_
+            case 31 :
+                // MyGrammar.g:1:232: INCREMENT_
                 {
                 	mINCREMENT_(); 
 
                 }
                 break;
-            case 31 :
-                // MyGrammar.g:1:236: AND
+            case 32 :
+                // MyGrammar.g:1:243: AND
                 {
                 	mAND(); 
 
                 }
                 break;
-            case 32 :
-                // MyGrammar.g:1:240: OR
+            case 33 :
+                // MyGrammar.g:1:247: OR
                 {
                 	mOR(); 
 
                 }
                 break;
-            case 33 :
-                // MyGrammar.g:1:243: EQ
+            case 34 :
+                // MyGrammar.g:1:250: EQ
                 {
                 	mEQ(); 
 
                 }
                 break;
-            case 34 :
-                // MyGrammar.g:1:246: NONEQ
+            case 35 :
+                // MyGrammar.g:1:253: NONEQ
                 {
                 	mNONEQ(); 
 
                 }
                 break;
-            case 35 :
-                // MyGrammar.g:1:252: MORE
+            case 36 :
+                // MyGrammar.g:1:259: MORE
                 {
                 	mMORE(); 
 
                 }
                 break;
-            case 36 :
-                // MyGrammar.g:1:257: LESS
+            case 37 :
+                // MyGrammar.g:1:264: LESS
                 {
                 	mLESS(); 
 
                 }
                 break;
-            case 37 :
-                // MyGrammar.g:1:262: MOREEQ
+            case 38 :
+                // MyGrammar.g:1:269: MOREEQ
                 {
                 	mMOREEQ(); 
 
                 }
                 break;
-            case 38 :
-                // MyGrammar.g:1:269: LESSEQ
+            case 39 :
+                // MyGrammar.g:1:276: LESSEQ
                 {
                 	mLESSEQ(); 
 
                 }
                 break;
-            case 39 :
-                // MyGrammar.g:1:276: T__82
-                {
-                	mT__82(); 
-
-                }
-                break;
             case 40 :
-                // MyGrammar.g:1:282: T__83
+                // MyGrammar.g:1:283: QUOTES
                 {
-                	mT__83(); 
+                	mQUOTES(); 
 
                 }
                 break;
             case 41 :
-                // MyGrammar.g:1:288: T__84
-                {
-                	mT__84(); 
-
-                }
-                break;
-            case 42 :
-                // MyGrammar.g:1:294: T__85
+                // MyGrammar.g:1:290: T__85
                 {
                 	mT__85(); 
 
                 }
                 break;
-            case 43 :
-                // MyGrammar.g:1:300: T__86
+            case 42 :
+                // MyGrammar.g:1:296: T__86
                 {
                 	mT__86(); 
 
                 }
                 break;
-            case 44 :
-                // MyGrammar.g:1:306: T__87
+            case 43 :
+                // MyGrammar.g:1:302: T__87
                 {
                 	mT__87(); 
 
                 }
                 break;
-            case 45 :
-                // MyGrammar.g:1:312: T__88
+            case 44 :
+                // MyGrammar.g:1:308: T__88
                 {
                 	mT__88(); 
 
                 }
                 break;
-            case 46 :
-                // MyGrammar.g:1:318: T__89
+            case 45 :
+                // MyGrammar.g:1:314: T__89
                 {
                 	mT__89(); 
 
                 }
                 break;
-            case 47 :
-                // MyGrammar.g:1:324: T__90
+            case 46 :
+                // MyGrammar.g:1:320: T__90
                 {
                 	mT__90(); 
 
                 }
                 break;
+            case 47 :
+                // MyGrammar.g:1:326: T__91
+                {
+                	mT__91(); 
+
+                }
+                break;
             case 48 :
-                // MyGrammar.g:1:330: INTEGER
+                // MyGrammar.g:1:332: T__92
+                {
+                	mT__92(); 
+
+                }
+                break;
+            case 49 :
+                // MyGrammar.g:1:338: T__93
+                {
+                	mT__93(); 
+
+                }
+                break;
+            case 50 :
+                // MyGrammar.g:1:344: INTEGER
                 {
                 	mINTEGER(); 
 
                 }
                 break;
-            case 49 :
-                // MyGrammar.g:1:338: DOUBLE_
+            case 51 :
+                // MyGrammar.g:1:352: DOUBLE_
                 {
                 	mDOUBLE_(); 
 
                 }
                 break;
-            case 50 :
-                // MyGrammar.g:1:346: ID
+            case 52 :
+                // MyGrammar.g:1:360: ID
                 {
                 	mID(); 
 
                 }
                 break;
-            case 51 :
-                // MyGrammar.g:1:349: WS
+            case 53 :
+                // MyGrammar.g:1:363: WS
                 {
                 	mWS(); 
 
@@ -1842,242 +1906,254 @@ public partial class MyGrammarLexer : Lexer {
 	}
 
     const string DFA4_eotS =
-        "\x01\uffff\x02\x1f\x01\x26\x01\x29\x01\x2b\x01\x2d\x04\x1f\x01"+
-        "\x35\x06\x1f\x03\uffff\x01\x3e\x01\x40\x01\x42\x01\uffff\x01\x44"+
-        "\x04\uffff\x01\x45\x02\uffff\x03\x1f\x0a\uffff\x01\x4b\x05\x1f\x02"+
-        "\uffff\x07\x1f\x0a\uffff\x03\x1f\x01\x5c\x01\uffff\x01\x5d\x05\x1f"+
-        "\x01\x63\x09\x1f\x02\uffff\x01\x6d\x04\x1f\x01\uffff\x01\x1f\x01"+
-        "\x73\x01\x74\x02\x1f\x01\x78\x03\x1f\x01\uffff\x01\x7c\x02\x1f\x01"+
-        "\x7f\x01\x1f\x02\uffff\x01\u0081\x02\x1f\x01\uffff\x01\x1f\x01\u0085"+
-        "\x01\x1f\x01\uffff\x02\x1f\x01\uffff\x01\u0089\x01\uffff\x01\x1f"+
-        "\x01\u008b\x01\u008c\x01\uffff\x03\x1f\x01\uffff\x01\x1f\x02\uffff"+
-        "\x04\x1f\x01\uffff\x01\u0095\x01\x1f\x01\u0097\x01\uffff\x01\u0098"+
-        "\x02\uffff";
+        "\x01\uffff\x02\x21\x01\x28\x01\x2b\x01\x2d\x01\x2f\x04\x21\x01"+
+        "\x37\x07\x21\x03\uffff\x01\x41\x01\x43\x01\uffff\x01\x45\x01\uffff"+
+        "\x01\x47\x04\uffff\x01\x48\x02\uffff\x03\x21\x0a\uffff\x01\x4e\x05"+
+        "\x21\x02\uffff\x08\x21\x0a\uffff\x03\x21\x01\x60\x01\uffff\x01\x61"+
+        "\x05\x21\x01\x67\x0a\x21\x02\uffff\x01\x72\x04\x21\x01\uffff\x01"+
+        "\x21\x01\x78\x01\x79\x03\x21\x01\x7e\x03\x21\x01\uffff\x01\u0082"+
+        "\x02\x21\x01\u0085\x01\x21\x02\uffff\x01\x21\x01\u0088\x02\x21\x01"+
+        "\uffff\x01\x21\x01\u008c\x01\x21\x01\uffff\x02\x21\x01\uffff\x01"+
+        "\u0090\x01\u0091\x01\uffff\x01\x21\x01\u0093\x01\u0094\x01\uffff"+
+        "\x03\x21\x02\uffff\x01\x21\x02\uffff\x04\x21\x01\uffff\x01\u009d"+
+        "\x01\x21\x01\u009f\x01\uffff\x01\u00a0\x02\uffff";
     const string DFA4_eofS =
-        "\u0099\uffff";
+        "\u00a1\uffff";
     const string DFA4_minS =
         "\x01\x09\x01\x72\x01\x65\x01\x2b\x01\x2d\x02\x3d\x01\x66\x01\x6c"+
-        "\x01\x4c\x01\x4f\x01\x3d\x01\x6c\x01\x6f\x01\x68\x01\x6f\x01\x68"+
-        "\x01\x4e\x03\uffff\x02\x3d\x01\x5d\x01\uffff\x01\x29\x04\uffff\x01"+
-        "\x2e\x02\uffff\x01\x69\x01\x62\x01\x77\x0a\uffff\x01\x30\x01\x74"+
-        "\x01\x73\x01\x4f\x01\x4e\x01\x6c\x02\uffff\x01\x6f\x01\x72\x01\x75"+
-        "\x01\x61\x02\x69\x01\x43\x0a\uffff\x01\x6e\x01\x6c\x01\x74\x01\x30"+
-        "\x01\uffff\x01\x30\x01\x65\x01\x43\x01\x44\x01\x6c\x01\x61\x01\x30"+
-        "\x01\x62\x01\x72\x01\x64\x01\x6c\x01\x52\x01\x74\x01\x61\x01\x69"+
-        "\x01\x4c\x02\uffff\x01\x30\x01\x4b\x01\x49\x01\x4d\x01\x74\x01\uffff"+
-        "\x01\x6c\x02\x30\x01\x65\x01\x45\x01\x30\x01\x74\x01\x63\x01\x69"+
-        "\x01\uffff\x01\x30\x01\x54\x01\x65\x01\x30\x01\x65\x02\uffff\x01"+
-        "\x30\x01\x4d\x01\x6e\x01\uffff\x01\x65\x01\x30\x01\x6e\x01\uffff"+
-        "\x01\x49\x01\x74\x01\uffff\x01\x30\x01\uffff\x01\x45\x02\x30\x01"+
-        "\uffff\x01\x65\x01\x4f\x01\x68\x01\uffff\x01\x4e\x02\uffff\x01\x28"+
-        "\x01\x4e\x01\x6f\x01\x54\x01\uffff\x01\x30\x01\x64\x01\x30\x01\uffff"+
-        "\x01\x30\x02\uffff";
+        "\x01\x4c\x01\x4f\x01\x3d\x01\x6c\x01\x6f\x01\x68\x01\x6f\x01\x74"+
+        "\x01\x68\x01\x4e\x03\uffff\x02\x3d\x01\uffff\x01\x5d\x01\uffff\x01"+
+        "\x29\x04\uffff\x01\x2e\x02\uffff\x01\x69\x01\x62\x01\x77\x0a\uffff"+
+        "\x01\x30\x01\x74\x01\x73\x01\x4f\x01\x4e\x01\x6c\x02\uffff\x01\x6f"+
+        "\x01\x72\x01\x75\x01\x61\x01\x69\x01\x72\x01\x69\x01\x43\x0a\uffff"+
+        "\x01\x6e\x01\x6c\x01\x74\x01\x30\x01\uffff\x01\x30\x01\x65\x01\x43"+
+        "\x01\x44\x01\x6c\x01\x61\x01\x30\x01\x62\x01\x72\x01\x64\x01\x69"+
+        "\x01\x6c\x01\x52\x01\x74\x01\x61\x01\x69\x01\x4c\x02\uffff\x01\x30"+
+        "\x01\x4b\x01\x49\x01\x4d\x01\x74\x01\uffff\x01\x6c\x02\x30\x01\x6e"+
+        "\x01\x65\x01\x45\x01\x30\x01\x74\x01\x63\x01\x69\x01\uffff\x01\x30"+
+        "\x01\x54\x01\x65\x01\x30\x01\x65\x02\uffff\x01\x67\x01\x30\x01\x4d"+
+        "\x01\x6e\x01\uffff\x01\x65\x01\x30\x01\x6e\x01\uffff\x01\x49\x01"+
+        "\x74\x01\uffff\x02\x30\x01\uffff\x01\x45\x02\x30\x01\uffff\x01\x65"+
+        "\x01\x4f\x01\x68\x02\uffff\x01\x4e\x02\uffff\x01\x28\x01\x4e\x01"+
+        "\x6f\x01\x54\x01\uffff\x01\x30\x01\x64\x01\x30\x01\uffff\x01\x30"+
+        "\x02\uffff";
     const string DFA4_maxS =
         "\x01\x7d\x01\x75\x01\x65\x04\x3d\x01\x6e\x01\x6c\x01\x4c\x01\x61"+
-        "\x01\x3d\x02\x6f\x01\x68\x01\x6f\x01\x68\x01\x4e\x03\uffff\x02\x3d"+
-        "\x01\x5d\x01\uffff\x01\x29\x04\uffff\x01\x39\x02\uffff\x01\x69\x01"+
-        "\x62\x01\x78\x0a\uffff\x01\x7a\x01\x74\x01\x73\x01\x4f\x01\x4e\x01"+
-        "\x6c\x02\uffff\x01\x6f\x01\x72\x01\x75\x01\x61\x02\x69\x01\x43\x0a"+
-        "\uffff\x01\x76\x01\x6c\x01\x74\x01\x7a\x01\uffff\x01\x7a\x01\x65"+
-        "\x01\x43\x01\x44\x01\x6c\x01\x61\x01\x7a\x01\x62\x01\x72\x01\x64"+
-        "\x01\x6c\x01\x52\x01\x74\x01\x61\x01\x69\x01\x4c\x02\uffff\x01\x7a"+
-        "\x01\x4b\x01\x49\x01\x4d\x01\x74\x01\uffff\x01\x6c\x02\x7a\x01\x65"+
-        "\x01\x45\x01\x7a\x01\x74\x01\x63\x01\x69\x01\uffff\x01\x7a\x01\x54"+
-        "\x01\x65\x01\x7a\x01\x65\x02\uffff\x01\x7a\x01\x4d\x01\x6e\x01\uffff"+
-        "\x01\x65\x01\x7a\x01\x6e\x01\uffff\x01\x49\x01\x74\x01\uffff\x01"+
-        "\x7a\x01\uffff\x01\x45\x02\x7a\x01\uffff\x01\x65\x01\x4f\x01\x68"+
-        "\x01\uffff\x01\x4e\x02\uffff\x01\x28\x01\x4e\x01\x6f\x01\x54\x01"+
-        "\uffff\x01\x7a\x01\x64\x01\x7a\x01\uffff\x01\x7a\x02\uffff";
+        "\x01\x3d\x02\x6f\x01\x68\x01\x6f\x01\x74\x01\x68\x01\x4e\x03\uffff"+
+        "\x02\x3d\x01\uffff\x01\x5d\x01\uffff\x01\x29\x04\uffff\x01\x39\x02"+
+        "\uffff\x01\x69\x01\x62\x01\x78\x0a\uffff\x01\x7a\x01\x74\x01\x73"+
+        "\x01\x4f\x01\x4e\x01\x6c\x02\uffff\x01\x6f\x01\x72\x01\x75\x01\x61"+
+        "\x01\x69\x01\x72\x01\x69\x01\x43\x0a\uffff\x01\x76\x01\x6c\x01\x74"+
+        "\x01\x7a\x01\uffff\x01\x7a\x01\x65\x01\x43\x01\x44\x01\x6c\x01\x61"+
+        "\x01\x7a\x01\x62\x01\x72\x01\x64\x01\x69\x01\x6c\x01\x52\x01\x74"+
+        "\x01\x61\x01\x69\x01\x4c\x02\uffff\x01\x7a\x01\x4b\x01\x49\x01\x4d"+
+        "\x01\x74\x01\uffff\x01\x6c\x02\x7a\x01\x6e\x01\x65\x01\x45\x01\x7a"+
+        "\x01\x74\x01\x63\x01\x69\x01\uffff\x01\x7a\x01\x54\x01\x65\x01\x7a"+
+        "\x01\x65\x02\uffff\x01\x67\x01\x7a\x01\x4d\x01\x6e\x01\uffff\x01"+
+        "\x65\x01\x7a\x01\x6e\x01\uffff\x01\x49\x01\x74\x01\uffff\x02\x7a"+
+        "\x01\uffff\x01\x45\x02\x7a\x01\uffff\x01\x65\x01\x4f\x01\x68\x02"+
+        "\uffff\x01\x4e\x02\uffff\x01\x28\x01\x4e\x01\x6f\x01\x54\x01\uffff"+
+        "\x01\x7a\x01\x64\x01\x7a\x01\uffff\x01\x7a\x02\uffff";
     const string DFA4_acceptS =
-        "\x12\uffff\x01\x1f\x01\x20\x01\x22\x03\uffff\x01\x29\x01\uffff"+
-        "\x01\x2b\x01\x2c\x01\x2d\x01\x2e\x01\uffff\x01\x32\x01\x33\x03\uffff"+
-        "\x01\x0e\x01\x12\x01\x04\x01\x0f\x01\x13\x01\x05\x01\x10\x01\x06"+
-        "\x01\x11\x01\x07\x06\uffff\x01\x21\x01\x0d\x07\uffff\x01\x25\x01"+
-        "\x23\x01\x26\x01\x24\x01\x27\x01\x28\x01\x2f\x01\x2a\x01\x30\x01"+
-        "\x31\x04\uffff\x01\x08\x10\uffff\x01\x0c\x01\x14\x05\uffff\x01\x1c"+
-        "\x09\uffff\x01\x09\x05\uffff\x01\x17\x01\x18\x03\uffff\x01\x01\x03"+
-        "\uffff\x01\x0a\x02\uffff\x01\x15\x01\uffff\x01\x1d\x03\uffff\x01"+
-        "\x1a\x03\uffff\x01\x16\x01\uffff\x01\x02\x01\x19\x04\uffff\x01\x03"+
-        "\x03\uffff\x01\x0b\x01\uffff\x01\x1e\x01\x1b";
+        "\x13\uffff\x01\x20\x01\x21\x01\x23\x02\uffff\x01\x28\x01\uffff"+
+        "\x01\x2b\x01\uffff\x01\x2d\x01\x2e\x01\x2f\x01\x30\x01\uffff\x01"+
+        "\x34\x01\x35\x03\uffff\x01\x0e\x01\x12\x01\x04\x01\x0f\x01\x13\x01"+
+        "\x05\x01\x10\x01\x06\x01\x11\x01\x07\x06\uffff\x01\x22\x01\x0d\x08"+
+        "\uffff\x01\x26\x01\x24\x01\x27\x01\x25\x01\x29\x01\x2a\x01\x31\x01"+
+        "\x2c\x01\x32\x01\x33\x04\uffff\x01\x08\x11\uffff\x01\x0c\x01\x14"+
+        "\x05\uffff\x01\x1d\x0a\uffff\x01\x09\x05\uffff\x01\x17\x01\x18\x04"+
+        "\uffff\x01\x01\x03\uffff\x01\x0a\x02\uffff\x01\x15\x02\uffff\x01"+
+        "\x1e\x03\uffff\x01\x1b\x03\uffff\x01\x16\x01\x19\x01\uffff\x01\x02"+
+        "\x01\x1a\x04\uffff\x01\x03\x03\uffff\x01\x0b\x01\uffff\x01\x1f\x01"+
+        "\x1c";
     const string DFA4_specialS =
-        "\u0099\uffff}>";
+        "\u00a1\uffff}>";
     static readonly string[] DFA4_transitionS = {
-            "\x02\x20\x01\uffff\x02\x20\x12\uffff\x01\x20\x01\x14\x04\uffff"+
-            "\x01\x12\x01\uffff\x01\x19\x01\x1a\x01\x05\x01\x03\x01\uffff"+
-            "\x01\x04\x01\uffff\x01\x06\x0a\x1e\x01\uffff\x01\x1d\x01\x16"+
-            "\x01\x0b\x01\x15\x02\uffff\x01\x1f\x01\x09\x01\x0a\x05\x1f\x01"+
-            "\x11\x11\x1f\x01\x17\x01\uffff\x01\x18\x01\uffff\x01\x1f\x01"+
-            "\uffff\x02\x1f\x01\x0e\x01\x0d\x01\x08\x01\x0c\x02\x1f\x01\x07"+
-            "\x04\x1f\x01\x02\x01\x1f\x01\x01\x05\x1f\x01\x0f\x01\x10\x03"+
-            "\x1f\x01\x1b\x01\x13\x01\x1c",
-            "\x01\x21\x02\uffff\x01\x22",
-            "\x01\x23",
-            "\x01\x25\x11\uffff\x01\x24",
-            "\x01\x28\x0f\uffff\x01\x27",
-            "\x01\x2a",
+            "\x02\x22\x01\uffff\x02\x22\x12\uffff\x01\x22\x01\x15\x01\x18"+
+            "\x03\uffff\x01\x13\x01\uffff\x01\x1b\x01\x1c\x01\x05\x01\x03"+
+            "\x01\uffff\x01\x04\x01\uffff\x01\x06\x0a\x20\x01\uffff\x01\x1f"+
+            "\x01\x17\x01\x0b\x01\x16\x02\uffff\x01\x21\x01\x09\x01\x0a\x05"+
+            "\x21\x01\x12\x11\x21\x01\x19\x01\uffff\x01\x1a\x01\uffff\x01"+
+            "\x21\x01\uffff\x02\x21\x01\x0e\x01\x0d\x01\x08\x01\x0c\x02\x21"+
+            "\x01\x07\x04\x21\x01\x02\x01\x21\x01\x01\x02\x21\x01\x10\x02"+
+            "\x21\x01\x0f\x01\x11\x03\x21\x01\x1d\x01\x14\x01\x1e",
+            "\x01\x23\x02\uffff\x01\x24",
+            "\x01\x25",
+            "\x01\x27\x11\uffff\x01\x26",
+            "\x01\x2a\x0f\uffff\x01\x29",
             "\x01\x2c",
-            "\x01\x2e\x07\uffff\x01\x2f",
-            "\x01\x30",
-            "\x01\x31",
-            "\x01\x32\x11\uffff\x01\x33",
-            "\x01\x34",
-            "\x01\x36\x02\uffff\x01\x37",
-            "\x01\x38",
-            "\x01\x39",
+            "\x01\x2e",
+            "\x01\x30\x07\uffff\x01\x31",
+            "\x01\x32",
+            "\x01\x33",
+            "\x01\x34\x11\uffff\x01\x35",
+            "\x01\x36",
+            "\x01\x38\x02\uffff\x01\x39",
             "\x01\x3a",
             "\x01\x3b",
             "\x01\x3c",
-            "",
-            "",
-            "",
             "\x01\x3d",
+            "\x01\x3e",
             "\x01\x3f",
-            "\x01\x41",
-            "",
-            "\x01\x43",
             "",
             "",
             "",
+            "\x01\x40",
+            "\x01\x42",
             "",
-            "\x01\x46\x01\uffff\x0a\x1e",
+            "\x01\x44",
             "",
-            "",
-            "\x01\x47",
-            "\x01\x48",
-            "\x01\x4a\x01\x49",
+            "\x01\x46",
             "",
             "",
             "",
             "",
+            "\x01\x49\x01\uffff\x0a\x20",
+            "",
+            "",
+            "\x01\x4a",
+            "\x01\x4b",
+            "\x01\x4d\x01\x4c",
             "",
             "",
             "",
             "",
             "",
             "",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
-            "\x01\x4c",
-            "\x01\x4d",
-            "\x01\x4e",
+            "",
+            "",
+            "",
+            "",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "\x01\x4f",
             "\x01\x50",
-            "",
-            "",
             "\x01\x51",
             "\x01\x52",
             "\x01\x53",
+            "",
+            "",
             "\x01\x54",
             "\x01\x55",
             "\x01\x56",
             "\x01\x57",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\x01\x58\x07\uffff\x01\x59",
+            "\x01\x58",
+            "\x01\x59",
             "\x01\x5a",
             "\x01\x5b",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
             "",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\x01\x5c\x07\uffff\x01\x5d",
             "\x01\x5e",
             "\x01\x5f",
-            "\x01\x60",
-            "\x01\x61",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
+            "",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "\x01\x62",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "\x01\x63",
             "\x01\x64",
             "\x01\x65",
             "\x01\x66",
-            "\x01\x67",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "\x01\x68",
             "\x01\x69",
             "\x01\x6a",
             "\x01\x6b",
             "\x01\x6c",
-            "",
-            "",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "\x01\x6d",
             "\x01\x6e",
             "\x01\x6f",
             "\x01\x70",
             "\x01\x71",
             "",
-            "\x01\x72",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
+            "\x01\x73",
+            "\x01\x74",
             "\x01\x75",
             "\x01\x76",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x0b"+
-            "\x1f\x01\x77\x0e\x1f",
-            "\x01\x79",
+            "",
+            "\x01\x77",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "\x01\x7a",
             "\x01\x7b",
-            "",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
-            "\x01\x7d",
-            "\x01\x7e",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "\x01\x7c",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x0b"+
+            "\x21\x01\x7d\x0e\x21",
+            "\x01\x7f",
             "\x01\u0080",
+            "\x01\u0081",
             "",
-            "",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
-            "\x01\u0082",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "\x01\u0083",
-            "",
             "\x01\u0084",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "\x01\u0086",
             "",
+            "",
             "\x01\u0087",
-            "\x01\u0088",
-            "",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
-            "",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
+            "\x01\u0089",
             "\x01\u008a",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
             "",
+            "\x01\u008b",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "\x01\u008d",
+            "",
             "\x01\u008e",
             "\x01\u008f",
             "",
-            "\x01\u0090",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "",
-            "",
-            "\x01\u0091",
             "\x01\u0092",
-            "\x01\u0093",
-            "\x01\u0094",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "\x01\u0095",
             "\x01\u0096",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "\x01\u0097",
             "",
-            "\x0a\x1f\x07\uffff\x1a\x1f\x04\uffff\x01\x1f\x01\uffff\x1a"+
-            "\x1f",
+            "",
+            "\x01\u0098",
+            "",
+            "",
+            "\x01\u0099",
+            "\x01\u009a",
+            "\x01\u009b",
+            "\x01\u009c",
+            "",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
+            "\x01\u009e",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
+            "",
+            "\x0a\x21\x07\uffff\x1a\x21\x04\uffff\x01\x21\x01\uffff\x1a"+
+            "\x21",
             "",
             ""
     };
@@ -2108,7 +2184,7 @@ public partial class MyGrammarLexer : Lexer {
 
         override public string Description
         {
-            get { return "1:1: Tokens : ( PRINT | PRINTLN | NEXTLINE | PLUS | MINUS | MULTIPLY | DIVIDE | IF | ELSE | BLOCK | CONDITION | NEW | ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN | INCREMENT | DECREMENT | INT | FLOAT | DOUBLE | CHAR | VOID | PRIVATE | PUBLIC | CALLMETHOD | FOR | WHILE | INCREMENT_ | AND | OR | EQ | NONEQ | MORE | LESS | MOREEQ | LESSEQ | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | INTEGER | DOUBLE_ | ID | WS );"; }
+            get { return "1:1: Tokens : ( PRINT | PRINTLN | NEXTLINE | PLUS | MINUS | MULTIPLY | DIVIDE | IF | ELSE | BLOCK | CONDITION | NEW | ASSIGN | PLUSASSIGN | MINUSASSIGN | MULTASSIGN | DIVIDEASSIGN | INCREMENT | DECREMENT | INT | FLOAT | DOUBLE | CHAR | VOID | STRING | PRIVATE | PUBLIC | CALLMETHOD | FOR | WHILE | INCREMENT_ | AND | OR | EQ | NONEQ | MORE | LESS | MOREEQ | LESSEQ | QUOTES | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | INTEGER | DOUBLE_ | ID | WS );"; }
         }
 
     }
